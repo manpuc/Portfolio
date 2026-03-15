@@ -1,0 +1,1614 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kouki Fujikawa - Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Zen+Maru+Gothic:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg-main: #e6e7ed;
+            --bg-sub: #D6D8DF;
+            --red: #F52A65;
+            --grn: #587539;
+            --yel: #8C6C3E;
+            --blu: #2E7DE9;
+            --purp: #9854F1;
+            --cyan: #007197;
+            --txt-main: #3760BF;
+            --txt-sub: #6172B0;
+            --border: rgba(0, 0, 0, 0.08);
+            --shadow: rgba(0, 0, 0, 0.1);
+            --card-bg: rgba(255, 255, 255, 0.6);
+            view-transition-name: none;
+        }
+
+        body.dark {
+            --bg-main: #1a1b26;
+            --bg-sub: #16161e;
+            --red: #f7768e;
+            --grn: #9ece6a;
+            --yel: #E0AF68;
+            --blu: #7AA2F6;
+            --purp: #BB9AF7;
+            --cyan: #7DCFFF;
+            --txt-main: #C0CAF5;
+            --txt-sub: #A9B1D6;
+            --border: rgba(255, 255, 255, 0.06);
+            --shadow: rgba(0, 0, 0, 0.4);
+            --card-bg: rgba(22, 22, 30, 0.6);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Zen Maru Gothic', 'JetBrains Mono', sans-serif;
+            line-height: 1.6;
+            color: var(--txt-main);
+            background-color: var(--bg-main);
+            transition: background-color 0.8s ease, color 0.8s ease;
+            overflow-x: hidden;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            position: relative;
+            z-index: 1;
+            flex: 1 0 auto;
+        }
+
+        .site-footer {
+            margin-top: auto;
+            padding: 40px 20px 20px;
+            background: var(--card-bg);
+            border-top: 1px solid var(--border);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: 0 -10px 40px var(--shadow);
+            position: relative;
+            z-index: 10;
+        }
+
+        /* --- Orbs --- */
+        .bg-blob,
+        .bg-blob2,
+        .bg-blob3 {
+            position: fixed;
+            width: 50vw;
+            height: 50vw;
+            filter: blur(60px);
+            z-index: 0;
+            pointer-events: none;
+            opacity: 0.25 !important;
+            mix-blend-mode: multiply;
+            transition: opacity 0.8s ease, mix-blend-mode 0.8s ease;
+        }
+
+        .bg-blob {
+            top: -10%;
+            right: -10%;
+            background: radial-gradient(circle, var(--purp) 0%, transparent 60%);
+            animation: float 12s infinite ease-in-out alternate;
+        }
+
+        .bg-blob2 {
+            bottom: -10%;
+            left: -10%;
+            background: radial-gradient(circle, var(--blu) 0%, transparent 60%);
+            animation: float 15s infinite ease-in-out alternate-reverse;
+        }
+
+        .bg-blob3 {
+            top: -5%;
+            left: -10%;
+            width: 45vw;
+            height: 45vw;
+            background: radial-gradient(circle, var(--cyan) 0%, transparent 60%);
+            animation: float 14s infinite ease-in-out alternate;
+        }
+
+        body.dark .bg-blob,
+        body.dark .bg-blob2,
+        body.dark .bg-blob3 {
+            opacity: 0.10 !important;
+            mix-blend-mode: screen;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            100% {
+                transform: translate(30px, 50px) scale(1.1);
+            }
+        }
+
+        /* --- Background Particles for Glass Distortion --- */
+        .bg-particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--purp), var(--cyan));
+            opacity: 0.20;
+            filter: blur(8px);
+            animation: drift infinite linear alternate;
+        }
+
+        body.dark .particle {
+            opacity: 0.12;
+            background: linear-gradient(135deg, var(--blu), var(--purp));
+        }
+
+        .p-1 {
+            width: 150px;
+            height: 150px;
+            top: 20%;
+            left: 10%;
+            animation-duration: 25s;
+        }
+
+        .p-2 {
+            width: 250px;
+            height: 250px;
+            top: 60%;
+            left: 80%;
+            animation-duration: 35s;
+            animation-direction: alternate-reverse;
+        }
+
+        .p-3 {
+            width: 100px;
+            height: 100px;
+            top: 80%;
+            left: 30%;
+            animation-duration: 20s;
+        }
+
+        .p-4 {
+            width: 300px;
+            height: 300px;
+            top: 10%;
+            left: 60%;
+            animation-duration: 40s;
+            background: linear-gradient(135deg, var(--yel), var(--red));
+            opacity: 0.05;
+        }
+
+        .p-5 {
+            width: 120px;
+            height: 120px;
+            top: 40%;
+            left: 40%;
+            animation-duration: 30s;
+            animation-direction: alternate-reverse;
+        }
+
+        @keyframes drift {
+            0% {
+                transform: translate(0, 0) rotate(0deg) scale(1);
+            }
+
+            100% {
+                transform: translate(150px, -150px) rotate(180deg) scale(1.2);
+            }
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px) scale(0.95);
+            transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .profile-img {
+            width: 140px;
+            height: 140px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            box-shadow: 0 15px 35px rgba(122, 162, 246, 0.4);
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            display: block;
+            object-fit: cover;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            user-select: none;
+            -webkit-user-drag: none;
+        }
+
+        h1 {
+            font-size: 2.2em;
+            color: var(--txt-main);
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+
+        .subtitle {
+            font-size: 1.1em;
+            color: var(--blu);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* --- Navigation --- */
+        nav {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+
+        nav a {
+            padding: 15px 10px;
+            text-align: center;
+            color: var(--txt-main);
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 20px;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 20px var(--shadow);
+            transition: background-color 0.5s ease, color 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease, transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        nav a:hover {
+            background-color: var(--blu);
+            color: #fff;
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 25px rgba(122, 162, 246, 0.4);
+            border-color: var(--blu);
+        }
+
+        /* --- Sections (Bento Cards) --- */
+        section {
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 30px;
+            margin-bottom: 30px;
+            border: 1px solid var(--border);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 10px 40px var(--shadow);
+            transition: background 0.8s ease, border 0.8s ease;
+        }
+
+        h2 {
+            font-size: 1.8em;
+            color: var(--purp);
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+        }
+
+        h2::before {
+            content: '';
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--grn);
+            display: inline-block;
+        }
+
+        /* About Text */
+        .profile-text ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .profile-text li {
+            padding-left: 20px;
+            position: relative;
+            color: var(--txt-sub);
+            font-weight: 500;
+        }
+
+        .profile-text li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: var(--cyan);
+            font-weight: bold;
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-item {
+            background: rgba(0, 0, 0, 0.03);
+            padding: 25px;
+            border-radius: 20px;
+        }
+
+        body.dark .skill-item {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        h4 {
+            color: var(--txt-main);
+            margin-bottom: 15px;
+            font-size: 1.1em;
+            font-weight: 700;
+        }
+
+        .skill-item ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .skill-item li {
+            display: flex;
+            align-items: flex-start;
+            color: var(--txt-sub);
+            font-size: 0.95em;
+            font-weight: 500;
+        }
+
+        .skill-item li::before {
+            content: "•";
+            color: var(--purp);
+            margin-right: 12px;
+            flex-shrink: 0;
+            font-size: 1.2em;
+            line-height: 1;
+        }
+
+        /* Works Grid */
+        .works-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+        }
+
+        .work-item {
+            text-decoration: none;
+            color: inherit;
+            background: rgba(0, 0, 0, 0.03);
+            padding: 20px;
+            border-radius: 20px;
+            display: block;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        body.dark .work-item {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .work-item:hover {
+            transform: translateY(-10px);
+            background: var(--card-bg);
+            box-shadow: 0 20px 40px var(--shadow);
+            border-color: var(--blu);
+        }
+
+        .work-item:active {
+            transform: translateY(-2px) scale(0.98);
+        }
+
+        .contact-content {
+            text-align: center;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 25px;
+        }
+
+        .contact-links a {
+            gap: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 18px 40px;
+            background: linear-gradient(135deg, var(--blu), var(--cyan));
+            color: #fff;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1em;
+            box-shadow: 0 10px 25px rgba(122, 162, 246, 0.4);
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            flex: 1;
+            min-width: 160px;
+            max-width: 220px;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .contact-links a:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 20px 40px rgba(122, 162, 246, 0.6);
+        }
+
+        .contact-links a:active {
+            transform: translateY(2px) scale(0.95);
+            box-shadow: 0 5px 15px rgba(122, 162, 246, 0.3);
+        }
+
+        .theme-toggle {
+            position: fixed;
+            top: 30px;
+            right: 30px;
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            cursor: pointer;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 30px var(--shadow);
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.8s ease;
+            overflow: hidden;
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.15);
+        }
+
+        .theme-toggle:active {
+            transform: scale(0.9);
+        }
+
+        .icon-container {
+            position: relative;
+            width: 26px;
+            height: 26px;
+        }
+
+        .sun-icon,
+        .moon-icon {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .sun-icon {
+            transform: translateY(0) rotate(0deg);
+            opacity: 1;
+            color: var(--yel);
+        }
+
+        .moon-icon {
+            transform: translateY(40px) rotate(-90deg);
+            opacity: 0;
+            color: var(--purp);
+        }
+
+        body.dark .sun-icon {
+            transform: translateY(-40px) rotate(90deg);
+            opacity: 0;
+        }
+
+        body.dark .moon-icon {
+            transform: translateY(0) rotate(0deg);
+            opacity: 1;
+        }
+
+        .lang-icon-ja,
+        .lang-icon-en {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .lang-icon-en {
+            transform: translateY(0) rotate(0deg);
+            opacity: 1;
+            color: var(--cyan);
+        }
+
+        .lang-icon-ja {
+            transform: translateY(-40px) rotate(90deg);
+            opacity: 0;
+            color: var(--red);
+        }
+
+        body.en-mode .lang-icon-en {
+            transform: translateY(40px) rotate(-90deg);
+            opacity: 0;
+        }
+
+        body.en-mode .lang-icon-ja {
+            transform: translateY(0) rotate(0deg);
+            opacity: 1;
+        }
+
+        .contact-links a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            opacity: 0;
+            z-index: -1;
+            transition: opacity 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .contact-links a.btn-email::before {
+            background: linear-gradient(135deg, #EA4335, #FF6B5E);
+        }
+
+        .contact-links a.btn-email:hover {
+            box-shadow: 0 15px 30px rgba(234, 67, 53, 0.5);
+        }
+
+        .contact-links a.btn-email:hover::before {
+            opacity: 1;
+        }
+
+        .contact-links a.btn-github::before {
+            background: linear-gradient(135deg, #24292e, #5c6670);
+        }
+
+        .contact-links a.btn-github:hover {
+            box-shadow: 0 15px 30px rgba(100, 110, 120, 0.4);
+        }
+
+        .contact-links a.btn-github:hover::before {
+            opacity: 1;
+        }
+
+        .contact-links a.btn-twitter::before {
+            background: linear-gradient(135deg, #1DA1F2, #73C5F8);
+        }
+
+        .contact-links a.btn-twitter:hover {
+            box-shadow: 0 15px 30px rgba(29, 161, 242, 0.5);
+        }
+
+        .contact-links a.btn-twitter:hover::before {
+            opacity: 1;
+        }
+
+        .contact-icon {
+            width: 22px;
+            height: 22px;
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        @keyframes anim-bounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-8px);
+            }
+        }
+
+        @keyframes anim-spin {
+            0% {
+                transform: rotate(0deg) scale(1);
+            }
+
+            50% {
+                transform: rotate(180deg) scale(1.2);
+            }
+
+            100% {
+                transform: rotate(360deg) scale(1);
+            }
+        }
+
+        @keyframes anim-shake {
+
+            0%,
+            100% {
+                transform: rotate(0deg);
+            }
+
+            25% {
+                transform: rotate(-20deg) scale(1.1);
+            }
+
+            75% {
+                transform: rotate(20deg) scale(1.1);
+            }
+        }
+
+        @keyframes anim-pop {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.3);
+            }
+        }
+
+        .rand-bounce {
+            animation: anim-bounce 0.5s ease;
+        }
+
+        .rand-spin {
+            animation: anim-spin 0.6s ease;
+        }
+
+        .rand-shake {
+            animation: anim-shake 0.4s ease;
+        }
+
+        .rand-pop {
+            animation: anim-pop 0.4s ease;
+        }
+
+        nav a,
+        section,
+        .theme-toggle {
+            isolation: isolate;
+            backdrop-filter: none !important;
+            -webkit-backdrop-filter: none !important;
+        }
+
+        nav a,
+        section {
+            position: relative;
+        }
+
+        nav a::after,
+        section::after,
+        .theme-toggle::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+            border-radius: inherit;
+            pointer-events: none;
+            filter: url(#glass-distortion);
+            -webkit-filter: url(#glass-distortion);
+        }
+
+        nav a::after,
+        .theme-toggle::after {
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        section::after {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+
+        nav a::before,
+        section::before,
+        .theme-toggle::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            border-radius: inherit;
+            box-shadow: inset 0 0 6px -3px rgba(255, 255, 255, 0.7);
+            pointer-events: none;
+        }
+
+        .view-more-container {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .btn-view-more {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px 40px;
+            background: linear-gradient(135deg, var(--purp), var(--blu));
+            color: #fff;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1em;
+            box-shadow: 0 10px 25px rgba(152, 84, 241, 0.4);
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn-view-more:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 20px 40px rgba(152, 84, 241, 0.6);
+        }
+
+        .btn-view-more:active {
+            transform: translateY(2px) scale(0.95);
+            box-shadow: 0 5px 15px rgba(152, 84, 241, 0.3);
+        }
+
+        .btn-view-more svg {
+            margin-left: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .btn-view-more:hover svg {
+            transform: translateX(5px);
+        }
+
+        .contact-fab {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--purp), var(--blu));
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 25px rgba(152, 84, 241, 0.4);
+            z-index: 999;
+            text-decoration: none;
+            transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        .contact-fab svg {
+            width: 26px;
+            height: 26px;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-fab:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 15px 35px rgba(152, 84, 241, 0.6);
+        }
+
+        .contact-fab:hover svg {
+            transform: scale(1.1);
+        }
+
+        .contact-fab.absorbed {
+            transform: translateY(30px) scale(0);
+            opacity: 0;
+            pointer-events: none;
+            box-shadow: 0 0 0 rgba(152, 84, 241, 0);
+        }
+
+        .scroll-top-fab {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            color: var(--txt-main);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 30px var(--shadow);
+            z-index: 998;
+            transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            isolation: isolate;
+            backdrop-filter: none !important;
+            -webkit-backdrop-filter: none !important;
+        }
+
+        .scroll-top-fab::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+            border-radius: inherit;
+            pointer-events: none;
+            filter: url(#glass-distortion);
+            -webkit-filter: url(#glass-distortion);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .scroll-top-fab::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            border-radius: inherit;
+            box-shadow: inset 0 0 6px -3px rgba(255, 255, 255, 0.7);
+            pointer-events: none;
+        }
+
+        .scroll-top-fab svg {
+            width: 26px;
+            height: 26px;
+            transition: transform 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .scroll-top-fab:hover {
+            transform: translateY(-5px) scale(1.1);
+            background: var(--blu);
+            color: #fff;
+            border-color: var(--blu);
+        }
+
+        .scroll-top-fab:hover svg {
+            transform: translateY(-3px);
+        }
+
+        .scroll-top-fab.absorbed {
+            transform: translateY(30px) scale(0);
+            opacity: 0;
+            pointer-events: none;
+            box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+        }
+
+        section:nth-of-type(1) {
+            view-transition-name: section-1;
+        }
+
+        section:nth-of-type(2) {
+            view-transition-name: section-2;
+        }
+
+        section:nth-of-type(3) {
+            view-transition-name: section-3;
+        }
+
+        .view-more-container {
+            view-transition-name: box-viewmore;
+        }
+
+        ::view-transition-group(section-1),
+        ::view-transition-group(section-2),
+        ::view-transition-group(section-3),
+        ::view-transition-group(box-viewmore) {
+            animation-duration: 0.6s;
+            animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        ::view-transition-old(section-1),
+        ::view-transition-old(section-2),
+        ::view-transition-old(section-3),
+        ::view-transition-old(box-viewmore) {
+            display: none;
+        }
+
+        ::view-transition-new(section-1),
+        ::view-transition-new(section-2),
+        ::view-transition-new(section-3),
+        ::view-transition-new(box-viewmore) {
+            animation: none;
+        }
+
+        @keyframes textSweep {
+            0% {
+                opacity: 0;
+                transform: translateY(10px);
+                -webkit-mask-position: 100% 0;
+                mask-position: 100% 0;
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+                -webkit-mask-position: 0 0;
+                mask-position: 0 0;
+            }
+        }
+
+        .txt-ja,
+        .txt-en {
+            display: none !important;
+            animation: none;
+        }
+
+        body:not(.en-mode) .txt-ja,
+        body.en-mode .txt-en {
+            display: inline-block !important;
+            animation: textSweep 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+
+            -webkit-mask-image: linear-gradient(to right, black 40%, transparent 60%);
+            mask-image: linear-gradient(to right, black 40%, transparent 60%);
+            -webkit-mask-size: 300% 100%;
+            mask-size: 300% 100%;
+        }
+
+        body:not(.en-mode) p.txt-ja,
+        body.en-mode p.txt-en {
+            display: block !important;
+        }
+
+        /* --- Modern Footer --- */
+        .site-footer {
+            margin-top: 80px;
+            padding: 40px 20px 20px;
+            background: var(--card-bg);
+            border-top: 1px solid var(--border);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: 0 -10px 40px var(--shadow);
+            position: relative;
+            z-index: 10;
+        }
+
+        .footer-content {
+            max-width: 720px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .footer-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 5px 15px rgba(122, 162, 246, 0.3);
+            pointer-events: none;
+            -webkit-user-select: none;
+            user-select: none;
+        }
+
+
+        .footer-title h3 {
+            font-size: 1.2em;
+            color: var(--txt-main);
+            margin: 0;
+            font-weight: 700;
+        }
+
+        .footer-title p {
+            font-size: 0.85em;
+            color: var(--txt-sub);
+            margin: 0;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .footer-right {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 15px;
+        }
+
+        .footer-nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        .footer-nav a {
+            color: var(--txt-sub);
+            text-decoration: none;
+            font-size: 0.9em;
+            font-weight: 500;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .footer-nav a:hover {
+            color: var(--blu);
+            transform: translateY(-2px);
+        }
+
+        /* --- Social Icons --- */
+        .footer-socials {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.04);
+            color: var(--txt-sub);
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        body.dark .social-icon {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .social-icon svg {
+            width: 18px;
+            height: 18px;
+            transition: transform 0.3s ease;
+        }
+
+        .social-icon:hover {
+            background: var(--blu);
+            color: #fff;
+            transform: translateY(-4px);
+            box-shadow: 0 8px 15px rgba(122, 162, 246, 0.4);
+        }
+
+        .social-icon:hover svg {
+            transform: scale(1.1);
+        }
+
+        /* --- Bottom Copyright --- */
+        .footer-bottom {
+            max-width: 720px;
+            margin: 30px auto 0;
+            padding-top: 20px;
+            border-top: 1px solid rgba(122, 162, 246, 0.1);
+            text-align: center;
+        }
+
+        .footer-bottom p {
+            font-size: 0.8em;
+            color: var(--txt-sub);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        @media (max-width: 600px) {
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-logo {
+                flex-direction: column;
+            }
+
+            .footer-right {
+                align-items: center;
+            }
+
+            .footer-nav {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .site-footer {
+                padding-bottom: 90px;
+            }
+        }
+
+
+        @media (max-width: 600px) {
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-logo {
+                flex-direction: column;
+            }
+
+            .footer-nav {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .site-footer {
+                padding-bottom: 90px;
+            }
+        }
+
+
+        @media (max-width: 600px) {
+            nav {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+
+            section {
+                padding: 30px 20px;
+                border-radius: 25px;
+            }
+
+            .skills-grid,
+            .works-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-links a {
+                max-width: 100%;
+            }
+
+            .contact-fab {
+                bottom: 25px;
+                right: 25px;
+                width: 55px;
+                height: 55px;
+            }
+
+            .contact-fab svg {
+                width: 25px;
+                height: 25px;
+            }
+
+            .scroll-top-fab {
+                bottom: 25px;
+                right: 25px;
+                width: 55px;
+                height: 55px;
+            }
+
+            .scroll-top-fab svg {
+                width: 25px;
+                height: 25px;
+            }
+        }
+    </style>
+
+</head>
+
+<body class="light">
+    <svg width="0" height="0" style="position: absolute;">
+        <defs>
+            <filter id="glass-distortion" x="0%" y="0%" width="100%" height="100%">
+                <feTurbulence type="fractalNoise" baseFrequency="0.006 0.006" numOctaves="2" seed="92" result="noise" />
+                <feGaussianBlur in="noise" stdDeviation="2" result="blurred" />
+                <feDisplacementMap in="SourceGraphic" in2="blurred" scale="65" xChannelSelector="R"
+                    yChannelSelector="G" />
+            </filter>
+        </defs>
+    </svg>
+    <div class="bg-blob"></div>
+    <div class="bg-blob2"></div>
+    <div class="bg-particles">
+        <div class="particle p-1"></div>
+        <div class="particle p-2"></div>
+        <div class="particle p-3"></div>
+        <div class="particle p-4"></div>
+        <div class="particle p-5"></div>
+    </div>
+
+    <!-- Theme Toggle -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle Theme">
+        <div class="icon-container">
+            <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="5"></circle>
+                <line x1="12" y1="1" x2="12" y2="3"></line>
+                <line x1="12" y1="21" x2="12" y2="23"></line>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                <line x1="1" y1="12" x2="3" y2="12"></line>
+                <line x1="21" y1="12" x2="23" y2="12"></line>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+            <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+        </div>
+    </button>
+
+    <!-- Language Toggle -->
+    <button class="theme-toggle" id="langToggle" aria-label="Toggle Language" style="right: 110px;">
+        <div class="icon-container">
+            <svg class="lang-icon-en" viewBox="0 0 24 24">
+                <text x="50%" y="54%" dominant-baseline="middle" text-anchor="middle" fill="currentColor"
+                    font-family="'JetBrains Mono', monospace" font-weight="700" font-size="11"
+                    letter-spacing="0.5px">EN</text>
+            </svg>
+            <svg class="lang-icon-ja" viewBox="0 0 24 24">
+                <text x="50%" y="54%" dominant-baseline="middle" text-anchor="middle" fill="currentColor"
+                    font-family="'JetBrains Mono', monospace" font-weight="700" font-size="11"
+                    letter-spacing="0.5px">JA</text>
+            </svg>
+        </div>
+    </button>
+
+    <!-- Contact FAB -->
+    <a href="#contact" class="contact-fab" id="contactFab" aria-label="Go to Contact">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+            <polyline points="22,6 12,13 2,6"></polyline>
+        </svg>
+    </a>
+
+    <!-- Scroll Top FAB -->
+    <button class="scroll-top-fab absorbed" id="scrollTopFab" aria-label="Scroll to Top">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"
+            stroke-linejoin="round">
+            <polyline points="18 15 12 9 6 15"></polyline>
+        </svg>
+    </button>
+
+    <div class="container">
+        <!-- Header -->
+        <header class="reveal">
+            <img src="src/avatar.png" alt="Kouki Fujikawa" class="profile-img" oncontextmenu="return false;">
+            <h1>Kouki Fujikawa</h1>
+            <p class="subtitle">@MANPUC / Developer & Creator</p>
+        </header>
+
+        <!-- Navigation -->
+        <nav class="reveal" style="transition-delay: 0.1s;">
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#works">Works</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
+        <!-- About Section -->
+        <section id="about" class="reveal" style="transition-delay: 0.2s;">
+            <h2>About</h2>
+            <div class="profile-text">
+                <ul>
+                    <li><span class="txt-ja">高校商業科情報デザイン類型卒業 / 放送大学教養学部社会と産業コース入学予定</span><span class="txt-en">Graduated
+                            from Commercial High School (Information Design) / Entering The Open University of
+                            Japan</span></li>
+                    <li><span class="txt-ja">ガジェット収集家（スマートウォッチ, スマホ, イヤホン・ヘッドホン など）</span><span class="txt-en">Gadget
+                            collector (Smartwatches, Smartphones, Earphones, etc.)</span></li>
+                    <li><span class="txt-ja">Minecraft Mod開発 (Java/Forge)、Bot制作、Chrome拡張機能制作</span><span
+                            class="txt-en">Minecraft Modding (Java/Forge), Bot Development, Chrome Extensions</span>
+                    </li>
+                    <li><span class="txt-ja">新しい技術やモノづくりが大好きです</span><span class="txt-en">I love new technologies and
+                            creating things</span></li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="reveal">
+            <h2>Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-item">
+                    <h4>Dev & Code</h4>
+                    <ul>
+                        <li>Python, JavaScript</li>
+                        <li>Java (Minecraft Mods)</li>
+                        <li>PowerShell, Batch Scripting</li>
+                    </ul>
+                </div>
+                <div class="skill-item">
+                    <h4>Tools & Frameworks</h4>
+                    <ul>
+                        <li>Git, GitHub, Gradle</li>
+                        <li class="txt-ja">After Effects（動画編集）</li>
+                        <li class="txt-en">After Effects</li>
+                        <li>Forge 1.20.1, Cheat Engine</li>
+                    </ul>
+                </div>
+                <div class="skill-item">
+                    <h4>Design & Web</h4>
+                    <ul>
+                        <li>UI/UX & Web Design</li>
+                        <li>Generative AI Tools</li>
+                        <li>Bento UI & Modern Animations</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Works Section -->
+        <section id="works" class="reveal">
+            <h2>Works</h2>
+            <div class="works-grid">
+                <a href="/" class="work-item" target="_blank" rel="noopener">
+                    <h4 style="margin-bottom: 5px;">Portfolio Website<span
+                            style="font-size: 12px; color: var(--txt-sub);padding-left: 6px;">This Site</span></h4>
+                    <p style="color: var(--txt-sub); font-size: 0.85em;">
+                        <span class="txt-ja">UIの心地よさにこだわったサイト</span>
+                        <span class="txt-en">A website focusing on a comfortable UI</span>
+                    </p>
+                </a>
+                <a href="https://modrinth.com/user/manpuc" class="work-item" target="_blank" rel="noopener">
+                    <h4 style="margin-bottom: 5px;">Minecraft Mod</h4>
+                    <p style="color: var(--txt-sub); font-size: 0.85em;">
+                        <span class="txt-ja">Forge 1.20.1環境での独自Mod開発。</span>
+                        <span class="txt-en">Custom Mod development for Forge.</span>
+                    </p>
+                </a>
+                <a href="https://github.com/manpuc/MBot" class="work-item" target="_blank" rel="noopener">
+                    <h4 style="margin-bottom: 5px;">Custom Discord Bot</h4>
+                    <p style="color: var(--txt-sub); font-size: 0.85em;">
+                        <span class="txt-ja">守備範囲の広い多機能汎用Bot。</span>
+                        <span class="txt-en">Multi-functional Discord Bot.</span>
+                    </p>
+                </a>
+                <a href="https://chromewebstore.google.com/detail/ganlcelmnoaidpmaegcmhecolonfmffk?utm_source=item-share-cb"
+                    class="work-item" target="_blank" rel="noopener">
+                    <h4 style="margin-bottom: 5px;">Chrome Theme</h4>
+                    <p style="color: var(--txt-sub); font-size: 0.85em;">
+                        <span class="txt-ja">目に優しいChromeダークテーマ</span>
+                        <span class="txt-en">An eye-friendly Chrome dark theme</span>
+                    </p>
+                </a>
+            </div>
+
+            <div class="view-more-container">
+                <a href="/works/" class="btn-view-more">
+                    <span class="txt-ja">すべて</span>
+                    <span class="txt-en">View All</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                        stroke-linejoin="round" style="width: 20px; height: 20px;">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </a>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="reveal">
+            <h2>Contact</h2>
+            <div class="contact-links">
+                <a href="mailto:info@manpuc.me" class="btn-email">
+                    <svg class="contact-icon email-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                        <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                    Email
+                </a>
+                <a href="https://github.com/manpuc" target="_blank" rel="noopener noreferrer" class="btn-github">
+                    <svg class="contact-icon github-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path
+                            d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                        </path>
+                    </svg>
+                    GitHub
+                </a>
+                <a href="https://twitter.com/manpuccc" target="_blank" rel="noopener noreferrer" class="btn-twitter">
+                    <svg class="contact-icon twitter-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path
+                            d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z">
+                        </path>
+                    </svg>
+                    Twitter
+                </a>
+            </div>
+        </section>
+    </div>
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="src/avatar.png" alt="Kouki Fujikawa" class="footer-avatar" oncontextmenu="return false;">
+                <div class="footer-title">
+                    <h3>Kouki Fujikawa</h3>
+                    <p class="txt-ja">学生・デベロッパー・クリエイター</p>
+                    <p class="txt-en">Student / Developer / Creator</p>
+                </div>
+            </div>
+
+            <div class="footer-right">
+                <div class="footer-nav">
+                    <a href="#about"><span class="txt-ja">概要</span><span class="txt-en">About</span></a>
+                    <a href="#skills"><span class="txt-ja">スキル</span><span class="txt-en">Skills</span></a>
+                    <a href="#works"><span class="txt-ja">実績</span><span class="txt-en">Works</span></a>
+                    <a href="#contact"><span class="txt-ja">お問い合わせ</span><span class="txt-en">Contact</span></a>
+                </div>
+
+                <div class="footer-socials">
+                    <a href="mailto:info@manpuc.me" aria-label="Email" class="social-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
+                            </path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                    </a>
+                    <a href="https://github.com/manpuc" target="_blank" rel="noopener noreferrer" aria-label="GitHub"
+                        class="social-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                            </path>
+                        </svg>
+                    </a>
+                    <a href="https://twitter.com/manpuccc" target="_blank" rel="noopener noreferrer"
+                        aria-label="Twitter" class="social-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z">
+                            </path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Kouki Fujikawa. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const langToggleBtn = document.getElementById('langToggle');
+        const savedLang = localStorage.getItem('portfolio-lang');
+
+        if (savedLang === 'en') {
+            document.body.classList.add('en-mode');
+            document.documentElement.lang = 'en';
+        }
+
+        langToggleBtn.addEventListener('click', () => {
+            const switchLang = () => {
+                document.body.classList.toggle('en-mode');
+                if (document.body.classList.contains('en-mode')) {
+                    localStorage.setItem('portfolio-lang', 'en');
+                    document.documentElement.lang = 'en';
+                } else {
+                    localStorage.setItem('portfolio-lang', 'ja');
+                    document.documentElement.lang = 'ja';
+                }
+            };
+
+            if (document.startViewTransition) {
+                document.startViewTransition(switchLang);
+            } else {
+                switchLang();
+            }
+        });
+
+
+        const toggleBtn = document.getElementById('themeToggle');
+        const body = document.body;
+
+        const savedTheme = localStorage.getItem('portfolio-theme');
+        const osDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+        if (savedTheme === 'dark' || (!savedTheme && osDark)) {
+            body.classList.add('dark');
+            body.classList.remove('light');
+        }
+
+        toggleBtn.addEventListener('click', () => {
+            if (body.classList.contains('dark')) {
+                body.classList.remove('dark');
+                body.classList.add('light');
+                localStorage.setItem('portfolio-theme', 'light');
+            } else {
+                body.classList.remove('light');
+                body.classList.add('dark');
+                localStorage.setItem('portfolio-theme', 'dark');
+            }
+        });
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        const animClasses = ['rand-bounce', 'rand-spin', 'rand-shake', 'rand-pop'];
+
+        document.querySelectorAll('.contact-links a').forEach(btn => {
+            const icon = btn.querySelector('.contact-icon');
+            if (!icon) return;
+
+            btn.addEventListener('mouseenter', function () {
+                animClasses.forEach(c => icon.classList.remove(c));
+                void icon.offsetWidth;
+                const randomAnim = animClasses[Math.floor(Math.random() * animClasses.length)];
+                icon.classList.add(randomAnim);
+            });
+
+            btn.addEventListener('mouseleave', function () {
+                animClasses.forEach(c => icon.classList.remove(c));
+            });
+        });
+
+        const contactFab = document.getElementById('contactFab');
+        const scrollTopFab = document.getElementById('scrollTopFab');
+        const contactSection = document.getElementById('contact');
+
+        if (contactFab && scrollTopFab && contactSection) {
+            const fabObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        contactFab.classList.add('absorbed');
+                        setTimeout(() => {
+                            scrollTopFab.classList.remove('absorbed');
+                        }, 200);
+                    } else {
+                        scrollTopFab.classList.add('absorbed');
+                        setTimeout(() => {
+                            contactFab.classList.remove('absorbed');
+                        }, 200);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            fabObserver.observe(contactSection);
+
+            scrollTopFab.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        }
+
+        const profileImg = document.querySelector('.profile-img');
+        if (profileImg) {
+            profileImg.addEventListener('mouseenter', () => {
+                const randomAngle = Math.floor(Math.random() * 61) - 30;
+                profileImg.style.transform = `scale(1.08) rotate(${randomAngle}deg)`;
+            });
+
+            profileImg.addEventListener('mouseleave', () => {
+                profileImg.style.transform = `scale(1) rotate(0deg)`;
+            });
+        }
+
+    </script>
+</body>
+
+</html>
