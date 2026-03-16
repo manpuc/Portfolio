@@ -6,6 +6,7 @@ dist/
 
 # 依存パッケージ
 node_modules/
+pnpm-lock.yaml
 
 # ログファイル
 npm-debug.log*
@@ -27,3 +28,7 @@ pnpm-debug.log*
 
 # 開発用サーバーのキャッシュ
 .vite/
+
+# ロックファイル
+package-lock.json
+pnpm-lock.yaml
