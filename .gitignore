@@ -1,24 +1,29 @@
-# build output
+# ビルドで出力されるファイル
 dist/
 
-# generated types
+# Astroの自動生成ファイル・キャッシュ
 .astro/
 
-# dependencies
+# 依存パッケージ
 node_modules/
 
-# logs
+# ログファイル
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
-# environment variables
+# 環境変数
 .env
-.env.production
+.env.*
+!.env.example
 
-# macOS-specific files
+# 不要な隠しファイル
 .DS_Store
 
-# jetbrains setting folder
+# エディタの不要な設定ファイル
+.vscode/
 .idea/
+
+# 開発用サーバーのキャッシュ
+.vite/
