@@ -56,24 +56,17 @@ const imageUrl = new URL(image, siteUrl);
 
 		<link
 			rel="preload"
-			href="/fonts/ZenMaruGothic-Regular.ttf"
+			href="/fonts/ZenMaruGothic-Regular.woff2"
 			as="font"
-			type="font/ttf"
-			crossorigin
-		/>
-		<link
-			rel="preload"
-			href="/fonts/ZenMaruGothic-Bold.ttf"
-			as="font"
-			type="font/ttf"
+			type="font/woff2"
 			crossorigin
 		/>
 
 		<link
 			rel="preload"
-			href="/fonts/JetBrainsMono-VariableFont_wght.ttf"
+			href="/fonts/JetBrainsMono-Regular.woff2"
 			as="font"
-			type="font/ttf"
+			type="font/woff2"
 			crossorigin
 		/>
 	</head>
@@ -546,25 +539,25 @@ const imageUrl = new URL(image, siteUrl);
 	</body>
 </html>
 
-<style is:global>
+<style is:global is:inline>
 	/* Zen Maru Gothic */
 	@font-face {
 		font-family: "Zen Maru Gothic";
-		src: url("/fonts/ZenMaruGothic-Regular.ttf") format("truetype");
+		src: url("/fonts/ZenMaruGothic-Regular.woff2") format("woff2");
 		font-weight: 400;
 		font-style: normal;
 		font-display: swap;
 	}
 	@font-face {
 		font-family: "Zen Maru Gothic";
-		src: url("/fonts/ZenMaruGothic-Medium.ttf") format("truetype");
+		src: url("/fonts/ZenMaruGothic-Medium.woff2") format("woff2");
 		font-weight: 500;
 		font-style: normal;
 		font-display: swap;
 	}
 	@font-face {
 		font-family: "Zen Maru Gothic";
-		src: url("/fonts/ZenMaruGothic-Bold.ttf") format("truetype");
+		src: url("/fonts/ZenMaruGothic-Bold.woff2") format("woff2");
 		font-weight: 700;
 		font-style: normal;
 		font-display: swap;
@@ -573,8 +566,7 @@ const imageUrl = new URL(image, siteUrl);
 	/* JetBrains Mono */
 	@font-face {
 		font-family: "JetBrains Mono";
-		src: url("/fonts/JetBrainsMono-VariableFont_wght.ttf")
-			format("truetype");
+		src: url("/fonts/JetBrainsMono-Regular.woff2") format("woff2");
 		font-weight: 100 900;
 		font-style: normal;
 		font-display: swap;
