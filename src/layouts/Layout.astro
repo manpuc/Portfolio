@@ -506,13 +506,28 @@ const imageUrl = new URL(image, siteUrl);
 					profileImg.style.transformOrigin = "center";
 					profileImg.style.willChange = "transform, box-shadow";
 
-					profileImg.addEventListener("mousemove", (e) => {
+					// 動かす処理を関数化
+					const handleMove = (e) => {
+						// タッチ操作の場合はデフォルトのスクロールなどを防ぐ
+						if (e.type === "touchmove") {
+							e.preventDefault();
+						}
+
 						const rect = profileImg.getBoundingClientRect();
+
+						// マウスなら e.clientX、タッチなら e.touches[0].clientX を取得
+						const clientX = e.touches
+							? e.touches[0].clientX
+							: e.clientX;
+						const clientY = e.touches
+							? e.touches[0].clientY
+							: e.clientY;
+
 						const x =
-							(e.clientX - rect.left - rect.width / 2) /
+							(clientX - rect.left - rect.width / 2) /
 							(rect.width / 2);
 						const y =
-							(e.clientY - rect.top - rect.height / 2) /
+							(clientY - rect.top - rect.height / 2) /
 							(rect.height / 2);
 
 						const rotateX = -y * 25;
@@ -524,14 +539,27 @@ const imageUrl = new URL(image, siteUrl);
 							"transform 0.1s ease-out, box-shadow 0.1s ease-out";
 						profileImg.style.transform = `perspective(1000px) scale(1.1) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
 						profileImg.style.boxShadow = `${shadowX}px ${shadowY + 15}px 40px rgba(122, 162, 246, 0.6)`;
-					});
+					};
 
-					profileImg.addEventListener("mouseleave", () => {
+					// 元に戻す処理を関数化
+					const handleReset = () => {
 						profileImg.style.transition =
 							"transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.6s ease";
 						profileImg.style.transform = `perspective(1000px) scale(1) rotateX(0deg) rotateY(0deg)`;
 						profileImg.style.boxShadow = `0 15px 35px rgba(122, 162, 246, 0.4)`;
+					};
+
+					// PC (マウス) イベント
+					profileImg.addEventListener("mousemove", handleMove);
+					profileImg.addEventListener("mouseleave", handleReset);
+
+					// スマホ・タブレット (タッチ) イベント
+					// passive: false を指定しないと e.preventDefault() が効かないため設定します
+					profileImg.addEventListener("touchmove", handleMove, {
+						passive: false,
 					});
+					profileImg.addEventListener("touchend", handleReset);
+					profileImg.addEventListener("touchcancel", handleReset);
 				}
 			}
 		</script>
