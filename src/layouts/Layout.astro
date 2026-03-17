@@ -1,4 +1,6 @@
 ---
+import SpeedInsights from "@vercel/speed-insights/astro"; // ←★これを追加
+
 export interface Props {
 	title?: string;
 	description?: string;
@@ -528,6 +530,7 @@ const imageUrl = new URL(image, siteUrl);
 				}
 			}
 		</script>
+		<SpeedInsights />
 	</body>
 </html>
 
