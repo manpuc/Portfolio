@@ -44,6 +44,16 @@ const imageUrl = new URL(image, siteUrl);
 		<meta name="twitter:title" content={title} />
 		<meta name="twitter:description" content={description} />
 		<meta name="twitter:image" content={imageUrl} />
+
+		<!-- ▼ SEO ▼ -->
+		<meta
+			name="keywords"
+			content="Kouki Fujikawa,藤川 光希,MANPUC,manpuc.me,ポートフォリオ,エンジニア,学生,Minecraft Mod"
+		/>
+		<link rel="canonical" href={canonicalURL} />
+		<link rel="sitemap" href="/sitemap-index.xml" />
+		<!-- ▲▲▲▲▲▲▲ -->
+
 		<link
 			rel="preload"
 			href="/fonts/ZenMaruGothic-Regular.ttf"

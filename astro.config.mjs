@@ -5,9 +5,12 @@ import react from '@astrojs/react';
 
 import vercel from '@astrojs/vercel';
 
+import sitemap from '@astrojs/sitemap';
+
 // https://astro.build/config
 export default defineConfig({
-  integrations: [react()],
+  site: 'https://manpuc.me',
+  integrations: [react(), sitemap()],
   adapter: vercel({
     webAnalytics: {
       enabled: true,
