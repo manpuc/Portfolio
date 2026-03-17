@@ -13,11 +13,27 @@ const { title = "Kouki Fujikawa - Portfolio" } = Astro.props;
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 		<title>{title}</title>
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
-			href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Zen+Maru+Gothic:wght@400;500;700&display=swap"
-			rel="stylesheet"
+			rel="preload"
+			href="/fonts/ZenMaruGothic-Regular.ttf"
+			as="font"
+			type="font/ttf"
+			crossorigin
+		/>
+		<link
+			rel="preload"
+			href="/fonts/ZenMaruGothic-Bold.ttf"
+			as="font"
+			type="font/ttf"
+			crossorigin
+		/>
+
+		<link
+			rel="preload"
+			href="/fonts/JetBrainsMono-VariableFont_wght.ttf"
+			as="font"
+			type="font/ttf"
+			crossorigin
 		/>
 	</head>
 
@@ -289,180 +305,239 @@ const { title = "Kouki Fujikawa - Portfolio" } = Astro.props;
 		</footer>
 
 		<script>
-			// 言語切り替え
-			const langToggleBtn = document.getElementById("langToggle");
-			const savedLang = localStorage.getItem("portfolio-lang");
+			if (
+				typeof window !== "undefined" &&
+				typeof navigator !== "undefined"
+			) {
+				// ==========================================
+				// 1. 言語切り替え
+				// ==========================================
+				const langToggleBtn = document.getElementById("langToggle");
+				const savedLang = localStorage.getItem("portfolio-lang");
 
-			if (savedLang === "en") {
-				document.body.classList.add("en-mode");
-				document.documentElement.lang = "en";
-			}
+				// ブラウザの言語を取得 (例: "ja", "ja-JP", "en-US" など)
+				const browserLang =
+					navigator.language || navigator.userLanguage || "en";
+				const isNotJapanese = !browserLang
+					.toLowerCase()
+					.startsWith("ja");
 
-			langToggleBtn.addEventListener("click", () => {
-				// switchLang関数を直接実行するだけにします
-				document.body.classList.toggle("en-mode");
-				if (document.body.classList.contains("en-mode")) {
-					localStorage.setItem("portfolio-lang", "en");
+				if (savedLang === "en" || (!savedLang && isNotJapanese)) {
+					document.body.classList.add("en-mode");
 					document.documentElement.lang = "en";
-				} else {
-					localStorage.setItem("portfolio-lang", "ja");
-					document.documentElement.lang = "ja";
 				}
-			});
 
-			// テーマ切り替え
-			const toggleBtn = document.getElementById("themeToggle");
-			const body = document.body;
-			const savedTheme = localStorage.getItem("portfolio-theme");
-			const osDark = window.matchMedia(
-				"(prefers-color-scheme: dark)",
-			).matches;
-
-			if (savedTheme === "dark" || (!savedTheme && osDark)) {
-				body.classList.add("dark");
-				body.classList.remove("light");
-			}
-
-			toggleBtn.addEventListener("click", () => {
-				if (body.classList.contains("dark")) {
-					body.classList.remove("dark");
-					body.classList.add("light");
-					localStorage.setItem("portfolio-theme", "light");
-				} else {
-					body.classList.remove("light");
-					body.classList.add("dark");
-					localStorage.setItem("portfolio-theme", "dark");
-				}
-			});
-
-			// アニメーション用オブザーバー
-			const observer = new IntersectionObserver(
-				(entries) => {
-					entries.forEach((entry) => {
-						if (entry.isIntersecting) {
-							entry.target.classList.add("visible");
-						}
-					});
-				},
-				{ threshold: 0.15, rootMargin: "0px 0px -40px 0px" },
-			);
-
-			document
-				.querySelectorAll(".reveal")
-				.forEach((el) => observer.observe(el));
-
-			// Contactアイコンのアニメーション
-			const animClasses = [
-				"rand-bounce",
-				"rand-spin",
-				"rand-shake",
-				"rand-pop",
-			];
-			document.querySelectorAll(".contact-links a").forEach((btn) => {
-				const icon = btn.querySelector(".contact-icon");
-				if (!icon) return;
-				btn.addEventListener("mouseenter", function () {
-					animClasses.forEach((c) => icon.classList.remove(c));
-					void icon.offsetWidth;
-					const randomAnim =
-						animClasses[
-							Math.floor(Math.random() * animClasses.length)
-						];
-					icon.classList.add(randomAnim);
-				});
-				btn.addEventListener("mouseleave", function () {
-					animClasses.forEach((c) => icon.classList.remove(c));
-				});
-			});
-
-			// FABの処理（Contactセクションがないページへの対策含む）
-			const contactFab = document.getElementById("contactFab");
-			const scrollTopFab = document.getElementById("scrollTopFab");
-			const contactSection = document.getElementById("contact");
-
-			if (contactFab && scrollTopFab) {
-				if (contactSection) {
-					const fabObserver = new IntersectionObserver(
-						(entries) => {
-							entries.forEach((entry) => {
-								if (entry.isIntersecting) {
-									contactFab.classList.add("absorbed");
-									setTimeout(
-										() =>
-											scrollTopFab.classList.remove(
-												"absorbed",
-											),
-										200,
-									);
-								} else {
-									scrollTopFab.classList.add("absorbed");
-									setTimeout(
-										() =>
-											contactFab.classList.remove(
-												"absorbed",
-											),
-										200,
-									);
-								}
-							});
-						},
-						{ threshold: 0.1 },
-					);
-					fabObserver.observe(contactSection);
-				} else {
-					// Contactセクションがないページ（works等）ではスクロールでTOPボタンを表示
-					window.addEventListener("scroll", () => {
-						if (window.scrollY > 300) {
-							scrollTopFab.classList.remove("absorbed");
+				if (langToggleBtn) {
+					langToggleBtn.addEventListener("click", () => {
+						document.body.classList.toggle("en-mode");
+						if (document.body.classList.contains("en-mode")) {
+							localStorage.setItem("portfolio-lang", "en");
+							document.documentElement.lang = "en";
 						} else {
-							scrollTopFab.classList.add("absorbed");
+							localStorage.setItem("portfolio-lang", "ja");
+							document.documentElement.lang = "ja";
 						}
 					});
 				}
 
-				scrollTopFab.addEventListener("click", () => {
-					window.scrollTo({ top: 0, behavior: "smooth" });
+				// ==========================================
+				// 2. テーマ切り替え
+				// ==========================================
+				const toggleBtn = document.getElementById("themeToggle");
+				const body = document.body;
+				const savedTheme = localStorage.getItem("portfolio-theme");
+				const osDark = window.matchMedia(
+					"(prefers-color-scheme: dark)",
+				).matches;
+
+				if (savedTheme === "dark" || (!savedTheme && osDark)) {
+					body.classList.add("dark");
+					body.classList.remove("light");
+				}
+
+				if (toggleBtn) {
+					toggleBtn.addEventListener("click", () => {
+						if (body.classList.contains("dark")) {
+							body.classList.remove("dark");
+							body.classList.add("light");
+							localStorage.setItem("portfolio-theme", "light");
+						} else {
+							body.classList.remove("light");
+							body.classList.add("dark");
+							localStorage.setItem("portfolio-theme", "dark");
+						}
+					});
+				}
+
+				// ==========================================
+				// 3. アニメーション用オブザーバー
+				// ==========================================
+				const observer = new IntersectionObserver(
+					(entries) => {
+						entries.forEach((entry) => {
+							if (entry.isIntersecting) {
+								entry.target.classList.add("visible");
+							}
+						});
+					},
+					{ threshold: 0.15, rootMargin: "0px 0px -40px 0px" },
+				);
+
+				document
+					.querySelectorAll(".reveal")
+					.forEach((el) => observer.observe(el));
+
+				// ==========================================
+				// 4. Contactアイコンのアニメーション
+				// ==========================================
+				const animClasses = [
+					"rand-bounce",
+					"rand-spin",
+					"rand-shake",
+					"rand-pop",
+				];
+				document.querySelectorAll(".contact-links a").forEach((btn) => {
+					const icon = btn.querySelector(".contact-icon");
+					if (!icon) return;
+					btn.addEventListener("mouseenter", function () {
+						animClasses.forEach((c) => icon.classList.remove(c));
+						void icon.offsetWidth;
+						const randomAnim =
+							animClasses[
+								Math.floor(Math.random() * animClasses.length)
+							];
+						icon.classList.add(randomAnim);
+					});
+					btn.addEventListener("mouseleave", function () {
+						animClasses.forEach((c) => icon.classList.remove(c));
+					});
 				});
-			}
 
-			// プロフィール画像のアニメーション
-			const profileImg = document.querySelector(".profile-img");
-			if (profileImg) {
-				profileImg.style.transformOrigin = "center";
-				profileImg.style.willChange = "transform, box-shadow";
+				// ==========================================
+				// 5. FABの処理
+				// ==========================================
+				const contactFab = document.getElementById("contactFab");
+				const scrollTopFab = document.getElementById("scrollTopFab");
+				const contactSection = document.getElementById("contact");
 
-				profileImg.addEventListener("mousemove", (e) => {
-					const rect = profileImg.getBoundingClientRect();
-					const x =
-						(e.clientX - rect.left - rect.width / 2) /
-						(rect.width / 2);
-					const y =
-						(e.clientY - rect.top - rect.height / 2) /
-						(rect.height / 2);
+				if (contactFab && scrollTopFab) {
+					if (contactSection) {
+						const fabObserver = new IntersectionObserver(
+							(entries) => {
+								entries.forEach((entry) => {
+									if (entry.isIntersecting) {
+										contactFab.classList.add("absorbed");
+										setTimeout(
+											() =>
+												scrollTopFab.classList.remove(
+													"absorbed",
+												),
+											200,
+										);
+									} else {
+										scrollTopFab.classList.add("absorbed");
+										setTimeout(
+											() =>
+												contactFab.classList.remove(
+													"absorbed",
+												),
+											200,
+										);
+									}
+								});
+							},
+							{ threshold: 0.1 },
+						);
+						fabObserver.observe(contactSection);
+					} else {
+						window.addEventListener("scroll", () => {
+							if (window.scrollY > 300) {
+								scrollTopFab.classList.remove("absorbed");
+							} else {
+								scrollTopFab.classList.add("absorbed");
+							}
+						});
+					}
 
-					const rotateX = -y * 25;
-					const rotateY = x * 25;
-					const shadowX = -x * 20;
-					const shadowY = -y * 20;
+					scrollTopFab.addEventListener("click", () => {
+						window.scrollTo({ top: 0, behavior: "smooth" });
+					});
+				}
 
-					profileImg.style.transition =
-						"transform 0.1s ease-out, box-shadow 0.1s ease-out";
-					profileImg.style.transform = `perspective(1000px) scale(1.1) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-					profileImg.style.boxShadow = `${shadowX}px ${shadowY + 15}px 40px rgba(122, 162, 246, 0.6)`;
-				});
+				// ==========================================
+				// 6. プロフィール画像のアニメーション
+				// ==========================================
+				const profileImg = document.querySelector(".profile-img");
+				if (profileImg) {
+					profileImg.style.transformOrigin = "center";
+					profileImg.style.willChange = "transform, box-shadow";
 
-				profileImg.addEventListener("mouseleave", () => {
-					profileImg.style.transition =
-						"transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.6s ease";
-					profileImg.style.transform = `perspective(1000px) scale(1) rotateX(0deg) rotateY(0deg)`;
-					profileImg.style.boxShadow = `0 15px 35px rgba(122, 162, 246, 0.4)`;
-				});
+					profileImg.addEventListener("mousemove", (e) => {
+						const rect = profileImg.getBoundingClientRect();
+						const x =
+							(e.clientX - rect.left - rect.width / 2) /
+							(rect.width / 2);
+						const y =
+							(e.clientY - rect.top - rect.height / 2) /
+							(rect.height / 2);
+
+						const rotateX = -y * 25;
+						const rotateY = x * 25;
+						const shadowX = -x * 20;
+						const shadowY = -y * 20;
+
+						profileImg.style.transition =
+							"transform 0.1s ease-out, box-shadow 0.1s ease-out";
+						profileImg.style.transform = `perspective(1000px) scale(1.1) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+						profileImg.style.boxShadow = `${shadowX}px ${shadowY + 15}px 40px rgba(122, 162, 246, 0.6)`;
+					});
+
+					profileImg.addEventListener("mouseleave", () => {
+						profileImg.style.transition =
+							"transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.6s ease";
+						profileImg.style.transform = `perspective(1000px) scale(1) rotateX(0deg) rotateY(0deg)`;
+						profileImg.style.boxShadow = `0 15px 35px rgba(122, 162, 246, 0.4)`;
+					});
+				}
 			}
 		</script>
 	</body>
 </html>
 
 <style is:global>
+	/* Zen Maru Gothic */
+	@font-face {
+		font-family: "Zen Maru Gothic";
+		src: url("/fonts/ZenMaruGothic-Regular.ttf") format("truetype");
+		font-weight: 400;
+		font-style: normal;
+		font-display: swap;
+	}
+	@font-face {
+		font-family: "Zen Maru Gothic";
+		src: url("/fonts/ZenMaruGothic-Medium.ttf") format("truetype");
+		font-weight: 500;
+		font-style: normal;
+		font-display: swap;
+	}
+	@font-face {
+		font-family: "Zen Maru Gothic";
+		src: url("/fonts/ZenMaruGothic-Bold.ttf") format("truetype");
+		font-weight: 700;
+		font-style: normal;
+		font-display: swap;
+	}
+
+	/* JetBrains Mono */
+	@font-face {
+		font-family: "JetBrains Mono";
+		src: url("/fonts/JetBrainsMono-VariableFont_wght.ttf")
+			format("truetype");
+		font-weight: 100 900;
+		font-style: normal;
+		font-display: swap;
+	}
+
 	:root {
 		--bg-main: #e6e7ed;
 		--bg-sub: #d6d8df;

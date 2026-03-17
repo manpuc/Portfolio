@@ -1,0 +1,62 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="404 Not Found | Kouki Fujikawa">
+    <style>
+        @font-face {
+            font-family: "Bungee";
+            src: url("/fonts/Bungee-Regular.ttf") format("truetype");
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        .error-page-container h2::before {
+            background: var(--red) !important;
+        }
+
+        .error-code {
+            font-family: "Bungee", sans-serif;
+            font-size: clamp(5em, 15vw, 8em);
+            background: linear-gradient(135deg, var(--purp), var(--blu));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0;
+            line-height: 1.1;
+        }
+    </style>
+
+    <div
+        class="container error-page-container"
+        style="display: flex; flex-direction: column; justify-content: center; min-height: 70vh;"
+    >
+        <section class="reveal" style="text-align: center; padding: 60px 20px;">
+            <h1 class="error-code">404</h1>
+            <h2
+                style="justify-content: center; margin-top: 10px; margin-bottom: 20px; font-size: 1.5em; border: none;"
+            >
+                <span class="txt-ja">ページが見つかりません</span>
+                <span class="txt-en">Page Not Found</span>
+            </h2>
+            <p
+                style="color: var(--txt-sub); margin-bottom: 40px; font-weight: 500;"
+            >
+                <span class="txt-ja"
+                    >アクセスしようとしたページは削除されたか、URLが変更されています。</span
+                >
+                <span class="txt-en"
+                    >The page you are looking for might have been removed or
+                    temporarily unavailable.</span
+                >
+            </p>
+
+            <div style="display: flex; justify-content: center;">
+                <a href="/" class="btn-view-more">
+                    <span class="txt-ja">ホームに戻る</span>
+                    <span class="txt-en">Back to Home</span>
+                </a>
+            </div>
+        </section>
+    </div>
+</Layout>
