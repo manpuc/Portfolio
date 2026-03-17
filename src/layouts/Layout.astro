@@ -7,8 +7,8 @@ export interface Props {
 
 const {
 	title = "Kouki Fujikawa - Portfolio",
-	description = "学生・デベロッパー・クリエイター Kouki Fujikawa (@MANPUC) のポートフォリオサイト。Minecraft Mod開発、Web制作、Bot制作など。",
-	image = "/favicon.svg", // 後でpublicフォルダに配置する画像
+	description = "Portfolio site of Kouki Fujikawa, Student & Developer. Minecraft Modding, Web, Bot Development.",
+	image = "/avatar.png",
 } = Astro.props;
 
 const siteUrl = "https://manpuc.me";
@@ -32,7 +32,7 @@ const imageUrl = new URL(image, siteUrl);
 		<meta property="og:image" content={imageUrl} />
 		<meta property="og:site_name" content="Kouki Fujikawa - Portfolio" />
 
-		<meta name="theme-color" content="#2e7de9" />
+		<meta name="theme-color" content="#1A1B26" />
 
 		<meta name="twitter:card" content="summary_large_image" />
 		<meta name="twitter:site" content="@manpuccc" />
