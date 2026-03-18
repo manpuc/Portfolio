@@ -72,8 +72,8 @@ import Layout from "../../layouts/Layout.astro";
                     <h4>Minecraft Mod</h4>
                     <p class="work-desc">
                         <span class="txt-ja"
-                            >Forge
-                            1.20.1環境での独自Mod開発。新しいアイテムやシステムを実装。</span
+                            >Forge 1.20.1環境での独自Mod開発<br />
+                            新しいアイテムやシステムを実装。</span
                         >
                         <span class="txt-en"
                             >Custom Mod development for Forge 1.20.1.
@@ -209,10 +209,9 @@ import Layout from "../../layouts/Layout.astro";
         align-items: center;
         justify-content: center;
         height: 65px;
-        /* ↓ 修正: 初期からwidthを固定幅で持たせておく（autoだとアニメーションしないため） */
         width: 210px;
         padding: 0 28px;
-        gap: 10px; /* アイコンと文字の隙間はgapで管理 */
+        gap: 10px;
         background: var(--card-bg);
         color: var(--txt-main);
         text-decoration: none;
@@ -226,15 +225,14 @@ import Layout from "../../layouts/Layout.astro";
         isolation: isolate;
         backdrop-filter: none !important;
         -webkit-backdrop-filter: none !important;
-        /* ↓ ボタン全体の幅(width)と余白(padding, gap)の推移をアニメーション */
-        transition: all 0.8s cubic-bezier(0.65, 0, 0.35, 1);
+        transition: all 0.4s cubic-bezier(0.65, 0, 0.35, 1);
     }
 
     .back-btn-icon {
         width: 20px;
         height: 20px;
         flex-shrink: 0;
-        transition: all 0.8s cubic-bezier(0.65, 0, 0.35, 1);
+        transition: all 0.4s cubic-bezier(0.65, 0, 0.35, 1);
     }
 
     .text-long,
@@ -243,13 +241,11 @@ import Layout from "../../layouts/Layout.astro";
         align-items: center;
         overflow: hidden;
         white-space: nowrap;
-        /* max-width と opacity のみを滑らかに */
         transition:
-            max-width 0.8s cubic-bezier(0.65, 0, 0.35, 1),
-            opacity 0.8s cubic-bezier(0.65, 0, 0.35, 1);
+            max-width 0.4s cubic-bezier(0.65, 0, 0.35, 1),
+            opacity 0.4s cubic-bezier(0.65, 0, 0.35, 1);
     }
 
-    /* 通常時（広い画面） */
     .text-long {
         max-width: 150px;
         opacity: 1;
@@ -269,16 +265,14 @@ import Layout from "../../layouts/Layout.astro";
         transform: scale(0.95);
     }
     .back-btn svg {
-        transition: all 0.8s cubic-bezier(0.65, 0, 0.35, 1);
+        transition: all 0.6s cubic-bezier(0.65, 0, 0.35, 1);
     }
     .back-btn:hover svg {
         transform: translateX(-4px);
     }
 
-    /* === 段階1：中間幅 (Homeを表示) === */
     @media (max-width: 480px) {
         .back-btn {
-            /* ↓ 修正: widthを徐々に縮める */
             width: 140px;
             padding: 0 25px;
         }
@@ -290,17 +284,14 @@ import Layout from "../../layouts/Layout.astro";
         .text-short {
             max-width: 80px;
             opacity: 1;
-            /* 修正: margin-right は削除し、gapに任せることでチラつきを防止 */
         }
     }
 
-    /* === 段階2：スマホ幅 (アイコンのみ・丸) === */
     @media (max-width: 360px) {
         .back-btn {
-            /* ↓ 修正: widthを65pxに縮める。これでヌルッと丸くなる */
             width: 65px;
             padding: 0;
-            gap: 0; /* アイコンと文字の隙間をゼロに */
+            gap: 0;
             border-radius: 35px;
         }
 
@@ -322,16 +313,28 @@ import Layout from "../../layouts/Layout.astro";
     }
 
     /* --- Works specifics --- */
+    .work-item {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+
+    h4 {
+        margin-bottom: 5px;
+    }
+
     .work-desc {
         color: var(--txt-sub);
         font-size: 0.9em;
-        margin-bottom: 10px;
+        margin-bottom: 15px;
+        flex-grow: 1;
     }
 
     .tags {
         display: flex;
         flex-wrap: wrap;
         gap: 8px;
+        margin-top: auto;
     }
 
     .tag {
@@ -348,7 +351,6 @@ import Layout from "../../layouts/Layout.astro";
         background: rgba(255, 255, 255, 0.05);
     }
 
-    /* View Transitions (hrefが同じだと重複エラーになるので個別に名前を付ける) */
     .work-item:nth-child(1) {
         view-transition-name: work-1;
     }
@@ -373,7 +375,7 @@ import Layout from "../../layouts/Layout.astro";
     ::view-transition-group(work-3),
     ::view-transition-group(work-4),
     ::view-transition-group(work-5) {
-        animation-duration: 0.6s;
+        animation-duration: 0.4s;
         animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
     }
 

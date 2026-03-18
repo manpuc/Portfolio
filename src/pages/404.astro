@@ -1,17 +1,10 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import "@fontsource/bungee";
 ---
 
-<Layout title="404 Not Found | Kouki Fujikawa">
+<Layout title="404 Not Found | Kouki Fujikawa" isErrorPage={true}>
     <style>
-        @font-face {
-            font-family: "Bungee";
-            src: url("/fonts/Bungee-Regular.woff2") format("woff2");
-            font-weight: 400;
-            font-style: normal;
-            font-display: swap;
-        }
-
         .error-page-container h2::before {
             background: var(--red) !important;
         }
@@ -25,13 +18,32 @@ import Layout from "../layouts/Layout.astro";
             margin-bottom: 0;
             line-height: 1.1;
         }
+
+        .error-box {
+            max-width: 800px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        @media (max-width: 860px) {
+            .error-page-wrapper {
+                padding-top: 125px;
+            }
+
+            .error-desc br {
+                display: none;
+            }
+        }
     </style>
 
     <div
-        class="container error-page-container"
+        class="container error-page-container error-page-wrapper"
         style="display: flex; flex-direction: column; justify-content: center; min-height: 70vh;"
     >
-        <section class="reveal" style="text-align: center; padding: 60px 20px;">
+        <section
+            class="reveal error-box"
+            style="text-align: center; padding: 60px 20px;"
+        >
             <h1 class="error-code">404</h1>
             <h2
                 style="justify-content: center; margin-top: 10px; margin-bottom: 20px; font-size: 1.5em; border: none;"
@@ -40,15 +52,17 @@ import Layout from "../layouts/Layout.astro";
                 <span class="txt-en">Page Not Found</span>
             </h2>
             <p
-                style="color: var(--txt-sub); margin-bottom: 40px; font-weight: 500;"
+                class="error-desc"
+                style="color: var(--txt-sub); margin-bottom: 40px; font-weight: 500; line-height: 1.8;"
             >
-                <span class="txt-ja"
-                    >アクセスしようとしたページは削除されたか、URLが変更されています。</span
-                >
-                <span class="txt-en"
-                    >The page you are looking for might have been removed or
-                    temporarily unavailable.</span
-                >
+                <span class="txt-ja">
+                    アクセスしようとしたページは削除されたか、<br />
+                    URLが変更されている可能性があります。
+                </span>
+                <span class="txt-en">
+                    The page you are looking for might have been removed<br />
+                    or is temporarily unavailable.
+                </span>
             </p>
 
             <div style="display: flex; justify-content: center;">
