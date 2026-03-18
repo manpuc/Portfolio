@@ -7,10 +7,11 @@ import Layout from "../layouts/Layout.astro";
         <!-- Header -->
         <header class="reveal">
             <img
-                src="/avatar.svg"
-                alt="Kouki Fujikawa"
+                src="/avatar.png"
+                alt="Profile Image"
                 class="profile-img"
-                oncontextmenu="return false;"
+                fetchpriority="high"
+                decoding="sync"
             />
             <h1>Kouki Fujikawa</h1>
             <p class="subtitle">@MANPUC / Developer & Creator</p>
