@@ -1,4 +1,10 @@
 {
+  "redirects": [
+    { "source": "/wp-admin(.*)", "destination": "/403", "permanent": false },
+    { "source": "/admin.astro", "destination": "/403", "permanent": false },
+    { "source": "/wp-login(.*)", "destination": "/403", "permanent": false },
+    { "source": "/xmlrpc.php", "destination": "/403", "permanent": false }
+  ],
     "headers": [
         {
             "source": "/(.*)",
