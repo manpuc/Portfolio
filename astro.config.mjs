@@ -7,15 +7,25 @@ import vercel from '@astrojs/vercel';
 export default defineConfig({
   site: 'https://manpuc.me',
   integrations: [react(), sitemap()],
-    vite: {
+  vite: {
     css: {
       preprocessorOptions: {
-        scss: {}  // SCSSを使いたい場合
+        scss: {}
       }
     },
     build: {
-      cssCodeSplit: true  // ページごとにCSS分割（重要）
+      cssCodeSplit: true,
+      rollupOptions: {
+        output: {
+          manualChunks: {
+            layout: ['./src/layouts/Layout.astro']
+          }
+        }
+      }
     }
+  },
+    build: {
+    format: 'file'
   },
   adapter: vercel({
     entrypointResolution: 'auto'

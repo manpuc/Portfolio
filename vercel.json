@@ -1,6 +1,15 @@
 {
     "headers": [
         {
+            "source": "/_astro/Layout.*\\.css",
+            "headers": [
+                {
+                    "key": "Link",
+                    "value": "</_astro/Layout.[hash].css>; rel=preload; as=style"
+                }
+            ]
+        },
+        {
             "source": "/(.*)",
             "headers": [
                 {
