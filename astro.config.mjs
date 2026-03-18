@@ -11,9 +11,5 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
   site: 'https://manpuc.me',
   integrations: [react(), sitemap()],
-  adapter: vercel({
-    webAnalytics: {
-      enabled: true,
-    },
-  })
+  adapter: vercel()
 });
