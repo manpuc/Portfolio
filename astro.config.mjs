@@ -3,10 +3,10 @@ import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
 import vercel from '@astrojs/vercel';
 
-
 export default defineConfig({
   site: 'https://manpuc.me',
   integrations: [react(), sitemap()],
+
   vite: {
     css: {
       preprocessorOptions: {
@@ -18,16 +18,22 @@ export default defineConfig({
       rollupOptions: {
         output: {
           manualChunks: {
-            layout: ['./src/layouts/Layout.astro']
+            'layout': ['src/layouts/Layout.astro']
           }
         }
       }
     }
   },
-    build: {
+  build: {
     format: 'file'
   },
+  image: {
+    domains: ['manpuc.me'],
+    sizes: [400, 800]
+  },
+  compressHTML: true,
   adapter: vercel({
     entrypointResolution: 'auto'
   })
+
 });
