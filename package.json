@@ -17,6 +17,8 @@
     "@astrojs/sitemap": "^3.7.1",
     "@astrojs/vercel": "^8.0.4",
     "@fontsource/bungee": "^5.2.7",
+    "@fontsource/jetbrains-mono": "^5.2.8",
+    "@fontsource/zen-maru-gothic": "^5.2.8",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "astro": "^6.0.4",
