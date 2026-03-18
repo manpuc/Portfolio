@@ -1,0 +1,89 @@
+---
+import Layout from "../layouts/Layout.astro";
+import "@fontsource/bungee";
+---
+
+<Layout title="403 Forbidden | Kouki Fujikawa" isErrorPage={true}>
+    <style>
+        .error-page-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-height: 70vh;
+        }
+
+        .error-box {
+            max-width: 800px;
+            margin: 0 auto;
+            width: 100%;
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .error-code {
+            font-family: "Bungee", sans-serif;
+            font-size: clamp(5em, 15vw, 8em);
+            background: linear-gradient(135deg, var(--purp), var(--blu));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0;
+            line-height: 1.1;
+        }
+
+        .error-page-container h2::before {
+            background: var(--red) !important;
+        }
+
+        h2 {
+            justify-content: center;
+            margin-top: 10px;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+            border: none;
+        }
+
+        .error-desc {
+            color: var(--txt-sub);
+            margin-bottom: 40px;
+            font-weight: 500;
+            line-height: 1.8;
+        }
+
+        @media (max-width: 860px) {
+            .error-page-wrapper {
+                padding-top: 125px;
+            }
+            .error-desc br {
+                display: none;
+            }
+        }
+    </style>
+
+    <div class="container error-page-container error-page-wrapper">
+        <section class="reveal error-box">
+            <h1 class="error-code">403</h1>
+            <h2>
+                <span class="txt-ja">アクセス禁止</span>
+                <span class="txt-en">Forbidden</span>
+            </h2>
+            <p class="error-desc">
+                <span class="txt-ja">
+                    このページへのアクセスは許可されていません。<br />
+                    管理者にお問い合わせください。
+                </span>
+                <span class="txt-en">
+                    You don't have permission to access this page.<br />
+                    Please contact the administrator.
+                </span>
+            </p>
+
+            <div style="display: flex; justify-content: center;">
+                <a href="/" class="btn-view-more">
+                    <span class="txt-ja">ホームに戻る</span>
+                    <span class="txt-en">Back to Home</span>
+                </a>
+            </div>
+        </section>
+    </div>
+</Layout>
