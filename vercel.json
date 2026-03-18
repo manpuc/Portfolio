@@ -1,15 +1,6 @@
 {
     "headers": [
         {
-            "source": "/_astro/Layout.*\\.css",
-            "headers": [
-                {
-                    "key": "Link",
-                    "value": "</_astro/Layout.[hash].css>; rel=preload; as=style"
-                }
-            ]
-        },
-        {
             "source": "/(.*)",
             "headers": [
                 {
@@ -29,15 +20,6 @@
                     "value": "max-age=31536000; includeSubDomains; preload"
                 }
             ]
-        }
-    ],
-    "routes": [
-        {
-            "src": "/403",
-            "dest": "/403"
-        },
-        {
-            "handle": "filesystem"
         }
     ]
 }
