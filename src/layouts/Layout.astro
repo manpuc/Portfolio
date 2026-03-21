@@ -30,6 +30,8 @@ const imageUrl = new URL(image, siteUrl);
 		<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 		<title>{title}</title>
 		<meta name="description" content={description} />
+		<meta name="author" content="Kouki Fujikawa" />
+		<meta name="robots" content="index, follow" />
 
 		<meta property="og:type" content="website" />
 		<meta property="og:url" content={canonicalURL} />
@@ -37,6 +39,7 @@ const imageUrl = new URL(image, siteUrl);
 		<meta property="og:description" content={description} />
 		<meta property="og:image" content={imageUrl} />
 		<meta property="og:site_name" content="Kouki Fujikawa - Portfolio" />
+		<meta property="og:locale" content="ja_JP" />
 
 		<meta name="theme-color" content="#1A1B26" />
 
@@ -49,9 +52,11 @@ const imageUrl = new URL(image, siteUrl);
 		<!-- ▼ SEO ▼ -->
 		<meta
 			name="keywords"
-			content="Kouki Fujikawa,藤川 光希,MANPUC,manpuc.me,ポートフォリオ,エンジニア,学生,Minecraft Mod"
+			content="Kouki Fujikawa,藤川 光希,MANPUC,manpuc.me,ポートフォリオ,エンジニア,学生,Minecraft Mod,Web制作,Discord Bot"
 		/>
 		<link rel="canonical" href={canonicalURL} />
+		<link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+		<link rel="dns-prefetch" href="https://fonts.gstatic.com" />
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
@@ -69,6 +74,21 @@ const imageUrl = new URL(image, siteUrl);
 		<link rel="sitemap" href="/sitemap-index.xml" />
 		<!-- ▲▲▲▲▲▲▲ -->
 		<link rel="preload" href="/avatar.webp" as="image" fetchpriority="high" />
+		<!-- JSON-LD 構造化データ -->
+		<script type="application/ld+json" set:html={JSON.stringify({
+			"@context": "https://schema.org",
+			"@type": "Person",
+			"name": "Kouki Fujikawa",
+			"alternateName": "MANPUC",
+			"url": "https://manpuc.me",
+			"image": "https://manpuc.me/avatar.webp",
+			"sameAs": [
+				"https://github.com/manpuc",
+				"https://twitter.com/manpuccc"
+			],
+			"jobTitle": "Student / Developer",
+			"description": "Student and developer specializing in Minecraft Modding, Web Development, and Bot Development."
+		})} />
 		<!-- <link rel="preconnect" href="/" /> -->
 	</head>
 
