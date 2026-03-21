@@ -1,15 +1,19 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import avatarImg from "../../public/avatar.webp";
 ---
 
 <Layout title="Kouki Fujikawa - Portfolio">
     <div class="container">
         <!-- Header -->
         <header class="reveal">
-            <img
-                src="/avatar.svg"
+            <Image
+                src={avatarImg}
                 alt="Kouki Fujikawa"
                 class="profile-img"
+                loading="eager"
+                fetchpriority="high"
                 oncontextmenu="return false;"
             />
             <h1>Kouki Fujikawa</h1>
