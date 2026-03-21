@@ -5,6 +5,11 @@ import "@fontsource/zen-maru-gothic/500.css";
 import "@fontsource/zen-maru-gothic/700.css";
 import "@fontsource/jetbrains-mono/400.css";
 
+import zenMaru400 from "@fontsource/zen-maru-gothic/files/zen-maru-gothic-japanese-400-normal.woff2?url";
+import zenMaru500 from "@fontsource/zen-maru-gothic/files/zen-maru-gothic-japanese-500-normal.woff2?url";
+import zenMaru700 from "@fontsource/zen-maru-gothic/files/zen-maru-gothic-japanese-700-normal.woff2?url";
+import jetbrains400 from "@fontsource/jetbrains-mono/files/jetbrains-mono-latin-400-normal.woff2?url";
+
 export interface Props {
 	title?: string;
 	description?: string;
@@ -56,6 +61,10 @@ const imageUrl = new URL(image, siteUrl);
 		<link rel="canonical" href={canonicalURL} />
 		<link rel="sitemap" href="/sitemap-index.xml" />
 		<!-- ▲▲▲▲▲▲▲ -->
+		<link rel="preload" href={zenMaru400} as="font" type="font/woff2" crossorigin="anonymous" />
+		<link rel="preload" href={zenMaru500} as="font" type="font/woff2" crossorigin="anonymous" />
+		<link rel="preload" href={zenMaru700} as="font" type="font/woff2" crossorigin="anonymous" />
+		<link rel="preload" href={jetbrains400} as="font" type="font/woff2" crossorigin="anonymous" />
 		<!-- <link rel="preconnect" href="/" /> -->
 	</head>
 
