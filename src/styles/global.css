@@ -15,6 +15,15 @@
     view-transition-name: none;
 }
 
+/* フォントサイズ補正でCLSを防ぐ */
+@font-face {
+  font-family: 'Zen Maru Gothic';
+  src: local('Zen Maru Gothic Fallback'); /* 仮のローカル名でオーバーライドだけを適用 */
+  size-adjust: 100%;
+  ascent-override: normal;
+  descent-override: normal;
+}
+
 body.dark {
     --bg-main: #1a1b26;
     --bg-sub: #16161e;
@@ -42,7 +51,7 @@ html {
 }
 
 body {
-    font-family: 'Zen Maru Gothic', 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif !important;
+    font-family: 'Zen Maru Gothic', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Meiryo', sans-serif !important;
     line-height: 1.6;
     color: var(--txt-main);
     background-color: var(--bg-main);
@@ -56,7 +65,7 @@ body {
     min-height: 100vh;
 }
 
-code, pre {
+code, pre, .mono {
     font-family: 'JetBrains Mono', 'Courier New', monospace;
 }
 
