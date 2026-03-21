@@ -51,7 +51,14 @@ html {
 }
 
 body {
-    font-family: 'Zen Maru Gothic', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Meiryo', sans-serif !important;
+    font-family:
+      'Hiragino Kaku Gothic ProN',
+      'Hiragino Sans',
+      'Yu Gothic UI',
+      'Meiryo UI',
+      'Noto Sans JP',
+      system-ui,
+      sans-serif;
     line-height: 1.6;
     color: var(--txt-main);
     background-color: var(--bg-main);
@@ -66,7 +73,14 @@ body {
 }
 
 code, pre, .mono {
-    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    font-family:
+      ui-monospace,
+      'Cascadia Code',
+      'Source Code Pro',
+      Menlo,
+      Consolas,
+      'DejaVu Sans Mono',
+      monospace;
 }
 
 .container {

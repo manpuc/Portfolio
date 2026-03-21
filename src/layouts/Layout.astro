@@ -18,7 +18,8 @@ const {
 } = Astro.props;
 
 const siteUrl = "https://manpuc.me";
-const canonicalURL = new URL(Astro.url.pathname, siteUrl);
+const pathname = Astro.url.pathname.replace(/\/$/, '') || '/';
+const canonicalURL = new URL(pathname, siteUrl);
 const imageUrl = new URL(image, siteUrl);
 ---
 
@@ -47,29 +48,56 @@ const imageUrl = new URL(image, siteUrl);
 		<meta name="twitter:description" content={description} />
 		<meta name="twitter:image" content={imageUrl} />
 		<!-- ▼ SEO ▼ -->
+		<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+		<meta name="author" content="Kouki Fujikawa" />
+		<meta property="og:locale" content="ja_JP" />
+		<meta property="og:locale:alternate" content="en_US" />
+		<meta property="article:author" content="https://twitter.com/manpuccc" />
 		<meta
 			name="keywords"
-			content="Kouki Fujikawa,藤川 光希,MANPUC,manpuc.me,ポートフォリオ,エンジニア,学生,Minecraft Mod"
+			content="Kouki Fujikawa,藤川光希,MANPUC,manpuc,ポートフォリオ,エンジニア,学生エンジニア,Webエンジニア,Minecraft Mod,Discord Bot,Chrome拡張機能,Astro,React,JavaScript,Python,Java,愛媛"
 		/>
 		<link rel="canonical" href={canonicalURL} />
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link
-			rel="preload"
-			as="style"
-			href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&family=JetBrains+Mono:wght@400&family=Bungee&display=optional"
-			onload="this.rel='stylesheet'"
-		/>
-		<noscript>
-			<link
-				rel="stylesheet"
-				href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&family=JetBrains+Mono:wght@400&family=Bungee&display=optional"
-			/>
-		</noscript>
+		
 		<link rel="sitemap" href="/sitemap-index.xml" />
 		<!-- ▲▲▲▲▲▲▲ -->
 		<link rel="preload" href="/avatar.webp" as="image" fetchpriority="high" />
 		<!-- <link rel="preconnect" href="/" /> -->
+		<script type="application/ld+json">
+		{
+		  "@context": "https://schema.org",
+		  "@type": "Person",
+		  "name": "Kouki Fujikawa",
+		  "alternateName": "MANPUC",
+		  "url": "https://manpuc.me",
+		  "image": "https://manpuc.me/avatar.webp",
+		  "jobTitle": "Developer & Creator",
+		  "description": "Portfolio site of Kouki Fujikawa, Student & Developer. Minecraft Modding, Web, Bot Development.",
+		  "sameAs": [
+		    "https://github.com/manpuc",
+		    "https://twitter.com/manpuccc"
+		  ],
+		  "knowsAbout": [
+		    "Web Development",
+		    "Minecraft Modding",
+		    "Discord Bot Development",
+		    "Chrome Extension Development",
+		    "JavaScript", "TypeScript", "Python", "Java"
+		  ]
+		}
+		</script>
+		<script type="application/ld+json">
+		{
+		  "@context": "https://schema.org",
+		  "@type": "WebSite",
+		  "name": "Kouki Fujikawa - Portfolio",
+		  "url": "https://manpuc.me",
+		  "author": {
+		    "@type": "Person",
+		    "name": "Kouki Fujikawa"
+		  }
+		}
+		</script>
 	</head>
 
 	<body class="light">
@@ -528,33 +556,38 @@ const imageUrl = new URL(image, siteUrl);
 					profileImg.style.transformOrigin = "center";
 					profileImg.style.willChange = "transform, box-shadow";
 
+					let cachedRect = null;
+					const updateRect = () => { cachedRect = profileImg.getBoundingClientRect(); };
+					updateRect();
+					window.addEventListener('resize', updateRect, { passive: true });
+
 					const handleMove = (e) => {
 						if (e.type === "touchmove") {
 							e.preventDefault();
 						}
+						
+						if (!cachedRect) return;
+
+						const clientX = e.touches
+							? e.touches[0].clientX
+							: e.clientX;
+						const clientY = e.touches
+							? e.touches[0].clientY
+							: e.clientY;
+
+						const x =
+							(clientX - cachedRect.left - cachedRect.width / 2) /
+							(cachedRect.width / 2);
+						const y =
+							(clientY - cachedRect.top - cachedRect.height / 2) /
+							(cachedRect.height / 2);
+
+						const rotateX = -y * 25;
+						const rotateY = x * 25;
+						const shadowX = -x * 20;
+						const shadowY = -y * 20;
 
 						requestAnimationFrame(() => {
-							const rect = profileImg.getBoundingClientRect();
-
-							const clientX = e.touches
-								? e.touches[0].clientX
-								: e.clientX;
-							const clientY = e.touches
-								? e.touches[0].clientY
-								: e.clientY;
-
-							const x =
-								(clientX - rect.left - rect.width / 2) /
-								(rect.width / 2);
-							const y =
-								(clientY - rect.top - rect.height / 2) /
-								(rect.height / 2);
-
-							const rotateX = -y * 25;
-							const rotateY = x * 25;
-							const shadowX = -x * 20;
-							const shadowY = -y * 20;
-
 							profileImg.style.transition =
 								"transform 0.1s ease-out, box-shadow 0.1s ease-out";
 							profileImg.style.transform = `perspective(1000px) scale(1.1) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
