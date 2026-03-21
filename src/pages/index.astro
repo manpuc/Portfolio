@@ -10,11 +10,15 @@ import avatarImg from "../../public/avatar.webp";
         <header class="reveal">
             <Image
                 src={avatarImg}
+                width={245}
+                height={245}
                 alt="Kouki Fujikawa"
                 class="profile-img"
                 loading="eager"
                 fetchpriority="high"
+                decoding="async"
                 oncontextmenu="return false;"
+                style="transform-origin: center; will-change: transform, box-shadow;"
             />
             <h1>Kouki Fujikawa</h1>
             <p class="subtitle">@MANPUC / Developer & Creator</p>

@@ -42,7 +42,7 @@ html {
 }
 
 body {
-    font-family: "Zen Maru Gothic", "JetBrains Mono", sans-serif !important;
+    font-family: 'Zen Maru Gothic', 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif !important;
     line-height: 1.6;
     color: var(--txt-main);
     background-color: var(--bg-main);
@@ -54,6 +54,10 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+}
+
+code, pre {
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
 }
 
 .container {

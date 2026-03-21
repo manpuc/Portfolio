@@ -529,31 +529,33 @@ const imageUrl = new URL(image, siteUrl);
 							e.preventDefault();
 						}
 
-						const rect = profileImg.getBoundingClientRect();
+						requestAnimationFrame(() => {
+							const rect = profileImg.getBoundingClientRect();
 
-						const clientX = e.touches
-							? e.touches[0].clientX
-							: e.clientX;
-						const clientY = e.touches
-							? e.touches[0].clientY
-							: e.clientY;
+							const clientX = e.touches
+								? e.touches[0].clientX
+								: e.clientX;
+							const clientY = e.touches
+								? e.touches[0].clientY
+								: e.clientY;
 
-						const x =
-							(clientX - rect.left - rect.width / 2) /
-							(rect.width / 2);
-						const y =
-							(clientY - rect.top - rect.height / 2) /
-							(rect.height / 2);
+							const x =
+								(clientX - rect.left - rect.width / 2) /
+								(rect.width / 2);
+							const y =
+								(clientY - rect.top - rect.height / 2) /
+								(rect.height / 2);
 
-						const rotateX = -y * 25;
-						const rotateY = x * 25;
-						const shadowX = -x * 20;
-						const shadowY = -y * 20;
+							const rotateX = -y * 25;
+							const rotateY = x * 25;
+							const shadowX = -x * 20;
+							const shadowY = -y * 20;
 
-						profileImg.style.transition =
-							"transform 0.1s ease-out, box-shadow 0.1s ease-out";
-						profileImg.style.transform = `perspective(1000px) scale(1.1) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-						profileImg.style.boxShadow = `${shadowX}px ${shadowY + 15}px 40px rgba(122, 162, 246, 0.6)`;
+							profileImg.style.transition =
+								"transform 0.1s ease-out, box-shadow 0.1s ease-out";
+							profileImg.style.transform = `perspective(1000px) scale(1.1) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+							profileImg.style.boxShadow = `${shadowX}px ${shadowY + 15}px 40px rgba(122, 162, 246, 0.6)`;
+						});
 					};
 
 					const handleReset = () => {
