@@ -760,6 +760,47 @@ section,
     position: relative;
 }
 
+/* --- Back Button テキスト展開 (works page) --- */
+.text-long,
+.text-short {
+    display: inline-flex;
+    align-items: center;
+    overflow: hidden;
+    white-space: nowrap;
+    transition:
+        max-width 0.4s cubic-bezier(0.65, 0, 0.35, 1),
+        opacity 0.4s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.text-long {
+    max-width: 150px;
+    opacity: 1;
+}
+
+.text-short {
+    max-width: 0px;
+    opacity: 0;
+}
+
+@media (max-width: 480px) {
+    .text-long {
+        max-width: 0px;
+        opacity: 0;
+    }
+    .text-short {
+        max-width: 80px;
+        opacity: 1;
+    }
+}
+
+@media (max-width: 360px) {
+    .text-long,
+    .text-short {
+        max-width: 0px;
+        opacity: 0;
+    }
+}
+
 nav a::after,
 section::after,
 .theme-toggle::after,
