@@ -2,6 +2,10 @@
 import "../styles/global.css";
 import { Image } from "astro:assets";
 import avatarImg from "../../public/avatar.webp";
+import "@fontsource/zen-maru-gothic/japanese-400.css";
+import "@fontsource/zen-maru-gothic/japanese-500.css";
+import "@fontsource/zen-maru-gothic/japanese-700.css";
+import "@fontsource/jetbrains-mono/latin-400.css";
 
 export interface Props {
 	title?: string;
@@ -55,18 +59,6 @@ const imageUrl = new URL(image, siteUrl);
 		<link rel="sitemap" href="/sitemap-index.xml" />
 		<!-- ▲▲▲▲▲▲▲ -->
 		<link rel="preload" href="/avatar.webp" as="image" fetchpriority="high" />
-
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link
-			rel="stylesheet"
-			href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&family=JetBrains+Mono:wght@400&display=swap"
-			media="print"
-			onload="this.media='all'"
-		/>
-		<noscript>
-			<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&family=JetBrains+Mono:wght@400&display=swap" />
-		</noscript>
 		<!-- <link rel="preconnect" href="/" /> -->
 	</head>
 
@@ -239,6 +231,8 @@ const imageUrl = new URL(image, siteUrl);
 				<div class="footer-logo">
 					<Image
 						src={avatarImg}
+						width={88}
+						height={88}
 						alt="Kouki Fujikawa"
 						class="footer-avatar"
 						loading="lazy"
