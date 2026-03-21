@@ -12,19 +12,7 @@ export default defineConfig({
   vite: {
     css: {
       postcss: {
-        plugins: process.env.NODE_ENV === 'production' ? [
-          purgecss({
-            content: ["./src/**/*.{astro,html,js,jsx,ts,tsx}"],
-            safelist: {
-              standard: [
-                /^astro-/, /^back-/, /^text-/, /^work-/, /^txt-/, /^rand-/, /^bg-/, /^p-/, /^contact-/, /^btn-/, /icon/, /reveal/, /theme-toggle/,
-                'dark', 'light', 'en-mode', 'visible', 'absorbed', 'tag', 'tags', 'container', 'site-footer', 'skills-grid', 'skill-item'
-              ],
-              deep: [/^astro-/, /^back-/]
-            },
-            defaultExtractor: content => content.match(/[\w-/:]+(?<!:)/g) || []
-          })
-        ] : []
+        plugins: []
       },
       preprocessorOptions: {
         scss: {}
