@@ -2,7 +2,3 @@ User-agent: *
 Allow: /
 
 Sitemap: https://manpuc.me/sitemap-index.xml
-
-Disallow: /403
-Disallow: /404
-Disallow: /500
