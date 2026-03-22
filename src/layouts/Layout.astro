@@ -59,12 +59,14 @@ const imageUrl = new URL(image, siteUrl);
 		<link rel="dns-prefetch" href="https://fonts.gstatic.com" />
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<!-- Prefetch for caching across all pages -->
+		<!-- Async font loading for performance and caching -->
 		<link
-			rel="prefetch"
-			as="style"
+			rel="stylesheet"
 			href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&family=JetBrains+Mono:wght@400&family=Bungee&display=swap"
+			media="print"
+			onload="this.media='all'"
 		/>
+
 
 
 
