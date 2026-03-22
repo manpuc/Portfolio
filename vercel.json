@@ -8,7 +8,6 @@
     { "source": "/401", "destination": "/401", "permanent": false },
     { "source": "/429", "destination": "/429", "permanent": false },
     { "source": "/503", "destination": "/503", "permanent": false }
-
   ],
   "headers": [
     {

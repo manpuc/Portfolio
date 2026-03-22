@@ -20,9 +20,8 @@ const {
 
 <link
   rel="stylesheet"
-  href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&family=JetBrains+Mono:wght@400&family=Bungee&display=swap"
+  href="https://fonts.googleapis.com/css2?family=Bungee&display=swap"
 />
-
 
 <div
   class="container error-page-container error-page-wrapper"
@@ -32,7 +31,12 @@ const {
     class="reveal error-box"
     style="text-align: center; padding: 60px 20px;"
   >
-    <h1 class="error-code" style={`background: ${gradient}; -webkit-background-clip: text;`}>{code}</h1>
+    <h1
+      class="error-code"
+      style={`font-family: 'Bungee', cursive !important; font-size: clamp(5em, 15vw, 8em) !important; line-height: 1.1; background: ${gradient}; -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent;`}
+    >
+      {code}
+    </h1>
     <h2
       style="justify-content: center; margin-top: 10px; margin-bottom: 20px; font-size: 1.5em; border: none;"
     >
@@ -58,11 +62,6 @@ const {
 <style>
   /* 既存の 404.astro のデザインに準拠 */
   .error-code {
-    font-family: "Bungee", var(--font-mono, ui-monospace, monospace);
-    font-size: clamp(5em, 15vw, 8em);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
     margin-bottom: 0;
     line-height: 1.1;
   }
