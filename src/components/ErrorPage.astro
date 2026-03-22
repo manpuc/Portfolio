@@ -1,0 +1,83 @@
+---
+export interface Props {
+  code: number;
+  titleJa: string;
+  titleEn: string;
+  descJa: string;
+  descEn: string;
+  gradient?: string;
+}
+
+const {
+  code,
+  titleJa,
+  titleEn,
+  descJa,
+  descEn,
+  gradient = "linear-gradient(135deg, var(--purp), var(--blu))",
+} = Astro.props;
+---
+
+<div
+  class="container error-page-container error-page-wrapper"
+  style="display: flex; flex-direction: column; justify-content: center; min-height: 70vh;"
+>
+  <section
+    class="reveal error-box"
+    style="text-align: center; padding: 60px 20px;"
+  >
+    <h1 class="error-code" style={`background: ${gradient}; -webkit-background-clip: text;`}>{code}</h1>
+    <h2
+      style="justify-content: center; margin-top: 10px; margin-bottom: 20px; font-size: 1.5em; border: none;"
+    >
+      <span class="txt-ja">{titleJa}</span>
+      <span class="txt-en">{titleEn}</span>
+    </h2>
+    <p
+      class="error-desc"
+      style="color: var(--txt-sub); margin-bottom: 40px; font-weight: 500; line-height: 1.8;"
+    >
+      <span class="txt-ja" set:html={descJa} />
+      <span class="txt-en" set:html={descEn} />
+    </p>
+    <div style="display: flex; justify-content: center;">
+      <a href="/" class="btn-view-more">
+        <span class="txt-ja">ホームに戻る</span>
+        <span class="txt-en">Back to Home</span>
+      </a>
+    </div>
+  </section>
+</div>
+
+<style>
+  /* 既存の 404.astro のデザインに準拠 */
+  .error-code {
+    font-family: "Bungee", var(--font-mono, ui-monospace, monospace);
+    font-size: clamp(5em, 15vw, 8em);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0;
+    line-height: 1.1;
+  }
+
+  .error-box {
+    max-width: 800px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  /* Layout.astro で h2 に付与される擬似要素をリセット */
+  .error-page-container h2::before {
+    display: none;
+  }
+
+  @media (max-width: 860px) {
+    .error-page-wrapper {
+      padding-top: 125px;
+    }
+    .error-desc br {
+      display: none;
+    }
+  }
+</style>

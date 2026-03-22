@@ -1,0 +1,15 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ErrorPage from "../components/ErrorPage.astro";
+---
+
+<Layout title="429 Too Many Requests | Kouki Fujikawa" isErrorPage={true}>
+  <ErrorPage
+    code={429}
+    titleJa="リクエストが多すぎます"
+    titleEn="Too Many Requests"
+    descJa="短時間に多くのリクエストが送信されました。<br />しばらく時間をおいてから再度お試しください。"
+    descEn="You have sent too many requests in a short time.<br />Please wait a moment and try again."
+    gradient="linear-gradient(135deg, #f7c948, #ff6b35)"
+  />
+</Layout>

@@ -1,0 +1,15 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ErrorPage from "../components/ErrorPage.astro";
+---
+
+<Layout title="503 Service Unavailable | Kouki Fujikawa" isErrorPage={true}>
+  <ErrorPage
+    code={503}
+    titleJa="サービス利用不可"
+    titleEn="Service Unavailable"
+    descJa="現在メンテナンス中、またはサーバーが混雑しています。<br />しばらくお待ちください。"
+    descEn="The service is temporarily unavailable due to maintenance<br />or high traffic. Please try again later."
+    gradient="linear-gradient(135deg, var(--blu), #00c9a7)"
+  />
+</Layout>

@@ -6,3 +6,8 @@ Sitemap: https://manpuc.me/sitemap-index.xml
 Disallow: /403
 Disallow: /404
 Disallow: /500
+Disallow: /400
+Disallow: /401
+Disallow: /429
+Disallow: /503
+

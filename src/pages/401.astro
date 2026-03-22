@@ -1,0 +1,15 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ErrorPage from "../components/ErrorPage.astro";
+---
+
+<Layout title="401 Unauthorized | Kouki Fujikawa" isErrorPage={true}>
+  <ErrorPage
+    code={401}
+    titleJa="認証が必要です"
+    titleEn="Unauthorized"
+    descJa="このページにアクセスするには<br />認証が必要です。"
+    descEn="Authentication is required<br />to access this page."
+    gradient="linear-gradient(135deg, #f7c948, var(--purp))"
+  />
+</Layout>

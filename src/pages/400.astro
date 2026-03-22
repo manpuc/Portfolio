@@ -1,0 +1,15 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ErrorPage from "../components/ErrorPage.astro";
+---
+
+<Layout title="400 Bad Request | Kouki Fujikawa" isErrorPage={true}>
+  <ErrorPage
+    code={400}
+    titleJa="不正なリクエスト"
+    titleEn="Bad Request"
+    descJa="リクエストの形式が正しくありません。<br />URLをご確認ください。"
+    descEn="The request could not be understood.<br />Please check the URL and try again."
+    gradient="linear-gradient(135deg, #f7c948, var(--red))"
+  />
+</Layout>
