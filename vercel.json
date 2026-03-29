@@ -1,13 +1,9 @@
 {
   "redirects": [
-    { "source": "/wp-admin(.*)", "destination": "/403", "permanent": false },
-    { "source": "/admin(.*)", "destination": "/403", "permanent": false },
-    { "source": "/wp-login(.*)", "destination": "/403", "permanent": false },
-    { "source": "/xmlrpc.php", "destination": "/403", "permanent": false },
-    { "source": "/400", "destination": "/400", "permanent": false },
-    { "source": "/401", "destination": "/401", "permanent": false },
-    { "source": "/429", "destination": "/429", "permanent": false },
-    { "source": "/503", "destination": "/503", "permanent": false }
+    { "source": "/wp-admin:path*", "destination": "/403", "permanent": false },
+    { "source": "/admin:path*", "destination": "/403", "permanent": false },
+    { "source": "/wp-login:path*", "destination": "/403", "permanent": false },
+    { "source": "/xmlrpc.php", "destination": "/403", "permanent": false }
   ],
   "headers": [
     {
