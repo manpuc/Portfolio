@@ -18,7 +18,7 @@
 /* フォントサイズ補正でCLSを防ぐ */
 @font-face {
   font-family: 'Zen Maru Gothic';
-  src: local('Zen Maru Gothic Fallback'); /* 仮のローカル名でオーバーライドだけを適用 */
+  src: local('Zen Maru Gothic Fallback');
   size-adjust: 100%;
   ascent-override: normal;
   descent-override: normal;
