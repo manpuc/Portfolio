@@ -11,8 +11,8 @@ export interface Props {
 }
 
 const {
-	title = "Kouki Fujikawa - Portfolio",
-	description = "Portfolio site of Kouki Fujikawa, Student & Developer. Minecraft Modding, Web, Bot Development.",
+	title = "manpuc - Portfolio",
+	description = "Portfolio site of manpuc, Student & Developer. Minecraft Modding, Web, Bot Development.",
 	image = "/avatar.webp",
 	isErrorPage = false,
 } = Astro.props;
@@ -30,7 +30,7 @@ const imageUrl = new URL(image, siteUrl);
 		<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 		<title>{title}</title>
 		<meta name="description" content={description} />
-		<meta name="author" content="Kouki Fujikawa" />
+		<meta name="author" content="manpuc" />
 		<meta name="robots" content="index, follow" />
 
 		<meta property="og:type" content="website" />
@@ -38,7 +38,7 @@ const imageUrl = new URL(image, siteUrl);
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
 		<meta property="og:image" content={imageUrl} />
-		<meta property="og:site_name" content="Kouki Fujikawa - Portfolio" />
+		<meta property="og:site_name" content="manpuc - Portfolio" />
 		<meta property="og:locale" content="ja_JP" />
 
 		<meta name="theme-color" content="#1A1B26" />
@@ -52,7 +52,7 @@ const imageUrl = new URL(image, siteUrl);
 		<!-- ▼ SEO ▼ -->
 		<meta
 			name="keywords"
-			content="Kouki Fujikawa,藤川 光希,MANPUC,manpuc.me,ポートフォリオ,エンジニア,学生,Minecraft Mod,Web制作,Discord Bot"
+			content="manpuc,manpuc.me,ポートフォリオ,エンジニア,学生,Minecraft Mod,Web制作,Discord Bot"
 		/>
 		<link rel="canonical" href={canonicalURL} />
 		<link rel="dns-prefetch" href="https://fonts.googleapis.com" />
@@ -77,8 +77,8 @@ const imageUrl = new URL(image, siteUrl);
 		<script type="application/ld+json" set:html={JSON.stringify({
 			"@context": "https://schema.org",
 			"@type": "Person",
-			"name": "Kouki Fujikawa",
-			"alternateName": "MANPUC",
+			"name": "manpuc",
+			"alternateName": "manpuc",
 			"url": "https://manpuc.me",
 			"image": "https://manpuc.me/avatar.webp",
 			"sameAs": [
@@ -262,14 +262,14 @@ const imageUrl = new URL(image, siteUrl);
 						src={avatarImg}
 						width={88}
 						height={88}
-						alt="Kouki Fujikawa"
+						alt="manpuc"
 						class="footer-avatar"
 						loading="lazy"
 						decoding="async"
 						oncontextmenu="return false;"
 					/>
 					<div class="footer-title">
-						<h3>Kouki Fujikawa</h3>
+						<h3>manpuc</h3>
 						<p class="txt-ja">学生・デベロッパー・クリエイター</p>
 						<p class="txt-en">Student / Developer / Creator</p>
 					</div>
@@ -363,7 +363,7 @@ const imageUrl = new URL(image, siteUrl);
 				</div>
 			</div>
 			<div class="footer-bottom">
-				<p>&copy; 2026 Kouki Fujikawa. All Rights Reserved.</p>
+				<p>&copy; 2026 manpuc. All Rights Reserved.</p>
 			</div>
 		</footer>
 

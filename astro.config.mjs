@@ -11,6 +11,8 @@ export default defineConfig({
     preload: 'swap',
     pruneSource: false,
     logLevel: 'warn'
+  }), sitemap({
+    filter: (page) => !page.includes('/400') && !page.includes('/401') && !page.includes('/403') && !page.includes('/404') && !page.includes('/429') && !page.includes('/500') && !page.includes('/503')
   })],
   adapter: vercel({
     entrypointResolution: 'auto'
