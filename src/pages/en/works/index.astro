@@ -1,11 +1,11 @@
 ---
-import Layout from "../../layouts/Layout.astro";
+import Layout from "../../../layouts/Layout.astro";
 ---
 
 <Layout
     title="Works - manpuc"
-    description="まんぷく（manpuc）の制作実績一覧。Minecraft Mod開発・Discord Bot・Chrome拡張機能・Webサイト制作など。 / A list of works by manpuc: Minecraft Mod, Discord Bot, Chrome Extension, Web Development."
-    lang="ja"
+    description="A list of works by manpuc: Minecraft Mod, Discord Bot, Chrome Extension, Web Development."
+    lang="en"
     structuredData={{
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
@@ -14,19 +14,19 @@ import Layout from "../../layouts/Layout.astro";
                 "@type": "ListItem",
                 "position": 1,
                 "name": "Home",
-                "item": "https://manpuc.me/"
+                "item": "https://manpuc.me/en/"
             },
             {
                 "@type": "ListItem",
                 "position": 2,
                 "name": "Works",
-                "item": "https://manpuc.me/works"
+                "item": "https://manpuc.me/en/works"
             }
         ]
     }}
 >
     <div class="back-nav">
-        <a href="/" class="back-btn" aria-label="Back to home">
+        <a href="/en/" class="back-btn" aria-label="Back to home">
             <svg
                 viewBox="0 0 24 24"
                 fill="none"
@@ -41,11 +41,11 @@ import Layout from "../../layouts/Layout.astro";
             </svg>
 
             <span class="text-long">
-                ホームに戻る
+                Back to home
             </span>
 
             <span class="text-short">
-                ホーム
+                Home
             </span>
         </a>
     </div>
@@ -55,7 +55,7 @@ import Layout from "../../layouts/Layout.astro";
         <header class="reveal" style="animation-delay: 0.1s;">
             <h1>All Works</h1>
             <p class="subtitle">
-                これまでの制作実績一覧
+                A list of my past works
             </p>
         </header>
 
@@ -63,10 +63,10 @@ import Layout from "../../layouts/Layout.astro";
         <section class="reveal" style="animation-delay: 0.2s;">
             <div class="works-grid">
                 <!-- Portfolio Site -->
-                <a href="/" class="work-item" target="_blank" rel="noopener">
+                <a href="/en/" class="work-item" target="_blank" rel="noopener">
                     <h3>Portfolio Website</h3>
                     <p class="work-desc">
-                        マイクロインタラクションやUIの心地よさにこだわって制作したポートフォリオサイト。
+                        A portfolio website designed with a focus on micro-interactions and comfortable UI.
                     </p>
                     <div class="tags">
                         <span class="tag">TypeScript</span>
@@ -84,8 +84,7 @@ import Layout from "../../layouts/Layout.astro";
                 >
                     <h3>Minecraft Mod</h3>
                     <p class="work-desc">
-                        Forge 1.20.1環境での独自Mod開発<br />
-                        新しいアイテムやシステムを実装。
+                        Custom Mod development for Forge 1.20.1. Implemented new items and systems.
                     </p>
                     <div class="tags">
                         <span class="tag">Java</span>
@@ -103,7 +102,7 @@ import Layout from "../../layouts/Layout.astro";
                 >
                     <h3>Custom Discord Bot</h3>
                     <p class="work-desc">
-                        サーバー管理やエンタメ機能を備えた多機能汎用Botの開発と運用。
+                        Developed and operated a versatile Discord bot with server management and entertainment features.
                     </p>
                     <div class="tags">
                         <span class="tag">Node.js</span>
@@ -120,8 +119,7 @@ import Layout from "../../layouts/Layout.astro";
                 >
                     <h3>Pomodoro Timer</h3>
                     <p class="work-desc">
-                        タスク、統計機能付きのポモドーロ<br
-                        />タイマー。
+                        A Pomodoro timer designed to help maintain focus and productivity.
                     </p>
                     <div class="tags">
                         <span class="tag">TypeScript</span>
@@ -138,7 +136,7 @@ import Layout from "../../layouts/Layout.astro";
                 >
                     <h3>QR Maker</h3>
                     <p class="work-desc">
-                        使いやすさとカスタム性にこだわったQRコード生成サービス。
+                        A QR code generator designed with a focus on usability and customization.
                     </p>
                     <div class="tags">
                         <span class="tag">Astro</span>
@@ -155,7 +153,7 @@ import Layout from "../../layouts/Layout.astro";
                 >
                     <h3>Chrome Theme</h3>
                     <p class="work-desc">
-                        目に優しい配色で使いやすいChromeダークテーマ
+                        A user-friendly Chrome dark theme featuring a soothing color palette.
                     </p>
                     <div class="tags">
                         <span class="tag">CSS</span>
@@ -173,7 +171,7 @@ import Layout from "../../layouts/Layout.astro";
                 >
                     <h3>Google Search Night Theme</h3>
                     <p class="work-desc">
-                        Google検索を目に優しいダークテーマに変更する拡張機能。
+                        An extension that changes Google Search to a dark theme resembling the tokyo-night sky.
                     </p>
                     <div class="tags">
                         <span class="tag">Chrome Extension</span>
@@ -190,7 +188,7 @@ import Layout from "../../layouts/Layout.astro";
                 >
                     <h3>No Curseforge Legacy</h3>
                     <p class="work-desc">
-                        旧デザインのCurseForgeを新デザインURLにリダイレクトする拡張機能。
+                        An extension that redirects legacy.curseforge.com to www.curseforge.com.
                     </p>
                     <div class="tags">
                         <span class="tag">Chrome Extension</span>
@@ -202,7 +200,7 @@ import Layout from "../../layouts/Layout.astro";
                 <div class="work-item no-link">
                     <h3>Minecraft Server</h3>
                     <p class="work-desc">
-                        Minecraft Bedrock Editionのサーバーの構築と運用。
+                        Built and managed a Minecraft Bedrock Edition server.
                     </p>
                     <div class="tags">
                         <span class="tag">Minecraft</span>
@@ -215,7 +213,7 @@ import Layout from "../../layouts/Layout.astro";
                 <div class="work-item no-link">
                     <h3>Package Design</h3>
                     <p class="work-desc">
-                        「宇摩のやまじ風」のリニューアルデザイン。
+                        Package design for products.
                     </p>
                     <div class="tags">
                         <span class="tag">Design</span>

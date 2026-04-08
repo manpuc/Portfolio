@@ -401,7 +401,7 @@ body.dark .skill-item {
     background: rgba(255, 255, 255, 0.02);
 }
 
-h4 {
+h3, h4 {
     color: var(--txt-main);
     margin-bottom: 15px;
     font-size: 1.1em;

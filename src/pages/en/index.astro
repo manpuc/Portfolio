@@ -1,10 +1,10 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import Layout from "../../layouts/Layout.astro";
 import { Image } from "astro:assets";
-import avatarImg from "../../public/avatar.webp";
+import avatarImg from "../../../public/avatar.webp";
 ---
 
-<Layout title="manpuc - Portfolio" lang="ja">
+<Layout title="manpuc - Portfolio" lang="en">
     <div class="container">
         <!-- Header -->
         <header class="reveal">
@@ -39,19 +39,16 @@ import avatarImg from "../../public/avatar.webp";
             <div class="profile-text">
                 <ul>
                     <li>
-                        高校商業科情報デザイン類型卒業 /
-                        放送大学教養学部社会と産業コース在籍
+                        Graduated from Commercial High School (Information Design) / Enrolled in The Open University of Japan
                     </li>
                     <li>
-                        ガジェット収集家（スマートウォッチ, スマホ,
-                        イヤホン・ヘッドホン など）
+                        Gadget collector (Smartwatches, Smartphones, Earphones, etc.)
                     </li>
                     <li>
-                        Minecraft Mod開発
-                        (Java/Forge)、Bot制作、Chrome拡張機能制作
+                        Minecraft Modding (Java/Forge), Bot Development, Chrome Extensions
                     </li>
                     <li>
-                        新しい技術やモノづくりが大好きです
+                        I love new technologies and creating things
                     </li>
                 </ul>
             </div>
@@ -83,8 +80,7 @@ import avatarImg from "../../public/avatar.webp";
                         <li>Git, GitHub, pnpm</li>
                         <li>Generative AI Tools</li>
                         <li>
-                            <span class="txt-ja">After Effects（動画編集）</span>
-                            <span class="txt-en">After Effects</span>
+                            After Effects
                         </li>
                     </ul>
                 </div>
@@ -95,7 +91,7 @@ import avatarImg from "../../public/avatar.webp";
         <section id="works" class="reveal">
             <h2>Works</h2>
             <div class="works-grid">
-                <a href="/" class="work-item" target="_blank" rel="noopener">
+                <a href="/en/" class="work-item" target="_blank" rel="noopener">
                     <h3 style="margin-bottom: 5px;">
                         Portfolio Website<span
                             style="font-size: 12px; color: var(--txt-sub);padding-left: 6px;"
@@ -103,7 +99,7 @@ import avatarImg from "../../public/avatar.webp";
                         >
                     </h3>
                     <p style="color: var(--txt-sub); font-size: 0.9em;">
-                        UIの心地よさにこだわったサイト
+                        A website with a focus on cozy UI
                     </p>
                 </a>
                 <a
@@ -114,7 +110,7 @@ import avatarImg from "../../public/avatar.webp";
                 >
                     <h3 style="margin-bottom: 5px;">Minecraft Mod</h3>
                     <p style="color: var(--txt-sub); font-size: 0.9em;">
-                        Forge 1.20.1環境での独自Mod開発。
+                        Custom Mod development for Forge.
                     </p>
                 </a>
                 <a
@@ -125,7 +121,7 @@ import avatarImg from "../../public/avatar.webp";
                 >
                     <h3 style="margin-bottom: 5px;">Custom Discord Bot</h3>
                     <p style="color: var(--txt-sub); font-size: 0.9em;">
-                        守備範囲の広い多機能汎用Bot。
+                        Multi-functional Discord Bot.
                     </p>
                 </a>
                 <a
@@ -136,14 +132,14 @@ import avatarImg from "../../public/avatar.webp";
                 >
                     <h3 style="margin-bottom: 5px;">Chrome Theme</h3>
                     <p style="color: var(--txt-sub); font-size: 0.9em;">
-                        目に優しいChromeダークテーマ
+                        An eye-friendly Chrome dark theme
                     </p>
                 </a>
             </div>
 
             <div class="view-more-container">
-                <a href="/works/" class="btn-view-more">
-                    すべて
+                <a href="/en/works/" class="btn-view-more">
+                    View All
                     <svg
                         viewBox="0 0 24 24"
                         fill="none"

@@ -7,6 +7,13 @@ import purgecss from '@fullhuman/postcss-purgecss';
 
 export default defineConfig({
   site: 'https://manpuc.me',
+  i18n: {
+    defaultLocale: 'ja',
+    locales: ['ja', 'en'],
+    routing: {
+      prefixDefaultLocale: false,
+    },
+  },
   integrations: [react(), critters({
     preload: 'swap',
     pruneSource: false,

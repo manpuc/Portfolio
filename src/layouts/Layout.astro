@@ -8,6 +8,8 @@ export interface Props {
 	description?: string;
 	image?: string;
 	isErrorPage?: boolean;
+	lang?: "ja" | "en";
+	structuredData?: object;
 }
 
 const {
@@ -15,19 +17,64 @@ const {
 	description = "Portfolio site of manpuc, Student & Developer. Minecraft Modding, Web, Bot Development.",
 	image = "/avatar.webp",
 	isErrorPage = false,
+	lang = "ja",
+	structuredData,
 } = Astro.props;
 
 const siteUrl = "https://manpuc.me";
+// Remove trailing slashes and common prefixes to get a clean path for canonicals
+const cleanPath = Astro.url.pathname.replace(/\/$/, "").replace(/^\/en/, "");
 const canonicalURL = new URL(Astro.url.pathname, siteUrl);
 const imageUrl = new URL(image, siteUrl);
+
+// i18n relative paths
+const jaPath = cleanPath === "" ? "/" : cleanPath;
+const enPath = `/en${cleanPath}`;
+
+// Merge default Person structured data with page-specific data
+const defaultPersonData = {
+	"@context": "https://schema.org",
+	"@type": "Person",
+	name: "manpuc",
+	alternateName: ["manpuc", "まんぷく"],
+	url: siteUrl,
+	image: `${siteUrl}/avatar.webp`,
+	sameAs: [
+		"https://github.com/manpuc",
+		"https://twitter.com/manpuccc",
+		"https://modrinth.com/user/manpuc",
+		"https://chromewebstore.google.com/author/manpuc"
+	],
+	jobTitle: lang === "ja" ? "学生 / デベロッパー" : "Student / Developer",
+	description:
+		lang === "ja"
+			? "まんぷく（manpuc）のポートフォリオ。Minecraft Mod制作、Web開発、Bot制作を専門とする学生・デベロッパー。"
+			: "Student and developer specializing in Minecraft Modding, Web Development, and Bot Development.",
+	knowsAbout: [
+		"Minecraft Mod Development",
+		"Web Development",
+		"Astro",
+		"React",
+		"TypeScript",
+		"JavaScript",
+		"Discord Bot Development",
+		"Node.js",
+		"Python"
+	]
+};
+
+const finalStructuredData = structuredData
+	? [defaultPersonData, structuredData]
+	: defaultPersonData;
 ---
 
 <!doctype html>
-<html lang="ja">
+<html lang={lang}>
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+		<link rel="manifest" href="/manifest.json" />
 		<title>{title}</title>
 		<meta name="description" content={description} />
 		<meta name="author" content="manpuc" />
@@ -38,8 +85,11 @@ const imageUrl = new URL(image, siteUrl);
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
 		<meta property="og:image" content={imageUrl} />
-		<meta property="og:site_name" content="manpuc - Portfolio" />
-		<meta property="og:locale" content="ja_JP" />
+		<meta property="og:site_name" content="manpuc" />
+		<meta
+			property="og:locale"
+			content={lang === "ja" ? "ja_JP" : "en_US"}
+		/>
 
 		<meta name="theme-color" content="#1A1B26" />
 
@@ -49,16 +99,27 @@ const imageUrl = new URL(image, siteUrl);
 		<meta name="twitter:title" content={title} />
 		<meta name="twitter:description" content={description} />
 		<meta name="twitter:image" content={imageUrl} />
+
+		<!-- Hreflang Tags -->
+		<link rel="alternate" hreflang="ja" href={new URL(jaPath, siteUrl)} />
+		<link rel="alternate" hreflang="en" href={new URL(enPath, siteUrl)} />
+		<link
+			rel="alternate"
+			hreflang="x-default"
+			href={new URL(jaPath, siteUrl)}
+		/>
+
 		<!-- ▼ SEO ▼ -->
 		<meta
 			name="keywords"
-			content="manpuc,manpuc.me,ポートフォリオ,エンジニア,学生,Minecraft Mod,Web制作,Discord Bot"
+			content="manpuc,まんぷく,manpuc.me,ポートフォリオ,エンジニア,学生,Minecraft Mod,Web制作,Discord Bot"
 		/>
 		<link rel="canonical" href={canonicalURL} />
 		<link rel="dns-prefetch" href="https://fonts.googleapis.com" />
 		<link rel="dns-prefetch" href="https://fonts.gstatic.com" />
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
 		<!-- Async font loading for performance and caching -->
 		<link
 			rel="stylesheet"
@@ -67,31 +128,23 @@ const imageUrl = new URL(image, siteUrl);
 			onload="this.media='all'"
 		/>
 
-
-
-
 		<link rel="sitemap" href="/sitemap-index.xml" />
 		<!-- ▲▲▲▲▲▲▲ -->
-		<link rel="preload" href="/avatar.webp" as="image" fetchpriority="high" />
+		<link
+			rel="preload"
+			href="/avatar.webp"
+			as="image"
+			fetchpriority="high"
+		/>
+
 		<!-- JSON-LD 構造化データ -->
-		<script type="application/ld+json" set:html={JSON.stringify({
-			"@context": "https://schema.org",
-			"@type": "Person",
-			"name": "manpuc",
-			"alternateName": "manpuc",
-			"url": "https://manpuc.me",
-			"image": "https://manpuc.me/avatar.webp",
-			"sameAs": [
-				"https://github.com/manpuc",
-				"https://twitter.com/manpuccc"
-			],
-			"jobTitle": "Student / Developer",
-			"description": "Student and developer specializing in Minecraft Modding, Web Development, and Bot Development."
-		})} />
-		<!-- <link rel="preconnect" href="/" /> -->
+		<script
+			type="application/ld+json"
+			set:html={JSON.stringify(finalStructuredData)}
+		/>
 	</head>
 
-	<body class="light">
+	<body class={lang === "en" ? "light en-mode" : "light"}>
 		<!-- SVG Filter -->
 		<svg width="0" height="0" style="position: absolute;">
 			<defs>
@@ -169,8 +222,9 @@ const imageUrl = new URL(image, siteUrl);
 			</div>
 		</button>
 
-		<!-- Language Toggle -->
-		<button
+		<!-- Language Toggle (Now a Link for SEO) -->
+		<a
+			href={lang === "ja" ? enPath : jaPath}
 			class="theme-toggle"
 			id="langToggle"
 			aria-label="Toggle Language"
@@ -204,7 +258,7 @@ const imageUrl = new URL(image, siteUrl);
 					>
 				</svg>
 			</div>
-		</button>
+		</a>
 
 		<!-- Contact FAB -->
 		<a
@@ -373,34 +427,18 @@ const imageUrl = new URL(image, siteUrl);
 				typeof navigator !== "undefined"
 			) {
 				// ==========================================
-				// 1. 言語切り替え
+				// 1. 言語切り替え (URL遷移版)
 				// ==========================================
-				const langToggleBtn = document.getElementById("langToggle");
+				// Note: リンクとして実装したため、JSでの切り替えロジックは最小限（初期読み込み時のクラス調整のみ）
 				const savedLang = localStorage.getItem("portfolio-lang");
+				const currentPath = window.location.pathname;
 
-				// ブラウザの言語を取得 (例: "ja", "ja-JP", "en-US" など)
-				const browserLang =
-					navigator.language || navigator.userLanguage || "en";
-				const isNotJapanese = !browserLang
-					.toLowerCase()
-					.startsWith("ja");
-
-				if (savedLang === "en" || (!savedLang && isNotJapanese)) {
-					document.body.classList.add("en-mode");
-					document.documentElement.lang = "en";
-				}
-
-				if (langToggleBtn) {
-					langToggleBtn.addEventListener("click", () => {
-						document.body.classList.toggle("en-mode");
-						if (document.body.classList.contains("en-mode")) {
-							localStorage.setItem("portfolio-lang", "en");
-							document.documentElement.lang = "en";
-						} else {
-							localStorage.setItem("portfolio-lang", "ja");
-							document.documentElement.lang = "ja";
-						}
-					});
+				// 初回アクセス時などのリダイレクト判定は行わず、ユーザーの選択を尊重する
+				// ただし、明示的に切り替えた場合はlocalStorageを更新する
+				if (currentPath.startsWith("/en")) {
+					localStorage.setItem("portfolio-lang", "en");
+				} else {
+					localStorage.setItem("portfolio-lang", "ja");
 				}
 
 				// ==========================================
