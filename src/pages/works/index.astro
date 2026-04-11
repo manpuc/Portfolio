@@ -9,20 +9,20 @@ import Layout from "../../layouts/Layout.astro";
     structuredData={{
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
-        "itemListElement": [
+        itemListElement: [
             {
                 "@type": "ListItem",
-                "position": 1,
-                "name": "Home",
-                "item": "https://manpuc.me/"
+                position: 1,
+                name: "Home",
+                item: "https://manpuc.me/",
             },
             {
                 "@type": "ListItem",
-                "position": 2,
-                "name": "Works",
-                "item": "https://manpuc.me/works"
-            }
-        ]
+                position: 2,
+                name: "Works",
+                item: "https://manpuc.me/works",
+            },
+        ],
     }}
 >
     <div class="back-nav">
@@ -40,13 +40,9 @@ import Layout from "../../layouts/Layout.astro";
                 <polyline points="12 19 5 12 12 5"></polyline>
             </svg>
 
-            <span class="text-long">
-                ホームに戻る
-            </span>
+            <span class="text-long"> ホームに戻る </span>
 
-            <span class="text-short">
-                ホーム
-            </span>
+            <span class="text-short"> ホーム </span>
         </a>
     </div>
 
@@ -54,9 +50,7 @@ import Layout from "../../layouts/Layout.astro";
         <!-- Header -->
         <header class="reveal" style="animation-delay: 0.1s;">
             <h1>All Works</h1>
-            <p class="subtitle">
-                これまでの制作実績一覧
-            </p>
+            <p class="subtitle">これまでの制作実績一覧</p>
         </header>
 
         <!-- All Works Section -->
@@ -120,8 +114,7 @@ import Layout from "../../layouts/Layout.astro";
                 >
                     <h3>Pomodoro Timer</h3>
                     <p class="work-desc">
-                        タスク、統計機能付きのポモドーロ<br
-                        />タイマー。
+                        タスク、統計機能付きのポモドーロ<br />タイマー。
                     </p>
                     <div class="tags">
                         <span class="tag">TypeScript</span>
@@ -139,6 +132,42 @@ import Layout from "../../layouts/Layout.astro";
                     <h3>QR Maker</h3>
                     <p class="work-desc">
                         使いやすさとカスタム性にこだわったQRコード生成サービス。
+                    </p>
+                    <div class="tags">
+                        <span class="tag">PWA</span>
+                        <span class="tag">Astro</span>
+                        <span class="tag">TypeScript</span>
+                    </div>
+                </a>
+
+                <!-- 時計アプリ -->
+                <a
+                    href="https://ambient.manpuc.me/"
+                    class="work-item"
+                    target="_blank"
+                    rel="noopener"
+                >
+                    <h3>Ambient Clock</h3>
+                    <p class="work-desc">
+                        ミニマルで美しいデジタル時計アプリ。
+                    </p>
+                    <div class="tags">
+                        <span class="tag">API</span>
+                        <span class="tag">PWA</span>
+                        <span class="tag">TypeScript</span>
+                    </div>
+                </a>
+
+                <!-- テキスト変換 -->
+                <a
+                    href="https://text.manpuc.me/"
+                    class="work-item"
+                    target="_blank"
+                    rel="noopener"
+                >
+                    <h3>Text Flow</h3>
+                    <p class="work-desc">
+                        汎用性と操作性にこだわったテキスト変換サービス。
                     </p>
                     <div class="tags">
                         <span class="tag">Astro</span>

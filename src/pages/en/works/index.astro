@@ -9,20 +9,20 @@ import Layout from "../../../layouts/Layout.astro";
     structuredData={{
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
-        "itemListElement": [
+        itemListElement: [
             {
                 "@type": "ListItem",
-                "position": 1,
-                "name": "Home",
-                "item": "https://manpuc.me/en/"
+                position: 1,
+                name: "Home",
+                item: "https://manpuc.me/en/",
             },
             {
                 "@type": "ListItem",
-                "position": 2,
-                "name": "Works",
-                "item": "https://manpuc.me/en/works"
-            }
-        ]
+                position: 2,
+                name: "Works",
+                item: "https://manpuc.me/en/works",
+            },
+        ],
     }}
 >
     <div class="back-nav">
@@ -40,13 +40,9 @@ import Layout from "../../../layouts/Layout.astro";
                 <polyline points="12 19 5 12 12 5"></polyline>
             </svg>
 
-            <span class="text-long">
-                Back to home
-            </span>
+            <span class="text-long"> Back to home </span>
 
-            <span class="text-short">
-                Home
-            </span>
+            <span class="text-short"> Home </span>
         </a>
     </div>
 
@@ -54,9 +50,7 @@ import Layout from "../../../layouts/Layout.astro";
         <!-- Header -->
         <header class="reveal" style="animation-delay: 0.1s;">
             <h1>All Works</h1>
-            <p class="subtitle">
-                A list of my past works
-            </p>
+            <p class="subtitle">A list of my past works</p>
         </header>
 
         <!-- All Works Section -->
@@ -66,7 +60,8 @@ import Layout from "../../../layouts/Layout.astro";
                 <a href="/en/" class="work-item" target="_blank" rel="noopener">
                     <h3>Portfolio Website</h3>
                     <p class="work-desc">
-                        A portfolio website designed with a focus on micro-interactions and comfortable UI.
+                        A portfolio website designed with a focus on
+                        micro-interactions and comfortable UI.
                     </p>
                     <div class="tags">
                         <span class="tag">TypeScript</span>
@@ -84,7 +79,8 @@ import Layout from "../../../layouts/Layout.astro";
                 >
                     <h3>Minecraft Mod</h3>
                     <p class="work-desc">
-                        Custom Mod development for Forge 1.20.1. Implemented new items and systems.
+                        Custom Mod development for Forge 1.20.1. Implemented new
+                        items and systems.
                     </p>
                     <div class="tags">
                         <span class="tag">Java</span>
@@ -102,7 +98,8 @@ import Layout from "../../../layouts/Layout.astro";
                 >
                     <h3>Custom Discord Bot</h3>
                     <p class="work-desc">
-                        Developed and operated a versatile Discord bot with server management and entertainment features.
+                        Developed and operated a versatile Discord bot with
+                        server management and entertainment features.
                     </p>
                     <div class="tags">
                         <span class="tag">Node.js</span>
@@ -119,7 +116,8 @@ import Layout from "../../../layouts/Layout.astro";
                 >
                     <h3>Pomodoro Timer</h3>
                     <p class="work-desc">
-                        A Pomodoro timer designed to help maintain focus and productivity.
+                        A Pomodoro timer designed to help maintain focus and
+                        productivity.
                     </p>
                     <div class="tags">
                         <span class="tag">TypeScript</span>
@@ -136,7 +134,44 @@ import Layout from "../../../layouts/Layout.astro";
                 >
                     <h3>QR Maker</h3>
                     <p class="work-desc">
-                        A QR code generator designed with a focus on usability and customization.
+                        A QR code generator designed with a focus on usability
+                        and customization.
+                    </p>
+                    <div class="tags">
+                        <span class="tag">Astro</span>
+                        <span class="tag">TypeScript</span>
+                    </div>
+                </a>
+
+                <!-- 時計アプリ -->
+                <a
+                    href="https://ambient.manpuc.me/"
+                    class="work-item"
+                    target="_blank"
+                    rel="noopener"
+                >
+                    <h3>Ambient Clock</h3>
+                    <p class="work-desc">
+                        A minimal and beautiful digital clock app.
+                    </p>
+                    <div class="tags">
+                        <span class="tag">API</span>
+                        <span class="tag">PWA</span>
+                        <span class="tag">TypeScript</span>
+                    </div>
+                </a>
+
+                <!-- テキスト変換 -->
+                <a
+                    href="https://text.manpuc.me/"
+                    class="work-item"
+                    target="_blank"
+                    rel="noopener"
+                >
+                    <h3>Text Flow</h3>
+                    <p class="work-desc">
+                        A text conversion service focused on versatility and
+                        usability.
                     </p>
                     <div class="tags">
                         <span class="tag">Astro</span>
@@ -153,7 +188,8 @@ import Layout from "../../../layouts/Layout.astro";
                 >
                     <h3>Chrome Theme</h3>
                     <p class="work-desc">
-                        A user-friendly Chrome dark theme featuring a soothing color palette.
+                        A user-friendly Chrome dark theme featuring a soothing
+                        color palette.
                     </p>
                     <div class="tags">
                         <span class="tag">CSS</span>
@@ -171,7 +207,8 @@ import Layout from "../../../layouts/Layout.astro";
                 >
                     <h3>Google Search Night Theme</h3>
                     <p class="work-desc">
-                        An extension that changes Google Search to a dark theme resembling the tokyo-night sky.
+                        An extension that changes Google Search to a dark theme
+                        resembling the tokyo-night sky.
                     </p>
                     <div class="tags">
                         <span class="tag">Chrome Extension</span>
@@ -188,7 +225,8 @@ import Layout from "../../../layouts/Layout.astro";
                 >
                     <h3>No Curseforge Legacy</h3>
                     <p class="work-desc">
-                        An extension that redirects legacy.curseforge.com to www.curseforge.com.
+                        An extension that redirects legacy.curseforge.com to
+                        www.curseforge.com.
                     </p>
                     <div class="tags">
                         <span class="tag">Chrome Extension</span>
@@ -212,9 +250,7 @@ import Layout from "../../../layouts/Layout.astro";
                 <!-- パッケージデザイン -->
                 <div class="work-item no-link">
                     <h3>Package Design</h3>
-                    <p class="work-desc">
-                        Package design for products.
-                    </p>
+                    <p class="work-desc">Package design for products.</p>
                     <div class="tags">
                         <span class="tag">Design</span>
                         <span class="tag">Illustrator</span>
