@@ -1,0 +1,62 @@
+---
+export interface Props {
+    title: string;
+    description: string;
+    tags?: string[];
+    href?: string;
+    class?: string;
+    style?: string;
+    titleStyle?: string;
+    descStyle?: string;
+}
+
+const {
+    title,
+    description,
+    tags = [],
+    href,
+    class: className,
+    style,
+    titleStyle,
+    descStyle,
+} = Astro.props;
+const Element = href ? "a" : "div";
+---
+
+<Element
+    href={href}
+    class:list={["work-item", { "no-link": !href }, className]}
+    style={style}
+    target={href ? "_blank" : undefined}
+    rel={href ? "noopener" : undefined}
+>
+    <h3 style={titleStyle}>{title}</h3>
+    <p class="work-desc" set:html={description} style={descStyle} />
+    {
+        tags.length > 0 && (
+            <div class="tags">
+                {tags.map((tag) => (
+                    <span class="tag">{tag}</span>
+                ))}
+            </div>
+        )
+    }
+</Element>
+
+<style>
+    /* 共通のスタイルは global.css にあると仮定しますが、
+       個別に必要な微調整があればここに記述します。 */
+    .work-item {
+        display: block;
+        text-decoration: none;
+        transition:
+            transform 0.3s ease,
+            box-shadow 0.3s ease;
+    }
+    .no-link {
+        cursor: default;
+    }
+    .work-desc {
+        line-height: 1.6;
+    }
+</style>

@@ -2,6 +2,10 @@
 import Layout from "../layouts/Layout.astro";
 import { Image } from "astro:assets";
 import avatarImg from "../../public/avatar.webp";
+import WorkCard from "../components/WorkCard.astro";
+import { works } from "../data/works";
+
+const featuredWorks = works.filter(w => ["portfolio", "minecraft-mod", "discord-bot", "chrome-theme"].includes(w.id));
 ---
 
 <Layout title="manpuc - Portfolio" lang="ja">
@@ -95,50 +99,15 @@ import avatarImg from "../../public/avatar.webp";
         <section id="works" class="reveal">
             <h2>Works</h2>
             <div class="works-grid">
-                <a href="/" class="work-item" target="_blank" rel="noopener">
-                    <h3 style="margin-bottom: 5px;">
-                        Portfolio Website<span
-                            style="font-size: 12px; color: var(--txt-sub);padding-left: 6px;"
-                            >This Site</span
-                        >
-                    </h3>
-                    <p style="color: var(--txt-sub); font-size: 0.9em;">
-                        UIの心地よさにこだわったサイト
-                    </p>
-                </a>
-                <a
-                    href="https://modrinth.com/user/manpuc"
-                    class="work-item"
-                    target="_blank"
-                    rel="noopener"
-                >
-                    <h3 style="margin-bottom: 5px;">Minecraft Mod</h3>
-                    <p style="color: var(--txt-sub); font-size: 0.9em;">
-                        Forge 1.20.1環境での独自Mod開発。
-                    </p>
-                </a>
-                <a
-                    href="https://github.com/manpuc/MBot"
-                    class="work-item"
-                    target="_blank"
-                    rel="noopener"
-                >
-                    <h3 style="margin-bottom: 5px;">Custom Discord Bot</h3>
-                    <p style="color: var(--txt-sub); font-size: 0.9em;">
-                        守備範囲の広い多機能汎用Bot。
-                    </p>
-                </a>
-                <a
-                    href="https://chromewebstore.google.com/detail/ganlcelmnoaidpmaegcmhecolonfmffk?utm_source=item-share-cb"
-                    class="work-item"
-                    target="_blank"
-                    rel="noopener"
-                >
-                    <h3 style="margin-bottom: 5px;">Chrome Theme</h3>
-                    <p style="color: var(--txt-sub); font-size: 0.9em;">
-                        目に優しいChromeダークテーマ
-                    </p>
-                </a>
+                {featuredWorks.map(work => (
+                    <WorkCard 
+                        title={work.title.ja}
+                        description={work.description.ja}
+                        href={work.href}
+                        titleStyle="margin-bottom: 5px;"
+                        descStyle="color: var(--txt-sub); font-size: 0.9em;"
+                    />
+                ))}
             </div>
 
             <div class="view-more-container">
@@ -159,6 +128,7 @@ import avatarImg from "../../public/avatar.webp";
                 </a>
             </div>
         </section>
+
 
         <!-- Contact Section -->
         <section id="contact" class="reveal">

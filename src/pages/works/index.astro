@@ -1,5 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import WorkCard from "../../components/WorkCard.astro";
+import { works } from "../../data/works";
 ---
 
 <Layout
@@ -56,201 +58,15 @@ import Layout from "../../layouts/Layout.astro";
         <!-- All Works Section -->
         <section class="reveal" style="animation-delay: 0.2s;">
             <div class="works-grid">
-                <!-- Portfolio Site -->
-                <a href="/" class="work-item" target="_blank" rel="noopener">
-                    <h3>Portfolio Website</h3>
-                    <p class="work-desc">
-                        マイクロインタラクションやUIの心地よさにこだわって制作したポートフォリオサイト。
-                    </p>
-                    <div class="tags">
-                        <span class="tag">TypeScript</span>
-                        <span class="tag">Astro</span>
-                        <span class="tag">CSS</span>
-                    </div>
-                </a>
-
-                <!-- Minecraft MOD -->
-                <a
-                    href="https://modrinth.com/user/manpuc"
-                    class="work-item"
-                    target="_blank"
-                    rel="noopener"
-                >
-                    <h3>Minecraft Mod</h3>
-                    <p class="work-desc">
-                        Forge 1.20.1環境での独自Mod開発<br />
-                        新しいアイテムやシステムを実装。
-                    </p>
-                    <div class="tags">
-                        <span class="tag">Java</span>
-                        <span class="tag">Forge</span>
-                        <span class="tag">Minecraft</span>
-                    </div>
-                </a>
-
-                <!-- Discord BOT -->
-                <a
-                    href="https://github.com/manpuc/MBot"
-                    class="work-item"
-                    target="_blank"
-                    rel="noopener"
-                >
-                    <h3>Custom Discord Bot</h3>
-                    <p class="work-desc">
-                        サーバー管理やエンタメ機能を備えた多機能汎用Botの開発と運用。
-                    </p>
-                    <div class="tags">
-                        <span class="tag">Node.js</span>
-                        <span class="tag">API</span>
-                    </div>
-                </a>
-
-                <!-- ポモドーロタイマー -->
-                <a
-                    href="https://pomodoro.manpuc.me/"
-                    class="work-item"
-                    target="_blank"
-                    rel="noopener"
-                >
-                    <h3>Pomodoro Timer</h3>
-                    <p class="work-desc">
-                        タスク、統計機能付きのポモドーロ<br />タイマー。
-                    </p>
-                    <div class="tags">
-                        <span class="tag">TypeScript</span>
-                        <span class="tag">Astro</span>
-                    </div>
-                </a>
-
-                <!-- QRメーカー -->
-                <a
-                    href="https://qr.manpuc.me/"
-                    class="work-item"
-                    target="_blank"
-                    rel="noopener"
-                >
-                    <h3>QR Maker</h3>
-                    <p class="work-desc">
-                        使いやすさとカスタム性にこだわったQRコード生成サービス。
-                    </p>
-                    <div class="tags">
-                        <span class="tag">PWA</span>
-                        <span class="tag">Astro</span>
-                        <span class="tag">TypeScript</span>
-                    </div>
-                </a>
-
-                <!-- 時計アプリ -->
-                <a
-                    href="https://ambient.manpuc.me/"
-                    class="work-item"
-                    target="_blank"
-                    rel="noopener"
-                >
-                    <h3>Ambient Clock</h3>
-                    <p class="work-desc">
-                        ミニマルで美しいデジタル時計アプリ。
-                    </p>
-                    <div class="tags">
-                        <span class="tag">API</span>
-                        <span class="tag">PWA</span>
-                        <span class="tag">TypeScript</span>
-                    </div>
-                </a>
-
-                <!-- テキスト変換 -->
-                <a
-                    href="https://text.manpuc.me/"
-                    class="work-item"
-                    target="_blank"
-                    rel="noopener"
-                >
-                    <h3>Text Flow</h3>
-                    <p class="work-desc">
-                        汎用性と操作性にこだわったテキスト変換サービス。
-                    </p>
-                    <div class="tags">
-                        <span class="tag">Astro</span>
-                        <span class="tag">TypeScript</span>
-                    </div>
-                </a>
-
-                <!-- Chrome Theme -->
-                <a
-                    href="https://chromewebstore.google.com/detail/ganlcelmnoaidpmaegcmhecolonfmffk?utm_source=item-share-cb"
-                    class="work-item"
-                    target="_blank"
-                    rel="noopener"
-                >
-                    <h3>Chrome Theme</h3>
-                    <p class="work-desc">
-                        目に優しい配色で使いやすいChromeダークテーマ
-                    </p>
-                    <div class="tags">
-                        <span class="tag">CSS</span>
-                        <span class="tag">JSON</span>
-                        <span class="tag">Theme</span>
-                    </div>
-                </a>
-
-                <!-- Chrome 拡張機能 -->
-                <a
-                    href="https://chromewebstore.google.com/detail/bdlpogibdkglpceadpplahmjneanbpom?utm_source=item-share-cb"
-                    class="work-item"
-                    target="_blank"
-                    rel="noopener"
-                >
-                    <h3>Google Search Night Theme</h3>
-                    <p class="work-desc">
-                        Google検索を目に優しいダークテーマに変更する拡張機能。
-                    </p>
-                    <div class="tags">
-                        <span class="tag">Chrome Extension</span>
-                        <span class="tag">CSS</span>
-                    </div>
-                </a>
-
-                <!-- Chrome 拡張機能 -->
-                <a
-                    href="https://chromewebstore.google.com/detail/diogckmiabncebebknnoibjapaldcjgb?utm_source=item-share-cb"
-                    class="work-item"
-                    target="_blank"
-                    rel="noopener"
-                >
-                    <h3>No Curseforge Legacy</h3>
-                    <p class="work-desc">
-                        旧デザインのCurseForgeを新デザインURLにリダイレクトする拡張機能。
-                    </p>
-                    <div class="tags">
-                        <span class="tag">Chrome Extension</span>
-                        <span class="tag">JavaScript</span>
-                    </div>
-                </a>
-
-                <!-- Minecraft Bedrock Server -->
-                <div class="work-item no-link">
-                    <h3>Minecraft Server</h3>
-                    <p class="work-desc">
-                        Minecraft Bedrock Editionのサーバーの構築と運用。
-                    </p>
-                    <div class="tags">
-                        <span class="tag">Minecraft</span>
-                        <span class="tag">Server</span>
-                        <span class="tag">VPS</span>
-                    </div>
-                </div>
-
-                <!-- パッケージデザイン -->
-                <div class="work-item no-link">
-                    <h3>Package Design</h3>
-                    <p class="work-desc">
-                        「宇摩のやまじ風」のリニューアルデザイン。
-                    </p>
-                    <div class="tags">
-                        <span class="tag">Design</span>
-                        <span class="tag">Illustrator</span>
-                    </div>
-                </div>
+                {works.map((work, index) => (
+                    <WorkCard 
+                        title={work.title.ja}
+                        description={work.description.ja}
+                        tags={work.tags}
+                        href={work.href}
+                        style={`view-transition-name: work-${index + 1}`}
+                    />
+                ))}
             </div>
         </section>
     </div>
@@ -363,22 +179,6 @@ import Layout from "../../layouts/Layout.astro";
     }
 
     /* --- Works specifics (scoping for transitions) --- */
-    .work-item:nth-child(1) {
-        view-transition-name: work-1;
-    }
-    .work-item:nth-child(2) {
-        view-transition-name: work-2;
-    }
-    .work-item:nth-child(3) {
-        view-transition-name: work-3;
-    }
-    .work-item:nth-child(4) {
-        view-transition-name: work-4;
-    }
-    .work-item:nth-child(5) {
-        view-transition-name: work-5;
-    }
-
     ::view-transition-group(box-backbtn),
     ::view-transition-group(box-header),
     ::view-transition-group(box-works),
@@ -413,3 +213,4 @@ import Layout from "../../layouts/Layout.astro";
         animation: none;
     }
 </style>
+
