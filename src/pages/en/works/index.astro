@@ -2,30 +2,52 @@
 import Layout from "../../../layouts/Layout.astro";
 import WorkCard from "../../../components/WorkCard.astro";
 import { works } from "../../../data/works";
+
+const softwareItems = works.map((work, index) => ({
+    "@type": "ListItem",
+    "position": index + 1,
+    "item": {
+        "@type": "SoftwareApplication",
+        "name": work.title.en,
+        "description": work.description.en.replace(/<br \/>/g, " "),
+        "applicationCategory": work.category || "DeveloperApplication",
+        "operatingSystem": work.os || "Cross-platform",
+        "url": work.href || `https://manpuc.me/en/works#${work.id}`
+    }
+}));
 ---
 
 <Layout
-    title="Works - manpuc"
-    description="A list of works by manpuc: Minecraft Mod, Discord Bot, Chrome Extension, Web Development."
+    title="Works Gallery (Minecraft Mod / Discord Bot) - manpuc"
+    description="A collection of past projects by manpuc, including Minecraft Forge mods, multi-functional Discord bots, Chrome extensions, and web development."
     lang="en"
-    structuredData={{
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        itemListElement: [
-            {
-                "@type": "ListItem",
-                position: 1,
-                name: "Home",
-                item: "https://manpuc.me/en/",
-            },
-            {
-                "@type": "ListItem",
-                position: 2,
-                name: "Works",
-                item: "https://manpuc.me/en/works",
-            },
-        ],
-    }}
+    structuredData={[
+        {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Home",
+                    "item": "https://manpuc.me/en/",
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Works",
+                    "item": "https://manpuc.me/en/works",
+                },
+            ],
+        },
+        {
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            "name": "Works by manpuc",
+            "numberOfItems": works.length,
+            "itemListElement": softwareItems
+        }
+    ]}
 >
     <div class="back-nav">
         <a href="/en/" class="back-btn" aria-label="Back to home">

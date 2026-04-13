@@ -13,8 +13,8 @@ export interface Props {
 }
 
 const {
-	title = "manpuc - Portfolio",
-	description = "Portfolio site of manpuc, Student & Developer. Minecraft Modding, Web, Bot Development.",
+	title = "manpuc | Student Developer & UI/UX Designer",
+	description = "まんぷく（manpuc）のポートフォリオ。Minecraft Mod制作、Web開発、Discord Bot制作を専門とする学生・デベロッパーの制作実績を公開中。",
 	image = "/avatar.webp",
 	isErrorPage = false,
 	lang = "ja",
@@ -43,7 +43,7 @@ const defaultPersonData = {
 		"https://github.com/manpuc",
 		"https://twitter.com/manpuccc",
 		"https://modrinth.com/user/manpuc",
-		"https://chromewebstore.google.com/author/manpuc"
+		"https://chromewebstore.google.com/author/manpuc",
 	],
 	jobTitle: lang === "ja" ? "学生 / デベロッパー" : "Student / Developer",
 	description:
@@ -59,13 +59,15 @@ const defaultPersonData = {
 		"JavaScript",
 		"Discord Bot Development",
 		"Node.js",
-		"Python"
-	]
+		"Python",
+	],
 };
 
-const finalStructuredData = structuredData
-	? [defaultPersonData, structuredData]
-	: defaultPersonData;
+const finalStructuredData = Array.isArray(structuredData)
+	? [defaultPersonData, ...structuredData]
+	: structuredData
+		? [defaultPersonData, structuredData]
+		: defaultPersonData;
 ---
 
 <!doctype html>
@@ -112,7 +114,7 @@ const finalStructuredData = structuredData
 		<!-- ▼ SEO ▼ -->
 		<meta
 			name="keywords"
-			content="manpuc,まんぷく,manpuc.me,ポートフォリオ,エンジニア,学生,Minecraft Mod,Web制作,Discord Bot"
+			content="manpuc,まんぷく,ポートフォリオ,エンジニア,Minecraft Mod 制作依頼,Web制作,Discord Bot 開発,Java,Astro,TypeScript"
 		/>
 		<link rel="canonical" href={canonicalURL} />
 		<link rel="dns-prefetch" href="https://fonts.googleapis.com" />
@@ -227,7 +229,9 @@ const finalStructuredData = structuredData
 			href={lang === "ja" ? enPath : jaPath}
 			class="theme-toggle"
 			id="langToggle"
-			aria-label={lang === "ja" ? "Switch to English" : "日本語に切り替え"}
+			aria-label={lang === "ja"
+				? "Switch to English"
+				: "日本語に切り替え"}
 			style="right: 110px;"
 		>
 			<div class="icon-container">

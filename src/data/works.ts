@@ -10,6 +10,8 @@ export interface Work {
     };
     tags: string[];
     href?: string;
+    category?: string;
+    os?: string;
 }
 
 export const works: Work[] = [
@@ -37,7 +39,9 @@ export const works: Work[] = [
             en: "Development of original mods for Forge 1.20.1 environment.<br />Implementing new items and systems."
         },
         tags: ["Java", "Forge", "Minecraft"],
-        href: "https://modrinth.com/user/manpuc"
+        href: "https://modrinth.com/user/manpuc",
+        category: "GameApplication",
+        os: "Windows, macOS, Linux"
     },
     {
         id: "discord-bot",
@@ -50,7 +54,9 @@ export const works: Work[] = [
             en: "Development and operation of a multi-functional general-purpose bot with server management and entertainment features."
         },
         tags: ["Node.js", "API"],
-        href: "https://github.com/manpuc/MBot"
+        href: "https://github.com/manpuc/MBot",
+        category: "UtilitiesApplication",
+        os: "Cross-platform"
     },
     {
         id: "pomodoro",
