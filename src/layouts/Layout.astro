@@ -148,8 +148,10 @@ const finalStructuredData = Array.isArray(structuredData)
 	</head>
 
 	<body class={lang === "en" ? "light en-mode" : "light"}>
-		<GrainientBackground client:only="react" className="" />
-		<!-- SVG Filter -->
+		<GrainientBackground client:only="react" className="bg-fixed" />
+		
+		<div class="page-wrapper">
+			<!-- SVG Filter -->
 		<svg width="0" height="0" style="position: absolute;">
 			<defs>
 				<filter
@@ -413,7 +415,8 @@ const finalStructuredData = Array.isArray(structuredData)
 			<div class="footer-bottom">
 				<p>&copy; 2026 manpuc. All Rights Reserved.</p>
 			</div>
-		</footer>
+			</footer>
+		</div>
 
 		<script>
 			if (
