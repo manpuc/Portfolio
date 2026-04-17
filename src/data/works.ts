@@ -124,6 +124,19 @@ export const works: Work[] = [
         href: "https://chromewebstore.google.com/detail/ganlcelmnoaidpmaegcmhecolonfmffk?utm_source=item-share-cb"
     },
     {
+        id: "CharView",
+        title: {
+            ja: "CharView",
+            en: "CharView"
+        },
+        description: {
+            ja: "Google Formsの入力欄の右下に文字数をリアルタイム表示するChrome拡張機能",
+            en: "Chrome extension to display character count in real-time for Google Forms input fields."
+        },
+        tags: ["CSS", "JSON", "Theme"],
+        href: "https://chromewebstore.google.com/detail/lgiilinkfchechjoaeojckghoamifkgd?utm_source=item-share-cb"
+    },
+    {
         id: "google-search-night",
         title: {
             ja: "Google Search Night Theme",

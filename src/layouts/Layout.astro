@@ -2,6 +2,7 @@
 import "../styles/global.css";
 import { Image } from "astro:assets";
 import avatarImg from "../../public/avatar.webp";
+import GrainientBackground from "../components/GrainientBackground.jsx";
 
 export interface Props {
 	title?: string;
@@ -147,6 +148,7 @@ const finalStructuredData = Array.isArray(structuredData)
 	</head>
 
 	<body class={lang === "en" ? "light en-mode" : "light"}>
+		<GrainientBackground client:only="react" className="" />
 		<!-- SVG Filter -->
 		<svg width="0" height="0" style="position: absolute;">
 			<defs>
@@ -174,18 +176,6 @@ const finalStructuredData = Array.isArray(structuredData)
 				</filter>
 			</defs>
 		</svg>
-
-		<div class="bg-blob"></div>
-		<div class="bg-blob2"></div>
-		<div class="bg-blob3"></div>
-
-		<div class="bg-particles">
-			<div class="particle p-1"></div>
-			<div class="particle p-2"></div>
-			<div class="particle p-3"></div>
-			<div class="particle p-4"></div>
-			<div class="particle p-5"></div>
-		</div>
 
 		<!-- Theme Toggle -->
 		<button class="theme-toggle" id="themeToggle" aria-label="Toggle Theme">
@@ -340,12 +330,7 @@ const finalStructuredData = Array.isArray(structuredData)
 								class="txt-en">About</span
 							></a
 						>
-						<a href="/#skills"
-							><span class="txt-ja">スキル</span><span
-								class="txt-en">Skills</span
-							></a
-						>
-						<a href="/#works"
+						<a href="/works/"
 							><span class="txt-ja">実績</span><span
 								class="txt-en">Works</span
 							></a
@@ -353,6 +338,11 @@ const finalStructuredData = Array.isArray(structuredData)
 						<a href="/#contact"
 							><span class="txt-ja">お問い合わせ</span><span
 								class="txt-en">Contact</span
+							></a
+						>
+						<a href={lang === "ja" ? "/terms/" : "/en/terms/"}
+							><span class="txt-ja">利用規約</span><span
+								class="txt-en">Terms</span
 							></a
 						>
 					</div>
@@ -501,22 +491,32 @@ const finalStructuredData = Array.isArray(structuredData)
 					"rand-shake",
 					"rand-pop",
 				];
-				document.querySelectorAll(".contact-links a").forEach((btn) => {
-					const icon = btn.querySelector(".contact-icon");
-					if (!icon) return;
-					btn.addEventListener("mouseenter", function () {
-						animClasses.forEach((c) => icon.classList.remove(c));
-						void icon.offsetWidth;
-						const randomAnim =
-							animClasses[
-								Math.floor(Math.random() * animClasses.length)
-							];
-						icon.classList.add(randomAnim);
+				// Target all contact buttons and FABs
+				document.querySelectorAll(".contact-links a")
+					.forEach((btn) => {
+						// Handle cases where the class is on the 'a' tag or the container
+						const icon = btn.querySelector("svg");
+						if (!icon) return;
+
+						btn.addEventListener("mouseenter", function () {
+							animClasses.forEach((c) =>
+								icon.classList.remove(c),
+							);
+							void (icon as any).offsetWidth;
+							const randomAnim =
+								animClasses[
+									Math.floor(
+										Math.random() * animClasses.length,
+									)
+								];
+							icon.classList.add(randomAnim);
+						});
+						btn.addEventListener("mouseleave", function () {
+							animClasses.forEach((c) =>
+								icon.classList.remove(c),
+							);
+						});
 					});
-					btn.addEventListener("mouseleave", function () {
-						animClasses.forEach((c) => icon.classList.remove(c));
-					});
-				});
 
 				// ==========================================
 				// 5. FABの処理
@@ -584,12 +584,12 @@ const finalStructuredData = Array.isArray(structuredData)
 				// ==========================================
 				// 6. プロフィール画像のアニメーション
 				// ==========================================
-				const profileImg = document.querySelector(".profile-img");
+				const profileImg = document.querySelector(".profile-img") as HTMLElement;
 				if (profileImg) {
 					profileImg.style.transformOrigin = "center";
 					profileImg.style.willChange = "transform, box-shadow";
 
-					const handleMove = (e) => {
+					const handleMove = (e: any) => {
 						if (e.type === "touchmove") {
 							e.preventDefault();
 						}

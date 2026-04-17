@@ -1,0 +1,235 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+---
+
+<Layout title="Terms of Service | manpuc" lang="en">
+    <div class="back-nav">
+        <a href="/en/" class="back-btn" aria-label="Back to home">
+            <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="back-btn-icon"
+            >
+                <line x1="19" y1="12" x2="5" y2="12"></line>
+                <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+
+            <span class="text-long"> Back to home </span>
+
+            <span class="text-short"> Home </span>
+        </a>
+    </div>
+
+    <div class="container" style="max-width: 800px;">
+        <header class="reveal">
+            <h1>Terms of Service</h1>
+            <p class="subtitle">utilization rules</p>
+        </header>
+
+        <section class="glass-card reveal">
+            <h2>Article 1 (Applicability)</h2>
+            <p>
+                These terms set forth the conditions for using this portfolio
+                website (the "Site") and the contents provided by the creator
+                "manpuc" (the "Creator"). By using this Site, users are deemed
+                to have agreed to these terms.
+            </p>
+        </section>
+
+        <section class="glass-card reveal">
+            <h2>Article 2 (Prohibited Actions)</h2>
+            <p>Users shall not engage in the following acts when using the Site:</p>
+            <ul>
+                <li>Acts that interfere with or may interfere with the operation of the Site.</li>
+                <li>Acts that infringe on the intellectual property rights, such as copyrights or trademarks, of the Creator or any third party.</li>
+                <li>Unauthorized access or acts that disrupt the functions of the Site's servers or networks.</li>
+                <li>Commercial use (redistribution, resale, etc.) of the Site's content without the Creator's permission.</li>
+                <li>Other acts that violate laws and regulations or public order and morals.</li>
+            </ul>
+        </section>
+
+        <section class="glass-card reveal">
+            <h2>Article 3 (Disclaimer)</h2>
+            <p>The Creator does not guarantee the accuracy, completeness, or up-to-dateness of the information posted on the Site.</p>
+            <p>The Creator shall not be liable for any damage (direct or indirect) caused by the use of the Site. Use of the published source code or software is at your own risk.</p>
+        </section>
+
+        <section class="glass-card reveal">
+            <h2>Article 4 (Copyright)</h2>
+            <p>The copyright of all content on this Site (text, images, published code, etc.) belongs to the Creator unless otherwise specified. Unauthorized reproduction, reprinting, modification, or distribution beyond the scope of private use is prohibited.</p>
+        </section>
+
+        <section class="glass-card reveal">
+            <h2>Article 5 (Changes to Terms)</h2>
+            <p>The Creator may change these terms at any time without notice if deemed necessary. The changed terms shall be effective from the time they are posted on the Site.</p>
+        </section>
+
+        <div class="view-more-container reveal">
+            <a href="/en/" class="back-btn centered">
+                <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="back-btn-icon"
+                >
+                    <line x1="19" y1="12" x2="5" y2="12"></line>
+                    <polyline points="12 19 5 12 12 5"></polyline>
+                </svg>
+                Back to Home
+            </a>
+        </div>
+    </div>
+</Layout>
+
+<style>
+    section {
+        margin-bottom: 2rem;
+    }
+    p {
+        color: var(--txt-sub);
+        margin-bottom: 1rem;
+        line-height: 1.8;
+    }
+    ul {
+        color: var(--txt-sub);
+        margin-bottom: 1rem;
+        padding-left: 1.5rem;
+    }
+    li {
+        margin-bottom: 0.5rem;
+    }
+
+    /* --- Navigation (Back to Home) --- */
+    .back-nav {
+        position: fixed;
+        top: 30px;
+        left: 30px;
+        z-index: 1000;
+    }
+
+    .back-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        height: 65px;
+        width: 210px;
+        padding: 0 28px;
+        gap: 10px;
+        background: var(--card-bg);
+        color: var(--txt-main);
+        text-decoration: none;
+        border-radius: 50px;
+        font-weight: 700;
+        border: 1px solid var(--border);
+        box-shadow: 0 10px 30px var(--shadow);
+        overflow: hidden;
+        white-space: nowrap;
+        position: relative;
+        isolation: isolate;
+        backdrop-filter: blur(10px) !important;
+        -webkit-backdrop-filter: blur(10px) !important;
+        transition: all 0.4s cubic-bezier(0.65, 0, 0.35, 1);
+    }
+
+    /* Centered version for bottom navigation */
+    .back-btn.centered {
+        position: relative;
+        margin: 0 auto;
+    }
+
+    /* すりガラス効果：直接定義 */
+    .back-btn::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        border-radius: inherit;
+        pointer-events: none;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        filter: url(#glass-distortion);
+        -webkit-filter: url(#glass-distortion);
+    }
+
+    .back-btn::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        border-radius: inherit;
+        box-shadow: inset 0 0 6px -3px rgba(255, 255, 255, 0.7);
+        pointer-events: none;
+    }
+
+    .back-btn-icon {
+        width: 20px !important;
+        height: 20px !important;
+        flex-shrink: 0;
+        transition: all 0.4s cubic-bezier(0.65, 0, 0.35, 1);
+    }
+
+    .text-short {
+        display: none;
+    }
+
+    .back-btn:hover {
+        background: var(--blu);
+        color: #fff;
+        transform: scale(1.05);
+        border-color: var(--blu);
+    }
+
+    .back-btn:active {
+        transform: scale(0.95);
+    }
+
+    .back-btn svg {
+        transition: all 0.6s cubic-bezier(0.65, 0, 0.35, 1);
+    }
+
+    .back-btn:hover svg {
+        transform: translateX(-4px);
+    }
+
+    @media (max-width: 480px) {
+        .back-btn {
+            width: 140px;
+            padding: 0 25px;
+        }
+        .text-long {
+            display: none;
+        }
+        .text-short {
+            display: inline;
+        }
+    }
+
+    @media (max-width: 360px) {
+        .back-btn {
+            width: 65px;
+            padding: 0;
+            gap: 0;
+            border-radius: 35px;
+        }
+        .text-short {
+            display: none;
+        }
+
+        .back-btn-icon {
+            width: 24px;
+            height: 24px;
+        }
+    }
+</style>
+

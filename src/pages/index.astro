@@ -5,7 +5,9 @@ import avatarImg from "../../public/avatar.webp";
 import WorkCard from "../components/WorkCard.astro";
 import { works } from "../data/works";
 
-const featuredWorks = works.filter(w => ["portfolio", "minecraft-mod", "discord-bot", "chrome-theme"].includes(w.id));
+const featuredWorks = works.filter((w) =>
+    ["chrome-theme", "ambient", "minecraft-mod", "discord-bot"].includes(w.id),
+);
 ---
 
 <Layout title="manpuc | Student Developer & UI/UX Designer" lang="ja">
@@ -38,7 +40,11 @@ const featuredWorks = works.filter(w => ["portfolio", "minecraft-mod", "discord-
         </nav>
 
         <!-- About Section -->
-        <section id="about" class="reveal" style="transition-delay: 0.2s;">
+        <section
+            id="about"
+            class="glass-card reveal"
+            style="transition-delay: 0.2s;"
+        >
             <h2>About</h2>
             <div class="profile-text">
                 <ul>
@@ -54,15 +60,14 @@ const featuredWorks = works.filter(w => ["portfolio", "minecraft-mod", "discord-
                         Minecraft Mod開発
                         (Java/Forge)、Bot制作、Chrome拡張機能制作
                     </li>
-                    <li>
-                        新しい技術やモノづくりが大好きです
-                    </li>
+                    <li>新しい技術やモノづくりが大好きです</li>
+                    <li>お仕事募集中！</li>
                 </ul>
             </div>
         </section>
 
         <!-- Skills Section -->
-        <section id="skills" class="reveal">
+        <section id="skills" class="glass-card reveal">
             <h2>Skills</h2>
             <div class="skills-grid">
                 <div class="skill-item">
@@ -87,7 +92,8 @@ const featuredWorks = works.filter(w => ["portfolio", "minecraft-mod", "discord-
                         <li>Git, GitHub, pnpm</li>
                         <li>Generative AI Tools</li>
                         <li>
-                            <span class="txt-ja">After Effects（動画編集）</span>
+                            <span class="txt-ja">After Effects（動画編集）</span
+                            >
                             <span class="txt-en">After Effects</span>
                         </li>
                     </ul>
@@ -96,18 +102,20 @@ const featuredWorks = works.filter(w => ["portfolio", "minecraft-mod", "discord-
         </section>
 
         <!-- Works Section -->
-        <section id="works" class="reveal">
+        <section id="works" class="glass-card reveal">
             <h2>Works</h2>
             <div class="works-grid">
-                {featuredWorks.map(work => (
-                    <WorkCard 
-                        title={work.title.ja}
-                        description={work.description.ja}
-                        href={work.href}
-                        titleStyle="margin-bottom: 5px;"
-                        descStyle="color: var(--txt-sub); font-size: 0.9em;"
-                    />
-                ))}
+                {
+                    featuredWorks.map((work) => (
+                        <WorkCard
+                            title={work.title.ja}
+                            description={work.description.ja}
+                            href={work.href}
+                            titleStyle="margin-bottom: 5px;"
+                            descStyle="color: var(--txt-sub); font-size: 0.9em;"
+                        />
+                    ))
+                }
             </div>
 
             <div class="view-more-container">
@@ -129,9 +137,8 @@ const featuredWorks = works.filter(w => ["portfolio", "minecraft-mod", "discord-
             </div>
         </section>
 
-
         <!-- Contact Section -->
-        <section id="contact" class="reveal">
+        <section id="contact" class="glass-card reveal">
             <h2>Contact</h2>
             <div class="contact-links">
                 <a href="mailto:info@manpuc.me" class="btn-email">

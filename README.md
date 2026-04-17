@@ -9,7 +9,7 @@
 - **ダークモード/ライトモード**: OS設定連動に加え、手動での切り替えにも対応。
 - **多言語対応 (JA/EN)**: ワンクリックで言語を切り替え可能。設定はLocalStorageに保存され、次回の訪問時も維持されます。
 - **SEO & Sitemap**: 自動生成されるサイトマップ、正規化されたrobots.txt、およびメタタグにより、検索エンジンへの最適化を実施。
-- **パフォーマンス最適化**: 
+- **パフォーマンス最適化**:
   - `Sharp` による画像の自動最適化。
   - `PurgeCSS` による未使用CSSの削除。
   - `Critters` によるクリティカルCSSとフォントのインライン化。
@@ -24,38 +24,6 @@
 - **Language**: [TypeScript](https://www.typescriptlang.org/)
 - **Deployment**: [Vercel](https://vercel.com/)
 - **SEO**: [@astrojs/sitemap](https://docs.astro.build/ja/guides/integrations-guide/sitemap/)
-
-## 🚀 開発環境のセットアップ
-
-### 1. 依存関係のインストール
-
-```sh
-pnpm install
-```
-
-### 2. ローカルサーバーの起動
-
-```sh
-pnpm dev
-```
-
-ブラウザで `http://localhost:4321` を開きます。
-
-### 3. ビルド
-
-```sh
-pnpm build
-```
-
-##  Genie コマンド
-
-| コマンド | 内容 |
-| :--- | :--- |
-| `pnpm install` | 依存関係をインストール |
-| `pnpm dev` | ローカル開発サーバーを起動 |
-| `pnpm build` | 本番用ビルドを生成 (`./dist/`) |
-| `pnpm preview` | ビルド済みファイルをローカルでプレビュー |
-| `pnpm astro check` | TypeScriptの型チェックなどを実行 |
 
 ## 📈 最適化とSEOについて
 

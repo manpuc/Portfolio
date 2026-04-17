@@ -78,7 +78,7 @@ const softwareItems = works.map((work, index) => ({
         </header>
 
         <!-- All Works Section -->
-        <section class="reveal" style="animation-delay: 0.2s;">
+        <section class="glass-card reveal" style="animation-delay: 0.2s;">
             <div class="works-grid">
                 {works.map((work, index) => (
                     <WorkCard 
@@ -158,6 +158,10 @@ const softwareItems = works.map((work, index) => ({
         transition: all 0.4s cubic-bezier(0.65, 0, 0.35, 1);
     }
 
+    .text-short {
+        display: none;
+    }
+
     .back-btn:hover {
         background: var(--blu);
         color: #fff;
@@ -179,6 +183,12 @@ const softwareItems = works.map((work, index) => ({
             width: 140px;
             padding: 0 25px;
         }
+        .text-long {
+            display: none;
+        }
+        .text-short {
+            display: inline;
+        }
     }
 
     @media (max-width: 360px) {
@@ -187,6 +197,9 @@ const softwareItems = works.map((work, index) => ({
             padding: 0;
             gap: 0;
             border-radius: 35px;
+        }
+        .text-short {
+            display: none;
         }
 
         .back-btn-icon {

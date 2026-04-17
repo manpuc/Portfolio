@@ -2,6 +2,12 @@
 import Layout from "../../layouts/Layout.astro";
 import { Image } from "astro:assets";
 import avatarImg from "../../../public/avatar.webp";
+import WorkCard from "../../components/WorkCard.astro";
+import { works } from "../../data/works";
+
+const featuredWorks = works.filter((w) =>
+    ["chrome-theme", "ambient", "minecraft-mod", "discord-bot"].includes(w.id),
+);
 ---
 
 <Layout title="manpuc | Student Developer & UI/UX Designer" lang="en">
@@ -34,28 +40,33 @@ import avatarImg from "../../../public/avatar.webp";
         </nav>
 
         <!-- About Section -->
-        <section id="about" class="reveal" style="transition-delay: 0.2s;">
+        <section
+            id="about"
+            class="glass-card reveal"
+            style="transition-delay: 0.2s;"
+        >
             <h2>About</h2>
             <div class="profile-text">
                 <ul>
                     <li>
-                        Graduated from Commercial High School (Information Design) / Enrolled in The Open University of Japan
+                        Graduated from Commercial High School (Information
+                        Design) / Enrolled in The Open University of Japan
                     </li>
                     <li>
-                        Gadget collector (Smartwatches, Smartphones, Earphones, etc.)
+                        Gadget collector (Smartwatches, Smartphones, Earphones,
+                        etc.)
                     </li>
                     <li>
-                        Minecraft Modding (Java/Forge), Bot Development, Chrome Extensions
+                        Minecraft Modding (Java/Forge), Bot Development, Chrome
+                        Extensions
                     </li>
-                    <li>
-                        I love new technologies and creating things
-                    </li>
+                    <li>I love new technologies and creating things</li>
                 </ul>
             </div>
         </section>
 
         <!-- Skills Section -->
-        <section id="skills" class="reveal">
+        <section id="skills" class="glass-card reveal">
             <h2>Skills</h2>
             <div class="skills-grid">
                 <div class="skill-item">
@@ -79,62 +90,27 @@ import avatarImg from "../../../public/avatar.webp";
                     <ul>
                         <li>Git, GitHub, pnpm</li>
                         <li>Generative AI Tools</li>
-                        <li>
-                            After Effects
-                        </li>
+                        <li>After Effects</li>
                     </ul>
                 </div>
             </div>
         </section>
 
         <!-- Works Section -->
-        <section id="works" class="reveal">
+        <section id="works" class="glass-card reveal">
             <h2>Works</h2>
             <div class="works-grid">
-                <a href="/en/" class="work-item" target="_blank" rel="noopener">
-                    <h3 style="margin-bottom: 5px;">
-                        Portfolio Website<span
-                            style="font-size: 12px; color: var(--txt-sub);padding-left: 6px;"
-                            >This Site</span
-                        >
-                    </h3>
-                    <p style="color: var(--txt-sub); font-size: 0.9em;">
-                        A website with a focus on cozy UI
-                    </p>
-                </a>
-                <a
-                    href="https://modrinth.com/user/manpuc"
-                    class="work-item"
-                    target="_blank"
-                    rel="noopener"
-                >
-                    <h3 style="margin-bottom: 5px;">Minecraft Mod</h3>
-                    <p style="color: var(--txt-sub); font-size: 0.9em;">
-                        Custom Mod development for Forge.
-                    </p>
-                </a>
-                <a
-                    href="https://github.com/manpuc/MBot"
-                    class="work-item"
-                    target="_blank"
-                    rel="noopener"
-                >
-                    <h3 style="margin-bottom: 5px;">Custom Discord Bot</h3>
-                    <p style="color: var(--txt-sub); font-size: 0.9em;">
-                        Multi-functional Discord Bot.
-                    </p>
-                </a>
-                <a
-                    href="https://chromewebstore.google.com/detail/ganlcelmnoaidpmaegcmhecolonfmffk?utm_source=item-share-cb"
-                    class="work-item"
-                    target="_blank"
-                    rel="noopener"
-                >
-                    <h3 style="margin-bottom: 5px;">Chrome Theme</h3>
-                    <p style="color: var(--txt-sub); font-size: 0.9em;">
-                        An eye-friendly Chrome dark theme
-                    </p>
-                </a>
+                {
+                    featuredWorks.map((work) => (
+                        <WorkCard
+                            title={work.title.en}
+                            description={work.description.en}
+                            href={work.href}
+                            titleStyle="margin-bottom: 5px;"
+                            descStyle="color: var(--txt-sub); font-size: 0.9em;"
+                        />
+                    ))
+                }
             </div>
 
             <div class="view-more-container">
@@ -157,7 +133,7 @@ import avatarImg from "../../../public/avatar.webp";
         </section>
 
         <!-- Contact Section -->
-        <section id="contact" class="reveal">
+        <section id="contact" class="glass-card reveal">
             <h2>Contact</h2>
             <div class="contact-links">
                 <a href="mailto:info@manpuc.me" class="btn-email">
