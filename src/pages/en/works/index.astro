@@ -5,15 +5,15 @@ import { works } from "../../../data/works";
 
 const softwareItems = works.map((work, index) => ({
     "@type": "ListItem",
-    "position": index + 1,
-    "item": {
+    position: index + 1,
+    item: {
         "@type": "SoftwareApplication",
-        "name": work.title.en,
-        "description": work.description.en.replace(/<br \/>/g, " "),
-        "applicationCategory": work.category || "DeveloperApplication",
-        "operatingSystem": work.os || "Cross-platform",
-        "url": work.href || `https://manpuc.me/en/works#${work.id}`
-    }
+        name: work.title.en,
+        description: work.description.en.replace(/<br \/>/g, " "),
+        applicationCategory: work.category || "DeveloperApplication",
+        operatingSystem: work.os || "Cross-platform",
+        url: work.href || `https://manpuc.me/en/works#${work.id}`,
+    },
 }));
 ---
 
@@ -25,28 +25,28 @@ const softwareItems = works.map((work, index) => ({
         {
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
-            "itemListElement": [
+            itemListElement: [
                 {
                     "@type": "ListItem",
-                    "position": 1,
-                    "name": "Home",
-                    "item": "https://manpuc.me/en/",
+                    position: 1,
+                    name: "Home",
+                    item: "https://manpuc.me/en/",
                 },
                 {
                     "@type": "ListItem",
-                    "position": 2,
-                    "name": "Works",
-                    "item": "https://manpuc.me/en/works",
+                    position: 2,
+                    name: "Works",
+                    item: "https://manpuc.me/en/works",
                 },
             ],
         },
         {
             "@context": "https://schema.org",
             "@type": "ItemList",
-            "name": "Works by manpuc",
-            "numberOfItems": works.length,
-            "itemListElement": softwareItems
-        }
+            name: "Works by manpuc",
+            numberOfItems: works.length,
+            itemListElement: softwareItems,
+        },
     ]}
 >
     <div class="back-nav">
@@ -80,22 +80,23 @@ const softwareItems = works.map((work, index) => ({
         <!-- All Works Section -->
         <section class="glass-card reveal" style="animation-delay: 0.2s;">
             <div class="works-grid">
-                {works.map((work, index) => (
-                    <WorkCard 
-                        title={work.title.en}
-                        description={work.description.en}
-                        tags={work.tags}
-                        href={work.id === "portfolio" ? "/en/" : work.href}
-                        style={`view-transition-name: work-${index + 1}`}
-                    />
-                ))}
+                {
+                    works.map((work, index) => (
+                        <WorkCard
+                            title={work.title.en}
+                            description={work.description.en}
+                            tags={work.tags}
+                            href={work.id === "portfolio" ? "/en/" : work.href}
+                            style={`view-transition-name: work-${index + 1}`}
+                        />
+                    ))
+                }
             </div>
         </section>
     </div>
 </Layout>
 
 <style>
-
     /* --- Works specifics (scoping for transitions) --- */
     ::view-transition-group(box-backbtn),
     ::view-transition-group(box-header),
@@ -131,4 +132,3 @@ const softwareItems = works.map((work, index) => ({
         animation: none;
     }
 </style>
-

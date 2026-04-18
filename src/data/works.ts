@@ -133,21 +133,8 @@ export const works: Work[] = [
             ja: "Google Formsの入力欄の右下に文字数をリアルタイム表示するChrome拡張機能",
             en: "Chrome extension to display character count in real-time for Google Forms input fields."
         },
-        tags: ["CSS", "JSON", "Theme"],
+        tags: ["Chrome Extension", "JavaScript"],
         href: "https://chromewebstore.google.com/detail/lgiilinkfchechjoaeojckghoamifkgd?utm_source=item-share-cb"
-    },
-    {
-        id: "google-search-night",
-        title: {
-            ja: "Google Search Night Theme",
-            en: "Google Search Night Theme"
-        },
-        description: {
-            ja: "Google検索を目に優しいダークテーマに変更する拡張機能。",
-            en: "An extension that changes Google Search to an eye-friendly dark theme."
-        },
-        tags: ["Chrome Extension", "CSS"],
-        href: "https://chromewebstore.google.com/detail/bdlpogibdkglpceadpplahmjneanbpom?utm_source=item-share-cb"
     },
     {
         id: "no-curseforge-legacy",
@@ -161,6 +148,19 @@ export const works: Work[] = [
         },
         tags: ["Chrome Extension", "JavaScript"],
         href: "https://chromewebstore.google.com/detail/diogckmiabncebebknnoibjapaldcjgb?utm_source=item-share-cb"
+    },
+    {
+        id: "google-search-night",
+        title: {
+            ja: "Google Search Night Theme",
+            en: "Google Search Night Theme"
+        },
+        description: {
+            ja: "Google検索を目に優しいダークテーマに変更する拡張機能。",
+            en: "An extension that changes Google Search to an eye-friendly dark theme."
+        },
+        tags: ["Chrome Extension", "CSS"],
+        href: "https://chromewebstore.google.com/detail/bdlpogibdkglpceadpplahmjneanbpom?utm_source=item-share-cb"
     },
     {
         id: "minecraft-server",

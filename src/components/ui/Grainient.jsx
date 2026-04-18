@@ -246,9 +246,9 @@ const Grainient = ({
   ]);
 
   return (
-    <div 
-      ref={containerRef} 
-      className={`grainient-container ${className}`.trim()} 
+    <div
+      ref={containerRef}
+      className={`grainient-container ${className}`.trim()}
       style={{ position: 'relative', width: '100%', height: '100%', overflow: 'hidden' }}
     />
   );

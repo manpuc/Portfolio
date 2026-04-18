@@ -758,7 +758,8 @@ body.en-mode .lang-icon-ja {
     border-radius: inherit;
     /* 白ボケを混ぜてよりガラスらしく */
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(128, 128, 128, 0.05));
-    backdrop-filter: blur(25px); /* さらに強力に */
+    backdrop-filter: blur(25px);
+    /* さらに強力に */
     -webkit-backdrop-filter: blur(25px);
     border: 1px solid rgba(255, 255, 255, 0.15);
     pointer-events: none;
@@ -1509,9 +1510,11 @@ svg,
         width: 140px;
         padding: 0 25px;
     }
+
     .text-long {
         display: none;
     }
+
     .text-short {
         display: inline;
     }
@@ -1524,9 +1527,11 @@ svg,
         gap: 0;
         border-radius: 50%;
     }
+
     .text-short {
         display: none;
     }
+
     .back-btn-icon {
         width: 24px !important;
         height: 24px !important;
@@ -1539,4 +1544,4 @@ svg,
     margin: 40px auto 0;
     display: flex;
     max-width: fit-content;
-}
+}
