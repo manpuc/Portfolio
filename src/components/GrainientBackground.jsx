@@ -35,10 +35,7 @@ export default function GrainientBackground({ className = "" }) {
       className={`bg-fixed-container ${className}`}
       style={{ 
         position: 'fixed', 
-        top: 0, 
-        left: 0, 
-        width: '100%', 
-        height: '100%', 
+        inset: 0,
         zIndex: -1,
         pointerEvents: 'none',
         overflow: 'hidden'
