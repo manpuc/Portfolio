@@ -31,14 +31,18 @@ export default function GrainientBackground({ className = "" }) {
   }, []);
 
   return (
-    <div 
+    <div
       className={`bg-fixed-container ${className}`}
-      style={{ 
-        position: 'fixed', 
-        inset: 0,
+      style={{
+        position: 'fixed',
+        top: '-100px',
+        left: '-100px',
+        right: '-100px',
+        bottom: '-100px',
         zIndex: -1,
         pointerEvents: 'none',
-        overflow: 'hidden'
+        overflow: 'hidden',
+        backgroundColor: 'var(--bg-main)'
       }}
     >
       <Grainient

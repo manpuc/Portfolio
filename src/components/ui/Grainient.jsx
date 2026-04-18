@@ -179,8 +179,9 @@ const Grainient = ({
     const mesh = new Mesh(gl, { geometry, program });
 
     const setSize = () => {
-      const width = window.innerWidth;
-      const height = window.innerHeight;
+      const rect = container.getBoundingClientRect();
+      const width = rect.width || window.innerWidth;
+      const height = rect.height || window.innerHeight;
       renderer.setSize(width, height);
       const res = program.uniforms.iResolution.value;
       res[0] = gl.drawingBufferWidth;
@@ -191,6 +192,13 @@ const Grainient = ({
     const ro = new ResizeObserver(setSize);
     ro.observe(container);
     setSize();
+
+    const handleViewport = () => {
+      requestAnimationFrame(setSize);
+    };
+
+    window.visualViewport?.addEventListener('resize', handleViewport);
+    window.visualViewport?.addEventListener('scroll', handleViewport);
 
     let raf = 0;
     const t0 = performance.now();
@@ -204,6 +212,8 @@ const Grainient = ({
     return () => {
       cancelAnimationFrame(raf);
       ro.disconnect();
+      window.visualViewport?.removeEventListener('resize', handleViewport);
+      window.visualViewport?.removeEventListener('scroll', handleViewport);
       try {
         container.removeChild(canvas);
       } catch {
@@ -235,7 +245,13 @@ const Grainient = ({
     color3
   ]);
 
-  return <div ref={containerRef} className={`grainient-container ${className}`.trim()} />;
+  return (
+    <div 
+      ref={containerRef} 
+      className={`grainient-container ${className}`.trim()} 
+      style={{ position: 'relative', width: '100%', height: '100%', overflow: 'hidden' }}
+    />
+  );
 };
 
 export default Grainient;

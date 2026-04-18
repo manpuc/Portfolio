@@ -34,9 +34,9 @@ export default defineConfig({
               standard: [
                 /^astro-/, /^back-/, /^text-/, /^work-/, /^txt-/, /^rand-/, /^bg-/, /^p-/, /^contact-/, /^btn-/, /icon/, /reveal/, /theme-toggle/,
                 'dark', 'light', 'en-mode', 'visible', 'absorbed', 'container', 'site-footer', 'skills-grid', 'skill-item',
-                /tag/, /work/, /no-link/
+                /tag/, /work/, /no-link/, /^grainient-/
               ],
-              deep: [/^astro-/, /^back-/, /tag/, /work/, /no-link/]
+              deep: [/^astro-/, /^back-/, /tag/, /work/, /no-link/, /^grainient-/]
             },
             defaultExtractor: content => content.match(/[\w-/:]+(?<!:)/g) || []
           }) : null
