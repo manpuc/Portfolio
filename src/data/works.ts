@@ -111,6 +111,19 @@ export const works: Work[] = [
         href: "https://text.manpuc.me/"
     },
     {
+        id: "pass-generator",
+        title: {
+            ja: "Pass Generator",
+            en: "Pass Generator"
+        },
+        description: {
+            ja: "直感的でシンプルなデザインのパスワード生成サービス。",
+            en: "A password generation service with an intuitive and simple design."
+        },
+        tags: ["Astro", "TypeScript"],
+        href: "https://pass.manpuc.me/"
+    },
+    {
         id: "chrome-theme",
         title: {
             ja: "Chrome Theme",
