@@ -2,6 +2,7 @@
   "name": "my-portfolio",
   "type": "module",
   "version": "0.0.1",
+  "license": "Custom (See LICENSE file)",
   "engines": {
     "node": "24.x"
   },
