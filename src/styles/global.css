@@ -1298,13 +1298,12 @@ body.dark .work-item {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
-    margin-top: auto;
+    margin-top: 20px !important;
 }
 
 .tag {
     font-size: 0.75em !important;
     padding: 4px 10px !important;
-    margin-top: 20px;
     background: rgba(128, 128, 128, 0.12) !important;
     border-radius: 50px !important;
     color: var(--txt-main);

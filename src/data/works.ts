@@ -124,6 +124,45 @@ export const works: Work[] = [
         href: "https://pass.manpuc.me/"
     },
     {
+        id: "packbridge",
+        title: {
+            ja: "PackBridge",
+            en: "PackBridge"
+        },
+        description: {
+            ja: "Minecraft のリソースパックをエディション間で相互変換するサービス。",
+            en: "A service that converts Minecraft resource packs between editions."
+        },
+        tags: ["TypeScript", "Minecraft"],
+        href: "https://packbridge.manpuc.me/"
+    },
+    {
+        id: "mc-link",
+        title: {
+            ja: "MCLink",
+            en: "MCLink"
+        },
+        description: {
+            ja: "Minecraft のサーバー追加リンクを簡単に作成できるサービス。",
+            en: "A service that makes it easy to create Minecraft server join links."
+        },
+        tags: ["TypeScript", "Minecraft"],
+        href: "https://mclink.manpuc.me/"
+    },
+    {
+        id: "google-search-night",
+        title: {
+            ja: "Google Search Night Theme",
+            en: "Google Search Night Theme"
+        },
+        description: {
+            ja: "Google検索を目に優しいダークテーマに変更する拡張機能。",
+            en: "An extension that changes Google Search to an eye-friendly dark theme."
+        },
+        tags: ["CSS", "Chrome Extension"],
+        href: "https://chromewebstore.google.com/detail/bdlpogibdkglpceadpplahmjneanbpom?utm_source=item-share-cb"
+    },
+    {
         id: "chrome-theme",
         title: {
             ja: "Chrome Theme",
@@ -137,19 +176,6 @@ export const works: Work[] = [
         href: "https://chromewebstore.google.com/detail/ganlcelmnoaidpmaegcmhecolonfmffk?utm_source=item-share-cb"
     },
     {
-        id: "CharView",
-        title: {
-            ja: "CharView",
-            en: "CharView"
-        },
-        description: {
-            ja: "Google Formsの入力欄の右下に文字数をリアルタイム表示するChrome拡張機能",
-            en: "Chrome extension to display character count in real-time for Google Forms input fields."
-        },
-        tags: ["Chrome Extension", "JavaScript"],
-        href: "https://chromewebstore.google.com/detail/lgiilinkfchechjoaeojckghoamifkgd?utm_source=item-share-cb"
-    },
-    {
         id: "no-curseforge-legacy",
         title: {
             ja: "No Curseforge Legacy",
@@ -159,21 +185,21 @@ export const works: Work[] = [
             ja: "旧デザインのCurseForgeを新デザインURLにリダイレクトする拡張機能。",
             en: "An extension that redirects CurseForge legacy design to the new design URL."
         },
-        tags: ["Chrome Extension", "JavaScript"],
+        tags: ["JavaScript", "Chrome Extension"],
         href: "https://chromewebstore.google.com/detail/diogckmiabncebebknnoibjapaldcjgb?utm_source=item-share-cb"
     },
     {
-        id: "google-search-night",
+        id: "CharView",
         title: {
-            ja: "Google Search Night Theme",
-            en: "Google Search Night Theme"
+            ja: "CharView",
+            en: "CharView"
         },
         description: {
-            ja: "Google検索を目に優しいダークテーマに変更する拡張機能。",
-            en: "An extension that changes Google Search to an eye-friendly dark theme."
+            ja: "Google Formsの入力欄の右下に文字数をリアルタイム表示するChrome拡張機能",
+            en: "Chrome extension to display character count in real-time for Google Forms input fields."
         },
-        tags: ["Chrome Extension", "CSS"],
-        href: "https://chromewebstore.google.com/detail/bdlpogibdkglpceadpplahmjneanbpom?utm_source=item-share-cb"
+        tags: ["JavaScript", "Chrome Extension"],
+        href: "https://chromewebstore.google.com/detail/lgiilinkfchechjoaeojckghoamifkgd?utm_source=item-share-cb"
     },
     {
         id: "minecraft-server",
