@@ -1,12 +1,12 @@
 # ビルドで出力されるファイル
 dist/
+.vercel/
 
 # Astroの自動生成ファイル・キャッシュ
 .astro/
 
 # 依存パッケージ
 node_modules/
-pnpm-lock.yaml
 
 # ログファイル
 npm-debug.log*
@@ -29,6 +29,11 @@ pnpm-debug.log*
 # 開発用サーバーのキャッシュ
 .vite/
 
-# ロックファイル
+# その他不要なプロジェクトやディレクトリ
+blue-belt/
+
+# ロックファイル（本来はアプリケーション開発ではGitに含めることが推奨されますが、現状の設定を尊重します）
 package-lock.json
 pnpm-lock.yaml
+yarn.lock
+bun.lockb
