@@ -12,190 +12,364 @@ const featuredWorks = works.filter((w) =>
 
 <Layout title="manpuc | Student Developer & UI/UX Designer" lang="en">
     <div class="container">
-        <!-- Header -->
-        <header class="reveal">
-            <Image
-                src={avatarImg}
-                width={245}
-                height={245}
-                alt="manpuc"
-                class="profile-img"
-                loading="eager"
-                fetchpriority="high"
-                decoding="async"
-                sizes="(max-width: 768px) 180px, 245px"
-                oncontextmenu="return false;"
-                style="transform-origin: center; will-change: transform, box-shadow;"
-            />
-            <h1>manpuc</h1>
-            <p class="subtitle">@manpuc / Developer & Creator</p>
+        <header style="display: flex; align-items: center; gap: 2rem; margin-bottom: 2rem;">
+            <div class="animate-profile-pop delay-profile">
+                <Image
+                    src={avatarImg}
+                    width={150}
+                    height={150}
+                    alt="manpuc"
+                    class="profile-img"
+                />
+            </div>
+            <div id="header-info-en" class="header-info animate-premium-reveal delay-header-info">
+                <h1>
+                    <span class="typewriter-container">
+                        <span class="typewriter-text" data-text="manpuc"></span>
+                        <span class="typewriter-cursor"></span>
+                    </span>
+                </h1>
+                <p class="subtitle">@manpuc / Developer & Creator</p>
+            </div>
         </header>
 
-        <!-- Navigation -->
-        <nav class="reveal" style="transition-delay: 0.1s;">
-            <a href="#about">About</a>
-            <a href="#skills">Skills</a>
-            <a href="#works">Works</a>
-            <a href="#contact">Contact</a>
-        </nav>
+        <div class="header-divider animate-premium-reveal delay-divider"></div>
 
-        <!-- About Section -->
+        <section
+            id="works"
+            class="animate-fade-up delay-3"
+            style="margin-bottom: 4rem; padding: 0 1rem;"
+        >
+            <h2>Works</h2>
+            <div class="marquee-container">
+                <div class="marquee-content">
+                    {
+                        [...works, ...works].map((work) => (
+                            <a
+                                href={work.href}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="marquee-item"
+                            >
+                                {work.title.en}
+                            </a>
+                        ))
+                    }
+                </div>
+            </div>
+            <div style="text-align: left; margin-top: 1rem;">
+                <a href="/en/works/" class="forward-link">
+                    View all works
+                    <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        ><line x1="5" y1="12" x2="19" y2="12"></line><polyline
+                            points="12 5 19 12 12 19"></polyline></svg
+                    >
+                </a>
+            </div>
+        </section>
+
+        <section
+            id="skills"
+            class="animate-fade-up delay-4"
+            style="margin-bottom: 4rem; padding: 0 1rem;"
+        >
+            <h2>Skills</h2>
+            <div style="margin-bottom: 1.5rem;">
+                <h3
+                    style="font-size: 1rem; color: var(--text-muted); margin-bottom: 0.5rem;"
+                >
+                    Dev & Code
+                </h3>
+                <div class="tags">
+                    <span
+                        class="tag"
+                        style="--tag-color: #e34c26; --tag-text: #fff;"
+                        ><i class="devicon-html5-plain"></i> HTML</span
+                    >
+                    <span
+                        class="tag"
+                        style="--tag-color: #264de4; --tag-text: #fff;"
+                        ><i class="devicon-css3-plain"></i> CSS</span
+                    >
+                    <span
+                        class="tag"
+                        style="--tag-color: #f7df1e; --tag-text: #000;"
+                        ><i class="devicon-javascript-plain"></i> JavaScript</span
+                    >
+                    <span
+                        class="tag"
+                        style="--tag-color: #ff5d01; --tag-text: #fff;"
+                        ><i class="devicon-astro-plain"></i> Astro</span
+                    >
+                    <span
+                        class="tag"
+                        style="--tag-color: #61dafb; --tag-text: #000;"
+                        ><i class="devicon-react-original"></i> React</span
+                    >
+                    <span
+                        class="tag"
+                        style="--tag-color: #339933; --tag-text: #fff;"
+                        ><i class="devicon-nodejs-plain"></i> Node.js</span
+                    >
+                    <span
+                        class="tag"
+                        style="--tag-color: #3776ab; --tag-text: #fff;"
+                        ><i class="devicon-python-plain"></i> Python</span
+                    >
+                    <span
+                        class="tag"
+                        style="--tag-color: #5391fe; --tag-text: #fff;"
+                        ><i class="devicon-bash-plain"></i> PowerShell / Batch</span
+                    >
+                    <span
+                        class="tag"
+                        style="--tag-color: #007396; --tag-text: #fff;"
+                        ><i class="devicon-java-plain"></i> Java</span
+                    >
+                </div>
+            </div>
+            <div>
+                <h3
+                    style="font-size: 1rem; color: var(--text-muted); margin-bottom: 0.5rem;"
+                >
+                    Tools & Others
+                </h3>
+                <div class="tags">
+                    <span
+                        class="tag"
+                        style="--tag-color: #f05032; --tag-text: #fff;"
+                        ><i class="devicon-git-plain"></i> Git</span
+                    >
+                    <span
+                        class="tag"
+                        style="--tag-color: #181717; --tag-text: #fff;"
+                        ><i class="devicon-github-original"></i> GitHub</span
+                    >
+                    <span
+                        class="tag"
+                        style="--tag-color: #007acc; --tag-text: #fff;"
+                        ><i class="devicon-vscode-plain"></i> VS Code</span
+                    >
+                    <span
+                        class="tag"
+                        style="--tag-color: #9999ff; --tag-text: #fff;"
+                        ><i class="devicon-aftereffects-plain"></i> After Effects</span
+                    >
+                    <span
+                        class="tag"
+                        style="--tag-color: #ff9a00; --tag-text: #fff;"
+                        ><i class="devicon-illustrator-plain"></i> Illustrator</span
+                    >
+                </div>
+            </div>
+        </section>
+
         <section
             id="about"
-            class="glass-card reveal"
-            style="transition-delay: 0.2s;"
+            class="animate-fade-up delay-5"
+            style="margin-bottom: 4rem; padding: 0 1rem;"
         >
             <h2>About</h2>
-            <div class="profile-text">
-                <ul>
-                    <li>
-                        Graduated from Commercial High School (Information
-                        Design) / Enrolled in The Open University of Japan
-                    </li>
-                    <li>
-                        Gadget collector (Smartwatches, Smartphones, Earphones,
-                        etc.)
-                    </li>
-                    <li>
-                        Minecraft Modding (Java/Forge), Bot Development, Chrome
-                        Extensions
-                    </li>
-                    <li>I love new technologies and creating things</li>
-                </ul>
-            </div>
+            <p style="line-height: 1.8; color: var(--text-color);">
+                I graduated from a commercial high school with a focus on
+                Information Design and am currently enrolled in The Open
+                University of Japan. As a gadget enthusiast who collects
+                smartwatches and smartphones, I am passionate about creating
+                things through Minecraft modding, bot development, and Chrome
+                extensions while exploring new technologies.
+            </p>
         </section>
 
-        <!-- Skills Section -->
-        <section id="skills" class="glass-card reveal">
-            <h2>Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-item">
-                    <h3>Dev & Code</h3>
-                    <ul>
-                        <li>Python</li>
-                        <li>PowerShell, Batch Scripting</li>
-                        <li>Java (Minecraft Forge 1.20.1)</li>
-                    </ul>
-                </div>
-                <div class="skill-item">
-                    <h3>Web Development</h3>
-                    <ul>
-                        <li>HTML / CSS / JavaScript</li>
-                        <li>Astro, React, Node.js</li>
-                        <li>UI/UX & Modern Animations</li>
-                    </ul>
-                </div>
-                <div class="skill-item">
-                    <h3>Tools & Others</h3>
-                    <ul>
-                        <li>Git, GitHub, pnpm</li>
-                        <li>Generative AI Tools</li>
-                        <li>After Effects</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
+        <script>
+            // Konami Code Easter Egg
+            let konamiCode = [
+                "ArrowUp",
+                "ArrowUp",
+                "ArrowDown",
+                "ArrowDown",
+                "ArrowLeft",
+                "ArrowRight",
+                "ArrowLeft",
+                "ArrowRight",
+                "b",
+                "a",
+            ];
+            let konamiIndex = 0;
 
-        <!-- Works Section -->
-        <section id="works" class="glass-card reveal">
-            <h2>Works</h2>
-            <div class="works-grid">
-                {
-                    featuredWorks.map((work) => (
-                        <WorkCard
-                            title={work.title.en}
-                            description={work.description.en}
-                            href={work.href}
-                            titleStyle="margin-bottom: 5px;"
-                            descStyle="color: var(--txt-sub); font-size: 0.9em;"
-                        />
-                    ))
+            document.addEventListener("keydown", (e) => {
+                if (e.key === konamiCode[konamiIndex]) {
+                    konamiIndex++;
+                    if (konamiIndex === konamiCode.length) {
+                        triggerGravityCollapse();
+                        konamiIndex = 0;
+                    }
+                } else {
+                    konamiIndex = 0;
                 }
-            </div>
+            });
 
-            <div class="view-more-container">
-                <a href="/en/works/" class="btn-view-more">
-                    View All
-                    <svg
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        style="width: 20px; height: 20px;"
-                    >
-                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                        <polyline points="12 5 19 12 12 19"></polyline>
-                    </svg>
-                </a>
-            </div>
-        </section>
+            async function triggerGravityCollapse() {
+                // Disable scrolling
+                document.body.style.overflow = "hidden";
 
-        <!-- Contact Section -->
-        <section id="contact" class="glass-card reveal">
-            <h2>Contact</h2>
-            <div class="contact-links">
-                <a href="mailto:info@manpuc.me" class="btn-email">
-                    <svg
-                        class="contact-icon email-icon"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                    >
-                        <path
-                            d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
-                        ></path>
-                        <polyline points="22,6 12,13 2,6"></polyline>
-                    </svg>
-                    Email
-                </a>
-                <a
-                    href="https://github.com/manpuc"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="btn-github"
-                >
-                    <svg
-                        class="contact-icon github-icon"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                    >
-                        <path
-                            d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
-                        ></path>
-                    </svg>
-                    GitHub
-                </a>
-                <a
-                    href="https://twitter.com/manpuccc"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="btn-twitter"
-                >
-                    <svg
-                        class="contact-icon twitter-icon"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                    >
-                        <path
-                            d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"
-                        ></path>
-                    </svg>
-                    Twitter
-                </a>
-            </div>
-        </section>
+                // Identify elements to drop
+                const elements: HTMLElement[] = [];
+                const selectors = [
+                    ".container > header",
+                    ".container > .header-divider",
+                    ".container > section",
+                    ".floating-controls .icon-btn",
+                    "footer",
+                ];
+
+                selectors.forEach((selector) => {
+                    document.querySelectorAll(selector).forEach((el) => {
+                        if (el instanceof HTMLElement) elements.push(el);
+                    });
+                });
+
+                // Get positions before any changes
+                const elementInfos = elements.map((el) => ({
+                    el,
+                    rect: el.getBoundingClientRect(),
+                }));
+
+                // Start physics
+                const physicsObjects = elementInfos.map((info) => {
+                    const { el, rect } = info;
+
+                    // Reset animations and apply fixed positioning
+                    el.style.animation = "none";
+                    el.classList.remove("animate-fade-up");
+                    el.style.position = "fixed";
+                    el.style.top = rect.top + "px";
+                    el.style.left = rect.left + "px";
+                    el.style.width = rect.width + "px";
+                    el.style.height = rect.height + "px";
+                    el.style.margin = "0";
+                    el.style.zIndex = "20000";
+                    el.style.transition = "none";
+                    el.style.transformOrigin = "center";
+
+                    return {
+                        el,
+                        x: rect.left,
+                        y: rect.top,
+                        baseX: rect.left,
+                        baseY: rect.top,
+                        width: rect.width,
+                        height: rect.height,
+                        vx: (Math.random() - 0.5) * 12,
+                        vy: Math.random() * 5,
+                        rotation: 0,
+                        vr: (Math.random() - 0.5) * 0.3,
+                    };
+                });
+
+                const gravity = 0.8;
+                const friction = 0.99;
+                const bounce = -0.6;
+                const ground = window.innerHeight;
+                const wallWidth = window.innerWidth;
+
+                function loop() {
+                    let active = false;
+                    physicsObjects.forEach((p) => {
+                        p.vy += gravity;
+                        p.vx *= friction;
+                        p.x += p.vx;
+                        p.y += p.vy;
+                        p.rotation += p.vr;
+
+                        // Floor collision
+                        if (p.y + p.height > ground) {
+                            p.y = ground - p.height;
+                            p.vy *= bounce;
+                            p.vx *= 0.8;
+                            p.vr *= 0.8;
+                        }
+
+                        // Wall collision
+                        if (p.x < 0) {
+                            p.x = 0;
+                            p.vx *= bounce;
+                        } else if (p.x + p.width > wallWidth) {
+                            p.x = wallWidth - p.width;
+                            p.vx *= bounce;
+                        }
+
+                        // Apply transform relative to fixed base position
+                        const tx = p.x - p.baseX;
+                        const ty = p.y - p.baseY;
+                        p.el.style.transform = `translate(${tx}px, ${ty}px) rotate(${p.rotation}rad)`;
+
+                        // Continue if moving or above ground
+                        if (
+                            Math.abs(p.vy) > 0.5 ||
+                            Math.abs(p.vx) > 0.5 ||
+                            p.y + p.height < ground - 10
+                        ) {
+                            active = true;
+                        }
+                    });
+
+                    if (active) requestAnimationFrame(loop);
+                }
+
+                // Small delay to ensure styles are applied
+                setTimeout(loop, 16);
+            }
+        </script>
+
+        <script>
+            import { setupMarquee } from "../../scripts/marquee";
+            setupMarquee();
+
+            // Typing Animation
+            const typewriters = document.querySelectorAll(".typewriter-text");
+            typewriters.forEach((el) => {
+                const targetText = el.getAttribute("data-text");
+                if (!targetText) return;
+
+                let currentText = "";
+                let i = 0;
+
+                const typeWriter = () => {
+                    if (i < targetText.length) {
+                        currentText += targetText.charAt(i);
+                        el.textContent = currentText;
+                        i++;
+                        setTimeout(typeWriter, 100 + Math.random() * 150);
+                    }
+                };
+
+                // Start after header animations finish
+                const headerInfo = document.getElementById('header-info-en');
+                if (headerInfo) {
+                    headerInfo.addEventListener('animationend', (e) => {
+                        if (e.animationName === 'premiumReveal') {
+                            setTimeout(typeWriter, 100);
+                        }
+                    }, { once: true });
+                } else {
+                    setTimeout(typeWriter, 1800);
+                }
+            });
+
+            // Hide cursor after 13s
+            setTimeout(() => {
+                document
+                    .querySelectorAll(".typewriter-cursor")
+                    .forEach((cursor) => {
+                        (cursor as HTMLElement).style.display = "none";
+                    });
+            }, 13000);
+        </script>
     </div>
 </Layout>

@@ -35,8 +35,8 @@ export const works: Work[] = [
             en: "Minecraft Mod"
         },
         description: {
-            ja: "Forge 1.20.1環境での独自Mod開発<br />新しいアイテムやシステムを実装。",
-            en: "Development of original mods for Forge 1.20.1 environment.<br />Implementing new items and systems."
+            ja: "Forge 1.20.1環境での独自Mod開発新しいアイテムやシステムを実装。",
+            en: "Development of original mods for Forge 1.20.1 environment. Implementing new items and systems."
         },
         tags: ["Java", "Forge", "Minecraft"],
         href: "https://modrinth.com/user/manpuc",
@@ -46,8 +46,8 @@ export const works: Work[] = [
     {
         id: "discord-bot",
         title: {
-            ja: "Custom Discord Bot",
-            en: "Custom Discord Bot"
+            ja: "MBot",
+            en: "MBot"
         },
         description: {
             ja: "サーバー管理やエンタメ機能を備えた多機能汎用Botの開発と運用。",

@@ -1,0 +1,229 @@
+---
+// FlappyBirdGame.astro
+---
+
+<div id="flappy-game-overlay" class="flappy-overlay">
+    <div id="flappy-container">
+        <div class="flappy-header">
+            <div id="flappy-score">0</div>
+            <button id="flappy-close" class="close-btn" aria-label="Close Game">
+                <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                >
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+
+        <canvas id="flappy-canvas" role="img" aria-label="Flappy Bird game canvas. Press space to jump."></canvas>
+
+        <div id="flappy-message-layer" class="flappy-message-layer">
+            <div class="message-content get-ready">
+                <h2>FLAPPY MANPUC</h2>
+                <p>クリックまたは [SPACE] でジャンプ</p>
+                <button id="flappy-start-btn" class="game-start-btn"
+                    >START</button
+                >
+            </div>
+            <div class="message-content game-over" style="display: none;">
+                <h2>GAME OVER</h2>
+                <p id="flappy-final-score">SCORE: 0</p>
+                <button id="flappy-restart-btn" class="game-start-btn"
+                    >RETRY</button
+                >
+            </div>
+        </div>
+    </div>
+</div>
+
+<style is:global>
+    .flappy-overlay {
+        position: fixed;
+        inset: 0;
+        background-color: rgba(0, 0, 0, 0.85);
+        backdrop-filter: blur(10px);
+        z-index: 10001;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transition:
+            opacity 0.4s ease,
+            visibility 0.4s ease;
+        user-select: none;
+    }
+
+    .flappy-overlay.active {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+    }
+
+    #flappy-container {
+        position: relative;
+        background: var(--bg-color);
+        width: 100%;
+        max-width: 400px;
+        height: 600px;
+        border-radius: 24px;
+        overflow: hidden;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+        transform: scale(0.9) translateY(20px);
+        transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .flappy-overlay.active #flappy-container {
+        transform: scale(1) translateY(0);
+    }
+
+    .flappy-header {
+        position: absolute;
+        top: 20px;
+        left: 0;
+        width: 100%;
+        padding: 0 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 50; /* Higher than message layer */
+        pointer-events: none;
+    }
+
+    #flappy-score {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 2.5rem;
+        font-weight: 900;
+        color: var(--primary);
+        text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .flappy-header .close-btn {
+        pointer-events: auto;
+        background: rgba(255, 255, 255, 0.1);
+        border: none;
+        color: #fff;
+        cursor: pointer;
+        padding: 0.5rem;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        backdrop-filter: blur(4px);
+    }
+
+    #flappy-canvas {
+        display: block;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to bottom, #70c5ce, #4db0bc);
+    }
+
+    body.dark #flappy-canvas {
+        background: linear-gradient(to bottom, #1a2a3a, #0a1a2a);
+    }
+
+    .flappy-message-layer {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(0, 0, 0, 0.6);
+        z-index: 100;
+        pointer-events: auto;
+    }
+
+    .message-content {
+        text-align: center;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+        animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: scale(0.9);
+        }
+        to {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    .message-content h2 {
+        margin: 0;
+        font-size: 2rem;
+        font-weight: 900;
+        letter-spacing: 0.1em;
+    }
+
+    .game-start-btn {
+        background: var(--primary);
+        color: white;
+        border: none;
+        padding: 1.2rem 3rem;
+        border-radius: 50px;
+        font-weight: 900;
+        font-size: 1.2rem;
+        cursor: pointer;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        transition:
+            transform 0.2s,
+            background 0.2s;
+    }
+
+    .game-start-btn:hover {
+        background: var(--primary-hover);
+        transform: translateY(-3px);
+    }
+</style>
+
+<script>
+    let gameInstance: any = null;
+
+    async function getGameInstance() {
+        if (!gameInstance) {
+            const { FlappyBird } = await import("../scripts/FlappyBird");
+            gameInstance = new FlappyBird();
+            (window as any).flappyBird = gameInstance;
+        }
+        return gameInstance;
+    }
+
+    function setupTriggers() {
+        let clickCount = 0;
+        let clickTimer: any = null;
+        const avatars = document.querySelectorAll(".profile-img");
+        avatars.forEach((avatar) => {
+            const el = avatar as HTMLElement;
+            el.style.cursor = "pointer";
+            el.onclick = async (e) => {
+                e.preventDefault();
+                clickCount++;
+                if (clickTimer) clearTimeout(clickTimer);
+                if (clickCount >= 5) {
+                    clickCount = 0;
+                    const game = await getGameInstance();
+                    game.open();
+                } else {
+                    clickTimer = setTimeout(() => (clickCount = 0), 1000);
+                }
+            };
+        });
+    }
+
+    document.addEventListener("DOMContentLoaded", setupTriggers);
+    document.addEventListener("astro:page-load", setupTriggers);
+</script>

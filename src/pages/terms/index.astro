@@ -3,126 +3,81 @@ import Layout from "../../layouts/Layout.astro";
 ---
 
 <Layout title="利用規約 | manpuc" lang="ja">
-    <div class="back-nav">
-        <a href="/" class="back-btn" aria-label="Back to home">
-            <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="back-btn-icon"
-            >
-                <line x1="19" y1="12" x2="5" y2="12"></line>
-                <polyline points="12 19 5 12 12 5"></polyline>
-            </svg>
+    <div class="container">
+        <div class="back-nav animate-fade-up">
+            <a href="/" class="back-link">
+                <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    ><line x1="19" y1="12" x2="5" y2="12"></line><polyline
+                        points="12 19 5 12 12 5"></polyline></svg
+                >
+                ホームに戻る
+            </a>
+        </div>
 
-            <span class="text-long"> ホームに戻る </span>
-
-            <span class="text-short"> ホーム </span>
-        </a>
-    </div>
-
-    <div class="container" style="max-width: 800px;">
-        <header class="reveal">
+        <header>
             <h1>利用規約</h1>
             <p class="subtitle">Terms of Service</p>
         </header>
 
-        <section class="glass-card reveal">
-            <h2>第1条（適用）</h2>
-            <p>
-                本規約は、制作者「manpuc」（以下、「制作者」）が当ポートフォリオサイト（以下、「当サイト」）上で提供するサービス、および公開しているコンテンツの利用条件を定めるものです。ユーザーが当サイトを利用した時点で、本規約に同意したものとみなします。
-            </p>
-        </section>
+        <div class="neumorph-card">
+            <section style="margin-bottom: 2rem;">
+                <h2>第1条（適用）</h2>
+                <p>
+                    本規約は、制作者「manpuc」（以下、「制作者」）が当ポートフォリオサイト（以下、「当サイト」）上で提供するサービス、および公開しているコンテンツの利用条件を定めるものです。ユーザーが当サイトを利用した時点で、本規約に同意したものとみなします。
+                </p>
+            </section>
 
-        <section class="glass-card reveal">
-            <h2>第2条（禁止事項）</h2>
-            <p>
-                ユーザーは、当サイトの利用にあたり、以下の行為をしてはなりません。
-            </p>
-            <ul>
-                <li>
-                    当サイトの運営を妨害する行為、またはその恐れのある行為。
-                </li>
-                <li>
-                    制作者または第三者の著作権、商標権等の知的財産権を侵害する行為。
-                </li>
-                <li>
-                    不正アクセス、または当サイトのサーバーやネットワークの機能を破壊する行為。
-                </li>
-                <li>
-                    制作者の許可なく、当サイトのコンテンツを商用利用（二次配布、再販売等）する行為。
-                </li>
-                <li>その他、法令または公序良俗に違反する行為。</li>
-            </ul>
-        </section>
+            <section style="margin-bottom: 2rem;">
+                <h2>第2条（禁止事項）</h2>
+                <p>
+                    ユーザーは、当サイトの利用にあたり、以下の行為をしてはなりません。
+                </p>
+                <ul>
+                    <li>
+                        当サイトの運営を妨害する行為、またはその恐れのある行為。
+                    </li>
+                    <li>
+                        制作者または第三者の著作権、商標権等の知的財産権を侵害する行為。
+                    </li>
+                    <li>
+                        不正アクセス、または当サイトのサーバーやネットワークの機能を破壊する行為。
+                    </li>
+                    <li>
+                        制作者の許可なく、当サイトのコンテンツを商用利用（二次配布、再販売等）する行為。
+                    </li>
+                    <li>その他、法令または公序良俗に違反する行為。</li>
+                </ul>
+            </section>
 
-        <section class="glass-card reveal">
-            <h2>第3条（免責事項）</h2>
-            <p>
-                制作者は、当サイトに掲載されている情報について、その正確性、完全性、最新性を保証するものではありません。
-            </p>
-            <p>
-                当サイトの利用によって生じた損害（直接・間接を問いません）について、制作者は一切の責任を負わないものとします。公開されているソースコードやソフトウェアの利用は、自己責任で行ってください。
-            </p>
-        </section>
+            <section style="margin-bottom: 2rem;">
+                <h2>第3条（免責事項）</h2>
+                <p>
+                    制作者は、当サイトに掲載されている情報について、その正確性、完全性、最新性を保証するものではありません。
+                </p>
+                <p>
+                    当サイトの利用によって生じた損害（直接・間接を問いません）について、制作者は一切の責任を負わないものとします。公開されているソースコードやソフトウェアの利用は、自己責任で行ってください。
+                </p>
+            </section>
 
-        <section class="glass-card reveal">
-            <h2>第4条（著作権）</h2>
-            <p>
-                当サイトに掲載されている全てのコンテンツ（テキスト、画像、公開されているコード等）の著作権は、特段の表記がない限り制作者に帰属します。私的使用の範囲を超えて、無断で複製、転載、加工、配布等を行うことはできません。
-            </p>
-        </section>
+            <section style="margin-bottom: 2rem;">
+                <h2>第4条（著作権）</h2>
+                <p>
+                    当サイトに掲載されている全てのコンテンツ（テキスト、画像、公開されているコード等）の著作権は、特段の表記がない限り制作者に帰属します。私的使用の範囲を超えて、無断で複製、転載、加工、配布等を行うことはできません。
+                </p>
+            </section>
 
-        <section class="glass-card reveal">
-            <h2>第5条（規約の変更）</h2>
-            <p>
-                制作者は、必要と判断した場合には、ユーザーに通知することなくいつでも本規約を変更することができるものとします。変更後の規約は、当サイトに掲示した時点から効力を生じるものとします。
-            </p>
-        </section>
-
-        <div class="view-more-container reveal">
-            <a href="/" class="back-btn centered">
-                <svg
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2.5"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="back-btn-icon"
-                >
-                    <line x1="19" y1="12" x2="5" y2="12"></line>
-                    <polyline points="12 19 5 12 12 5"></polyline>
-                </svg>
-                <span class="text-long"> ホームに戻る </span>
-                <span class="text-short"> ホーム </span>
-            </a>
+            <section>
+                <h2>第5条（規約の変更）</h2>
+                <p>
+                    制作者は、必要と判断した場合には、ユーザーに通知することなくいつでも本規約を変更することができるものとします。変更後の規約は、当サイトに掲示した時点から効力を生じるものとします。
+                </p>
+            </section>
         </div>
     </div>
 </Layout>
-
-<style>
-    section {
-        margin-bottom: 2rem;
-    }
-    p {
-        color: var(--txt-sub);
-        margin-bottom: 1rem;
-        line-height: 1.8;
-    }
-    ul {
-        color: var(--txt-sub);
-        margin-bottom: 1rem;
-        padding-left: 1.5rem;
-    }
-    li {
-        margin-bottom: 0.5rem;
-    }
-</style>
