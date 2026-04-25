@@ -10,6 +10,27 @@ import { devSkills, toolSkills } from "../data/skills";
 const featuredWorks = works.filter((w) =>
     ["chrome-theme", "ambient", "minecraft-mod", "discord-bot"].includes(w.id),
 );
+
+// Helper to convert devicon class to simple-icons name for guaranteed monochromatic look
+const getIconName = (deviconClass: string) => {
+    const mapping: Record<string, string> = {
+        "devicon-html5-plain": "simple-icons:html5",
+        "devicon-css3-plain": "simple-icons:css3",
+        "devicon-javascript-plain": "simple-icons:javascript",
+        "devicon-astro-plain": "simple-icons:astro",
+        "devicon-react-original": "simple-icons:react",
+        "devicon-nodejs-plain": "simple-icons:nodedotjs",
+        "devicon-python-plain": "simple-icons:python",
+        "devicon-bash-plain": "simple-icons:powershell",
+        "devicon-java-plain": "simple-icons:openjdk",
+        "devicon-git-plain": "simple-icons:git",
+        "devicon-github-original": "simple-icons:github",
+        "devicon-vscode-plain": "simple-icons:visualstudiocode",
+        "devicon-aftereffects-plain": "simple-icons:adobeaftereffects",
+        "devicon-illustrator-plain": "simple-icons:adobeillustrator"
+    };
+    return mapping[deviconClass] || deviconClass.replace("devicon-", "simple-icons:");
+};
 ---
 
 <Layout title="manpuc | Student Developer & UI/UX Designer" lang="ja">
@@ -93,7 +114,7 @@ const featuredWorks = works.filter((w) =>
                             class="tag"
                             style={`--tag-color: ${skill.color}; --tag-text: ${skill.textColor};`}
                         >
-                            <i class={skill.icon}></i> {skill.name}
+                            <iconify-icon icon={getIconName(skill.icon)} style="color: currentColor;"></iconify-icon> {skill.name}
                         </span>
                     ))}
                 </div>
@@ -108,7 +129,7 @@ const featuredWorks = works.filter((w) =>
                             class="tag"
                             style={`--tag-color: ${skill.color}; --tag-text: ${skill.textColor};`}
                         >
-                            <i class={skill.icon}></i> {skill.name}
+                            <iconify-icon icon={getIconName(skill.icon)} style="color: currentColor;"></iconify-icon> {skill.name}
                         </span>
                     ))}
                 </div>

@@ -8,6 +8,27 @@ import { works } from "../../data/works";
 const featuredWorks = works.filter((w) =>
     ["chrome-theme", "ambient", "minecraft-mod", "discord-bot"].includes(w.id),
 );
+
+// Helper to convert devicon class to simple-icons name for guaranteed monochromatic look
+const getIconName = (deviconClass: string) => {
+    const mapping: Record<string, string> = {
+        "devicon-html5-plain": "simple-icons:html5",
+        "devicon-css3-plain": "simple-icons:css3",
+        "devicon-javascript-plain": "simple-icons:javascript",
+        "devicon-astro-plain": "simple-icons:astro",
+        "devicon-react-original": "simple-icons:react",
+        "devicon-nodejs-plain": "simple-icons:nodedotjs",
+        "devicon-python-plain": "simple-icons:python",
+        "devicon-bash-plain": "simple-icons:powershell",
+        "devicon-java-plain": "simple-icons:openjdk",
+        "devicon-git-plain": "simple-icons:git",
+        "devicon-github-original": "simple-icons:github",
+        "devicon-vscode-plain": "simple-icons:visualstudiocode",
+        "devicon-aftereffects-plain": "simple-icons:adobeaftereffects",
+        "devicon-illustrator-plain": "simple-icons:adobeillustrator"
+    };
+    return mapping[deviconClass] || deviconClass.replace("devicon-", "simple-icons:");
+};
 ---
 
 <Layout title="manpuc | Student Developer & UI/UX Designer" lang="en">
@@ -90,47 +111,47 @@ const featuredWorks = works.filter((w) =>
                     <span
                         class="tag"
                         style="--tag-color: #e34c26; --tag-text: #fff;"
-                        ><i class="devicon-html5-plain"></i> HTML</span
+                        ><iconify-icon icon={getIconName("devicon-html5-plain")} style="color: currentColor;"></iconify-icon> HTML</span
                     >
                     <span
                         class="tag"
                         style="--tag-color: #264de4; --tag-text: #fff;"
-                        ><i class="devicon-css3-plain"></i> CSS</span
+                        ><iconify-icon icon={getIconName("devicon-css3-plain")} style="color: currentColor;"></iconify-icon> CSS</span
                     >
                     <span
                         class="tag"
                         style="--tag-color: #f7df1e; --tag-text: #000;"
-                        ><i class="devicon-javascript-plain"></i> JavaScript</span
+                        ><iconify-icon icon={getIconName("devicon-javascript-plain")} style="color: currentColor;"></iconify-icon> JavaScript</span
                     >
                     <span
                         class="tag"
                         style="--tag-color: #ff5d01; --tag-text: #fff;"
-                        ><i class="devicon-astro-plain"></i> Astro</span
+                        ><iconify-icon icon={getIconName("devicon-astro-plain")} style="color: currentColor;"></iconify-icon> Astro</span
                     >
                     <span
                         class="tag"
                         style="--tag-color: #61dafb; --tag-text: #000;"
-                        ><i class="devicon-react-original"></i> React</span
+                        ><iconify-icon icon={getIconName("devicon-react-original")} style="color: currentColor;"></iconify-icon> React</span
                     >
                     <span
                         class="tag"
                         style="--tag-color: #339933; --tag-text: #fff;"
-                        ><i class="devicon-nodejs-plain"></i> Node.js</span
+                        ><iconify-icon icon={getIconName("devicon-nodejs-plain")} style="color: currentColor;"></iconify-icon> Node.js</span
                     >
                     <span
                         class="tag"
                         style="--tag-color: #3776ab; --tag-text: #fff;"
-                        ><i class="devicon-python-plain"></i> Python</span
+                        ><iconify-icon icon={getIconName("devicon-python-plain")} style="color: currentColor;"></iconify-icon> Python</span
                     >
                     <span
                         class="tag"
                         style="--tag-color: #5391fe; --tag-text: #fff;"
-                        ><i class="devicon-bash-plain"></i> PowerShell / Batch</span
+                        ><iconify-icon icon={getIconName("devicon-bash-plain")} style="color: currentColor;"></iconify-icon> PowerShell / Batch</span
                     >
                     <span
                         class="tag"
                         style="--tag-color: #007396; --tag-text: #fff;"
-                        ><i class="devicon-java-plain"></i> Java</span
+                        ><iconify-icon icon={getIconName("devicon-java-plain")} style="color: currentColor;"></iconify-icon> Java</span
                     >
                 </div>
             </div>
@@ -144,27 +165,27 @@ const featuredWorks = works.filter((w) =>
                     <span
                         class="tag"
                         style="--tag-color: #f05032; --tag-text: #fff;"
-                        ><i class="devicon-git-plain"></i> Git</span
+                        ><iconify-icon icon={getIconName("devicon-git-plain")} style="color: currentColor;"></iconify-icon> Git</span
                     >
                     <span
                         class="tag"
                         style="--tag-color: #181717; --tag-text: #fff;"
-                        ><i class="devicon-github-original"></i> GitHub</span
+                        ><iconify-icon icon={getIconName("devicon-github-original")} style="color: currentColor;"></iconify-icon> GitHub</span
                     >
                     <span
                         class="tag"
                         style="--tag-color: #007acc; --tag-text: #fff;"
-                        ><i class="devicon-vscode-plain"></i> VS Code</span
+                        ><iconify-icon icon={getIconName("devicon-vscode-plain")} style="color: currentColor;"></iconify-icon> VS Code</span
                     >
                     <span
                         class="tag"
                         style="--tag-color: #9999ff; --tag-text: #fff;"
-                        ><i class="devicon-aftereffects-plain"></i> After Effects</span
+                        ><iconify-icon icon={getIconName("devicon-aftereffects-plain")} style="color: currentColor;"></iconify-icon> After Effects</span
                     >
                     <span
                         class="tag"
                         style="--tag-color: #ff9a00; --tag-text: #fff;"
-                        ><i class="devicon-illustrator-plain"></i> Illustrator</span
+                        ><iconify-icon icon={getIconName("devicon-illustrator-plain")} style="color: currentColor;"></iconify-icon> Illustrator</span
                     >
                 </div>
             </div>

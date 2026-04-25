@@ -703,6 +703,7 @@ body.dark .tag:hover {
 }
 
 .tag svg,
+.tag iconify-icon,
 .tag i {
   width: 16px;
   height: 16px;
