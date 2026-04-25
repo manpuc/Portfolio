@@ -2,38 +2,37 @@
 import Layout from "../../layouts/Layout.astro";
 import { Image } from "astro:assets";
 import avatarImg from "../../../public/avatar.webp";
-import WorkCard from "../../components/WorkCard.astro";
 import { works } from "../../data/works";
+import TechIcon from "../../components/TechIcon.astro";
+import { devSkills, toolSkills } from "../../data/skills";
 
-const featuredWorks = works.filter((w) =>
-    ["chrome-theme", "ambient", "minecraft-mod", "discord-bot"].includes(w.id),
-);
-
-// Helper to convert devicon class to simple-icons name for guaranteed monochromatic look
+// Helper to convert devicon class to simple TechIcon keys
 const getIconName = (deviconClass: string) => {
     const mapping: Record<string, string> = {
-        "devicon-html5-plain": "simple-icons:html5",
-        "devicon-css3-plain": "simple-icons:css3",
-        "devicon-javascript-plain": "simple-icons:javascript",
-        "devicon-astro-plain": "simple-icons:astro",
-        "devicon-react-original": "simple-icons:react",
-        "devicon-nodejs-plain": "simple-icons:nodedotjs",
-        "devicon-python-plain": "simple-icons:python",
-        "devicon-bash-plain": "simple-icons:powershell",
-        "devicon-java-plain": "simple-icons:openjdk",
-        "devicon-git-plain": "simple-icons:git",
-        "devicon-github-original": "simple-icons:github",
-        "devicon-vscode-plain": "simple-icons:visualstudiocode",
-        "devicon-aftereffects-plain": "simple-icons:adobeaftereffects",
-        "devicon-illustrator-plain": "simple-icons:adobeillustrator"
+        "devicon-html5-plain": "html",
+        "devicon-css3-plain": "css",
+        "devicon-javascript-plain": "javascript",
+        "devicon-astro-plain": "astro",
+        "devicon-react-original": "react",
+        "devicon-nodejs-plain": "nodejs",
+        "devicon-python-plain": "python",
+        "devicon-bash-plain": "powershell",
+        "devicon-java-plain": "java",
+        "devicon-git-plain": "git",
+        "devicon-github-original": "github",
+        "devicon-vscode-plain": "vscode",
+        "devicon-aftereffects-plain": "aftereffects",
+        "devicon-illustrator-plain": "illustrator",
     };
-    return mapping[deviconClass] || deviconClass.replace("devicon-", "simple-icons:");
+    return mapping[deviconClass] || "html";
 };
 ---
 
 <Layout title="manpuc | Student Developer & UI/UX Designer" lang="en">
     <div class="container">
-        <header style="display: flex; align-items: center; gap: 2rem; margin-bottom: 2rem;">
+        <header
+            style="display: flex; align-items: center; gap: 2rem; margin-bottom: 2rem;"
+        >
             <div class="animate-profile-pop delay-profile">
                 <Image
                     src={avatarImg}
@@ -43,7 +42,10 @@ const getIconName = (deviconClass: string) => {
                     class="profile-img"
                 />
             </div>
-            <div id="header-info-en" class="header-info animate-premium-reveal delay-header-info">
+            <div
+                id="header-info-en"
+                class="header-info animate-premium-reveal delay-header-info"
+            >
                 <h1>
                     <span class="typewriter-container">
                         <span class="typewriter-text" data-text="manpuc"></span>
@@ -108,51 +110,17 @@ const getIconName = (deviconClass: string) => {
                     Dev & Code
                 </h3>
                 <div class="tags">
-                    <span
-                        class="tag"
-                        style="--tag-color: #e34c26; --tag-text: #fff;"
-                        ><iconify-icon icon={getIconName("devicon-html5-plain")} style="color: currentColor;"></iconify-icon> HTML</span
-                    >
-                    <span
-                        class="tag"
-                        style="--tag-color: #264de4; --tag-text: #fff;"
-                        ><iconify-icon icon={getIconName("devicon-css3-plain")} style="color: currentColor;"></iconify-icon> CSS</span
-                    >
-                    <span
-                        class="tag"
-                        style="--tag-color: #f7df1e; --tag-text: #000;"
-                        ><iconify-icon icon={getIconName("devicon-javascript-plain")} style="color: currentColor;"></iconify-icon> JavaScript</span
-                    >
-                    <span
-                        class="tag"
-                        style="--tag-color: #ff5d01; --tag-text: #fff;"
-                        ><iconify-icon icon={getIconName("devicon-astro-plain")} style="color: currentColor;"></iconify-icon> Astro</span
-                    >
-                    <span
-                        class="tag"
-                        style="--tag-color: #61dafb; --tag-text: #000;"
-                        ><iconify-icon icon={getIconName("devicon-react-original")} style="color: currentColor;"></iconify-icon> React</span
-                    >
-                    <span
-                        class="tag"
-                        style="--tag-color: #339933; --tag-text: #fff;"
-                        ><iconify-icon icon={getIconName("devicon-nodejs-plain")} style="color: currentColor;"></iconify-icon> Node.js</span
-                    >
-                    <span
-                        class="tag"
-                        style="--tag-color: #3776ab; --tag-text: #fff;"
-                        ><iconify-icon icon={getIconName("devicon-python-plain")} style="color: currentColor;"></iconify-icon> Python</span
-                    >
-                    <span
-                        class="tag"
-                        style="--tag-color: #5391fe; --tag-text: #fff;"
-                        ><iconify-icon icon={getIconName("devicon-bash-plain")} style="color: currentColor;"></iconify-icon> PowerShell / Batch</span
-                    >
-                    <span
-                        class="tag"
-                        style="--tag-color: #007396; --tag-text: #fff;"
-                        ><iconify-icon icon={getIconName("devicon-java-plain")} style="color: currentColor;"></iconify-icon> Java</span
-                    >
+                    {
+                        devSkills.map((skill) => (
+                            <span
+                                class="tag"
+                                style={`--tag-color: ${skill.color}; --tag-text: ${skill.textColor};`}
+                            >
+                                <TechIcon name={getIconName(skill.icon)} />{" "}
+                                {skill.name}
+                            </span>
+                        ))
+                    }
                 </div>
             </div>
             <div>
@@ -162,31 +130,17 @@ const getIconName = (deviconClass: string) => {
                     Tools & Others
                 </h3>
                 <div class="tags">
-                    <span
-                        class="tag"
-                        style="--tag-color: #f05032; --tag-text: #fff;"
-                        ><iconify-icon icon={getIconName("devicon-git-plain")} style="color: currentColor;"></iconify-icon> Git</span
-                    >
-                    <span
-                        class="tag"
-                        style="--tag-color: #181717; --tag-text: #fff;"
-                        ><iconify-icon icon={getIconName("devicon-github-original")} style="color: currentColor;"></iconify-icon> GitHub</span
-                    >
-                    <span
-                        class="tag"
-                        style="--tag-color: #007acc; --tag-text: #fff;"
-                        ><iconify-icon icon={getIconName("devicon-vscode-plain")} style="color: currentColor;"></iconify-icon> VS Code</span
-                    >
-                    <span
-                        class="tag"
-                        style="--tag-color: #9999ff; --tag-text: #fff;"
-                        ><iconify-icon icon={getIconName("devicon-aftereffects-plain")} style="color: currentColor;"></iconify-icon> After Effects</span
-                    >
-                    <span
-                        class="tag"
-                        style="--tag-color: #ff9a00; --tag-text: #fff;"
-                        ><iconify-icon icon={getIconName("devicon-illustrator-plain")} style="color: currentColor;"></iconify-icon> Illustrator</span
-                    >
+                    {
+                        toolSkills.map((skill) => (
+                            <span
+                                class="tag"
+                                style={`--tag-color: ${skill.color}; --tag-text: ${skill.textColor};`}
+                            >
+                                <TechIcon name={getIconName(skill.icon)} />{" "}
+                                {skill.name}
+                            </span>
+                        ))
+                    }
                 </div>
             </div>
         </section>
@@ -208,189 +162,13 @@ const getIconName = (deviconClass: string) => {
         </section>
 
         <script>
-            // Konami Code Easter Egg
-            let konamiCode = [
-                "ArrowUp",
-                "ArrowUp",
-                "ArrowDown",
-                "ArrowDown",
-                "ArrowLeft",
-                "ArrowRight",
-                "ArrowLeft",
-                "ArrowRight",
-                "b",
-                "a",
-            ];
-            let konamiIndex = 0;
-
-            document.addEventListener("keydown", (e) => {
-                if (e.key === konamiCode[konamiIndex]) {
-                    konamiIndex++;
-                    if (konamiIndex === konamiCode.length) {
-                        triggerGravityCollapse();
-                        konamiIndex = 0;
-                    }
-                } else {
-                    konamiIndex = 0;
-                }
-            });
-
-            async function triggerGravityCollapse() {
-                // Disable scrolling
-                document.body.style.overflow = "hidden";
-
-                // Identify elements to drop
-                const elements: HTMLElement[] = [];
-                const selectors = [
-                    ".container > header",
-                    ".container > .header-divider",
-                    ".container > section",
-                    ".floating-controls .icon-btn",
-                    "footer",
-                ];
-
-                selectors.forEach((selector) => {
-                    document.querySelectorAll(selector).forEach((el) => {
-                        if (el instanceof HTMLElement) elements.push(el);
-                    });
-                });
-
-                // Get positions before any changes
-                const elementInfos = elements.map((el) => ({
-                    el,
-                    rect: el.getBoundingClientRect(),
-                }));
-
-                // Start physics
-                const physicsObjects = elementInfos.map((info) => {
-                    const { el, rect } = info;
-
-                    // Reset animations and apply fixed positioning
-                    el.style.animation = "none";
-                    el.classList.remove("animate-fade-up");
-                    el.style.position = "fixed";
-                    el.style.top = rect.top + "px";
-                    el.style.left = rect.left + "px";
-                    el.style.width = rect.width + "px";
-                    el.style.height = rect.height + "px";
-                    el.style.margin = "0";
-                    el.style.zIndex = "20000";
-                    el.style.transition = "none";
-                    el.style.transformOrigin = "center";
-
-                    return {
-                        el,
-                        x: rect.left,
-                        y: rect.top,
-                        baseX: rect.left,
-                        baseY: rect.top,
-                        width: rect.width,
-                        height: rect.height,
-                        vx: (Math.random() - 0.5) * 12,
-                        vy: Math.random() * 5,
-                        rotation: 0,
-                        vr: (Math.random() - 0.5) * 0.3,
-                    };
-                });
-
-                const gravity = 0.8;
-                const friction = 0.99;
-                const bounce = -0.6;
-                const ground = window.innerHeight;
-                const wallWidth = window.innerWidth;
-
-                function loop() {
-                    let active = false;
-                    physicsObjects.forEach((p) => {
-                        p.vy += gravity;
-                        p.vx *= friction;
-                        p.x += p.vx;
-                        p.y += p.vy;
-                        p.rotation += p.vr;
-
-                        // Floor collision
-                        if (p.y + p.height > ground) {
-                            p.y = ground - p.height;
-                            p.vy *= bounce;
-                            p.vx *= 0.8;
-                            p.vr *= 0.8;
-                        }
-
-                        // Wall collision
-                        if (p.x < 0) {
-                            p.x = 0;
-                            p.vx *= bounce;
-                        } else if (p.x + p.width > wallWidth) {
-                            p.x = wallWidth - p.width;
-                            p.vx *= bounce;
-                        }
-
-                        // Apply transform relative to fixed base position
-                        const tx = p.x - p.baseX;
-                        const ty = p.y - p.baseY;
-                        p.el.style.transform = `translate(${tx}px, ${ty}px) rotate(${p.rotation}rad)`;
-
-                        // Continue if moving or above ground
-                        if (
-                            Math.abs(p.vy) > 0.5 ||
-                            Math.abs(p.vx) > 0.5 ||
-                            p.y + p.height < ground - 10
-                        ) {
-                            active = true;
-                        }
-                    });
-
-                    if (active) requestAnimationFrame(loop);
-                }
-
-                // Small delay to ensure styles are applied
-                setTimeout(loop, 16);
-            }
-        </script>
-
-        <script>
             import { setupMarquee } from "../../scripts/marquee";
+            import { initGravityEasterEgg } from "../../scripts/gravity";
+            import { initTypewriter } from "../../scripts/typewriter";
+
             setupMarquee();
-
-            // Typing Animation
-            const typewriters = document.querySelectorAll(".typewriter-text");
-            typewriters.forEach((el) => {
-                const targetText = el.getAttribute("data-text");
-                if (!targetText) return;
-
-                let currentText = "";
-                let i = 0;
-
-                const typeWriter = () => {
-                    if (i < targetText.length) {
-                        currentText += targetText.charAt(i);
-                        el.textContent = currentText;
-                        i++;
-                        setTimeout(typeWriter, 100 + Math.random() * 150);
-                    }
-                };
-
-                // Start after header animations finish
-                const headerInfo = document.getElementById('header-info-en');
-                if (headerInfo) {
-                    headerInfo.addEventListener('animationend', (e) => {
-                        if (e.animationName === 'premiumReveal') {
-                            setTimeout(typeWriter, 100);
-                        }
-                    }, { once: true });
-                } else {
-                    setTimeout(typeWriter, 1800);
-                }
-            });
-
-            // Hide cursor after 13s
-            setTimeout(() => {
-                document
-                    .querySelectorAll(".typewriter-cursor")
-                    .forEach((cursor) => {
-                        (cursor as HTMLElement).style.display = "none";
-                    });
-            }, 13000);
+            initGravityEasterEgg();
+            initTypewriter();
         </script>
     </div>
 </Layout>

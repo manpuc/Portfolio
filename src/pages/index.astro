@@ -2,41 +2,39 @@
 import Layout from "../layouts/Layout.astro";
 import { Image } from "astro:assets";
 import avatarImg from "../../public/avatar.webp";
-import WorkCard from "../components/WorkCard.astro";
 import { works } from "../data/works";
+import TechIcon from "../components/TechIcon.astro";
 
 import { devSkills, toolSkills } from "../data/skills";
 
-const featuredWorks = works.filter((w) =>
-    ["chrome-theme", "ambient", "minecraft-mod", "discord-bot"].includes(w.id),
-);
-
-// Helper to convert devicon class to simple-icons name for guaranteed monochromatic look
+// Helper to convert devicon class to simple TechIcon keys
 const getIconName = (deviconClass: string) => {
     const mapping: Record<string, string> = {
-        "devicon-html5-plain": "simple-icons:html5",
-        "devicon-css3-plain": "simple-icons:css3",
-        "devicon-javascript-plain": "simple-icons:javascript",
-        "devicon-astro-plain": "simple-icons:astro",
-        "devicon-react-original": "simple-icons:react",
-        "devicon-nodejs-plain": "simple-icons:nodedotjs",
-        "devicon-python-plain": "simple-icons:python",
-        "devicon-bash-plain": "simple-icons:powershell",
-        "devicon-java-plain": "simple-icons:openjdk",
-        "devicon-git-plain": "simple-icons:git",
-        "devicon-github-original": "simple-icons:github",
-        "devicon-vscode-plain": "simple-icons:visualstudiocode",
-        "devicon-aftereffects-plain": "simple-icons:adobeaftereffects",
-        "devicon-illustrator-plain": "simple-icons:adobeillustrator"
+        "devicon-html5-plain": "html",
+        "devicon-css3-plain": "css",
+        "devicon-javascript-plain": "javascript",
+        "devicon-astro-plain": "astro",
+        "devicon-react-original": "react",
+        "devicon-nodejs-plain": "nodejs",
+        "devicon-python-plain": "python",
+        "devicon-bash-plain": "powershell",
+        "devicon-java-plain": "java",
+        "devicon-git-plain": "git",
+        "devicon-github-original": "github",
+        "devicon-vscode-plain": "vscode",
+        "devicon-aftereffects-plain": "aftereffects",
+        "devicon-illustrator-plain": "illustrator",
     };
-    return mapping[deviconClass] || deviconClass.replace("devicon-", "simple-icons:");
+    return mapping[deviconClass] || "html";
 };
 ---
 
 <Layout title="manpuc | Student Developer & UI/UX Designer" lang="ja">
     <div class="container main-content">
         <header class="main-header">
-            <div class="profile-img-container animate-profile-pop delay-profile">
+            <div
+                class="profile-img-container animate-profile-pop delay-profile"
+            >
                 <Image
                     src={avatarImg}
                     width={150}
@@ -45,7 +43,10 @@ const getIconName = (deviconClass: string) => {
                     class="profile-img"
                 />
             </div>
-            <div id="header-info" class="header-info animate-premium-reveal delay-header-info">
+            <div
+                id="header-info"
+                class="header-info animate-premium-reveal delay-header-info"
+            >
                 <h1>
                     <span class="sr-only">manpuc</span>
                     <span class="typewriter-container" aria-hidden="true">
@@ -59,10 +60,7 @@ const getIconName = (deviconClass: string) => {
 
         <div class="header-divider animate-premium-reveal delay-divider"></div>
 
-        <section
-            id="works"
-            class="works-section animate-fade-up delay-3"
-        >
+        <section id="works" class="works-section animate-fade-up delay-3">
             <h2>Works</h2>
             <div class="marquee-container">
                 <div class="marquee-content">
@@ -81,7 +79,11 @@ const getIconName = (deviconClass: string) => {
                 </div>
             </div>
             <div class="works-all-link-container">
-                <a href="/works/" class="forward-link" aria-label="制作実績をすべて表示">
+                <a
+                    href="/works/"
+                    class="forward-link"
+                    aria-label="制作実績をすべて表示"
+                >
                     制作実績をすべて見る
                     <svg
                         viewBox="0 0 24 24"
@@ -99,47 +101,43 @@ const getIconName = (deviconClass: string) => {
             </div>
         </section>
 
-        <section
-            id="skills"
-            class="skills-section animate-fade-up delay-4"
-        >
+        <section id="skills" class="skills-section animate-fade-up delay-4">
             <h2>Skills</h2>
             <div class="skills-group">
-                <h3 class="skills-category-title">
-                    Dev & Code
-                </h3>
+                <h3 class="skills-category-title">Dev & Code</h3>
                 <div class="tags">
-                    {devSkills.map(skill => (
-                        <span
-                            class="tag"
-                            style={`--tag-color: ${skill.color}; --tag-text: ${skill.textColor};`}
-                        >
-                            <iconify-icon icon={getIconName(skill.icon)} style="color: currentColor;"></iconify-icon> {skill.name}
-                        </span>
-                    ))}
+                    {
+                        devSkills.map((skill) => (
+                            <span
+                                class="tag"
+                                style={`--tag-color: ${skill.color}; --tag-text: ${skill.textColor};`}
+                            >
+                                <TechIcon name={getIconName(skill.icon)} />{" "}
+                                {skill.name}
+                            </span>
+                        ))
+                    }
                 </div>
             </div>
             <div class="skills-group">
-                <h3 class="skills-category-title">
-                    Tools & Others
-                </h3>
+                <h3 class="skills-category-title">Tools & Others</h3>
                 <div class="tags">
-                    {toolSkills.map(skill => (
-                        <span
-                            class="tag"
-                            style={`--tag-color: ${skill.color}; --tag-text: ${skill.textColor};`}
-                        >
-                            <iconify-icon icon={getIconName(skill.icon)} style="color: currentColor;"></iconify-icon> {skill.name}
-                        </span>
-                    ))}
+                    {
+                        toolSkills.map((skill) => (
+                            <span
+                                class="tag"
+                                style={`--tag-color: ${skill.color}; --tag-text: ${skill.textColor};`}
+                            >
+                                <TechIcon name={getIconName(skill.icon)} />{" "}
+                                {skill.name}
+                            </span>
+                        ))
+                    }
                 </div>
             </div>
         </section>
 
-        <section
-            id="about"
-            class="about-section animate-fade-up delay-5"
-        >
+        <section id="about" class="about-section animate-fade-up delay-5">
             <h2>About</h2>
             <p class="about-text">
                 高校商業科情報デザイン類型を卒業し、現在は放送大学教養学部社会と産業コースに在籍しています。スマートウォッチやスマホなどのガジェット収集を趣味としつつ、Minecraft

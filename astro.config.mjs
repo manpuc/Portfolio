@@ -1,5 +1,5 @@
 import { defineConfig } from 'astro/config';
-import react from '@astrojs/react';
+
 import sitemap from '@astrojs/sitemap';
 import vercel from '@astrojs/vercel';
 import critters from 'astro-critters';
@@ -14,7 +14,7 @@ export default defineConfig({
       prefixDefaultLocale: false,
     },
   },
-  integrations: [react(), critters({
+  integrations: [critters({
     preload: 'swap',
     pruneSource: false,
     logLevel: 'warn'

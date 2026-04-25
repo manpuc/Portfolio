@@ -1,0 +1,79 @@
+---
+// src/components/TechIcon.astro
+interface Props {
+    name: string;
+}
+
+const { name } = Astro.props;
+
+// Simple Icons mapping for the best monochromatic look
+const mapping: Record<string, string> = {
+    html: "simple-icons:html5",
+    css: "simple-icons:css3",
+    javascript: "simple-icons:javascript",
+    astro: "simple-icons:astro",
+    react: "simple-icons:react",
+    nodejs: "simple-icons:nodedotjs",
+    python: "simple-icons:python",
+    powershell: "simple-icons:powershell",
+    java: "simple-icons:openjdk",
+    git: "simple-icons:git",
+    github: "simple-icons:github",
+    vscode: "simple-icons:visualstudiocode",
+    aftereffects: "simple-icons:adobeaftereffects",
+    illustrator: "simple-icons:adobeillustrator",
+};
+
+const iconIdentifier = mapping[name] || mapping["html"];
+const [prefix, iconName] = iconIdentifier.split(":");
+
+// Fetch the perfect SVG from Iconify API at BUILD TIME
+// This ensures the data is correct and there are no runtime dependencies or broken paths.
+let svgContent = "";
+try {
+    const response = await fetch(
+        `https://api.iconify.design/${prefix}/${iconName}.svg`,
+    );
+    if (response.ok) {
+        svgContent = await response.text();
+
+        // Force monochromatic by replacing any fill with currentColor
+        // This ensures the icon follows the text color (var(--text-muted) or white on hover)
+        svgContent = svgContent.replace(/fill="[^"]*"/g, 'fill="currentColor"');
+
+        // Ensure it has our required classes and sizing
+        svgContent = svgContent.replace(
+            "<svg ",
+            '<svg class="tech-icon" width="16" height="16" ',
+        );
+    }
+} catch (e) {
+    console.error(`Failed to fetch icon: ${iconIdentifier}`, e);
+}
+---
+
+{
+    svgContent ? (
+        <Fragment set:html={svgContent} />
+    ) : (
+        <span class="icon-fallback" />
+    )
+}
+
+<style>
+    /* Scoped styles to ensure the injected SVG is sized correctly */
+    :global(.tech-icon) {
+        width: 16px;
+        height: 16px;
+        display: inline-block;
+        vertical-align: middle;
+        flex-shrink: 0;
+        color: currentColor;
+    }
+
+    .icon-fallback {
+        width: 16px;
+        height: 16px;
+        display: inline-block;
+    }
+</style>
