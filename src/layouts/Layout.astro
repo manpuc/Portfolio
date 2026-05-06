@@ -265,8 +265,11 @@ const footerStagger = isHome ? 120 : 60;
 				const footerEl = document.querySelector('.site-footer') as HTMLElement;
 				
 				const startFooterAnimation = () => {
-					const baseDelay = parseInt(footerEl?.dataset.delay || "300");
+					const configuredDelay = parseInt(footerEl?.dataset.delay || "300");
 					const stagger = parseInt(footerEl?.dataset.stagger || "60");
+					
+					// ページ読み込みから時間が経過している場合は遅延をなくす
+					const baseDelay = Math.max(0, configuredDelay - performance.now());
 
 					footerItems.forEach((item, index) => {
 						const el = item as HTMLElement;
@@ -285,7 +288,7 @@ const footerStagger = isHome ? 120 : 60;
 						startFooterAnimation();
 						footerObserver.disconnect();
 					}
-				}, { threshold: 0.1 });
+				}, { threshold: 0, rootMargin: "50px" });
  
 				if (footerEl) footerObserver.observe(footerEl);
 			}

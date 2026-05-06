@@ -100,10 +100,10 @@ const getIconName = (deviconClass: string) => {
         <section
             id="skills"
             class="animate-fade-up delay-4"
-            style="margin-bottom: 4rem; padding: 0 1rem;"
+            style="margin-bottom: 0; padding: 0 1rem 4rem 1rem;"
         >
             <h2>Skills</h2>
-            <div style="margin-bottom: 1.5rem;">
+            <div class="skills-group" style="margin-bottom: 1.5rem;">
                 <h3
                     style="font-size: 1rem; color: var(--text-muted); margin-bottom: 0.5rem;"
                 >
@@ -123,7 +123,7 @@ const getIconName = (deviconClass: string) => {
                     }
                 </div>
             </div>
-            <div>
+            <div class="skills-group">
                 <h3
                     style="font-size: 1rem; color: var(--text-muted); margin-bottom: 0.5rem;"
                 >
@@ -165,10 +165,12 @@ const getIconName = (deviconClass: string) => {
             import { setupMarquee } from "../../scripts/marquee";
             import { initGravityEasterEgg } from "../../scripts/gravity";
             import { initTypewriter } from "../../scripts/typewriter";
+            import { initGlowEffect } from "../../scripts/glow";
 
             setupMarquee();
             initGravityEasterEgg();
             initTypewriter();
+            initGlowEffect();
         </script>
     </div>
 </Layout>

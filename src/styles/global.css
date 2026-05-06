@@ -683,6 +683,38 @@ body.dark .icon-btn {
   transition: var(--transition);
   cursor: default;
   border: 1px solid transparent;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.tag::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    circle 80px at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    var(--tag-color, var(--primary)),
+    transparent 100%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+/* タグのコンテナ領域にマウスがある時、各タグのにじみを表示する */
+#skills:hover .tag::before {
+  opacity: 0.6;
+}
+
+/* 直接ホバーしているタグはにじみを消し、元のベタ塗り背景を表示する */
+#skills:hover .tag:hover::before {
+  opacity: 0;
 }
 
 .tag:hover {
@@ -865,6 +897,11 @@ body.dark .minimal-work-item {
 .about-section {
   margin-bottom: 4rem;
   padding: 0 1rem;
+}
+
+#skills {
+  margin-bottom: 0;
+  padding-bottom: 4rem;
 }
 
 .works-all-link-container {
