@@ -59,6 +59,19 @@ export const works: Work[] = [
         os: "Cross-platform"
     },
     {
+        id: "FLICKER",
+        title: {
+            ja: "FLICKER",
+            en: "FLICKER"
+        },
+        description: {
+            ja: "シンプル操作のWebゲーム",
+            en: "A simple web game."
+        },
+        tags: ["TypeScript", "Next.js", "SQL"],
+        href: "https://flicker.manpuc.me/"
+    },
+    {
         id: "pomodoro",
         title: {
             ja: "Pomodoro Timer",
