@@ -72,6 +72,19 @@ export const works: Work[] = [
         href: "https://flicker.manpuc.me/"
     },
     {
+        id: "Loudness",
+        title: {
+            ja: "Loudness Insight",
+            en: "Loudness Insight"
+        },
+        description: {
+            ja: "Web Audio APIとFFmpeg(WebAssembly)を使用し、音量（ラウドネス）を分析するWebアプリ",
+            en: "A web app for analyzing loudness using Web Audio API and FFmpeg (WebAssembly)."
+        },
+        tags: ["Next.js", "FFmpeg", "WASM"],
+        href: "https://loudness.manpuc.me/"
+    },
+    {
         id: "pomodoro",
         title: {
             ja: "Pomodoro Timer",
