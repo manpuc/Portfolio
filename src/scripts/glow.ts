@@ -1,23 +1,38 @@
 export function initGlowEffect() {
     if (typeof window === "undefined") return;
 
-    // マウスホバーに対応していないデバイス（タッチデバイスなど）では処理をスキップ
-    if (!window.matchMedia('(hover: hover)').matches) return;
-
     const setupGlow = () => {
         const skillsSection = document.getElementById('skills');
         if (skillsSection) {
-            skillsSection.addEventListener('mousemove', (e: MouseEvent) => {
+            const updateGlowCoords = (clientX: number, clientY: number) => {
                 const tags = skillsSection.querySelectorAll('.tag');
                 tags.forEach(tag => {
                     const el = tag as HTMLElement;
                     const rect = el.getBoundingClientRect();
-                    const x = e.clientX - rect.left;
-                    const y = e.clientY - rect.top;
+                    const x = clientX - rect.left;
+                    const y = clientY - rect.top;
                     el.style.setProperty('--mouse-x', `${x}px`);
                     el.style.setProperty('--mouse-y', `${y}px`);
                 });
+            };
+
+            // マウス操作時の追従
+            skillsSection.addEventListener('mousemove', (e: MouseEvent) => {
+                updateGlowCoords(e.clientX, e.clientY);
             });
+
+            // タッチ操作時の追従
+            skillsSection.addEventListener('touchstart', (e: TouchEvent) => {
+                if (e.touches.length > 0) {
+                    updateGlowCoords(e.touches[0].clientX, e.touches[0].clientY);
+                }
+            }, { passive: true });
+
+            skillsSection.addEventListener('touchmove', (e: TouchEvent) => {
+                if (e.touches.length > 0) {
+                    updateGlowCoords(e.touches[0].clientX, e.touches[0].clientY);
+                }
+            }, { passive: true });
         }
     };
 

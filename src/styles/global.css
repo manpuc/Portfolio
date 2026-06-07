@@ -736,6 +736,33 @@ body.dark .icon-btn {
   }
 }
 
+@media (hover: none) {
+  /* タップしている間、沈み込みとハイライトを表示 */
+  .tag:active {
+    background-color: var(--tag-color, var(--primary));
+    color: var(--tag-text, #fff) !important;
+    box-shadow: var(--neumorph-inset);
+    transform: scale(0.96);
+    border-color: rgba(255, 255, 255, 0.2);
+    transition: transform 0.1s ease, background-color 0.15s ease;
+  }
+
+  body.dark .tag:active {
+    border-color: rgba(255, 255, 255, 0.05);
+  }
+
+  .tag:active i,
+  .tag:active svg {
+    color: inherit;
+  }
+
+  /* タップされているタグのみにじみを表示する */
+  .tag:active::before {
+    opacity: 0.6;
+    transition: opacity 0.1s ease;
+  }
+}
+
 .tag svg,
 .tag iconify-icon,
 .tag i {
