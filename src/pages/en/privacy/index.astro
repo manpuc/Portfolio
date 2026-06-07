@@ -1,0 +1,84 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+---
+
+<Layout title="Privacy Policy | manpuc" lang="en">
+    <div class="container">
+        <div class="back-nav animate-fade-up">
+            <a href="/en/" class="back-link">
+                <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    ><line x1="19" y1="12" x2="5" y2="12"></line><polyline
+                        points="12 19 5 12 12 5"></polyline></svg
+                >
+                Back to Home
+            </a>
+        </div>
+
+        <header>
+            <h1>Privacy Policy</h1>
+            <p class="subtitle">Privacy Policy</p>
+        </header>
+
+        <div class="neumorph-card animate-fade-up">
+            <section style="margin-bottom: 2rem;">
+                <p><strong>Last Updated:</strong> June 7, 2026</p>
+                <p>
+                    "CharView: Character Counter for Google Forms + AI Autofill" (hereinafter referred to as "this Extension") respects your privacy. This Privacy Policy describes how we handle user data.
+                </p>
+            </section>
+
+            <section style="margin-bottom: 2rem;">
+                <h2>1. No Personal Data Collection</h2>
+                <p>
+                    This Extension operates entirely within your browser. We do <strong>not</strong> collect, store, or transmit any of your personal information, browsing history, or form input data to our own servers or any third-party servers (except for direct communication with the AI providers configured by the user).
+                </p>
+            </section>
+
+            <section style="margin-bottom: 2rem;">
+                <h2>2. Handling of API Keys</h2>
+                <p>
+                    If you choose to use the AI Autofill feature, you will need to provide your own API key (for OpenAI, Gemini, or Anthropic).
+                </p>
+                <ul>
+                    <li>
+                        <strong>Storage:</strong> The API key you enter is stored securely and solely within your local browser storage using the Chrome Extension API (<code>chrome.storage</code>).
+                    </li>
+                    <li>
+                        <strong>Access:</strong> The developer and any third parties have no access to your API keys.
+                    </li>
+                </ul>
+            </section>
+
+            <section style="margin-bottom: 2rem;">
+                <h2>3. Data Transmission for AI Autofill</h2>
+                <p>
+                    When you trigger the AI Autofill feature:
+                </p>
+                <ul>
+                    <li>
+                        The custom prompt you configured and the layout structure of the active Google Form are sent <strong>directly</strong> from your browser to the corresponding AI provider's API endpoint (OpenAI, Google Gemini, or Anthropic).
+                    </li>
+                    <li>
+                        This data is transmitted securely via HTTPS and is used solely to generate form responses.
+                    </li>
+                    <li>
+                        We recommend checking the privacy policies and API data usage policies of each AI provider (OpenAI, Google, and Anthropic) regarding how they handle API request data (typically, API data is not used for model training).
+                    </li>
+                </ul>
+            </section>
+
+            <section style="margin-bottom: 2rem;">
+                <h2>4. Contact</h2>
+                <p>
+                    If you have any questions regarding this Privacy Policy, please contact the developer via email (<a href="mailto:info@manpuc.me">info@manpuc.me</a>).
+                </p>
+            </section>
+        </div>
+    </div>
+</Layout>

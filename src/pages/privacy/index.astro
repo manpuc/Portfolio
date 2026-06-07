@@ -1,0 +1,84 @@
+---
+import Layout from "../../layouts/Layout.astro";
+---
+
+<Layout title="プライバシーポリシー | manpuc" lang="ja">
+    <div class="container">
+        <div class="back-nav animate-fade-up">
+            <a href="/" class="back-link">
+                <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    ><line x1="19" y1="12" x2="5" y2="12"></line><polyline
+                        points="12 19 5 12 12 5"></polyline></svg
+                >
+                ホームに戻る
+            </a>
+        </div>
+
+        <header>
+            <h1>プライバシーポリシー</h1>
+            <p class="subtitle">Privacy Policy</p>
+        </header>
+
+        <div class="neumorph-card animate-fade-up">
+            <section style="margin-bottom: 2rem;">
+                <p><strong>最終更新日:</strong> 2026年6月7日</p>
+                <p>
+                    「CharView: Google フォーム文字カウント拡張 Plus」（以下「本拡張機能」）は、ユーザーのプライバシーを尊重します。本プライバシーポリシーでは、本拡張機能におけるユーザーデータの取り扱いについて説明します。
+                </p>
+            </section>
+
+            <section style="margin-bottom: 2rem;">
+                <h2>1. 個人情報の非収集</h2>
+                <p>
+                    本拡張機能は、ユーザーのブラウザ内でのみ動作します。ユーザーの個人情報、閲覧履歴、フォームへの入力内容などのデータを収集、保存、または開発者のサーバーや第三者のサーバーへ送信することは<strong>一切ありません</strong>（ユーザー自身が設定したAIプロバイダーとの直接通信を除く）。
+                </p>
+            </section>
+
+            <section style="margin-bottom: 2rem;">
+                <h2>2. APIキーの管理について</h2>
+                <p>
+                    AI自動入力機能を使用する際、ユーザーご自身で取得したAPIキー（OpenAI、Gemini、またはAnthropic）を設定していただきます。
+                </p>
+                <ul>
+                    <li>
+                        <strong>保存場所:</strong> 入力されたAPIキーは、Chrome拡張機能のAPI（<code>chrome.storage</code>）を利用して、ユーザーのブラウザのローカルストレージにのみ安全に保存されます。
+                    </li>
+                    <li>
+                        <strong>アクセス権:</strong> 開発者や第三者がこのAPIキーにアクセスすることはできません。
+                    </li>
+                </ul>
+            </section>
+
+            <section style="margin-bottom: 2rem;">
+                <h2>3. AI自動入力機能におけるデータ送信</h2>
+                <p>
+                    ユーザーがAI自動入力機能を実行した際：
+                </p>
+                <ul>
+                    <li>
+                        設定されたカスタムプロンプトおよび表示されているGoogleフォームの構造データが、ユーザーのブラウザから直接、各AIプロバイダー（OpenAI、Google、Anthropic）のAPIエンドポイントに送信されます。
+                    </li>
+                    <li>
+                        この通信はHTTPSを介して安全に行われ、フォームの自動入力を生成する目的のみに使用されます。
+                    </li>
+                    <li>
+                        送信されたデータの取り扱い（モデルの学習に使用されない等のポリシー）については、各AIプロバイダー（OpenAI、Google、Anthropic）のAPIデータ利用規約をご確認ください。
+                    </li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>4. お問い合わせ</h2>
+                <p>
+                    本プライバシーポリシーに関するご質問は、メール（<a href="mailto:info@manpuc.me">info@manpuc.me</a>）にてお問い合わせください。
+                </p>
+            </section>
+        </div>
+    </div>
+</Layout>

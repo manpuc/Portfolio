@@ -26,7 +26,42 @@ import { works } from "../../../data/works";
                 {
                     works.map((work, index) => (
                         <li class="minimal-work-item animate-fade-up" style={`animation-delay: ${0.15 + index * 0.08}s`}>
-                            {work.href ? (
+                            {work.id === "CharView" ? (
+                                <div class="minimal-work-link" style="cursor: default;">
+                                    <span class="minimal-work-title">
+                                        <a
+                                            href={work.href}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            style="display: inline-flex; align-items: center; gap: 0.5rem; color: inherit;"
+                                            class="charview-main-link"
+                                        >
+                                            {work.title.en}
+                                            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="opacity: 0.5;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                                        </a>
+                                    </span>
+                                    <span class="minimal-work-desc">{work.description.en}</span>
+                                    {work.tags && work.tags.length > 0 && (
+                                        <div
+                                            class="tags"
+                                            style="margin-top: 0.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; width: 100%;"
+                                        >
+                                            <div style="display: flex; flex-wrap: wrap; gap: 0.35rem;">
+                                                {work.tags.map(tag => (
+                                                    <span class="tag" style="padding: 0.2rem 0.6rem; font-size: 0.75rem;">{tag}</span>
+                                                ))}
+                                            </div>
+                                            <a
+                                                href="/en/privacy/"
+                                                class="privacy-text-link"
+                                                style="position: relative; z-index: 10; margin-left: auto;"
+                                            >
+                                                Privacy Policy
+                                            </a>
+                                        </div>
+                                    )}
+                                </div>
+                            ) : work.href ? (
                                 <a href={work.href} target="_blank" rel="noopener noreferrer" class="minimal-work-link">
                                     <span class="minimal-work-title">
                                         {work.title.en}

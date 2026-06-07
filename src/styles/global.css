@@ -1178,3 +1178,14 @@ body.dark .theme-icon-moon {
   opacity: 1;
   transform: rotate(0);
 }
+
+.privacy-text-link {
+  font-size: 0.75rem;
+  color: var(--text-muted) !important;
+  text-decoration: underline;
+  transition: var(--transition);
+}
+
+.privacy-text-link:hover {
+  color: var(--primary) !important;
+}
