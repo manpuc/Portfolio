@@ -1,6 +1,9 @@
 export function initGlowEffect() {
     if (typeof window === "undefined") return;
 
+    // マウスホバーに対応していないデバイス（タッチデバイスなど）では処理をスキップ
+    if (!window.matchMedia('(hover: hover)').matches) return;
+
     const setupGlow = () => {
         const skillsSection = document.getElementById('skills');
         if (skillsSection) {

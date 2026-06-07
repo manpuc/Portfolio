@@ -707,31 +707,33 @@ body.dark .icon-btn {
   pointer-events: none;
 }
 
-/* タグのコンテナ領域にマウスがある時、各タグのにじみを表示する */
-#skills:hover .tag::before {
-  opacity: 0.6;
-}
+@media (hover: hover) {
+  /* タグのコンテナ領域にマウスがある時、各タグのにじみを表示する */
+  #skills:hover .tag::before {
+    opacity: 0.6;
+  }
 
-/* 直接ホバーしているタグはにじみを消し、元のベタ塗り背景を表示する */
-#skills:hover .tag:hover::before {
-  opacity: 0;
-}
+  /* 直接ホバーしているタグはにじみを消し、元のベタ塗り背景を表示する */
+  #skills:hover .tag:hover::before {
+    opacity: 0;
+  }
 
-.tag:hover {
-  background-color: var(--tag-color, var(--primary));
-  color: var(--tag-text, #fff) !important;
-  box-shadow: var(--neumorph-shadow-sm), 0 8px 15px rgba(0, 0, 0, 0.1);
-  transform: translateY(-4px) scale(1.05);
-  border-color: rgba(255, 255, 255, 0.2);
-}
+  .tag:hover {
+    background-color: var(--tag-color, var(--primary));
+    color: var(--tag-text, #fff) !important;
+    box-shadow: var(--neumorph-shadow-sm), 0 8px 15px rgba(0, 0, 0, 0.1);
+    transform: translateY(-4px) scale(1.05);
+    border-color: rgba(255, 255, 255, 0.2);
+  }
 
-body.dark .tag:hover {
-  border-color: rgba(255, 255, 255, 0.05);
-}
+  body.dark .tag:hover {
+    border-color: rgba(255, 255, 255, 0.05);
+  }
 
-.tag:hover i,
-.tag:hover svg {
-  color: inherit;
+  .tag:hover i,
+  .tag:hover svg {
+    color: inherit;
+  }
 }
 
 .tag svg,
