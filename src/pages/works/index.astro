@@ -14,22 +14,37 @@ import { works } from "../../data/works";
             <p class="subtitle">これまでの制作実績一覧</p>
         </header>
 
-        <div class="back-nav animate-fade-up">
-            <a href="/" class="back-link" aria-label="ホームに戻る">
-                <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    role="img"
-                    aria-label="戻るアイコン"
-                    ><line x1="19" y1="12" x2="5" y2="12"></line><polyline
-                        points="12 19 5 12 12 5"></polyline></svg
-                >
-                ホームに戻る
-            </a>
+        <div class="works-controls animate-fade-up" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; flex-wrap: wrap; gap: 1rem; position: relative; z-index: 50;">
+            <div class="back-nav" style="margin: 0;">
+                <a href="/" class="back-link" aria-label="ホームに戻る" style="margin: 0;">
+                    <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        role="img"
+                        aria-label="戻るアイコン"
+                        ><line x1="19" y1="12" x2="5" y2="12"></line><polyline
+                            points="12 19 5 12 12 5"></polyline></svg
+                    >
+                    ホームに戻る
+                </a>
+            </div>
+            <div class="custom-sort-wrapper">
+                <div class="custom-select" id="custom-sort">
+                    <button class="custom-select-trigger" type="button" aria-haspopup="listbox" aria-expanded="false">
+                        <span class="custom-select-value">おすすめ順</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="chevron"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </button>
+                    <ul class="custom-select-options" role="listbox" hidden>
+                        <li class="custom-option" data-value="recommended" role="option" aria-selected="true">おすすめ順</li>
+                        <li class="custom-option" data-value="date-desc" role="option" aria-selected="false">新しい順</li>
+                        <li class="custom-option" data-value="date-asc" role="option" aria-selected="false">古い順</li>
+                    </ul>
+                </div>
+            </div>
         </div>
 
         <section class="works-list-section">
@@ -39,6 +54,8 @@ import { works } from "../../data/works";
                         <li
                             class="minimal-work-item animate-fade-up"
                             style={`animation-delay: ${0.1 + index * 0.05}s`}
+                            data-date={work.date || "1970/01/01"}
+                            data-index={index}
                         >
                             {work.id === "CharView" ? (
                                 <div class="minimal-work-link" style="cursor: default;">
@@ -51,6 +68,7 @@ import { works } from "../../data/works";
                                             class="charview-main-link"
                                         >
                                             {work.title.ja}
+                                            {work.date && <span class="work-date" style="margin-left: 0.5rem; font-size: 0.85em; opacity: 0.7; font-weight: normal;">{work.date}</span>}
                                             <svg
                                                 viewBox="0 0 24 24"
                                                 width="16"
@@ -112,6 +130,7 @@ import { works } from "../../data/works";
                                 >
                                     <span class="minimal-work-title">
                                         {work.title.ja}
+                                        {work.date && <span class="work-date" style="margin-left: 0.5rem; font-size: 0.85em; opacity: 0.7; font-weight: normal;">{work.date}</span>}
                                         <svg
                                             viewBox="0 0 24 24"
                                             width="16"
@@ -161,6 +180,7 @@ import { works } from "../../data/works";
                                 >
                                     <span class="minimal-work-title">
                                         {work.title.ja}
+                                        {work.date && <span class="work-date" style="margin-left: 0.5rem; font-size: 0.85em; opacity: 0.7; font-weight: normal;">{work.date}</span>}
                                     </span>
                                     <span class="minimal-work-desc">
                                         {work.description.ja}
@@ -182,4 +202,182 @@ import { works } from "../../data/works";
             </ul>
         </section>
     </div>
+
+    <style>
+        .custom-sort-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-size: 0.9rem;
+        }
+        .sort-label {
+            color: var(--text-color);
+            opacity: 0.8;
+        }
+        .custom-select {
+            position: relative;
+            min-width: 140px;
+        }
+        .custom-select-trigger {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            padding: 0.5rem 1rem;
+            background-color: var(--bg-color);
+            border: 1px solid rgba(128, 128, 128, 0.2);
+            border-radius: 20px;
+            color: var(--text-color);
+            font-family: inherit;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: var(--neumorph-inset);
+        }
+        .custom-select-trigger:hover {
+            border-color: var(--primary);
+        }
+        .custom-select-trigger .chevron {
+            width: 16px;
+            height: 16px;
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .custom-select.open .custom-select-trigger .chevron {
+            transform: rotate(180deg);
+        }
+        .custom-select-options {
+            position: absolute;
+            top: calc(100% + 0.5rem);
+            left: 0;
+            right: 0;
+            background-color: var(--bg-color);
+            border: 1px solid rgba(128, 128, 128, 0.2);
+            border-radius: 16px;
+            box-shadow: var(--neumorph-shadow);
+            padding: 0.5rem;
+            margin: 0;
+            list-style: none;
+            z-index: 100;
+            opacity: 0;
+            transform-origin: top center;
+            transform: translateY(-15px) scale(0.95);
+            transition: opacity 0.3s ease, transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            pointer-events: none;
+        }
+        .custom-select.open .custom-select-options {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            pointer-events: auto;
+        }
+        .custom-option {
+            padding: 0.6rem 1rem;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-bottom: 2px;
+        }
+        .custom-option:last-child {
+            margin-bottom: 0;
+        }
+        .custom-option:hover {
+            background-color: rgba(128, 128, 128, 0.1);
+            color: var(--primary);
+        }
+        .custom-option[aria-selected="true"] {
+            background-color: var(--primary);
+            color: white;
+            box-shadow: 0 4px 10px rgba(66, 153, 225, 0.3);
+        }
+    </style>
+
+    <script is:inline>
+        document.addEventListener('astro:page-load', initCustomSelect);
+        initCustomSelect();
+
+        function initCustomSelect() {
+            const customSelect = document.getElementById('custom-sort');
+            const trigger = customSelect?.querySelector('.custom-select-trigger');
+            const optionsList = customSelect?.querySelector('.custom-select-options');
+            const options = customSelect?.querySelectorAll('.custom-option');
+            const triggerValue = customSelect?.querySelector('.custom-select-value');
+            
+            const list = document.querySelector('.minimal-works-list');
+            
+            if (!customSelect || !trigger || !optionsList || !list || !options) return;
+
+            // Prevent multiple bindings
+            if (customSelect.dataset.initialized) return;
+            customSelect.dataset.initialized = "true";
+
+            const items = Array.from(list.children);
+            
+            // Toggle dropdown
+            trigger.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const isOpen = customSelect.classList.contains('open');
+                if (isOpen) {
+                    customSelect.classList.remove('open');
+                    setTimeout(() => optionsList.setAttribute('hidden', ''), 300);
+                    trigger.setAttribute('aria-expanded', 'false');
+                } else {
+                    optionsList.removeAttribute('hidden');
+                    // small delay to allow display:block to apply before opacity transition
+                    requestAnimationFrame(() => {
+                        customSelect.classList.add('open');
+                    });
+                    trigger.setAttribute('aria-expanded', 'true');
+                }
+            });
+            
+            // Close when clicking outside
+            document.addEventListener('click', () => {
+                if (customSelect.classList.contains('open')) {
+                    customSelect.classList.remove('open');
+                    setTimeout(() => optionsList.setAttribute('hidden', ''), 300);
+                    trigger.setAttribute('aria-expanded', 'false');
+                }
+            });
+            
+            // Option click
+            options.forEach(option => {
+                option.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const value = option.getAttribute('data-value');
+                    const text = option.textContent;
+                    
+                    // Update UI
+                    if (triggerValue) triggerValue.textContent = text;
+                    options.forEach(opt => opt.setAttribute('aria-selected', 'false'));
+                    option.setAttribute('aria-selected', 'true');
+                    
+                    customSelect.classList.remove('open');
+                    setTimeout(() => optionsList.setAttribute('hidden', ''), 300);
+                    trigger.setAttribute('aria-expanded', 'false');
+                    
+                    // Sort items
+                    items.sort((a, b) => {
+                        if (value === 'recommended') {
+                            return parseInt(a.dataset.index || '0') - parseInt(b.dataset.index || '0');
+                        } else if (value === 'date-desc') {
+                            const dateA = new Date(a.dataset.date || '1970/01/01').getTime();
+                            const dateB = new Date(b.dataset.date || '1970/01/01').getTime();
+                            return dateB - dateA;
+                        } else if (value === 'date-asc') {
+                            const dateA = new Date(a.dataset.date || '1970/01/01').getTime();
+                            const dateB = new Date(b.dataset.date || '1970/01/01').getTime();
+                            return dateA - dateB;
+                        }
+                        return 0;
+                    });
+                    
+                    items.forEach(item => {
+                        item.style.animation = 'none';
+                        item.offsetHeight; /* trigger reflow */
+                        item.style.animation = '';
+                        list.appendChild(item);
+                    });
+                });
+            });
+        }
+    </script>
 </Layout>

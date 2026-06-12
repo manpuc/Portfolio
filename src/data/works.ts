@@ -12,9 +12,38 @@ export interface Work {
     href?: string;
     category?: string;
     os?: string;
+    date?: string;
 }
 
 export const works: Work[] = [
+    {
+        id: "Pitch-Analyzer",
+        title: {
+            ja: "Pitch Analyzer",
+            en: "Pitch Analyzer"
+        },
+        description: {
+            ja: "音声ファイルからリアルタイムでピッチ（音高）やキーを推定し、ピアノロールやチューナーで視覚化するWebアプリ。",
+            en: "A web app that estimates pitch and key from audio files in real-time, visualizing them with a piano roll and tuner."
+        },
+        tags: ["Next.js", "Web Audio API", "Pitch Detection"],
+        href: "https://pitchanalyzer.manpuc.me/",
+        date: "2026/06/07"
+    },
+    {
+        id: "Midi-DAW",
+        title: {
+            ja: "Midi DAW",
+            en: "Midi DAW"
+        },
+        description: {
+            ja: "MIDIファイルを読み込み、トラックごとの再生制御やピアノロールでの視覚化が可能なブラウザベースの簡易DAW。",
+            en: "A browser-based lightweight DAW that loads MIDI files, allowing track-by-track playback control and visualization on a piano roll."
+        },
+        tags: ["Next.js", "Tone.js", "PicoAudio", "MIDI"],
+        href: "https://mididaw.manpuc.me/",
+        date: "2026/06/09"
+    },
     {
         id: "portfolio",
         title: {
@@ -26,7 +55,8 @@ export const works: Work[] = [
             en: "A portfolio site created with a focus on micro-interactions and UI comfort."
         },
         tags: ["TypeScript", "Astro", "CSS"],
-        href: "/"
+        href: "/",
+        date: "2026/03/13"
     },
     {
         id: "minecraft-mod",
@@ -41,7 +71,8 @@ export const works: Work[] = [
         tags: ["Java", "Forge", "Minecraft"],
         href: "https://modrinth.com/user/manpuc",
         category: "GameApplication",
-        os: "Windows, macOS, Linux"
+        os: "Windows, macOS, Linux",
+        date: "2026/02/12"
     },
     {
         id: "discord-bot",
@@ -56,20 +87,8 @@ export const works: Work[] = [
         tags: ["Node.js", "API"],
         href: "https://github.com/manpuc/MBot",
         category: "UtilitiesApplication",
-        os: "Cross-platform"
-    },
-    {
-        id: "FLICKER",
-        title: {
-            ja: "FLICKER",
-            en: "FLICKER"
-        },
-        description: {
-            ja: "シンプル操作のWebゲーム",
-            en: "A simple web game."
-        },
-        tags: ["TypeScript", "Next.js", "SQL"],
-        href: "https://flicker.manpuc.me/"
+        os: "Cross-platform",
+        date: "2025/05/12"
     },
     {
         id: "Loudness",
@@ -82,7 +101,22 @@ export const works: Work[] = [
             en: "A web app for analyzing loudness using Web Audio API and FFmpeg (WebAssembly)."
         },
         tags: ["Next.js", "FFmpeg", "WASM"],
-        href: "https://loudness.manpuc.me/"
+        href: "https://loudness.manpuc.me/",
+        date: "2026/05/06"
+    },
+    {
+        id: "FLICKER",
+        title: {
+            ja: "FLICKER",
+            en: "FLICKER"
+        },
+        description: {
+            ja: "シンプル操作のWebゲーム",
+            en: "A simple web game."
+        },
+        tags: ["TypeScript", "Next.js", "SQL"],
+        href: "https://flicker.manpuc.me/",
+        date: "2026/05/14"
     },
     {
         id: "pomodoro",
@@ -95,7 +129,8 @@ export const works: Work[] = [
             en: "Pomodoro timer with task and statistics functions."
         },
         tags: ["TypeScript", "Astro"],
-        href: "https://pomodoro.manpuc.me/"
+        href: "https://pomodoro.manpuc.me/",
+        date: "2026/03/19"
     },
     {
         id: "qr-maker",
@@ -108,7 +143,8 @@ export const works: Work[] = [
             en: "A QR code generation service focused on ease of use and customizability."
         },
         tags: ["PWA", "Astro", "TypeScript"],
-        href: "https://qr.manpuc.me/"
+        href: "https://qr.manpuc.me/",
+        date: "2026/04/06"
     },
     {
         id: "ambient",
@@ -121,7 +157,8 @@ export const works: Work[] = [
             en: "A minimal and beautiful digital clock app."
         },
         tags: ["API", "PWA", "TypeScript"],
-        href: "https://ambient.manpuc.me/"
+        href: "https://ambient.manpuc.me/",
+        date: "2026/04/10"
     },
     {
         id: "text-flow",
@@ -134,7 +171,8 @@ export const works: Work[] = [
             en: "A text conversion service focused on versatility and operability."
         },
         tags: ["Astro", "TypeScript"],
-        href: "https://text.manpuc.me/"
+        href: "https://text.manpuc.me/",
+        date: "2026/04/08"
     },
     {
         id: "pass-generator",
@@ -147,7 +185,8 @@ export const works: Work[] = [
             en: "A password generation service with an intuitive and simple design."
         },
         tags: ["Astro", "TypeScript"],
-        href: "https://pass.manpuc.me/"
+        href: "https://pass.manpuc.me/",
+        date: "2026/04/18"
     },
     {
         id: "packbridge",
@@ -160,7 +199,8 @@ export const works: Work[] = [
             en: "A service that converts Minecraft resource packs between editions."
         },
         tags: ["TypeScript", "Minecraft"],
-        href: "https://packbridge.manpuc.me/"
+        href: "https://packbridge.manpuc.me/",
+        date: "2026/04/19"
     },
     {
         id: "mc-link",
@@ -173,7 +213,8 @@ export const works: Work[] = [
             en: "A service that makes it easy to create Minecraft server join links."
         },
         tags: ["TypeScript", "Minecraft"],
-        href: "https://mclink.manpuc.me/"
+        href: "https://mclink.manpuc.me/",
+        date: "2026/04/19"
     },
     {
         id: "md-preview",
@@ -186,7 +227,8 @@ export const works: Work[] = [
             en: "A markdown previewer that allows you to preview markdown in real-time."
         },
         tags: ["TypeScript", "Markdown"],
-        href: "https://md.manpuc.me/"
+        href: "https://md.manpuc.me/",
+        date: "2026/04/26"
     },
     {
         id: "google-search-night",
@@ -199,7 +241,8 @@ export const works: Work[] = [
             en: "An extension that changes Google Search to an eye-friendly dark theme."
         },
         tags: ["CSS", "Chrome Extension"],
-        href: "https://chromewebstore.google.com/detail/bdlpogibdkglpceadpplahmjneanbpom?utm_source=item-share-cb"
+        href: "https://chromewebstore.google.com/detail/bdlpogibdkglpceadpplahmjneanbpom?utm_source=item-share-cb",
+        date: "2026/01/07"
     },
     {
         id: "chrome-theme",
@@ -212,7 +255,8 @@ export const works: Work[] = [
             en: "An easy-to-use Chrome dark theme with an eye-friendly color scheme."
         },
         tags: ["CSS", "JSON", "Theme"],
-        href: "https://chromewebstore.google.com/detail/ganlcelmnoaidpmaegcmhecolonfmffk?utm_source=item-share-cb"
+        href: "https://chromewebstore.google.com/detail/ganlcelmnoaidpmaegcmhecolonfmffk?utm_source=item-share-cb",
+        date: "2026/01/26"
     },
     {
         id: "no-curseforge-legacy",
@@ -225,7 +269,8 @@ export const works: Work[] = [
             en: "An extension that redirects CurseForge legacy design to the new design URL."
         },
         tags: ["JavaScript", "Chrome Extension"],
-        href: "https://chromewebstore.google.com/detail/diogckmiabncebebknnoibjapaldcjgb?utm_source=item-share-cb"
+        href: "https://chromewebstore.google.com/detail/diogckmiabncebebknnoibjapaldcjgb?utm_source=item-share-cb",
+        date: "2026/03/14"
     },
     {
         id: "CharView",
@@ -238,7 +283,8 @@ export const works: Work[] = [
             en: "Chrome extension to display character count in real-time for Google Forms input fields."
         },
         tags: ["JavaScript", "Chrome Extension"],
-        href: "https://chromewebstore.google.com/detail/lgiilinkfchechjoaeojckghoamifkgd?utm_source=item-share-cb"
+        href: "https://chromewebstore.google.com/detail/lgiilinkfchechjoaeojckghoamifkgd?utm_source=item-share-cb",
+        date: "2026/04/13"
     },
     {
         id: "minecraft-server",
@@ -250,7 +296,8 @@ export const works: Work[] = [
             ja: "Minecraft Bedrock Editionのサーバーの構築と運用。",
             en: "Construction and operation of Minecraft Bedrock Edition servers."
         },
-        tags: ["Minecraft", "Server", "VPS"]
+        tags: ["Minecraft", "Server", "VPS"],
+        date: "2023/06/02"
     },
     {
         id: "package-design",
