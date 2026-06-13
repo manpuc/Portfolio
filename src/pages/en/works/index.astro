@@ -14,23 +14,70 @@ import { works } from "../../../data/works";
             <p class="subtitle">A complete list of my past works.</p>
         </header>
 
-        <div class="works-controls animate-fade-up" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; flex-wrap: wrap; gap: 1rem; margin-top: 1rem; position: relative; z-index: 50;">
+        <div
+            class="works-controls animate-fade-up"
+            style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; flex-wrap: wrap; gap: 1rem; margin-top: 1rem; position: relative; z-index: 50;"
+        >
             <div class="back-nav" style="margin: 0;">
                 <a href="/en/" class="back-link" style="margin: 0;">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                    <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        ><line x1="19" y1="12" x2="5" y2="12"></line><polyline
+                            points="12 19 5 12 12 5"></polyline></svg
+                    >
                     Back to Home
                 </a>
             </div>
             <div class="custom-sort-wrapper">
                 <div class="custom-select" id="custom-sort">
-                    <button class="custom-select-trigger" type="button" aria-haspopup="listbox" aria-expanded="false">
+                    <button
+                        class="custom-select-trigger"
+                        type="button"
+                        aria-haspopup="listbox"
+                        aria-expanded="false"
+                    >
                         <span class="custom-select-value">Recommended</span>
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="chevron"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            class="chevron"
+                            ><polyline points="6 9 12 15 18 9"></polyline></svg
+                        >
                     </button>
                     <ul class="custom-select-options" role="listbox" hidden>
-                        <li class="custom-option" data-value="recommended" role="option" aria-selected="true">Recommended</li>
-                        <li class="custom-option" data-value="date-desc" role="option" aria-selected="false">Newest</li>
-                        <li class="custom-option" data-value="date-asc" role="option" aria-selected="false">Oldest</li>
+                        <li
+                            class="custom-option"
+                            data-value="recommended"
+                            role="option"
+                            aria-selected="true"
+                        >
+                            Recommended
+                        </li>
+                        <li
+                            class="custom-option"
+                            data-value="date-desc"
+                            role="option"
+                            aria-selected="false"
+                        >
+                            Newest
+                        </li>
+                        <li
+                            class="custom-option"
+                            data-value="date-asc"
+                            role="option"
+                            aria-selected="false"
+                        >
+                            Oldest
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -40,9 +87,17 @@ import { works } from "../../../data/works";
             <ul class="minimal-works-list">
                 {
                     works.map((work, index) => (
-                        <li class="minimal-work-item animate-fade-up" style={`animation-delay: ${0.15 + index * 0.08}s`} data-date={work.date || "1970/01/01"} data-index={index}>
+                        <li
+                            class="minimal-work-item animate-fade-up"
+                            style={`animation-delay: ${0.15 + index * 0.08}s`}
+                            data-date={work.date || "1970/01/01"}
+                            data-index={index}
+                        >
                             {work.id === "CharView" ? (
-                                <div class="minimal-work-link" style="cursor: default;">
+                                <div
+                                    class="minimal-work-link"
+                                    style="cursor: default;"
+                                >
                                     <span class="minimal-work-title">
                                         <a
                                             href={work.href}
@@ -52,19 +107,52 @@ import { works } from "../../../data/works";
                                             class="charview-main-link"
                                         >
                                             {work.title.en}
-                                            {work.date && <span class="work-date" style="margin-left: 0.5rem; font-size: 0.85em; opacity: 0.7; font-weight: normal;">{work.date}</span>}
-                                            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="opacity: 0.5;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                                            {work.date && (
+                                                <span
+                                                    class="work-date"
+                                                    style="margin-left: 0.5rem; font-size: 0.85em; opacity: 0.7; font-weight: normal;"
+                                                >
+                                                    {work.date}
+                                                </span>
+                                            )}
+                                            <svg
+                                                viewBox="0 0 24 24"
+                                                width="16"
+                                                height="16"
+                                                fill="none"
+                                                stroke="currentColor"
+                                                stroke-width="2"
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                                style="opacity: 0.5;"
+                                            >
+                                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                                                <polyline points="15 3 21 3 21 9" />
+                                                <line
+                                                    x1="10"
+                                                    y1="14"
+                                                    x2="21"
+                                                    y2="3"
+                                                />
+                                            </svg>
                                         </a>
                                     </span>
-                                    <span class="minimal-work-desc">{work.description.en}</span>
+                                    <span class="minimal-work-desc">
+                                        {work.description.en}
+                                    </span>
                                     {work.tags && work.tags.length > 0 && (
                                         <div
                                             class="tags"
                                             style="margin-top: 0.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; width: 100%;"
                                         >
                                             <div style="display: flex; flex-wrap: wrap; gap: 0.35rem;">
-                                                {work.tags.map(tag => (
-                                                    <span class="tag" style="padding: 0.2rem 0.6rem; font-size: 0.75rem;">{tag}</span>
+                                                {work.tags.map((tag) => (
+                                                    <span
+                                                        class="tag"
+                                                        style="padding: 0.2rem 0.6rem; font-size: 0.75rem;"
+                                                    >
+                                                        {tag}
+                                                    </span>
                                                 ))}
                                             </div>
                                             <a
@@ -78,32 +166,93 @@ import { works } from "../../../data/works";
                                     )}
                                 </div>
                             ) : work.href ? (
-                                <a href={work.href} target="_blank" rel="noopener noreferrer" class="minimal-work-link">
+                                <a
+                                    href={work.href}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="minimal-work-link"
+                                >
                                     <span class="minimal-work-title">
                                         {work.title.en}
-                                        {work.date && <span class="work-date" style="margin-left: 0.5rem; font-size: 0.85em; opacity: 0.7; font-weight: normal;">{work.date}</span>}
-                                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="opacity: 0.5;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                                        {work.date && (
+                                            <span
+                                                class="work-date"
+                                                style="margin-left: 0.5rem; font-size: 0.85em; opacity: 0.7; font-weight: normal;"
+                                            >
+                                                {work.date}
+                                            </span>
+                                        )}
+                                        <svg
+                                            viewBox="0 0 24 24"
+                                            width="16"
+                                            height="16"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            stroke-width="2"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            style="opacity: 0.5;"
+                                        >
+                                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                                            <polyline points="15 3 21 3 21 9" />
+                                            <line
+                                                x1="10"
+                                                y1="14"
+                                                x2="21"
+                                                y2="3"
+                                            />
+                                        </svg>
                                     </span>
-                                    <span class="minimal-work-desc">{work.description.en}</span>
+                                    <span class="minimal-work-desc">
+                                        {work.description.en}
+                                    </span>
                                     {work.tags && work.tags.length > 0 && (
-                                        <div class="tags" style="margin-top: 0.5rem; gap: 0.35rem;">
-                                            {work.tags.map(tag => (
-                                                <span class="tag" style="padding: 0.2rem 0.6rem; font-size: 0.75rem;">{tag}</span>
+                                        <div
+                                            class="tags"
+                                            style="margin-top: 0.5rem; gap: 0.35rem;"
+                                        >
+                                            {work.tags.map((tag) => (
+                                                <span
+                                                    class="tag"
+                                                    style="padding: 0.2rem 0.6rem; font-size: 0.75rem;"
+                                                >
+                                                    {tag}
+                                                </span>
                                             ))}
                                         </div>
                                     )}
                                 </a>
                             ) : (
-                                <div class="minimal-work-link disabled" style="opacity: 0.7; cursor: default;">
+                                <div
+                                    class="minimal-work-link disabled"
+                                    style="opacity: 0.7; cursor: default;"
+                                >
                                     <span class="minimal-work-title">
                                         {work.title.en}
-                                        {work.date && <span class="work-date" style="margin-left: 0.5rem; font-size: 0.85em; opacity: 0.7; font-weight: normal;">{work.date}</span>}
+                                        {work.date && (
+                                            <span
+                                                class="work-date"
+                                                style="margin-left: 0.5rem; font-size: 0.85em; opacity: 0.7; font-weight: normal;"
+                                            >
+                                                {work.date}
+                                            </span>
+                                        )}
                                     </span>
-                                    <span class="minimal-work-desc">{work.description.en}</span>
+                                    <span class="minimal-work-desc">
+                                        {work.description.en}
+                                    </span>
                                     {work.tags && work.tags.length > 0 && (
-                                        <div class="tags" style="margin-top: 0.5rem; gap: 0.35rem;">
-                                            {work.tags.map(tag => (
-                                                <span class="tag" style="padding: 0.2rem 0.6rem; font-size: 0.75rem;">{tag}</span>
+                                        <div
+                                            class="tags"
+                                            style="margin-top: 0.5rem; gap: 0.35rem;"
+                                        >
+                                            {work.tags.map((tag) => (
+                                                <span
+                                                    class="tag"
+                                                    style="padding: 0.2rem 0.6rem; font-size: 0.75rem;"
+                                                >
+                                                    {tag}
+                                                </span>
                                             ))}
                                         </div>
                                     )}
@@ -171,7 +320,9 @@ import { works } from "../../../data/works";
             opacity: 0;
             transform-origin: top center;
             transform: translateY(-15px) scale(0.95);
-            transition: opacity 0.3s ease, transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            transition:
+                opacity 0.3s ease,
+                transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
             pointer-events: none;
         }
         .custom-option {
@@ -204,89 +355,118 @@ import { works } from "../../../data/works";
     </style>
 
     <script is:inline>
-        document.addEventListener('astro:page-load', initCustomSelect);
+        document.addEventListener("astro:page-load", initCustomSelect);
         initCustomSelect();
 
         function initCustomSelect() {
-            const customSelect = document.getElementById('custom-sort');
-            const trigger = customSelect?.querySelector('.custom-select-trigger');
-            const optionsList = customSelect?.querySelector('.custom-select-options');
-            const options = customSelect?.querySelectorAll('.custom-option');
-            const triggerValue = customSelect?.querySelector('.custom-select-value');
-            
-            const list = document.querySelector('.minimal-works-list');
-            
-            if (!customSelect || !trigger || !optionsList || !list || !options) return;
+            const customSelect = document.getElementById("custom-sort");
+            const trigger = customSelect?.querySelector(
+                ".custom-select-trigger",
+            );
+            const optionsList = customSelect?.querySelector(
+                ".custom-select-options",
+            );
+            const options = customSelect?.querySelectorAll(".custom-option");
+            const triggerValue = customSelect?.querySelector(
+                ".custom-select-value",
+            );
+
+            const list = document.querySelector(".minimal-works-list");
+
+            if (!customSelect || !trigger || !optionsList || !list || !options)
+                return;
 
             // Prevent multiple bindings
             if (customSelect.dataset.initialized) return;
             customSelect.dataset.initialized = "true";
 
             const items = Array.from(list.children);
-            
+
             // Toggle dropdown
-            trigger.addEventListener('click', (e) => {
+            trigger.addEventListener("click", (e) => {
                 e.stopPropagation();
-                const isOpen = customSelect.classList.contains('open');
+                const isOpen = customSelect.classList.contains("open");
                 if (isOpen) {
-                    customSelect.classList.remove('open');
-                    setTimeout(() => optionsList.setAttribute('hidden', ''), 300);
-                    trigger.setAttribute('aria-expanded', 'false');
+                    customSelect.classList.remove("open");
+                    setTimeout(
+                        () => optionsList.setAttribute("hidden", ""),
+                        300,
+                    );
+                    trigger.setAttribute("aria-expanded", "false");
                 } else {
-                    optionsList.removeAttribute('hidden');
+                    optionsList.removeAttribute("hidden");
                     // small delay to allow display:block to apply before opacity transition
                     requestAnimationFrame(() => {
-                        customSelect.classList.add('open');
+                        customSelect.classList.add("open");
                     });
-                    trigger.setAttribute('aria-expanded', 'true');
+                    trigger.setAttribute("aria-expanded", "true");
                 }
             });
-            
+
             // Close when clicking outside
-            document.addEventListener('click', () => {
-                if (customSelect.classList.contains('open')) {
-                    customSelect.classList.remove('open');
-                    setTimeout(() => optionsList.setAttribute('hidden', ''), 300);
-                    trigger.setAttribute('aria-expanded', 'false');
+            document.addEventListener("click", () => {
+                if (customSelect.classList.contains("open")) {
+                    customSelect.classList.remove("open");
+                    setTimeout(
+                        () => optionsList.setAttribute("hidden", ""),
+                        300,
+                    );
+                    trigger.setAttribute("aria-expanded", "false");
                 }
             });
-            
+
             // Option click
-            options.forEach(option => {
-                option.addEventListener('click', (e) => {
+            options.forEach((option) => {
+                option.addEventListener("click", (e) => {
                     e.stopPropagation();
-                    const value = option.getAttribute('data-value');
+                    const value = option.getAttribute("data-value");
                     const text = option.textContent;
-                    
+
                     // Update UI
                     if (triggerValue) triggerValue.textContent = text;
-                    options.forEach(opt => opt.setAttribute('aria-selected', 'false'));
-                    option.setAttribute('aria-selected', 'true');
-                    
-                    customSelect.classList.remove('open');
-                    setTimeout(() => optionsList.setAttribute('hidden', ''), 300);
-                    trigger.setAttribute('aria-expanded', 'false');
-                    
+                    options.forEach((opt) =>
+                        opt.setAttribute("aria-selected", "false"),
+                    );
+                    option.setAttribute("aria-selected", "true");
+
+                    customSelect.classList.remove("open");
+                    setTimeout(
+                        () => optionsList.setAttribute("hidden", ""),
+                        300,
+                    );
+                    trigger.setAttribute("aria-expanded", "false");
+
                     // Sort items
                     items.sort((a, b) => {
-                        if (value === 'recommended') {
-                            return parseInt(a.dataset.index || '0') - parseInt(b.dataset.index || '0');
-                        } else if (value === 'date-desc') {
-                            const dateA = new Date(a.dataset.date || '1970/01/01').getTime();
-                            const dateB = new Date(b.dataset.date || '1970/01/01').getTime();
+                        if (value === "recommended") {
+                            return (
+                                parseInt(a.dataset.index || "0") -
+                                parseInt(b.dataset.index || "0")
+                            );
+                        } else if (value === "date-desc") {
+                            const dateA = new Date(
+                                a.dataset.date || "1970/01/01",
+                            ).getTime();
+                            const dateB = new Date(
+                                b.dataset.date || "1970/01/01",
+                            ).getTime();
                             return dateB - dateA;
-                        } else if (value === 'date-asc') {
-                            const dateA = new Date(a.dataset.date || '1970/01/01').getTime();
-                            const dateB = new Date(b.dataset.date || '1970/01/01').getTime();
+                        } else if (value === "date-asc") {
+                            const dateA = new Date(
+                                a.dataset.date || "1970/01/01",
+                            ).getTime();
+                            const dateB = new Date(
+                                b.dataset.date || "1970/01/01",
+                            ).getTime();
                             return dateA - dateB;
                         }
                         return 0;
                     });
-                    
-                    items.forEach(item => {
-                        item.style.animation = 'none';
+
+                    items.forEach((item) => {
+                        item.style.animation = "none";
                         item.offsetHeight; /* trigger reflow */
-                        item.style.animation = '';
+                        item.style.animation = "";
                         list.appendChild(item);
                     });
                 });
