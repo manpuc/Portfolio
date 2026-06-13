@@ -125,7 +125,7 @@ export const works: Work[] = [
             en: "Pomodoro Timer"
         },
         description: {
-            ja: "タスク、統計機能付きのポモドーロ<br />タイマー。",
+            ja: "タスク、統計機能付きのポモドーロタイマー。",
             en: "Pomodoro timer with task and statistics functions."
         },
         tags: ["TypeScript", "Astro"],
