@@ -41,7 +41,7 @@ export const works: Work[] = [
             en: "A browser-based lightweight DAW that loads MIDI files, allowing track-by-track playback control and visualization on a piano roll."
         },
         tags: ["Next.js", "Tone.js", "PicoAudio", "MIDI"],
-        href: "https://mididaw.manpuc.me/",
+        href: "https://midi.manpuc.me/",
         date: "2026/06/09"
     },
     {
