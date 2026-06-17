@@ -1,0 +1,122 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import { works } from "../../../data/works";
+
+const mbotWork = works.find((w) => w.id === "mbot");
+const githubUrl = "https://github.com/manpuc/MBot";
+const inviteUrl = "https://discord.com/api/oauth2/authorize?client_id=1040561874279870484&permissions=1786907970647&scope=applications.commands%20bot";
+---
+
+<Layout
+    title="MBot - Works | manpuc"
+    description="MBot: 多機能 Discord Bot — ゲーム・ユーティリティ・モデレーション機能を搭載した汎用 Bot です。"
+    lang="ja"
+>
+    <div class="container main-content">
+        <div class="back-nav animate-fade-up">
+            <a href="/works/" class="back-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                Works一覧に戻る
+            </a>
+        </div>
+
+        <header style="display: flex; flex-direction: column; align-items: flex-start; gap: 0; padding: 2.5rem 0 1.5rem;">
+            <h1 class="animate-fade-up delay-1" style="margin: 0; font-size: clamp(2.5rem, 5vw, 3.5rem); line-height: 1.2; letter-spacing: -0.02em;">
+                MBot
+            </h1>
+            <p class="subtitle animate-fade-up delay-2" style="margin: 0.75rem 0 0; font-size: clamp(1.1rem, 2vw, 1.25rem); opacity: 0.8; font-weight: 500;">
+                Discord General-purpose Bot
+            </p>
+            <div class="tags animate-fade-up delay-3" style="margin-top: 1.5rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                <span class="tag" style="font-size: 0.85rem; padding: 0.3rem 0.8rem;">Node.js</span>
+                <span class="tag" style="font-size: 0.85rem; padding: 0.3rem 0.8rem;">API</span>
+                <span class="tag" style="font-size: 0.85rem; padding: 0.3rem 0.8rem;">discord.js</span>
+            </div>
+            <div class="action-buttons animate-fade-up delay-4" style="display: flex; gap: 1rem; margin-top: 2.5rem; flex-wrap: wrap;">
+                <a href={inviteUrl} target="_blank" rel="noopener noreferrer" class="neumorph-btn" style="display: inline-flex; gap: 0.5rem; align-items: center; color: var(--primary);">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="7 10 12 15 17 10"></polyline>
+                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                    Discordに追加
+                </a>
+                <a href={githubUrl} target="_blank" rel="noopener noreferrer" class="neumorph-btn" style="display: inline-flex; gap: 0.5rem; align-items: center;">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                    </svg>
+                    GitHubを見る
+                </a>
+            </div>
+        </header>
+
+        <div class="hero-image animate-fade-up delay-4" style="margin-bottom: 2.5rem; border-radius: var(--border-radius); overflow: hidden; box-shadow: var(--neumorph-shadow-sm); position: relative; width: 100%; aspect-ratio: 21 / 9; display: flex; justify-content: center; align-items: center; background-color: var(--bg-color);">
+            <div style="position: absolute; inset: -40px; background-image: url('/images/works/mbot/MbotIcon2_.png'); background-size: cover; background-position: center; filter: blur(30px); opacity: 0.5; z-index: 0;"></div>
+            <img src="/images/works/mbot/MbotIcon2_.png" alt="MBot Icon" style="position: relative; z-index: 1; height: 70%; width: auto; max-width: 100%; border-radius: 20%; box-shadow: 0 15px 35px rgba(0,0,0,0.3);" />
+        </div>
+
+        <section class="neumorph-card animate-fade-up delay-5" style="margin-bottom: 0;">
+            <h2>機能概要</h2>
+            <p>
+                <strong>MBot</strong> は、ゲーム・ユーティリティ・モデレーション機能を搭載した汎用的な Discord Bot です。<br/>
+                スラッシュコマンドによる直感的な操作で、サーバーの運用からエンターテイメントまで幅広いニーズに応えます。
+            </p>
+
+            <h3 style="margin-top: 2rem;">主な機能と特徴</h3>
+            <ul style="list-style: none; padding-left: 0; display: flex; flex-direction: column; gap: 0.75rem;">
+                <li style="position: relative; padding-left: 1.75rem; line-height: 1.6;">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="var(--primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="position: absolute; left: 0; top: 0.3rem;"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    <strong>ゲーム・エンタメ:</strong> じゃんけん、数当てゲーム、おみくじ、動物の画像表示など。
+                </li>
+                <li style="position: relative; padding-left: 1.75rem; line-height: 1.6;">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="var(--primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="position: absolute; left: 0; top: 0.3rem;"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    <strong>ユーティリティ・計算:</strong> 高度な計算機機能、URL短縮、QRコード生成、Webページのパフォーマンス計測機能。
+                </li>
+                <li style="position: relative; padding-left: 1.75rem; line-height: 1.6;">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="var(--primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="position: absolute; left: 0; top: 0.3rem;"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    <strong>サーバー管理:</strong> サーバーやユーザーの情報取得、ロールのメンバー数カウント、BANリスト確認。
+                </li>
+                <li style="position: relative; padding-left: 1.75rem; line-height: 1.6;">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="var(--primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="position: absolute; left: 0; top: 0.3rem;"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    <strong>コンテンツツール:</strong> 投票（アンケート）作成やスレッドの作成・削除機能、YouTube動画情報取得。
+                </li>
+            </ul>
+
+            <h3 style="margin-top: 2rem;">変更履歴</h3>
+            <div class="changelog-timeline" style="position: relative; padding-left: 1.5rem; display: flex; flex-direction: column; gap: 1.5rem; margin-top: 1rem;">
+                <div style="position: absolute; top: 0.5rem; bottom: 0.5rem; left: 6px; width: 2px; background-color: rgba(128, 128, 128, 0.2); z-index: 1;"></div>
+                
+                <div class="changelog-item" style="position: relative; z-index: 2;">
+                    <div style="position: absolute; left: -1.5rem; top: 0.4rem; width: 12px; height: 12px; border-radius: 50%; background-color: var(--bg-color); border: 2px solid var(--primary); transform: translateX(1px); box-shadow: 0 0 0 2px var(--bg-color);"></div>
+                    <div style="font-weight: 600; color: var(--text-color);">継続的なアップデート <span style="font-size: 0.85em; color: var(--text-muted); margin-left: 0.5rem; font-weight: normal;">(2022年11月 - 現在)</span></div>
+                    <div style="font-size: 0.95em; color: var(--text-muted); margin-top: 0.25rem;">スラッシュコマンドの拡張、API統合、不具合修正および新機能追加を実施。</div>
+                </div>
+
+                <div class="changelog-item" style="position: relative; z-index: 2;">
+                    <div style="position: absolute; left: -1.5rem; top: 0.4rem; width: 12px; height: 12px; border-radius: 50%; background-color: var(--bg-color); border: 2px solid var(--primary); transform: translateX(1px); box-shadow: 0 0 0 2px var(--bg-color);"></div>
+                    <div style="font-weight: 600; color: var(--text-color);">プロジェクト開始 <span style="font-size: 0.85em; color: var(--text-muted); margin-left: 0.5rem; font-weight: normal;">(2022年11月11日)</span></div>
+                    <div style="font-size: 0.95em; color: var(--text-muted); margin-top: 0.25rem;">MBotの開発を開始。</div>
+                </div>
+            </div>
+
+            <div style="margin-top: 3rem; text-align: right; display: flex; justify-content: flex-end; gap: 1.5rem;">
+                <a href="/works/mbot/terms/" style="display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.9rem;">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                        <line x1="16" y1="13" x2="8" y2="13"></line>
+                        <line x1="16" y1="17" x2="8" y2="17"></line>
+                        <polyline points="10 9 9 9 8 9"></polyline>
+                    </svg>
+                    利用規約
+                </a>
+                <a href="/works/mbot/privacy/" style="display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.9rem;">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                    </svg>
+                    プライバシーポリシー
+                </a>
+            </div>
+        </section>
+    </div>
+</Layout>

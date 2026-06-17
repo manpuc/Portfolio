@@ -1,0 +1,129 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import { works } from "../../../data/works";
+
+const packbridgeWork = works.find((w) => w.id === "packbridge");
+const siteUrl = packbridgeWork?.href || "https://packbridge.manpuc.me/";
+const githubUrl = "https://github.com/manpuc/packbridge.manpuc.me";
+---
+
+<Layout
+    title="PackBridge - Works | manpuc"
+    description="PackBridge: Minecraft のリソースパックをエディション間で相互変換するサービス。"
+    lang="ja"
+>
+    <div class="container main-content">
+        <div class="back-nav animate-fade-up">
+            <a href="/works/" class="back-link">
+                <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    ><line x1="19" y1="12" x2="5" y2="12"></line><polyline
+                        points="12 19 5 12 12 5"></polyline></svg
+                >
+                Works一覧に戻る
+            </a>
+        </div>
+
+        <header style="display: flex; flex-direction: column; align-items: flex-start; gap: 0; padding: 2.5rem 0 1.5rem;">
+            <h1 class="animate-fade-up delay-1" style="margin: 0; font-size: clamp(2.5rem, 5vw, 3.5rem); line-height: 1.2; letter-spacing: -0.02em;">
+                PackBridge
+            </h1>
+            <p class="subtitle animate-fade-up delay-2" style="margin: 0.75rem 0 0; font-size: clamp(1.1rem, 2vw, 1.25rem); opacity: 0.8; font-weight: 500;">
+                Minecraft Resource Pack Converter
+            </p>
+            <div class="tags animate-fade-up delay-3" style="margin-top: 1.5rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                <span class="tag" style="font-size: 0.85rem; padding: 0.3rem 0.8rem;">TypeScript</span>
+                <span class="tag" style="font-size: 0.85rem; padding: 0.3rem 0.8rem;">Minecraft</span>
+                <span class="tag" style="font-size: 0.85rem; padding: 0.3rem 0.8rem;">Astro</span>
+            </div>
+            <div class="action-buttons animate-fade-up delay-4" style="display: flex; gap: 1rem; margin-top: 2.5rem; flex-wrap: wrap;">
+                <a href={siteUrl} target="_blank" rel="noopener noreferrer" class="neumorph-btn" style="display: inline-flex; gap: 0.5rem; align-items: center; color: var(--primary);">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                    サイトを開く
+                </a>
+                <a href={githubUrl} target="_blank" rel="noopener noreferrer" class="neumorph-btn" style="display: inline-flex; gap: 0.5rem; align-items: center;">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                    </svg>
+                    GitHubを見る
+                </a>
+            </div>
+        </header>
+
+        <div class="hero-image animate-fade-up delay-4" style="margin-bottom: 2.5rem; border-radius: var(--border-radius); overflow: hidden; box-shadow: var(--neumorph-shadow-sm);">
+            <img src="/images/works/packbridge/packbridge_ss_ja.webp" alt="PackBridge Screenshot" style="width: 100%; height: auto; display: block;" />
+        </div>
+
+        <section class="neumorph-card animate-fade-up delay-5" style="margin-bottom: 0;">
+            <h2>機能概要</h2>
+            <p>
+                <strong>PackBridge</strong> は、Minecraft のリソースパックを Java Edition と Bedrock Edition の間で相互に変換するための、高速でプライバシーを重視した Web アプリケーションです。
+            </p>
+            <p>
+                すべての変換処理はユーザーのブラウザ内で行われるため、ファイルがサーバーにアップロードされることはありません。大容量のファイルでも安心して変換できます。
+            </p>
+
+            <h3 style="margin-top: 2rem;">主な機能と特徴</h3>
+            <ul style="list-style: none; padding-left: 0; display: flex; flex-direction: column; gap: 0.75rem;">
+                <li style="position: relative; padding-left: 1.75rem; line-height: 1.6;">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="var(--primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="position: absolute; left: 0; top: 0.3rem;">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    <strong>相互変換:</strong> Java Edition ⇔ Bedrock Edition の双方向変換に対応。
+                </li>
+                <li style="position: relative; padding-left: 1.75rem; line-height: 1.6;">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="var(--primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="position: absolute; left: 0; top: 0.3rem;">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    <strong>ブラウザ完結:</strong> クライアントサイドですべての処理を実行するため、サーバーへのアップロード不要で高速・安全。
+                </li>
+                <li style="position: relative; padding-left: 1.75rem; line-height: 1.6;">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="var(--primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="position: absolute; left: 0; top: 0.3rem;">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    <strong>多言語対応 (i18n):</strong> 日本語、英語、韓国語、中国語、タガログ語、トキポナをサポート。
+                </li>
+                <li style="position: relative; padding-left: 1.75rem; line-height: 1.6;">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="var(--primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="position: absolute; left: 0; top: 0.3rem;">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                    <strong>モダンなUI:</strong> ガラスモーフィズムを採用した、美しくレスポンシブなデザイン。
+                </li>
+            </ul>
+
+            <h3 style="margin-top: 2rem;">変更履歴</h3>
+            <div class="changelog-timeline" style="position: relative; padding-left: 1.5rem; display: flex; flex-direction: column; gap: 1.5rem; margin-top: 1rem;">
+                <div style="position: absolute; top: 0.5rem; bottom: 0.5rem; left: 6px; width: 2px; background-color: rgba(128, 128, 128, 0.2); z-index: 1;"></div>
+                
+                <div class="changelog-item" style="position: relative; z-index: 2;">
+                    <div style="position: absolute; left: -1.5rem; top: 0.4rem; width: 12px; height: 12px; border-radius: 50%; background-color: var(--bg-color); border: 2px solid var(--primary); transform: translateX(1px); box-shadow: 0 0 0 2px var(--bg-color);"></div>
+                    <div style="font-weight: 600; color: var(--text-color);">2026年6月</div>
+                    <ul style="font-size: 0.95em; color: var(--text-muted); margin-top: 0.5rem; padding-left: 1.2rem; display: flex; flex-direction: column; gap: 0.25rem;">
+                        <li>パック変換ロジックの改善（ファイル正規化とリソースマッピングの対応）</li>
+                        <li>対応言語を9言語に拡大</li>
+                        <li>SEOおよび構造化データ（Schema Markup）の導入</li>
+                    </ul>
+                </div>
+
+                <div class="changelog-item" style="position: relative; z-index: 2;">
+                    <div style="position: absolute; left: -1.5rem; top: 0.4rem; width: 12px; height: 12px; border-radius: 50%; background-color: var(--bg-color); border: 2px solid var(--primary); transform: translateX(1px); box-shadow: 0 0 0 2px var(--bg-color);"></div>
+                    <div style="font-weight: 600; color: var(--text-color);">2026年4月</div>
+                    <ul style="font-size: 0.95em; color: var(--text-muted); margin-top: 0.5rem; padding-left: 1.2rem; display: flex; flex-direction: column; gap: 0.25rem;">
+                        <li>初回リリース</li>
+                        <li>UIコンポーネントの実装および多言語化の基盤構築</li>
+                        <li>ファイルのドラッグ＆ドロップ機能および変換ロジックの実装</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>
+</Layout>

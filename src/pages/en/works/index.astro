@@ -93,57 +93,27 @@ import { works } from "../../../data/works";
                             data-date={work.date || "1970/01/01"}
                             data-index={index}
                         >
-                            {work.id === "CharView" ? (
-                                <div
-                                    class="minimal-work-link"
-                                    style="cursor: default;"
-                                >
-                                    <span class="minimal-work-title">
-                                        <a
-                                            href={work.href}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            style="display: inline-flex; align-items: center; gap: 0.5rem; color: inherit;"
-                                            class="charview-main-link"
-                                        >
-                                            {work.title.en}
-                                            {work.date && (
-                                                <span
-                                                    class="work-date"
-                                                    style="margin-left: 0.5rem; font-size: 0.85em; opacity: 0.7; font-weight: normal;"
-                                                >
-                                                    {work.date}
-                                                </span>
-                                            )}
-                                            <svg
-                                                viewBox="0 0 24 24"
-                                                width="16"
-                                                height="16"
-                                                fill="none"
-                                                stroke="currentColor"
-                                                stroke-width="2"
-                                                stroke-linecap="round"
-                                                stroke-linejoin="round"
-                                                style="opacity: 0.5;"
+                            {["CharView", "packbridge", "mbot", "chrome-theme"].includes(work.id) ? (
+                                <div class="minimal-work-link" style="position: relative; transition: var(--transition);">
+                                    <a href={`/en/works/${work.id.toLowerCase()}/`} style="position: absolute; inset: 0; z-index: 1; border-radius: inherit;" aria-label={`Go to ${work.title.en} details page`}></a>
+                                    <span class="minimal-work-title" style="position: relative; z-index: 2; pointer-events: none;">
+                                        {work.title.en}
+                                        {work.date && (
+                                            <span
+                                                class="work-date"
+                                                style="margin-left: 0.5rem; font-size: 0.85em; opacity: 0.7; font-weight: normal;"
                                             >
-                                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-                                                <polyline points="15 3 21 3 21 9" />
-                                                <line
-                                                    x1="10"
-                                                    y1="14"
-                                                    x2="21"
-                                                    y2="3"
-                                                />
-                                            </svg>
-                                        </a>
+                                                {work.date}
+                                            </span>
+                                        )}
                                     </span>
-                                    <span class="minimal-work-desc">
+                                    <span class="minimal-work-desc" style="position: relative; z-index: 2; pointer-events: none;">
                                         {work.description.en}
                                     </span>
                                     {work.tags && work.tags.length > 0 && (
                                         <div
                                             class="tags"
-                                            style="margin-top: 0.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; width: 100%;"
+                                            style="margin-top: 0.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; width: 100%; position: relative; z-index: 10;"
                                         >
                                             <div style="display: flex; flex-wrap: wrap; gap: 0.35rem;">
                                                 {work.tags.map((tag) => (
@@ -155,13 +125,6 @@ import { works } from "../../../data/works";
                                                     </span>
                                                 ))}
                                             </div>
-                                            <a
-                                                href="/en/privacy/"
-                                                class="privacy-text-link"
-                                                style="position: relative; z-index: 10; margin-left: auto;"
-                                            >
-                                                Privacy Policy
-                                            </a>
                                         </div>
                                     )}
                                 </div>

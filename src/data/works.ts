@@ -75,7 +75,7 @@ export const works: Work[] = [
         date: "2026/02/12"
     },
     {
-        id: "discord-bot",
+        id: "mbot",
         title: {
             ja: "MBot",
             en: "MBot"
@@ -88,7 +88,23 @@ export const works: Work[] = [
         href: "https://github.com/manpuc/MBot",
         category: "UtilitiesApplication",
         os: "Cross-platform",
-        date: "2025/05/12"
+        date: "2022/11/11"
+    },
+    {
+        id: "chrome-theme",
+        title: {
+            ja: "Tokyo Night Theme",
+            en: "Tokyo Night Theme"
+        },
+        description: {
+            ja: "人気のカラースキーム「Tokyo Night」をベースにした、目に優しいChromeブラウザ用テーマ。",
+            en: "A Chrome browser theme based on the popular 'Tokyo Night' color scheme, gentle on the eyes."
+        },
+        tags: ["Chrome Theme", "JSON"],
+        href: "https://github.com/manpuc/Chrome-Tokyo-Night-Theme",
+        category: "BrowserExtension",
+        os: "Cross-platform",
+        date: "2026/01/26"
     },
     {
         id: "Loudness",
@@ -243,20 +259,6 @@ export const works: Work[] = [
         tags: ["CSS", "Chrome Extension"],
         href: "https://chromewebstore.google.com/detail/bdlpogibdkglpceadpplahmjneanbpom?utm_source=item-share-cb",
         date: "2026/01/07"
-    },
-    {
-        id: "chrome-theme",
-        title: {
-            ja: "Chrome Theme",
-            en: "Chrome Theme"
-        },
-        description: {
-            ja: "目に優しい配色で使いやすいChromeダークテーマ",
-            en: "An easy-to-use Chrome dark theme with an eye-friendly color scheme."
-        },
-        tags: ["CSS", "JSON", "Theme"],
-        href: "https://chromewebstore.google.com/detail/ganlcelmnoaidpmaegcmhecolonfmffk?utm_source=item-share-cb",
-        date: "2026/01/26"
     },
     {
         id: "no-curseforge-legacy",

@@ -1,0 +1,76 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import { works } from "../../../data/works";
+
+const themeWork = works.find((w) => w.id === "chrome-theme");
+const githubUrl = "https://github.com/manpuc/Chrome-Tokyo-Night-Theme";
+const storeUrl = "https://chromewebstore.google.com/detail/ganlcelmnoaidpmaegcmhecolonfmffk?utm_source=item-share-cb";
+---
+
+<Layout
+    title="Tokyo Night Theme - Works | manpuc"
+    description="人気のカラースキーム「Tokyo Night」をベースにした、目に優しいChromeブラウザ用テーマ。"
+    lang="ja"
+>
+    <div class="container main-content">
+        <div class="back-nav animate-fade-up">
+            <a href="/works/" class="back-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                Works一覧に戻る
+            </a>
+        </div>
+
+        <header style="display: flex; flex-direction: column; align-items: flex-start; gap: 0; padding: 2.5rem 0 1.5rem;">
+            <h1 class="animate-fade-up delay-1" style="margin: 0; font-size: clamp(2.5rem, 5vw, 3.5rem); line-height: 1.2; letter-spacing: -0.02em;">
+                Tokyo Night Theme
+            </h1>
+            <p class="subtitle animate-fade-up delay-2" style="margin: 0.75rem 0 0; font-size: clamp(1.1rem, 2vw, 1.25rem); opacity: 0.8; font-weight: 500;">
+                Chrome Browser Theme
+            </p>
+            <div class="tags animate-fade-up delay-3" style="margin-top: 1.5rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                <span class="tag" style="font-size: 0.85rem; padding: 0.3rem 0.8rem;">Chrome Theme</span>
+                <span class="tag" style="font-size: 0.85rem; padding: 0.3rem 0.8rem;">JSON</span>
+            </div>
+            <div class="action-buttons animate-fade-up delay-4" style="display: flex; gap: 1rem; margin-top: 2.5rem; flex-wrap: wrap;">
+                <a href={storeUrl} target="_blank" rel="noopener noreferrer" class="neumorph-btn" style="display: inline-flex; gap: 0.5rem; align-items: center; color: var(--primary);">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="7 10 12 15 17 10"></polyline>
+                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                    Chromeに追加
+                </a>
+                <a href={githubUrl} target="_blank" rel="noopener noreferrer" class="neumorph-btn" style="display: inline-flex; gap: 0.5rem; align-items: center;">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                    </svg>
+                    GitHubを見る
+                </a>
+            </div>
+        </header>
+
+        <div class="hero-image animate-fade-up delay-4" style="margin-bottom: 2.5rem; border-radius: var(--border-radius); overflow: hidden; box-shadow: var(--neumorph-shadow-sm);">
+            <img src="https://lh3.googleusercontent.com/He_jbrUrbvLldLOneDfmGkivXqamSEk-d80hMUB4kus7den8SiMv5CR-nd5l0vwoIF1TP2Qj3HL67JlFdYKRu56LEw=s1280-w1280-h800" alt="Tokyo Night Theme Screenshot" style="width: 100%; height: auto; display: block;" />
+        </div>
+
+        <section class="neumorph-card animate-fade-up delay-5" style="margin-bottom: 0;">
+            <h2>機能概要</h2>
+            <p>
+                <strong>Tokyo Night Theme</strong> は、プログラマーに人気のカラースキーム「Tokyo Night」をChromeブラウザ向けに移植したテーマです。<br/>
+                ダークブルーを基調とした落ち着いた色合いで、長時間のブラウジングでも目が疲れにくいデザインに仕上げています。
+            </p>
+
+            <h3 style="margin-top: 2rem;">主な機能と特徴</h3>
+            <ul style="list-style: none; padding-left: 0; display: flex; flex-direction: column; gap: 0.75rem;">
+                <li style="position: relative; padding-left: 1.75rem; line-height: 1.6;">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="var(--primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="position: absolute; left: 0; top: 0.3rem;"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    <strong>目に優しいダークテーマ:</strong> Tokyo Nightスキームの美しい色合いを採用。
+                </li>
+                <li style="position: relative; padding-left: 1.75rem; line-height: 1.6;">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="var(--primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="position: absolute; left: 0; top: 0.3rem;"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    <strong>視認性の向上:</strong> アクティブなタブと非アクティブなタブの色を明確に区別し、快適なタブ操作をサポート。
+                </li>
+            </ul>
+        </section>
+    </div>
+</Layout>
