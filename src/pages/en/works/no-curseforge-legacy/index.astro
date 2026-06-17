@@ -1,0 +1,178 @@
+---
+import Layout from "../../../../layouts/Layout.astro";
+import { works } from "../../../../data/works";
+
+const extensionWork = works.find((w) => w.id === "no-curseforge-legacy");
+const githubUrl = "https://github.com/manpuc/No-Curseforge-Legacy";
+const storeUrl = extensionWork?.href || "https://chromewebstore.google.com/detail/diogckmiabncebebknnoibjapaldcjgb?utm_source=item-share-cb";
+---
+
+<Layout
+    title="No Curseforge Legacy - Works | manpuc"
+    description="An extension that redirects CurseForge legacy design to the new design URL."
+    lang="en"
+>
+    <div class="container main-content">
+        <div class="back-nav animate-fade-up">
+            <a href="/en/works/" class="back-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                Back to Works
+            </a>
+        </div>
+
+        <header style="display: flex; flex-direction: column; align-items: flex-start; gap: 0; padding: 2.5rem 0 1.5rem;">
+            <h1 class="animate-fade-up delay-1" style="margin: 0; font-size: clamp(2.5rem, 5vw, 3.5rem); line-height: 1.2; letter-spacing: -0.02em;">
+                No Curseforge Legacy
+            </h1>
+            <p class="subtitle animate-fade-up delay-2" style="margin: 0.75rem 0 0; font-size: clamp(1.1rem, 2vw, 1.25rem); opacity: 0.8; font-weight: 500;">
+                Chrome Extension
+            </p>
+            <div class="tags animate-fade-up delay-3" style="margin-top: 1.5rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                <span class="tag" style="font-size: 0.85rem; padding: 0.3rem 0.8rem;">JavaScript</span>
+                <span class="tag" style="font-size: 0.85rem; padding: 0.3rem 0.8rem;">Chrome Extension</span>
+            </div>
+            <div class="action-buttons animate-fade-up delay-4" style="display: flex; gap: 1rem; margin-top: 2.5rem; flex-wrap: wrap;">
+                <a href={storeUrl} target="_blank" rel="noopener noreferrer" class="neumorph-btn" style="display: inline-flex; gap: 0.5rem; align-items: center; color: var(--primary);">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="7 10 12 15 17 10"></polyline>
+                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                    Add to Chrome
+                </a>
+                <a href={githubUrl} target="_blank" rel="noopener noreferrer" class="neumorph-btn" style="display: inline-flex; gap: 0.5rem; align-items: center;">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                    </svg>
+                    View on GitHub
+                </a>
+            </div>
+        </header>
+
+        <div class="carousel-container animate-fade-up delay-4" style="position: relative; margin-bottom: 2.5rem;">
+            <button class="carousel-btn prev-btn" aria-label="Previous image">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            </button>
+            <div class="screenshot-carousel" id="screenshotCarousel" style="display: flex; gap: 1rem; overflow-x: auto; padding-bottom: 1rem; scroll-snap-type: x mandatory; scroll-behavior: smooth; -webkit-overflow-scrolling: touch;">
+                <div style="flex: 0 0 100%; scroll-snap-align: center; border-radius: var(--border-radius); overflow: hidden; box-shadow: var(--neumorph-shadow-sm);">
+                    <img src="https://lh3.googleusercontent.com/xkZ_tbFJaRb35Pf7PaMZonP_NvSOTkEkgknT5qfmuiDMsol7AIIo_mGCkiTQ1DIAFYyXf42GFH7gT-wl31t3kec2GA=s1280-w1280-h800" alt="No Curseforge Legacy Screenshot 1" style="width: 100%; height: auto; display: block; aspect-ratio: 16/10; object-fit: cover;" />
+                </div>
+                <div style="flex: 0 0 100%; scroll-snap-align: center; border-radius: var(--border-radius); overflow: hidden; box-shadow: var(--neumorph-shadow-sm);">
+                    <img src="https://lh3.googleusercontent.com/rbo2USwxs-EFk-t2CE8tpe8XT7ZIuPSiENdTzbrh4jwAVHHgdJAwZ4sd4JHMJonpSCeIT4nS0g3x2DfCYvuIYLjjEg=s1280-w1280-h800" alt="No Curseforge Legacy Screenshot 2" style="width: 100%; height: auto; display: block; aspect-ratio: 16/10; object-fit: cover;" />
+                </div>
+            </div>
+            <button class="carousel-btn next-btn" aria-label="Next image">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+        </div>
+        <style>
+            .carousel-btn {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                z-index: 10;
+                background: var(--bg-color);
+                border: none;
+                border-radius: 50%;
+                width: 40px;
+                height: 40px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                box-shadow: var(--neumorph-shadow-sm);
+                color: var(--text-color);
+                opacity: 0;
+                pointer-events: none;
+                transition: opacity 0.2s, box-shadow 0.2s;
+            }
+            .carousel-container:hover .carousel-btn {
+                opacity: 0.8;
+                pointer-events: auto;
+            }
+            .carousel-container:hover .carousel-btn:hover {
+                opacity: 1;
+                box-shadow: var(--neumorph-shadow);
+            }
+            @media (hover: none) {
+                .carousel-btn {
+                    opacity: 0.8;
+                    pointer-events: auto;
+                }
+            }
+            .prev-btn { left: 1rem; }
+            .next-btn { right: 1rem; }
+            @media (max-width: 768px) {
+                .prev-btn { left: 0.5rem; }
+                .next-btn { right: 0.5rem; }
+            }
+            .screenshot-carousel::-webkit-scrollbar {
+                height: 8px;
+            }
+            .screenshot-carousel::-webkit-scrollbar-track {
+                background: rgba(0, 0, 0, 0.05);
+                border-radius: 4px;
+            }
+            .screenshot-carousel::-webkit-scrollbar-thumb {
+                background: rgba(0, 0, 0, 0.2);
+                border-radius: 4px;
+            }
+            @media (prefers-color-scheme: dark) {
+                .screenshot-carousel::-webkit-scrollbar-track {
+                    background: rgba(255, 255, 255, 0.05);
+                }
+                .screenshot-carousel::-webkit-scrollbar-thumb {
+                    background: rgba(255, 255, 255, 0.2);
+                }
+            }
+        </style>
+        <script>
+            const carousel = document.getElementById('screenshotCarousel');
+            const prevBtn = document.querySelector('.prev-btn');
+            const nextBtn = document.querySelector('.next-btn');
+
+            if (carousel && prevBtn && nextBtn) {
+                prevBtn.addEventListener('click', () => {
+                    const scrollAmount = carousel.clientWidth;
+                    carousel.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+                });
+
+                nextBtn.addEventListener('click', () => {
+                    const scrollAmount = carousel.clientWidth;
+                    carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+                });
+            }
+        </script>
+
+        <section class="neumorph-card animate-fade-up delay-5" style="margin-bottom: 0;">
+            <h2>Overview</h2>
+            <p>
+                <strong>No Curseforge Legacy</strong> is a Chrome extension that automatically redirects you from the legacy CurseForge URLs (such as legacy.curseforge.com) to the new design URLs.<br/>
+                Even if you click on an old link, you can always browse the site with the latest UI.
+            </p>
+
+            <h3 style="margin-top: 2rem;">Main Features & Characteristics</h3>
+            <ul style="list-style: none; padding-left: 0; display: flex; flex-direction: column; gap: 0.75rem;">
+                <li style="position: relative; padding-left: 1.75rem; line-height: 1.6;">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="var(--primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="position: absolute; left: 0; top: 0.3rem;"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    <strong>Automatic Redirection:</strong> Detects legacy URLs and seamlessly transitions to the new URLs.
+                </li>
+                <li style="position: relative; padding-left: 1.75rem; line-height: 1.6;">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="var(--primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="position: absolute; left: 0; top: 0.3rem;"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    <strong>Simple and Lightweight:</strong> Performs no unnecessary processing and does not slow down your browser.
+                </li>
+            </ul>
+
+            <h3 style="margin-top: 2rem;">Changelog</h3>
+            <div class="changelog-timeline" style="position: relative; padding-left: 1.5rem; display: flex; flex-direction: column; gap: 1.5rem; margin-top: 1rem;">
+                <div style="position: absolute; top: 0.5rem; bottom: 0.5rem; left: 6px; width: 2px; background-color: rgba(128, 128, 128, 0.2); z-index: 1;"></div>
+                
+                <div class="changelog-item" style="position: relative; z-index: 2;">
+                    <div style="position: absolute; left: -1.5rem; top: 0.4rem; width: 12px; height: 12px; border-radius: 50%; background-color: var(--bg-color); border: 2px solid var(--primary); transform: translateX(1px); box-shadow: 0 0 0 2px var(--bg-color);"></div>
+                    <div style="font-weight: 600; color: var(--text-color);">Initial Release <span style="font-size: 0.85em; color: var(--text-muted); margin-left: 0.5rem; font-weight: normal;">(Mar 14, 2026)</span></div>
+                    <div style="font-size: 0.95em; color: var(--text-muted); margin-top: 0.25rem;">Project published.</div>
+                </div>
+            </div>
+        </section>
+    </div>
+</Layout>

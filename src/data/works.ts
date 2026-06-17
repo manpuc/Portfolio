@@ -17,6 +17,95 @@ export interface Work {
 
 export const works: Work[] = [
     {
+        id: "packbridge",
+        title: {
+            ja: "PackBridge",
+            en: "PackBridge"
+        },
+        description: {
+            ja: "Minecraft のリソースパックをエディション間で相互変換するサービス。",
+            en: "A service that converts Minecraft resource packs between editions."
+        },
+        tags: ["TypeScript", "Minecraft"],
+        href: "https://packbridge.manpuc.me/",
+        date: "2026/04/19"
+    },
+    {
+        id: "CharView",
+        title: {
+            ja: "CharView",
+            en: "CharView"
+        },
+        description: {
+            ja: "Google Formsの入力欄の右下に文字数をリアルタイム表示するChrome拡張機能",
+            en: "Chrome extension to display character count in real-time for Google Forms input fields."
+        },
+        tags: ["JavaScript", "Chrome Extension"],
+        href: "https://chromewebstore.google.com/detail/lgiilinkfchechjoaeojckghoamifkgd?utm_source=item-share-cb",
+        date: "2026/04/13"
+    },
+    {
+        id: "FLICKER",
+        title: {
+            ja: "FLICKER",
+            en: "FLICKER"
+        },
+        description: {
+            ja: "シンプル操作のWebゲーム",
+            en: "A simple web game."
+        },
+        tags: ["TypeScript", "Next.js", "SQL"],
+        href: "https://flicker.manpuc.me/",
+        date: "2026/05/14"
+    },
+    {
+        id: "Loudness",
+        title: {
+            ja: "Loudness Insight",
+            en: "Loudness Insight"
+        },
+        description: {
+            ja: "Web Audio APIとFFmpeg(WebAssembly)を使用し、音量（ラウドネス）を分析するWebアプリ",
+            en: "A web app for analyzing loudness using Web Audio API and FFmpeg (WebAssembly)."
+        },
+        tags: ["Next.js", "FFmpeg", "WASM"],
+        href: "https://loudness.manpuc.me/",
+        date: "2026/05/06"
+    },
+    {
+        id: "mbot",
+        title: {
+            ja: "MBot",
+            en: "MBot"
+        },
+        description: {
+            ja: "サーバー管理やエンタメ機能を備えた多機能汎用Botの開発と運用。",
+            en: "Development and operation of a multi-functional general-purpose bot with server management and entertainment features."
+        },
+        tags: ["Node.js", "API"],
+        href: "https://github.com/manpuc/MBot",
+        category: "UtilitiesApplication",
+        os: "Cross-platform",
+        date: "2022/11/11"
+    },
+    {
+        id: "chrome-theme",
+        title: {
+            ja: "Tokyo Night Theme",
+            en: "Tokyo Night Theme"
+        },
+        description: {
+            ja: "人気のカラースキーム「Tokyo Night」をベースにした、目に優しいChromeブラウザ用テーマ。",
+            en: "A Chrome browser theme based on the popular 'Tokyo Night' color scheme, gentle on the eyes."
+        },
+        tags: ["Chrome Theme", "JSON"],
+        href: "https://github.com/manpuc/Chrome-Tokyo-Night-Theme",
+        category: "BrowserExtension",
+        os: "Cross-platform",
+        date: "2026/01/26"
+    },
+
+    {
         id: "Pitch-Analyzer",
         title: {
             ja: "Pitch Analyzer",
@@ -74,66 +163,8 @@ export const works: Work[] = [
         os: "Windows, macOS, Linux",
         date: "2026/02/12"
     },
-    {
-        id: "mbot",
-        title: {
-            ja: "MBot",
-            en: "MBot"
-        },
-        description: {
-            ja: "サーバー管理やエンタメ機能を備えた多機能汎用Botの開発と運用。",
-            en: "Development and operation of a multi-functional general-purpose bot with server management and entertainment features."
-        },
-        tags: ["Node.js", "API"],
-        href: "https://github.com/manpuc/MBot",
-        category: "UtilitiesApplication",
-        os: "Cross-platform",
-        date: "2022/11/11"
-    },
-    {
-        id: "chrome-theme",
-        title: {
-            ja: "Tokyo Night Theme",
-            en: "Tokyo Night Theme"
-        },
-        description: {
-            ja: "人気のカラースキーム「Tokyo Night」をベースにした、目に優しいChromeブラウザ用テーマ。",
-            en: "A Chrome browser theme based on the popular 'Tokyo Night' color scheme, gentle on the eyes."
-        },
-        tags: ["Chrome Theme", "JSON"],
-        href: "https://github.com/manpuc/Chrome-Tokyo-Night-Theme",
-        category: "BrowserExtension",
-        os: "Cross-platform",
-        date: "2026/01/26"
-    },
-    {
-        id: "Loudness",
-        title: {
-            ja: "Loudness Insight",
-            en: "Loudness Insight"
-        },
-        description: {
-            ja: "Web Audio APIとFFmpeg(WebAssembly)を使用し、音量（ラウドネス）を分析するWebアプリ",
-            en: "A web app for analyzing loudness using Web Audio API and FFmpeg (WebAssembly)."
-        },
-        tags: ["Next.js", "FFmpeg", "WASM"],
-        href: "https://loudness.manpuc.me/",
-        date: "2026/05/06"
-    },
-    {
-        id: "FLICKER",
-        title: {
-            ja: "FLICKER",
-            en: "FLICKER"
-        },
-        description: {
-            ja: "シンプル操作のWebゲーム",
-            en: "A simple web game."
-        },
-        tags: ["TypeScript", "Next.js", "SQL"],
-        href: "https://flicker.manpuc.me/",
-        date: "2026/05/14"
-    },
+
+
     {
         id: "pomodoro",
         title: {
@@ -204,20 +235,7 @@ export const works: Work[] = [
         href: "https://pass.manpuc.me/",
         date: "2026/04/18"
     },
-    {
-        id: "packbridge",
-        title: {
-            ja: "PackBridge",
-            en: "PackBridge"
-        },
-        description: {
-            ja: "Minecraft のリソースパックをエディション間で相互変換するサービス。",
-            en: "A service that converts Minecraft resource packs between editions."
-        },
-        tags: ["TypeScript", "Minecraft"],
-        href: "https://packbridge.manpuc.me/",
-        date: "2026/04/19"
-    },
+
     {
         id: "mc-link",
         title: {
@@ -273,20 +291,6 @@ export const works: Work[] = [
         tags: ["JavaScript", "Chrome Extension"],
         href: "https://chromewebstore.google.com/detail/diogckmiabncebebknnoibjapaldcjgb?utm_source=item-share-cb",
         date: "2026/03/14"
-    },
-    {
-        id: "CharView",
-        title: {
-            ja: "CharView",
-            en: "CharView"
-        },
-        description: {
-            ja: "Google Formsの入力欄の右下に文字数をリアルタイム表示するChrome拡張機能",
-            en: "Chrome extension to display character count in real-time for Google Forms input fields."
-        },
-        tags: ["JavaScript", "Chrome Extension"],
-        href: "https://chromewebstore.google.com/detail/lgiilinkfchechjoaeojckghoamifkgd?utm_source=item-share-cb",
-        date: "2026/04/13"
     },
     {
         id: "minecraft-server",

@@ -57,7 +57,7 @@ import { works } from "../../data/works";
                             data-date={work.date || "1970/01/01"}
                             data-index={index}
                         >
-                            {["CharView", "packbridge", "mbot", "chrome-theme"].includes(work.id) ? (
+                            {["CharView", "packbridge", "mbot", "chrome-theme", "mc-link", "qr-maker", "google-search-night", "no-curseforge-legacy"].includes(work.id) ? (
                                 <div class="minimal-work-link" style="position: relative; transition: var(--transition);">
                                     <a href={`/works/${work.id.toLowerCase()}/`} style="position: absolute; inset: 0; z-index: 1; border-radius: inherit;" aria-label={`${work.title.ja}詳細ページへ`}></a>
                                     <span class="minimal-work-title" style="position: relative; z-index: 2; pointer-events: none;">
