@@ -65,84 +65,7 @@ const storeUrl = extensionWork?.href || "https://chromewebstore.google.com/detai
                 <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
             </button>
         </div>
-        <style>
-            .carousel-btn {
-                position: absolute;
-                top: 50%;
-                transform: translateY(-50%);
-                z-index: 10;
-                background: var(--bg-color);
-                border: none;
-                border-radius: 50%;
-                width: 40px;
-                height: 40px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                cursor: pointer;
-                box-shadow: var(--neumorph-shadow-sm);
-                color: var(--text-color);
-                opacity: 0;
-                pointer-events: none;
-                transition: opacity 0.2s, box-shadow 0.2s;
-            }
-            .carousel-container:hover .carousel-btn {
-                opacity: 0.8;
-                pointer-events: auto;
-            }
-            .carousel-container:hover .carousel-btn:hover {
-                opacity: 1;
-                box-shadow: var(--neumorph-shadow);
-            }
-            @media (hover: none) {
-                .carousel-btn {
-                    opacity: 0.8;
-                    pointer-events: auto;
-                }
-            }
-            .prev-btn { left: 1rem; }
-            .next-btn { right: 1rem; }
-            @media (max-width: 768px) {
-                .prev-btn { left: 0.5rem; }
-                .next-btn { right: 0.5rem; }
-            }
-            .screenshot-carousel::-webkit-scrollbar {
-                height: 8px;
-            }
-            .screenshot-carousel::-webkit-scrollbar-track {
-                background: rgba(0, 0, 0, 0.05);
-                border-radius: 4px;
-            }
-            .screenshot-carousel::-webkit-scrollbar-thumb {
-                background: rgba(0, 0, 0, 0.2);
-                border-radius: 4px;
-            }
-            @media (prefers-color-scheme: dark) {
-                .screenshot-carousel::-webkit-scrollbar-track {
-                    background: rgba(255, 255, 255, 0.05);
-                }
-                .screenshot-carousel::-webkit-scrollbar-thumb {
-                    background: rgba(255, 255, 255, 0.2);
-                }
-            }
-        </style>
-        <script>
-            const carousel = document.getElementById('screenshotCarousel');
-            const prevBtn = document.querySelector('.prev-btn');
-            const nextBtn = document.querySelector('.next-btn');
 
-            if (carousel && prevBtn && nextBtn) {
-                prevBtn.addEventListener('click', () => {
-                    const scrollAmount = carousel.clientWidth;
-                    carousel.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-                });
-
-                nextBtn.addEventListener('click', () => {
-                    const scrollAmount = carousel.clientWidth;
-                    carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-                });
-            }
-        </script>
 
         <section class="neumorph-card animate-fade-up delay-5" style="margin-bottom: 0;">
             <h2>機能概要</h2>
@@ -176,3 +99,85 @@ const storeUrl = extensionWork?.href || "https://chromewebstore.google.com/detai
         </section>
     </div>
 </Layout>
+
+<style>
+    .carousel-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 10;
+        background: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        width: 44px;
+        height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        color: #ffffff;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease, background 0.2s ease, transform 0.2s ease;
+    }
+    .carousel-container:hover .carousel-btn {
+        opacity: 1;
+        pointer-events: auto;
+    }
+    .carousel-container:hover .carousel-btn:hover {
+        background: rgba(0, 0, 0, 0.7);
+        transform: translateY(-50%) scale(1.05);
+    }
+    @media (hover: none) {
+        .carousel-btn {
+            opacity: 1;
+            pointer-events: auto;
+        }
+    }
+    .prev-btn { left: 1rem; }
+    .next-btn { right: 1rem; }
+    @media (max-width: 768px) {
+        .prev-btn { left: 0.5rem; }
+        .next-btn { right: 0.5rem; }
+    }
+    .screenshot-carousel::-webkit-scrollbar {
+        height: 8px;
+    }
+    .screenshot-carousel::-webkit-scrollbar-track {
+        background: rgba(0, 0, 0, 0.05);
+        border-radius: 4px;
+    }
+    .screenshot-carousel::-webkit-scrollbar-thumb {
+        background: rgba(0, 0, 0, 0.2);
+        border-radius: 4px;
+    }
+    @media (prefers-color-scheme: dark) {
+        .screenshot-carousel::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05);
+        }
+        .screenshot-carousel::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.2);
+        }
+    }
+</style>
+
+<script>
+    const carousel = document.getElementById('screenshotCarousel');
+    const prevBtn = document.querySelector('.prev-btn');
+    const nextBtn = document.querySelector('.next-btn');
+
+    if (carousel && prevBtn && nextBtn) {
+        prevBtn.addEventListener('click', () => {
+            const scrollAmount = carousel.clientWidth;
+            carousel.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+        });
+
+        nextBtn.addEventListener('click', () => {
+            const scrollAmount = carousel.clientWidth;
+            carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+        });
+    }
+</script>
