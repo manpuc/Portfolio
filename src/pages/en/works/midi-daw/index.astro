@@ -10,14 +10,14 @@ const appUrl = work?.href || "https://midi.manpuc.me/";
 const structuredData = {
     "@context": "https://schema.org",
     "@type": "CreativeWork",
-    "name": "midi-daw - Works | manpuc",
-    "description": "Details for midi-daw",
-    "url": "https://manpuc.me/en/works/midi-daw/",
-    "image": "https://manpuc.me/avatar.webp",
-    "author": {
+    name: "midi-daw - Works | manpuc",
+    description: "Details for midi-daw",
+    url: "https://manpuc.me/en/works/midi-daw/",
+    image: "https://manpuc.me/avatar.webp",
+    author: {
         "@type": "Person",
-        "name": "manpuc"
-    }
+        name: "manpuc",
+    },
 };
 ---
 
@@ -59,19 +59,23 @@ const structuredData = {
             >
                 Browser-based DAW
             </p>
-            {work?.tags && (
-                <div
-                    class="tags animate-fade-up delay-3"
-                    style="margin-top: 1.5rem; display: flex; gap: 0.5rem; flex-wrap: wrap;"
-                >
-                    {work.tags.map((tag) => (
-                        <span
-                            class="tag"
-                            style="font-size: 0.85rem; padding: 0.3rem 0.8rem;"
-                        >{tag}</span>
-                    ))}
-                </div>
-            )}
+            {
+                work?.tags && (
+                    <div
+                        class="tags animate-fade-up delay-3"
+                        style="margin-top: 1.5rem; display: flex; gap: 0.5rem; flex-wrap: wrap;"
+                    >
+                        {work.tags.map((tag) => (
+                            <span
+                                class="tag"
+                                style="font-size: 0.85rem; padding: 0.3rem 0.8rem;"
+                            >
+                                {tag}
+                            </span>
+                        ))}
+                    </div>
+                )
+            }
             <div
                 class="action-buttons animate-fade-up delay-4"
                 style="display: flex; gap: 1rem; margin-top: 2.5rem; flex-wrap: wrap;"
@@ -138,29 +142,77 @@ const structuredData = {
             />
         </div>
 
-
         <section
             class="neumorph-card animate-fade-up delay-5"
             style="margin-bottom: 0;"
         >
             <h2>Overview</h2>
             <p>
-                <strong>Midi DAW</strong> is a lightweight yet feature-rich MIDI playback and editing tool that runs entirely in the browser. Powered by a custom audio engine, it provides high-quality playback and visualization for local MIDI files.
+                <strong>Midi DAW</strong> is a lightweight yet feature-rich MIDI playback
+                and editing tool that runs entirely in the browser. Powered by a custom
+                audio engine, it provides high-quality playback and visualization
+                for local MIDI files.
             </p>
 
             <h3 style="margin-top: 2rem;">Key Features</h3>
-            <ul style="list-style: none; padding-left: 0; display: flex; flex-direction: column; gap: 0.75rem;">
-                <li style="position: relative; padding-left: 1.75rem; line-height: 1.6;">
-                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="var(--primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="position: absolute; left: 0; top: 0.3rem;"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                    <strong>Integrated DAW Interface:</strong> Provides fundamental DAW functionalities such as track management and playback controls through an intuitive UI.
+            <ul
+                style="list-style: none; padding-left: 0; display: flex; flex-direction: column; gap: 0.75rem;"
+            >
+                <li
+                    style="position: relative; padding-left: 1.75rem; line-height: 1.6;"
+                >
+                    <svg
+                        viewBox="0 0 24 24"
+                        width="16"
+                        height="16"
+                        fill="none"
+                        stroke="var(--primary)"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        style="position: absolute; left: 0; top: 0.3rem;"
+                        ><polyline points="20 6 9 17 4 12"></polyline></svg
+                    >
+                    <strong>Integrated DAW Interface:</strong> Provides fundamental
+                    DAW functionalities such as track management and playback controls
+                    through an intuitive UI.
                 </li>
-                <li style="position: relative; padding-left: 1.75rem; line-height: 1.6;">
-                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="var(--primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="position: absolute; left: 0; top: 0.3rem;"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                    <strong>Audio Visualizer:</strong> Renders MIDI notes in real-time during playback, allowing users to visually experience the music.
+                <li
+                    style="position: relative; padding-left: 1.75rem; line-height: 1.6;"
+                >
+                    <svg
+                        viewBox="0 0 24 24"
+                        width="16"
+                        height="16"
+                        fill="none"
+                        stroke="var(--primary)"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        style="position: absolute; left: 0; top: 0.3rem;"
+                        ><polyline points="20 6 9 17 4 12"></polyline></svg
+                    >
+                    <strong>Audio Visualizer:</strong> Renders MIDI notes in real-time
+                    during playback, allowing users to visually experience the music.
                 </li>
-                <li style="position: relative; padding-left: 1.75rem; line-height: 1.6;">
-                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="var(--primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="position: absolute; left: 0; top: 0.3rem;"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                    <strong>Customizable Themes & Settings:</strong> Includes support for theme switching (including dark mode) and multi-language (i18n) localization.
+                <li
+                    style="position: relative; padding-left: 1.75rem; line-height: 1.6;"
+                >
+                    <svg
+                        viewBox="0 0 24 24"
+                        width="16"
+                        height="16"
+                        fill="none"
+                        stroke="var(--primary)"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        style="position: absolute; left: 0; top: 0.3rem;"
+                        ><polyline points="20 6 9 17 4 12"></polyline></svg
+                    >
+                    <strong>Customizable Themes & Settings:</strong> Includes support
+                    for theme switching (including dark mode) and multi-language (i18n)
+                    localization.
                 </li>
             </ul>
             <h3 style="margin-top: 2rem;">Changelog</h3>
@@ -184,12 +236,14 @@ const structuredData = {
                     <div style="font-weight: 600; color: var(--text-color);">
                         Updates in <span
                             style="font-size: 0.85em; color: var(--text-muted); margin-left: 0.5rem; font-weight: normal;"
-                            >(June 2026)</span>
+                            >(June 2026)</span
+                        >
                     </div>
                     <div
                         style="font-size: 0.95em; color: var(--text-muted); margin-top: 0.25rem;"
                     >
-                        Initial release and project foundation built (1 commits).
+                        Initial release and project foundation built (1
+                        commits).
                     </div>
                 </div>
             </div>

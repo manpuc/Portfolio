@@ -10,14 +10,14 @@ const appUrl = work?.href || "https://pass.manpuc.me/";
 const structuredData = {
     "@context": "https://schema.org",
     "@type": "CreativeWork",
-    "name": "pass-generator - Works | manpuc",
-    "description": "Details for pass-generator",
-    "url": "https://manpuc.me/works/pass-generator/",
-    "image": "https://manpuc.me/avatar.webp",
-    "author": {
+    name: "pass-generator - Works | manpuc",
+    description: "Details for pass-generator",
+    url: "https://manpuc.me/works/pass-generator/",
+    image: "https://manpuc.me/avatar.webp",
+    author: {
         "@type": "Person",
-        "name": "manpuc"
-    }
+        name: "manpuc",
+    },
 };
 ---
 
@@ -59,19 +59,23 @@ const structuredData = {
             >
                 Password Generator
             </p>
-            {work?.tags && (
-                <div
-                    class="tags animate-fade-up delay-3"
-                    style="margin-top: 1.5rem; display: flex; gap: 0.5rem; flex-wrap: wrap;"
-                >
-                    {work.tags.map((tag) => (
-                        <span
-                            class="tag"
-                            style="font-size: 0.85rem; padding: 0.3rem 0.8rem;"
-                        >{tag}</span>
-                    ))}
-                </div>
-            )}
+            {
+                work?.tags && (
+                    <div
+                        class="tags animate-fade-up delay-3"
+                        style="margin-top: 1.5rem; display: flex; gap: 0.5rem; flex-wrap: wrap;"
+                    >
+                        {work.tags.map((tag) => (
+                            <span
+                                class="tag"
+                                style="font-size: 0.85rem; padding: 0.3rem 0.8rem;"
+                            >
+                                {tag}
+                            </span>
+                        ))}
+                    </div>
+                )
+            }
             <div
                 class="action-buttons animate-fade-up delay-4"
                 style="display: flex; gap: 1rem; margin-top: 2.5rem; flex-wrap: wrap;"
@@ -138,7 +142,6 @@ const structuredData = {
             />
         </div>
 
-
         <section
             class="neumorph-card animate-fade-up delay-5"
             style="margin-bottom: 0;"
@@ -149,17 +152,58 @@ const structuredData = {
             </p>
 
             <h3 style="margin-top: 2rem;">主な機能と特徴</h3>
-            <ul style="list-style: none; padding-left: 0; display: flex; flex-direction: column; gap: 0.75rem;">
-                <li style="position: relative; padding-left: 1.75rem; line-height: 1.6;">
-                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="var(--primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="position: absolute; left: 0; top: 0.3rem;"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <ul
+                style="list-style: none; padding-left: 0; display: flex; flex-direction: column; gap: 0.75rem;"
+            >
+                <li
+                    style="position: relative; padding-left: 1.75rem; line-height: 1.6;"
+                >
+                    <svg
+                        viewBox="0 0 24 24"
+                        width="16"
+                        height="16"
+                        fill="none"
+                        stroke="var(--primary)"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        style="position: absolute; left: 0; top: 0.3rem;"
+                        ><polyline points="20 6 9 17 4 12"></polyline></svg
+                    >
                     <strong>カスタマイズ可能な生成ルール:</strong> 文字数、大文字・小文字の混在、数字や記号の有無などを細かく指定してパスワードを生成できます。
                 </li>
-                <li style="position: relative; padding-left: 1.75rem; line-height: 1.6;">
-                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="var(--primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="position: absolute; left: 0; top: 0.3rem;"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <li
+                    style="position: relative; padding-left: 1.75rem; line-height: 1.6;"
+                >
+                    <svg
+                        viewBox="0 0 24 24"
+                        width="16"
+                        height="16"
+                        fill="none"
+                        stroke="var(--primary)"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        style="position: absolute; left: 0; top: 0.3rem;"
+                        ><polyline points="20 6 9 17 4 12"></polyline></svg
+                    >
                     <strong>パスフレーズ生成:</strong> 覚えやすく強固な「単語を組み合わせたパスフレーズ」の生成機能もサポートしています。
                 </li>
-                <li style="position: relative; padding-left: 1.75rem; line-height: 1.6;">
-                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="var(--primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="position: absolute; left: 0; top: 0.3rem;"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <li
+                    style="position: relative; padding-left: 1.75rem; line-height: 1.6;"
+                >
+                    <svg
+                        viewBox="0 0 24 24"
+                        width="16"
+                        height="16"
+                        fill="none"
+                        stroke="var(--primary)"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        style="position: absolute; left: 0; top: 0.3rem;"
+                        ><polyline points="20 6 9 17 4 12"></polyline></svg
+                    >
                     <strong>クライアントサイド処理:</strong> パスワードの生成はすべてブラウザ上で行われるため、ネットワーク経由で情報が漏洩する心配がなく安全です。
                 </li>
             </ul>
@@ -184,7 +228,8 @@ const structuredData = {
                     <div style="font-weight: 600; color: var(--text-color);">
                         アップデート <span
                             style="font-size: 0.85em; color: var(--text-muted); margin-left: 0.5rem; font-weight: normal;"
-                            >(2026年6月)</span>
+                            >(2026年6月)</span
+                        >
                     </div>
                     <div
                         style="font-size: 0.95em; color: var(--text-muted); margin-top: 0.25rem;"

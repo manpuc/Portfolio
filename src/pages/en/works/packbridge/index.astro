@@ -9,14 +9,15 @@ const githubUrl = "https://github.com/manpuc/packbridge.manpuc.me";
 const structuredData = {
     "@context": "https://schema.org",
     "@type": "CreativeWork",
-    "name": "PackBridge - Works | manpuc",
-    "description": "PackBridge: A service that converts Minecraft resource packs between editions.",
-    "url": "https://manpuc.me/en/works/packbridge/",
-    "image": "https://manpuc.me/avatar.webp",
-    "author": {
+    name: "PackBridge - Works | manpuc",
+    description:
+        "PackBridge: A service that converts Minecraft resource packs between editions.",
+    url: "https://manpuc.me/en/works/packbridge/",
+    image: "https://manpuc.me/avatar.webp",
+    author: {
         "@type": "Person",
-        "name": "manpuc"
-    }
+        name: "manpuc",
+    },
 };
 ---
 
@@ -43,98 +44,261 @@ const structuredData = {
             </a>
         </div>
 
-        <header style="display: flex; flex-direction: column; align-items: flex-start; gap: 0; padding: 2.5rem 0 1.5rem;">
-            <h1 class="animate-fade-up delay-1" style="margin: 0; font-size: clamp(2.5rem, 5vw, 3.5rem); line-height: 1.2; letter-spacing: -0.02em;">
+        <header
+            style="display: flex; flex-direction: column; align-items: flex-start; gap: 0; padding: 2.5rem 0 1.5rem;"
+        >
+            <h1
+                class="animate-fade-up delay-1"
+                style="margin: 0; font-size: clamp(2.5rem, 5vw, 3.5rem); line-height: 1.2; letter-spacing: -0.02em;"
+            >
                 PackBridge
             </h1>
-            <p class="subtitle animate-fade-up delay-2" style="margin: 0.75rem 0 0; font-size: clamp(1.1rem, 2vw, 1.25rem); opacity: 0.8; font-weight: 500;">
+            <p
+                class="subtitle animate-fade-up delay-2"
+                style="margin: 0.75rem 0 0; font-size: clamp(1.1rem, 2vw, 1.25rem); opacity: 0.8; font-weight: 500;"
+            >
                 Minecraft Resource Pack Converter
             </p>
-            <div class="tags animate-fade-up delay-3" style="margin-top: 1.5rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
-                <span class="tag" style="font-size: 0.85rem; padding: 0.3rem 0.8rem;">TypeScript</span>
-                <span class="tag" style="font-size: 0.85rem; padding: 0.3rem 0.8rem;">Minecraft</span>
-                <span class="tag" style="font-size: 0.85rem; padding: 0.3rem 0.8rem;">Astro</span>
+            <div
+                class="tags animate-fade-up delay-3"
+                style="margin-top: 1.5rem; display: flex; gap: 0.5rem; flex-wrap: wrap;"
+            >
+                <span
+                    class="tag"
+                    style="font-size: 0.85rem; padding: 0.3rem 0.8rem;"
+                    >TypeScript</span
+                >
+                <span
+                    class="tag"
+                    style="font-size: 0.85rem; padding: 0.3rem 0.8rem;"
+                    >Minecraft</span
+                >
+                <span
+                    class="tag"
+                    style="font-size: 0.85rem; padding: 0.3rem 0.8rem;"
+                    >Astro</span
+                >
             </div>
-            <div class="action-buttons animate-fade-up delay-4" style="display: flex; gap: 1rem; margin-top: 2.5rem; flex-wrap: wrap;">
-                <a href={siteUrl} target="_blank" rel="noopener noreferrer" class="neumorph-btn" style="display: inline-flex; gap: 0.5rem; align-items: center; color: var(--primary);">
-                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+            <div
+                class="action-buttons animate-fade-up delay-4"
+                style="display: flex; gap: 1rem; margin-top: 2.5rem; flex-wrap: wrap;"
+            >
+                <a
+                    href={siteUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="neumorph-btn"
+                    style="display: inline-flex; gap: 0.5rem; align-items: center; color: var(--primary);"
+                >
+                    <svg
+                        viewBox="0 0 24 24"
+                        width="20"
+                        height="20"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    >
+                        <path
+                            d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+                        ></path>
                         <polyline points="15 3 21 3 21 9"></polyline>
                         <line x1="10" y1="14" x2="21" y2="3"></line>
                     </svg>
                     Open Site
                 </a>
-                <a href={githubUrl} target="_blank" rel="noopener noreferrer" class="neumorph-btn" style="display: inline-flex; gap: 0.5rem; align-items: center;">
-                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                <a
+                    href={githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="neumorph-btn"
+                    style="display: inline-flex; gap: 0.5rem; align-items: center;"
+                >
+                    <svg
+                        viewBox="0 0 24 24"
+                        width="20"
+                        height="20"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    >
+                        <path
+                            d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+                        ></path>
                     </svg>
                     View on GitHub
                 </a>
             </div>
         </header>
 
-        <div class="hero-image animate-fade-up delay-4" style="margin-bottom: 2.5rem; border-radius: var(--border-radius); overflow: hidden; box-shadow: var(--neumorph-shadow-sm);">
-            <img src="/images/works/packbridge/packbridge_ss_en.webp" alt="PackBridge Screenshot" style="width: 100%; height: auto; display: block;" />
+        <div
+            class="hero-image animate-fade-up delay-4"
+            style="margin-bottom: 2.5rem; border-radius: var(--border-radius); overflow: hidden; box-shadow: var(--neumorph-shadow-sm);"
+        >
+            <img
+                src="/images/works/packbridge/packbridge_ss_en.webp"
+                alt="PackBridge Screenshot"
+                style="width: 100%; height: auto; display: block;"
+            />
         </div>
 
-        <section class="neumorph-card animate-fade-up delay-5" style="margin-bottom: 0;">
+        <section
+            class="neumorph-card animate-fade-up delay-5"
+            style="margin-bottom: 0;"
+        >
             <h2>Overview</h2>
             <p>
-                <strong>PackBridge</strong> is a fast, privacy-focused web application for converting Minecraft resource packs between Java Edition and Bedrock Edition.
+                <strong>PackBridge</strong> is a fast, privacy-focused web application
+                for converting Minecraft resource packs between Java Edition and Bedrock
+                Edition.
             </p>
             <p>
-                All conversion processes are performed within the user's browser, so files are never uploaded to a server. You can safely convert even large files.
+                All conversion processes are performed within the user's
+                browser, so files are never uploaded to a server. You can safely
+                convert even large files.
             </p>
 
             <h3 style="margin-top: 2rem;">Main Features & Characteristics</h3>
-            <ul style="list-style: none; padding-left: 0; display: flex; flex-direction: column; gap: 0.75rem;">
-                <li style="position: relative; padding-left: 1.75rem; line-height: 1.6;">
-                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="var(--primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="position: absolute; left: 0; top: 0.3rem;">
+            <ul
+                style="list-style: none; padding-left: 0; display: flex; flex-direction: column; gap: 0.75rem;"
+            >
+                <li
+                    style="position: relative; padding-left: 1.75rem; line-height: 1.6;"
+                >
+                    <svg
+                        viewBox="0 0 24 24"
+                        width="16"
+                        height="16"
+                        fill="none"
+                        stroke="var(--primary)"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        style="position: absolute; left: 0; top: 0.3rem;"
+                    >
                         <polyline points="20 6 9 17 4 12"></polyline>
                     </svg>
-                    <strong>Mutual Conversion:</strong> Supports two-way conversion between Java Edition and Bedrock Edition.
+                    <strong>Mutual Conversion:</strong> Supports two-way conversion
+                    between Java Edition and Bedrock Edition.
                 </li>
-                <li style="position: relative; padding-left: 1.75rem; line-height: 1.6;">
-                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="var(--primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="position: absolute; left: 0; top: 0.3rem;">
+                <li
+                    style="position: relative; padding-left: 1.75rem; line-height: 1.6;"
+                >
+                    <svg
+                        viewBox="0 0 24 24"
+                        width="16"
+                        height="16"
+                        fill="none"
+                        stroke="var(--primary)"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        style="position: absolute; left: 0; top: 0.3rem;"
+                    >
                         <polyline points="20 6 9 17 4 12"></polyline>
                     </svg>
-                    <strong>Browser-Based:</strong> Executes all processing on the client side, requiring no server upload for fast and secure conversion.
+                    <strong>Browser-Based:</strong> Executes all processing on the
+                    client side, requiring no server upload for fast and secure conversion.
                 </li>
-                <li style="position: relative; padding-left: 1.75rem; line-height: 1.6;">
-                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="var(--primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="position: absolute; left: 0; top: 0.3rem;">
+                <li
+                    style="position: relative; padding-left: 1.75rem; line-height: 1.6;"
+                >
+                    <svg
+                        viewBox="0 0 24 24"
+                        width="16"
+                        height="16"
+                        fill="none"
+                        stroke="var(--primary)"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        style="position: absolute; left: 0; top: 0.3rem;"
+                    >
                         <polyline points="20 6 9 17 4 12"></polyline>
                     </svg>
-                    <strong>Localization (i18n):</strong> Supports Japanese, English, Korean, Chinese, Tagalog, and Toki Pona.
+                    <strong>Localization (i18n):</strong> Supports Japanese, English,
+                    Korean, Chinese, Tagalog, and Toki Pona.
                 </li>
-                <li style="position: relative; padding-left: 1.75rem; line-height: 1.6;">
-                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="var(--primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="position: absolute; left: 0; top: 0.3rem;">
+                <li
+                    style="position: relative; padding-left: 1.75rem; line-height: 1.6;"
+                >
+                    <svg
+                        viewBox="0 0 24 24"
+                        width="16"
+                        height="16"
+                        fill="none"
+                        stroke="var(--primary)"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        style="position: absolute; left: 0; top: 0.3rem;"
+                    >
                         <polyline points="20 6 9 17 4 12"></polyline>
                     </svg>
-                    <strong>Modern UI:</strong> A beautiful and responsive design featuring glassmorphism.
+                    <strong>Modern UI:</strong> A beautiful and responsive design
+                    featuring glassmorphism.
                 </li>
             </ul>
 
             <h3 style="margin-top: 2rem;">Changelog</h3>
-            <div class="changelog-timeline" style="position: relative; padding-left: 1.5rem; display: flex; flex-direction: column; gap: 1.5rem; margin-top: 1rem;">
-                <div style="position: absolute; top: 0.5rem; bottom: 0.5rem; left: 6px; width: 2px; background-color: rgba(128, 128, 128, 0.2); z-index: 1;"></div>
-                
-                <div class="changelog-item" style="position: relative; z-index: 2;">
-                    <div style="position: absolute; left: -1.5rem; top: 0.4rem; width: 12px; height: 12px; border-radius: 50%; background-color: var(--bg-color); border: 2px solid var(--primary); transform: translateX(1px); box-shadow: 0 0 0 2px var(--bg-color);"></div>
-                    <div style="font-weight: 600; color: var(--text-color);">June 2026</div>
-                    <ul style="font-size: 0.95em; color: var(--text-muted); margin-top: 0.5rem; padding-left: 1.2rem; display: flex; flex-direction: column; gap: 0.25rem;">
-                        <li>Improved pack conversion logic (support for file normalization and resource mapping).</li>
+            <div
+                class="changelog-timeline"
+                style="position: relative; padding-left: 1.5rem; display: flex; flex-direction: column; gap: 1.5rem; margin-top: 1rem;"
+            >
+                <div
+                    style="position: absolute; top: 0.5rem; bottom: 0.5rem; left: 6px; width: 2px; background-color: rgba(128, 128, 128, 0.2); z-index: 1;"
+                >
+                </div>
+
+                <div
+                    class="changelog-item"
+                    style="position: relative; z-index: 2;"
+                >
+                    <div
+                        style="position: absolute; left: -1.5rem; top: 0.4rem; width: 12px; height: 12px; border-radius: 50%; background-color: var(--bg-color); border: 2px solid var(--primary); transform: translateX(1px); box-shadow: 0 0 0 2px var(--bg-color);"
+                    >
+                    </div>
+                    <div style="font-weight: 600; color: var(--text-color);">
+                        June 2026
+                    </div>
+                    <ul
+                        style="font-size: 0.95em; color: var(--text-muted); margin-top: 0.5rem; padding-left: 1.2rem; display: flex; flex-direction: column; gap: 0.25rem;"
+                    >
+                        <li>
+                            Improved pack conversion logic (support for file
+                            normalization and resource mapping).
+                        </li>
                         <li>Expanded multi-language support to 9 locales.</li>
                         <li>Introduced SEO optimizations and schema markup.</li>
                     </ul>
                 </div>
 
-                <div class="changelog-item" style="position: relative; z-index: 2;">
-                    <div style="position: absolute; left: -1.5rem; top: 0.4rem; width: 12px; height: 12px; border-radius: 50%; background-color: var(--bg-color); border: 2px solid var(--primary); transform: translateX(1px); box-shadow: 0 0 0 2px var(--bg-color);"></div>
-                    <div style="font-weight: 600; color: var(--text-color);">April 2026</div>
-                    <ul style="font-size: 0.95em; color: var(--text-muted); margin-top: 0.5rem; padding-left: 1.2rem; display: flex; flex-direction: column; gap: 0.25rem;">
+                <div
+                    class="changelog-item"
+                    style="position: relative; z-index: 2;"
+                >
+                    <div
+                        style="position: absolute; left: -1.5rem; top: 0.4rem; width: 12px; height: 12px; border-radius: 50%; background-color: var(--bg-color); border: 2px solid var(--primary); transform: translateX(1px); box-shadow: 0 0 0 2px var(--bg-color);"
+                    >
+                    </div>
+                    <div style="font-weight: 600; color: var(--text-color);">
+                        April 2026
+                    </div>
+                    <ul
+                        style="font-size: 0.95em; color: var(--text-muted); margin-top: 0.5rem; padding-left: 1.2rem; display: flex; flex-direction: column; gap: 0.25rem;"
+                    >
                         <li>Initial release.</li>
-                        <li>Built UI components and foundational multi-language support.</li>
-                        <li>Implemented file drag-and-drop and core conversion logic.</li>
+                        <li>
+                            Built UI components and foundational multi-language
+                            support.
+                        </li>
+                        <li>
+                            Implemented file drag-and-drop and core conversion
+                            logic.
+                        </li>
                     </ul>
                 </div>
             </div>

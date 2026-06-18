@@ -10,14 +10,14 @@ const appUrl = work?.href || "https://pitchanalyzer.manpuc.me/";
 const structuredData = {
     "@context": "https://schema.org",
     "@type": "CreativeWork",
-    "name": "pitch-analyzer - Works | manpuc",
-    "description": "Details for pitch-analyzer",
-    "url": "https://manpuc.me/works/pitch-analyzer/",
-    "image": "https://manpuc.me/avatar.webp",
-    "author": {
+    name: "pitch-analyzer - Works | manpuc",
+    description: "Details for pitch-analyzer",
+    url: "https://manpuc.me/works/pitch-analyzer/",
+    image: "https://manpuc.me/avatar.webp",
+    author: {
         "@type": "Person",
-        "name": "manpuc"
-    }
+        name: "manpuc",
+    },
 };
 ---
 
@@ -59,19 +59,23 @@ const structuredData = {
             >
                 Pitch Estimation Web App
             </p>
-            {work?.tags && (
-                <div
-                    class="tags animate-fade-up delay-3"
-                    style="margin-top: 1.5rem; display: flex; gap: 0.5rem; flex-wrap: wrap;"
-                >
-                    {work.tags.map((tag) => (
-                        <span
-                            class="tag"
-                            style="font-size: 0.85rem; padding: 0.3rem 0.8rem;"
-                        >{tag}</span>
-                    ))}
-                </div>
-            )}
+            {
+                work?.tags && (
+                    <div
+                        class="tags animate-fade-up delay-3"
+                        style="margin-top: 1.5rem; display: flex; gap: 0.5rem; flex-wrap: wrap;"
+                    >
+                        {work.tags.map((tag) => (
+                            <span
+                                class="tag"
+                                style="font-size: 0.85rem; padding: 0.3rem 0.8rem;"
+                            >
+                                {tag}
+                            </span>
+                        ))}
+                    </div>
+                )
+            }
             <div
                 class="action-buttons animate-fade-up delay-4"
                 style="display: flex; gap: 1rem; margin-top: 2.5rem; flex-wrap: wrap;"
@@ -127,12 +131,19 @@ const structuredData = {
             </div>
         </header>
 
-        
-        <div class="hero-image animate-fade-up delay-4" style="margin-bottom: 2.5rem; border-radius: var(--border-radius); overflow: hidden; box-shadow: var(--neumorph-shadow-sm);">
-            <img src="/images/works/pitchanalyzer/pitchanalyzer_ja.webp" alt="Pitch Analyzer Screenshot" style="width: 100%; height: auto; display: block;" />
+        <div
+            class="hero-image animate-fade-up delay-4"
+            style="margin-bottom: 2.5rem; border-radius: var(--border-radius); overflow: hidden; box-shadow: var(--neumorph-shadow-sm);"
+        >
+            <img
+                src="/images/works/pitchanalyzer/pitchanalyzer_ja.webp"
+                alt="Pitch Analyzer Screenshot"
+                style="width: 100%; height: auto; display: block;"
+            />
         </div>
 
-        <section class="neumorph-card animate-fade-up delay-5"
+        <section
+            class="neumorph-card animate-fade-up delay-5"
             style="margin-bottom: 0;"
         >
             <h2>機能概要</h2>
@@ -141,17 +152,58 @@ const structuredData = {
             </p>
 
             <h3 style="margin-top: 2rem;">主な機能と特徴</h3>
-            <ul style="list-style: none; padding-left: 0; display: flex; flex-direction: column; gap: 0.75rem;">
-                <li style="position: relative; padding-left: 1.75rem; line-height: 1.6;">
-                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="var(--primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="position: absolute; left: 0; top: 0.3rem;"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <ul
+                style="list-style: none; padding-left: 0; display: flex; flex-direction: column; gap: 0.75rem;"
+            >
+                <li
+                    style="position: relative; padding-left: 1.75rem; line-height: 1.6;"
+                >
+                    <svg
+                        viewBox="0 0 24 24"
+                        width="16"
+                        height="16"
+                        fill="none"
+                        stroke="var(--primary)"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        style="position: absolute; left: 0; top: 0.3rem;"
+                        ><polyline points="20 6 9 17 4 12"></polyline></svg
+                    >
                     <strong>リアルタイムチューナー:</strong> マイクからの入力音声を即座に解析し、正確なピッチと音程を表示します。
                 </li>
-                <li style="position: relative; padding-left: 1.75rem; line-height: 1.6;">
-                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="var(--primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="position: absolute; left: 0; top: 0.3rem;"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <li
+                    style="position: relative; padding-left: 1.75rem; line-height: 1.6;"
+                >
+                    <svg
+                        viewBox="0 0 24 24"
+                        width="16"
+                        height="16"
+                        fill="none"
+                        stroke="var(--primary)"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        style="position: absolute; left: 0; top: 0.3rem;"
+                        ><polyline points="20 6 9 17 4 12"></polyline></svg
+                    >
                     <strong>ピアノロール＆スペクトログラム:</strong> 音の高さや周波数分布を時間軸に沿って視覚的に表現し、直感的な分析をサポートします。
                 </li>
-                <li style="position: relative; padding-left: 1.75rem; line-height: 1.6;">
-                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="var(--primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="position: absolute; left: 0; top: 0.3rem;"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <li
+                    style="position: relative; padding-left: 1.75rem; line-height: 1.6;"
+                >
+                    <svg
+                        viewBox="0 0 24 24"
+                        width="16"
+                        height="16"
+                        fill="none"
+                        stroke="var(--primary)"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        style="position: absolute; left: 0; top: 0.3rem;"
+                        ><polyline points="20 6 9 17 4 12"></polyline></svg
+                    >
                     <strong>多言語対応 (i18n):</strong> ユーザーの環境に合わせて日本語と英語などの複数言語での利用が可能です。
                 </li>
             </ul>
@@ -176,7 +228,8 @@ const structuredData = {
                     <div style="font-weight: 600; color: var(--text-color);">
                         アップデート <span
                             style="font-size: 0.85em; color: var(--text-muted); margin-left: 0.5rem; font-weight: normal;"
-                            >(2026年6月)</span>
+                            >(2026年6月)</span
+                        >
                     </div>
                     <div
                         style="font-size: 0.95em; color: var(--text-muted); margin-top: 0.25rem;"

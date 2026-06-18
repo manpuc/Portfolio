@@ -10,14 +10,14 @@ const appUrl = work?.href || "https://ambient.manpuc.me/";
 const structuredData = {
     "@context": "https://schema.org",
     "@type": "CreativeWork",
-    "name": "ambient - Works | manpuc",
-    "description": "Details for ambient",
-    "url": "https://manpuc.me/works/ambient/",
-    "image": "https://manpuc.me/avatar.webp",
-    "author": {
+    name: "ambient - Works | manpuc",
+    description: "Details for ambient",
+    url: "https://manpuc.me/works/ambient/",
+    image: "https://manpuc.me/avatar.webp",
+    author: {
         "@type": "Person",
-        "name": "manpuc"
-    }
+        name: "manpuc",
+    },
 };
 ---
 
@@ -59,19 +59,23 @@ const structuredData = {
             >
                 Digital Clock & Dashboard
             </p>
-            {work?.tags && (
-                <div
-                    class="tags animate-fade-up delay-3"
-                    style="margin-top: 1.5rem; display: flex; gap: 0.5rem; flex-wrap: wrap;"
-                >
-                    {work.tags.map((tag) => (
-                        <span
-                            class="tag"
-                            style="font-size: 0.85rem; padding: 0.3rem 0.8rem;"
-                        >{tag}</span>
-                    ))}
-                </div>
-            )}
+            {
+                work?.tags && (
+                    <div
+                        class="tags animate-fade-up delay-3"
+                        style="margin-top: 1.5rem; display: flex; gap: 0.5rem; flex-wrap: wrap;"
+                    >
+                        {work.tags.map((tag) => (
+                            <span
+                                class="tag"
+                                style="font-size: 0.85rem; padding: 0.3rem 0.8rem;"
+                            >
+                                {tag}
+                            </span>
+                        ))}
+                    </div>
+                )
+            }
             <div
                 class="action-buttons animate-fade-up delay-4"
                 style="display: flex; gap: 1rem; margin-top: 2.5rem; flex-wrap: wrap;"
@@ -138,7 +142,6 @@ const structuredData = {
             />
         </div>
 
-
         <section
             class="neumorph-card animate-fade-up delay-5"
             style="margin-bottom: 0;"
@@ -149,17 +152,58 @@ const structuredData = {
             </p>
 
             <h3 style="margin-top: 2rem;">主な機能と特徴</h3>
-            <ul style="list-style: none; padding-left: 0; display: flex; flex-direction: column; gap: 0.75rem;">
-                <li style="position: relative; padding-left: 1.75rem; line-height: 1.6;">
-                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="var(--primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="position: absolute; left: 0; top: 0.3rem;"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <ul
+                style="list-style: none; padding-left: 0; display: flex; flex-direction: column; gap: 0.75rem;"
+            >
+                <li
+                    style="position: relative; padding-left: 1.75rem; line-height: 1.6;"
+                >
+                    <svg
+                        viewBox="0 0 24 24"
+                        width="16"
+                        height="16"
+                        fill="none"
+                        stroke="var(--primary)"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        style="position: absolute; left: 0; top: 0.3rem;"
+                        ><polyline points="20 6 9 17 4 12"></polyline></svg
+                    >
                     <strong>多彩なウィジェット:</strong> 天気予報、地震情報、最新ニュース、Todoリスト、フリップ時計、ストップウォッチなど、日常で役立つ機能を網羅しています。
                 </li>
-                <li style="position: relative; padding-left: 1.75rem; line-height: 1.6;">
-                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="var(--primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="position: absolute; left: 0; top: 0.3rem;"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <li
+                    style="position: relative; padding-left: 1.75rem; line-height: 1.6;"
+                >
+                    <svg
+                        viewBox="0 0 24 24"
+                        width="16"
+                        height="16"
+                        fill="none"
+                        stroke="var(--primary)"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        style="position: absolute; left: 0; top: 0.3rem;"
+                        ><polyline points="20 6 9 17 4 12"></polyline></svg
+                    >
                     <strong>パーソナライズとデータキャッシュ:</strong> ウィジェットの配置や設定はブラウザに保存され、各種APIデータは効率的にキャッシュされて高速に表示されます。
                 </li>
-                <li style="position: relative; padding-left: 1.75rem; line-height: 1.6;">
-                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="var(--primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="position: absolute; left: 0; top: 0.3rem;"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <li
+                    style="position: relative; padding-left: 1.75rem; line-height: 1.6;"
+                >
+                    <svg
+                        viewBox="0 0 24 24"
+                        width="16"
+                        height="16"
+                        fill="none"
+                        stroke="var(--primary)"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        style="position: absolute; left: 0; top: 0.3rem;"
+                        ><polyline points="20 6 9 17 4 12"></polyline></svg
+                    >
                     <strong>レスポンシブデザイン:</strong> PCからスマートフォンまで、どのデバイスでも美しく見やすいレイアウトに自動調整されます。
                 </li>
             </ul>
@@ -184,7 +228,8 @@ const structuredData = {
                     <div style="font-weight: 600; color: var(--text-color);">
                         アップデート <span
                             style="font-size: 0.85em; color: var(--text-muted); margin-left: 0.5rem; font-weight: normal;"
-                            >(2026年6月)</span>
+                            >(2026年6月)</span
+                        >
                     </div>
                     <div
                         style="font-size: 0.95em; color: var(--text-muted); margin-top: 0.25rem;"

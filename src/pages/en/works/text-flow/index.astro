@@ -10,14 +10,14 @@ const appUrl = work?.href || "https://text.manpuc.me/";
 const structuredData = {
     "@context": "https://schema.org",
     "@type": "CreativeWork",
-    "name": "text-flow - Works | manpuc",
-    "description": "Details for text-flow",
-    "url": "https://manpuc.me/en/works/text-flow/",
-    "image": "https://manpuc.me/avatar.webp",
-    "author": {
+    name: "text-flow - Works | manpuc",
+    description: "Details for text-flow",
+    url: "https://manpuc.me/en/works/text-flow/",
+    image: "https://manpuc.me/avatar.webp",
+    author: {
         "@type": "Person",
-        "name": "manpuc"
-    }
+        name: "manpuc",
+    },
 };
 ---
 
@@ -59,19 +59,23 @@ const structuredData = {
             >
                 Text Conversion Tool
             </p>
-            {work?.tags && (
-                <div
-                    class="tags animate-fade-up delay-3"
-                    style="margin-top: 1.5rem; display: flex; gap: 0.5rem; flex-wrap: wrap;"
-                >
-                    {work.tags.map((tag) => (
-                        <span
-                            class="tag"
-                            style="font-size: 0.85rem; padding: 0.3rem 0.8rem;"
-                        >{tag}</span>
-                    ))}
-                </div>
-            )}
+            {
+                work?.tags && (
+                    <div
+                        class="tags animate-fade-up delay-3"
+                        style="margin-top: 1.5rem; display: flex; gap: 0.5rem; flex-wrap: wrap;"
+                    >
+                        {work.tags.map((tag) => (
+                            <span
+                                class="tag"
+                                style="font-size: 0.85rem; padding: 0.3rem 0.8rem;"
+                            >
+                                {tag}
+                            </span>
+                        ))}
+                    </div>
+                )
+            }
             <div
                 class="action-buttons animate-fade-up delay-4"
                 style="display: flex; gap: 1rem; margin-top: 2.5rem; flex-wrap: wrap;"
@@ -138,29 +142,78 @@ const structuredData = {
             />
         </div>
 
-
         <section
             class="neumorph-card animate-fade-up delay-5"
             style="margin-bottom: 0;"
         >
             <h2>Overview</h2>
             <p>
-                <strong>Text Flow</strong> is a utility tool for developers and creators that instantly converts and formats text directly in the browser. It unifies various encoding and string manipulation tools into a single interface.
+                <strong>Text Flow</strong> is a utility tool for developers and creators
+                that instantly converts and formats text directly in the browser.
+                It unifies various encoding and string manipulation tools into a single
+                interface.
             </p>
 
             <h3 style="margin-top: 2rem;">Key Features</h3>
-            <ul style="list-style: none; padding-left: 0; display: flex; flex-direction: column; gap: 0.75rem;">
-                <li style="position: relative; padding-left: 1.75rem; line-height: 1.6;">
-                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="var(--primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="position: absolute; left: 0; top: 0.3rem;"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                    <strong>Extensive Conversion Options:</strong> Supports case conversion, URL encoding/decoding, Base64, and language-specific conversions like Hiragana to Romaji.
+            <ul
+                style="list-style: none; padding-left: 0; display: flex; flex-direction: column; gap: 0.75rem;"
+            >
+                <li
+                    style="position: relative; padding-left: 1.75rem; line-height: 1.6;"
+                >
+                    <svg
+                        viewBox="0 0 24 24"
+                        width="16"
+                        height="16"
+                        fill="none"
+                        stroke="var(--primary)"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        style="position: absolute; left: 0; top: 0.3rem;"
+                        ><polyline points="20 6 9 17 4 12"></polyline></svg
+                    >
+                    <strong>Extensive Conversion Options:</strong> Supports case conversion,
+                    URL encoding/decoding, Base64, and language-specific conversions
+                    like Hiragana to Romaji.
                 </li>
-                <li style="position: relative; padding-left: 1.75rem; line-height: 1.6;">
-                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="var(--primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="position: absolute; left: 0; top: 0.3rem;"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                    <strong>Real-time Processing:</strong> Conversion results are previewed instantly as you type, and can be saved to the clipboard with a single click.
+                <li
+                    style="position: relative; padding-left: 1.75rem; line-height: 1.6;"
+                >
+                    <svg
+                        viewBox="0 0 24 24"
+                        width="16"
+                        height="16"
+                        fill="none"
+                        stroke="var(--primary)"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        style="position: absolute; left: 0; top: 0.3rem;"
+                        ><polyline points="20 6 9 17 4 12"></polyline></svg
+                    >
+                    <strong>Real-time Processing:</strong> Conversion results are
+                    previewed instantly as you type, and can be saved to the clipboard
+                    with a single click.
                 </li>
-                <li style="position: relative; padding-left: 1.75rem; line-height: 1.6;">
-                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="var(--primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="position: absolute; left: 0; top: 0.3rem;"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                    <strong>SEO & PWA Optimized:</strong> Each tool is structured as an independent page, and the entire app can be installed as an offline-capable PWA.
+                <li
+                    style="position: relative; padding-left: 1.75rem; line-height: 1.6;"
+                >
+                    <svg
+                        viewBox="0 0 24 24"
+                        width="16"
+                        height="16"
+                        fill="none"
+                        stroke="var(--primary)"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        style="position: absolute; left: 0; top: 0.3rem;"
+                        ><polyline points="20 6 9 17 4 12"></polyline></svg
+                    >
+                    <strong>SEO & PWA Optimized:</strong> Each tool is structured
+                    as an independent page, and the entire app can be installed as
+                    an offline-capable PWA.
                 </li>
             </ul>
             <h3 style="margin-top: 2rem;">Changelog</h3>
@@ -184,12 +237,15 @@ const structuredData = {
                     <div style="font-weight: 600; color: var(--text-color);">
                         Updates in <span
                             style="font-size: 0.85em; color: var(--text-muted); margin-left: 0.5rem; font-weight: normal;"
-                            >(June 2026)</span>
+                            >(June 2026)</span
+                        >
                     </div>
                     <div
                         style="font-size: 0.95em; color: var(--text-muted); margin-top: 0.25rem;"
                     >
-                        Initial release and project foundation built (1 commits). Includes PWA support. Added internationalization (i18n) support.
+                        Initial release and project foundation built (1
+                        commits). Includes PWA support. Added
+                        internationalization (i18n) support.
                     </div>
                 </div>
             </div>

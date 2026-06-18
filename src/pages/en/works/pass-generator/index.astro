@@ -10,14 +10,14 @@ const appUrl = work?.href || "https://pass.manpuc.me/";
 const structuredData = {
     "@context": "https://schema.org",
     "@type": "CreativeWork",
-    "name": "pass-generator - Works | manpuc",
-    "description": "Details for pass-generator",
-    "url": "https://manpuc.me/en/works/pass-generator/",
-    "image": "https://manpuc.me/avatar.webp",
-    "author": {
+    name: "pass-generator - Works | manpuc",
+    description: "Details for pass-generator",
+    url: "https://manpuc.me/en/works/pass-generator/",
+    image: "https://manpuc.me/avatar.webp",
+    author: {
         "@type": "Person",
-        "name": "manpuc"
-    }
+        name: "manpuc",
+    },
 };
 ---
 
@@ -59,19 +59,23 @@ const structuredData = {
             >
                 Password Generator
             </p>
-            {work?.tags && (
-                <div
-                    class="tags animate-fade-up delay-3"
-                    style="margin-top: 1.5rem; display: flex; gap: 0.5rem; flex-wrap: wrap;"
-                >
-                    {work.tags.map((tag) => (
-                        <span
-                            class="tag"
-                            style="font-size: 0.85rem; padding: 0.3rem 0.8rem;"
-                        >{tag}</span>
-                    ))}
-                </div>
-            )}
+            {
+                work?.tags && (
+                    <div
+                        class="tags animate-fade-up delay-3"
+                        style="margin-top: 1.5rem; display: flex; gap: 0.5rem; flex-wrap: wrap;"
+                    >
+                        {work.tags.map((tag) => (
+                            <span
+                                class="tag"
+                                style="font-size: 0.85rem; padding: 0.3rem 0.8rem;"
+                            >
+                                {tag}
+                            </span>
+                        ))}
+                    </div>
+                )
+            }
             <div
                 class="action-buttons animate-fade-up delay-4"
                 style="display: flex; gap: 1rem; margin-top: 2.5rem; flex-wrap: wrap;"
@@ -138,29 +142,77 @@ const structuredData = {
             />
         </div>
 
-
         <section
             class="neumorph-card animate-fade-up delay-5"
             style="margin-bottom: 0;"
         >
             <h2>Overview</h2>
             <p>
-                <strong>Pass Generator</strong> is a straightforward tool for generating highly secure random passwords and passphrases. It allows you to create safe strings with a single click without requiring complex configurations.
+                <strong>Pass Generator</strong> is a straightforward tool for generating
+                highly secure random passwords and passphrases. It allows you to create
+                safe strings with a single click without requiring complex configurations.
             </p>
 
             <h3 style="margin-top: 2rem;">Key Features</h3>
-            <ul style="list-style: none; padding-left: 0; display: flex; flex-direction: column; gap: 0.75rem;">
-                <li style="position: relative; padding-left: 1.75rem; line-height: 1.6;">
-                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="var(--primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="position: absolute; left: 0; top: 0.3rem;"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                    <strong>Customizable Generation Rules:</strong> Fine-tune password generation by specifying length and the inclusion of uppercase letters, numbers, and symbols.
+            <ul
+                style="list-style: none; padding-left: 0; display: flex; flex-direction: column; gap: 0.75rem;"
+            >
+                <li
+                    style="position: relative; padding-left: 1.75rem; line-height: 1.6;"
+                >
+                    <svg
+                        viewBox="0 0 24 24"
+                        width="16"
+                        height="16"
+                        fill="none"
+                        stroke="var(--primary)"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        style="position: absolute; left: 0; top: 0.3rem;"
+                        ><polyline points="20 6 9 17 4 12"></polyline></svg
+                    >
+                    <strong>Customizable Generation Rules:</strong> Fine-tune password
+                    generation by specifying length and the inclusion of uppercase
+                    letters, numbers, and symbols.
                 </li>
-                <li style="position: relative; padding-left: 1.75rem; line-height: 1.6;">
-                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="var(--primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="position: absolute; left: 0; top: 0.3rem;"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                    <strong>Passphrase Generation:</strong> Supports generating memorable yet highly secure passphrases created by combining random dictionary words.
+                <li
+                    style="position: relative; padding-left: 1.75rem; line-height: 1.6;"
+                >
+                    <svg
+                        viewBox="0 0 24 24"
+                        width="16"
+                        height="16"
+                        fill="none"
+                        stroke="var(--primary)"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        style="position: absolute; left: 0; top: 0.3rem;"
+                        ><polyline points="20 6 9 17 4 12"></polyline></svg
+                    >
+                    <strong>Passphrase Generation:</strong> Supports generating memorable
+                    yet highly secure passphrases created by combining random dictionary
+                    words.
                 </li>
-                <li style="position: relative; padding-left: 1.75rem; line-height: 1.6;">
-                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="var(--primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="position: absolute; left: 0; top: 0.3rem;"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                    <strong>Client-side Processing:</strong> All password generation occurs securely within your browser, ensuring no sensitive data is ever transmitted over the network.
+                <li
+                    style="position: relative; padding-left: 1.75rem; line-height: 1.6;"
+                >
+                    <svg
+                        viewBox="0 0 24 24"
+                        width="16"
+                        height="16"
+                        fill="none"
+                        stroke="var(--primary)"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        style="position: absolute; left: 0; top: 0.3rem;"
+                        ><polyline points="20 6 9 17 4 12"></polyline></svg
+                    >
+                    <strong>Client-side Processing:</strong> All password generation
+                    occurs securely within your browser, ensuring no sensitive data
+                    is ever transmitted over the network.
                 </li>
             </ul>
             <h3 style="margin-top: 2rem;">Changelog</h3>
@@ -184,12 +236,15 @@ const structuredData = {
                     <div style="font-weight: 600; color: var(--text-color);">
                         Updates in <span
                             style="font-size: 0.85em; color: var(--text-muted); margin-left: 0.5rem; font-weight: normal;"
-                            >(June 2026)</span>
+                            >(June 2026)</span
+                        >
                     </div>
                     <div
                         style="font-size: 0.95em; color: var(--text-muted); margin-top: 0.25rem;"
                     >
-                        Initial release and project foundation built (1 commits). Includes PWA support. Added internationalization (i18n) support.
+                        Initial release and project foundation built (1
+                        commits). Includes PWA support. Added
+                        internationalization (i18n) support.
                     </div>
                 </div>
             </div>
