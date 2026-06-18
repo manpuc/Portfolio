@@ -4,19 +4,21 @@ import { works } from "../../../../data/works";
 
 const themeWork = works.find((w) => w.id === "chrome-theme");
 const githubUrl = "https://github.com/manpuc/Chrome-Tokyo-Night-Theme";
-const storeUrl = "https://chromewebstore.google.com/detail/ganlcelmnoaidpmaegcmhecolonfmffk?utm_source=item-share-cb";
+const storeUrl =
+    "https://chromewebstore.google.com/detail/ganlcelmnoaidpmaegcmhecolonfmffk?utm_source=item-share-cb";
 
 const structuredData = {
     "@context": "https://schema.org",
     "@type": "CreativeWork",
-    "name": "Tokyo Night Theme - Works | manpuc",
-    "description": "A Chrome browser theme based on the popular 'Tokyo Night' color scheme, gentle on the eyes.",
-    "url": "https://manpuc.me/en/works/chrome-theme/",
-    "image": "https://manpuc.me/avatar.webp",
-    "author": {
+    name: "Tokyo Night Theme - Works | manpuc",
+    description:
+        "A Chrome browser theme based on the popular 'Tokyo Night' color scheme, gentle on the eyes.",
+    url: "https://manpuc.me/en/works/chrome-theme/",
+    image: "https://manpuc.me/avatar.webp",
+    author: {
         "@type": "Person",
-        "name": "manpuc"
-    }
+        name: "manpuc",
+    },
 };
 ---
 
@@ -29,71 +31,197 @@ const structuredData = {
     <div class="container main-content">
         <div class="back-nav animate-fade-up">
             <a href="/en/works/" class="back-link">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    ><line x1="19" y1="12" x2="5" y2="12"></line><polyline
+                        points="12 19 5 12 12 5"></polyline></svg
+                >
                 Back to Works
             </a>
         </div>
 
-        <header style="display: flex; flex-direction: column; align-items: flex-start; gap: 0; padding: 2.5rem 0 1.5rem;">
-            <h1 class="animate-fade-up delay-1" style="margin: 0; font-size: clamp(2.5rem, 5vw, 3.5rem); line-height: 1.2; letter-spacing: -0.02em;">
+        <header
+            style="display: flex; flex-direction: column; align-items: flex-start; gap: 0; padding: 2.5rem 0 1.5rem;"
+        >
+            <h1
+                class="animate-fade-up delay-1"
+                style="margin: 0; font-size: clamp(2.5rem, 5vw, 3.5rem); line-height: 1.2; letter-spacing: -0.02em;"
+            >
                 Tokyo Night Theme
             </h1>
-            <p class="subtitle animate-fade-up delay-2" style="margin: 0.75rem 0 0; font-size: clamp(1.1rem, 2vw, 1.25rem); opacity: 0.8; font-weight: 500;">
+            <p
+                class="subtitle animate-fade-up delay-2"
+                style="margin: 0.75rem 0 0; font-size: clamp(1.1rem, 2vw, 1.25rem); opacity: 0.8; font-weight: 500;"
+            >
                 Chrome Browser Theme
             </p>
-            <div class="tags animate-fade-up delay-3" style="margin-top: 1.5rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
-                <span class="tag" style="font-size: 0.85rem; padding: 0.3rem 0.8rem;">Chrome Theme</span>
-                <span class="tag" style="font-size: 0.85rem; padding: 0.3rem 0.8rem;">JSON</span>
+            <div
+                class="tags animate-fade-up delay-3"
+                style="margin-top: 1.5rem; display: flex; gap: 0.5rem; flex-wrap: wrap;"
+            >
+                <span
+                    class="tag"
+                    style="font-size: 0.85rem; padding: 0.3rem 0.8rem;"
+                    >Chrome Theme</span
+                >
+                <span
+                    class="tag"
+                    style="font-size: 0.85rem; padding: 0.3rem 0.8rem;"
+                    >JSON</span
+                >
             </div>
-            <div class="action-buttons animate-fade-up delay-4" style="display: flex; gap: 1rem; margin-top: 2.5rem; flex-wrap: wrap;">
-                <a href={storeUrl} target="_blank" rel="noopener noreferrer" class="neumorph-btn" style="display: inline-flex; gap: 0.5rem; align-items: center; color: var(--primary);">
-                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <div
+                class="action-buttons animate-fade-up delay-4"
+                style="display: flex; gap: 1rem; margin-top: 2.5rem; flex-wrap: wrap;"
+            >
+                <a
+                    href={storeUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="neumorph-btn"
+                    style="display: inline-flex; gap: 0.5rem; align-items: center; color: var(--primary);"
+                >
+                    <svg
+                        viewBox="0 0 24 24"
+                        width="20"
+                        height="20"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    >
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"
+                        ></path>
                         <polyline points="7 10 12 15 17 10"></polyline>
                         <line x1="12" y1="15" x2="12" y2="3"></line>
                     </svg>
                     Add to Chrome
                 </a>
-                <a href={githubUrl} target="_blank" rel="noopener noreferrer" class="neumorph-btn" style="display: inline-flex; gap: 0.5rem; align-items: center;">
-                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                <a
+                    href={githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="neumorph-btn"
+                    style="display: inline-flex; gap: 0.5rem; align-items: center;"
+                >
+                    <svg
+                        viewBox="0 0 24 24"
+                        width="20"
+                        height="20"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    >
+                        <path
+                            d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+                        ></path>
                     </svg>
                     View on GitHub
                 </a>
             </div>
         </header>
 
-        <div class="hero-image animate-fade-up delay-4" style="margin-bottom: 2.5rem; border-radius: var(--border-radius); overflow: hidden; box-shadow: var(--neumorph-shadow-sm);">
-            <img src="/images/works/google-search-night/screenshot_en.webp" alt="Tokyo Night Theme Screenshot" style="width: 100%; height: auto; display: block;" />
+        <div
+            class="hero-image animate-fade-up delay-4"
+            style="margin-bottom: 2.5rem; border-radius: var(--border-radius); overflow: hidden; box-shadow: var(--neumorph-shadow-sm);"
+        >
+            <img
+                src="/images/works/google-search-night/screenshot_en.webp"
+                alt="Tokyo Night Theme Screenshot"
+                style="width: 100%; height: auto; display: block;"
+            />
         </div>
 
-        <section class="neumorph-card animate-fade-up delay-5" style="margin-bottom: 0;">
+        <section
+            class="neumorph-card animate-fade-up delay-5"
+            style="margin-bottom: 0;"
+        >
             <h2>Overview</h2>
             <p>
-                <strong>Tokyo Night Theme</strong> is a Chrome browser theme based on the popular "Tokyo Night" color scheme.<br/>
-                With its dark blue base, the design is easy on the eyes and reduces strain during long browsing sessions.
+                <strong>Tokyo Night Theme</strong> is a Chrome browser theme based
+                on the popular "Tokyo Night" color scheme.<br />
+                With its dark blue base, the design is easy on the eyes and reduces
+                strain during long browsing sessions.
             </p>
 
             <h3 style="margin-top: 2rem;">Main Features & Characteristics</h3>
-            <ul style="list-style: none; padding-left: 0; display: flex; flex-direction: column; gap: 0.75rem;">
-                <li style="position: relative; padding-left: 1.75rem; line-height: 1.6;">
-                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="var(--primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="position: absolute; left: 0; top: 0.3rem;"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                    <strong>Eye-Friendly Dark Theme:</strong> Incorporates the beautiful hues of the Tokyo Night scheme.
+            <ul
+                style="list-style: none; padding-left: 0; display: flex; flex-direction: column; gap: 0.75rem;"
+            >
+                <li
+                    style="position: relative; padding-left: 1.75rem; line-height: 1.6;"
+                >
+                    <svg
+                        viewBox="0 0 24 24"
+                        width="16"
+                        height="16"
+                        fill="none"
+                        stroke="var(--primary)"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        style="position: absolute; left: 0; top: 0.3rem;"
+                        ><polyline points="20 6 9 17 4 12"></polyline></svg
+                    >
+                    <strong>Eye-Friendly Dark Theme:</strong> Incorporates the beautiful
+                    hues of the Tokyo Night scheme.
                 </li>
-                <li style="position: relative; padding-left: 1.75rem; line-height: 1.6;">
-                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="var(--primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="position: absolute; left: 0; top: 0.3rem;"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                    <strong>Improved Visibility:</strong> Distinctly separates active and inactive tabs for comfortable tab navigation.
+                <li
+                    style="position: relative; padding-left: 1.75rem; line-height: 1.6;"
+                >
+                    <svg
+                        viewBox="0 0 24 24"
+                        width="16"
+                        height="16"
+                        fill="none"
+                        stroke="var(--primary)"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        style="position: absolute; left: 0; top: 0.3rem;"
+                        ><polyline points="20 6 9 17 4 12"></polyline></svg
+                    >
+                    <strong>Improved Visibility:</strong> Distinctly separates active
+                    and inactive tabs for comfortable tab navigation.
                 </li>
             </ul>
-        
+
             <h3 style="margin-top: 2rem;">Version History</h3>
-            <div class="changelog-timeline" style="position: relative; padding-left: 1.5rem; display: flex; flex-direction: column; gap: 1.5rem; margin-top: 1rem;">
-                <div style="position: absolute; top: 0.5rem; bottom: 0.5rem; left: 6px; width: 2px; background-color: rgba(128, 128, 128, 0.2); z-index: 1;"></div>
-                
-                <div class="changelog-item" style="position: relative; z-index: 2;">
-                    <div style="position: absolute; left: -1.5rem; top: 0.4rem; width: 12px; height: 12px; border-radius: 50%; background-color: var(--bg-color); border: 2px solid var(--primary); transform: translateX(1px); box-shadow: 0 0 0 2px var(--bg-color);"></div>
-                    <div style="font-weight: 600; color: var(--text-color);">Initial Release <span style="font-size: 0.85em; color: var(--text-muted); margin-left: 0.5rem; font-weight: normal;">(2023/11/05)</span></div>
-                    <div style="font-size: 0.95em; color: var(--text-muted); margin-top: 0.25rem;">Project published.</div>
+            <div
+                class="changelog-timeline"
+                style="position: relative; padding-left: 1.5rem; display: flex; flex-direction: column; gap: 1.5rem; margin-top: 1rem;"
+            >
+                <div
+                    style="position: absolute; top: 0.5rem; bottom: 0.5rem; left: 6px; width: 2px; background-color: rgba(128, 128, 128, 0.2); z-index: 1;"
+                >
+                </div>
+
+                <div
+                    class="changelog-item"
+                    style="position: relative; z-index: 2;"
+                >
+                    <div
+                        style="position: absolute; left: -1.5rem; top: 0.4rem; width: 12px; height: 12px; border-radius: 50%; background-color: var(--bg-color); border: 2px solid var(--primary); transform: translateX(1px); box-shadow: 0 0 0 2px var(--bg-color);"
+                    >
+                    </div>
+                    <div style="font-weight: 600; color: var(--text-color);">
+                        Initial Release <span
+                            style="font-size: 0.85em; color: var(--text-muted); margin-left: 0.5rem; font-weight: normal;"
+                            >(2023/11/05)</span>
+                    </div>
+                    <div
+                        style="font-size: 0.95em; color: var(--text-muted); margin-top: 0.25rem;"
+                    >
+                        Project published.
+                    </div>
                 </div>
             </div>
         </section>
