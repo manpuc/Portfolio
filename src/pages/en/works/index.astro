@@ -1,12 +1,24 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
 import { works } from "../../../data/works";
+const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: "All Works - manpuc",
+    description: "List of works by manpuc.",
+    url: "https://manpuc.me/en/works/",
+    isPartOf: {
+        "@type": "WebSite",
+        "@id": "https://manpuc.me/en/#website",
+    },
+};
 ---
 
 <Layout
     title="All Works - manpuc"
     description="List of works by manpuc."
     lang="en"
+    structuredData={structuredData}
 >
     <div class="container">
         <header>
@@ -93,10 +105,40 @@ import { works } from "../../../data/works";
                             data-date={work.date || "1970/01/01"}
                             data-index={index}
                         >
-                            {["CharView", "packbridge", "mbot", "chrome-theme", "mc-link", "qr-maker", "google-search-night", "no-curseforge-legacy"].includes(work.id) ? (
-                                <div class="minimal-work-link" style="position: relative; transition: var(--transition);">
-                                    <a href={`/en/works/${work.id.toLowerCase()}/`} style="position: absolute; inset: 0; z-index: 1; border-radius: inherit;" aria-label={`Go to ${work.title.en} details page`}></a>
-                                    <span class="minimal-work-title" style="position: relative; z-index: 2; pointer-events: none;">
+                            {[
+                                "CharView",
+                                "packbridge",
+                                "mbot",
+                                "chrome-theme",
+                                "mc-link",
+                                "qr-maker",
+                                "google-search-night",
+                                "no-curseforge-legacy",
+                                "FLICKER",
+                                "Loudness",
+                                "Pitch-Analyzer",
+                                "Midi-DAW",
+                                "ore-multiplier",
+                                "hostile-illagers",
+                                "pomodoro",
+                                "ambient",
+                                "text-flow",
+                                "pass-generator",
+                                "md-preview",
+                            ].includes(work.id) ? (
+                                <div
+                                    class="minimal-work-link"
+                                    style="position: relative; transition: var(--transition);"
+                                >
+                                    <a
+                                        href={`/en/works/${work.id.toLowerCase()}/`}
+                                        style="position: absolute; inset: 0; z-index: 1; border-radius: inherit;"
+                                        aria-label={`Go to ${work.title.en} details page`}
+                                    />
+                                    <span
+                                        class="minimal-work-title"
+                                        style="position: relative; z-index: 2; pointer-events: none;"
+                                    >
                                         {work.title.en}
                                         {work.date && (
                                             <span
@@ -107,7 +149,10 @@ import { works } from "../../../data/works";
                                             </span>
                                         )}
                                     </span>
-                                    <span class="minimal-work-desc" style="position: relative; z-index: 2; pointer-events: none;">
+                                    <span
+                                        class="minimal-work-desc"
+                                        style="position: relative; z-index: 2; pointer-events: none;"
+                                    >
                                         {work.description.en}
                                     </span>
                                     {work.tags && work.tags.length > 0 && (
@@ -225,6 +270,7 @@ import { works } from "../../../data/works";
                     ))
                 }
             </ul>
+            <div class="pagination-container" id="pagination-container"></div>
         </section>
     </div>
 
@@ -315,11 +361,209 @@ import { works } from "../../../data/works";
             transform: translateY(0) scale(1);
             pointer-events: auto;
         }
+        .pagination-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1.2rem;
+            margin-top: 3.5rem;
+            flex-wrap: wrap;
+        }
+        .pagination-btn {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: transparent;
+            color: var(--text-muted);
+            border: none;
+            font-family: inherit;
+            font-size: 1.05rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            padding: 0.2rem 0.5rem;
+        }
+        .pagination-btn:hover:not(:disabled) {
+            color: var(--text-color);
+        }
+        .pagination-btn.active {
+            color: var(--primary);
+            font-weight: 700;
+        }
+        .pagination-btn.active::after {
+            content: "";
+            position: absolute;
+            bottom: -4px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            height: 2px;
+            background-color: var(--primary);
+            border-radius: 2px;
+        }
+        .pagination-btn:disabled {
+            opacity: 0.2;
+            cursor: not-allowed;
+        }
     </style>
 
     <script is:inline>
-        document.addEventListener("astro:page-load", initCustomSelect);
-        initCustomSelect();
+        document.addEventListener("astro:page-load", () => {
+            initCustomSelect();
+            initPagination();
+        });
+
+        // Fallback for initial load if astro:page-load hasn't fired yet or isn't used
+        if (!document.documentElement.dataset.astroPageLoad) {
+            initCustomSelect();
+            initPagination();
+        }
+
+        function initPagination() {
+            const list = document.querySelector(".minimal-works-list");
+            const paginationContainer = document.getElementById(
+                "pagination-container",
+            );
+            if (!list || !paginationContainer) return;
+
+            if (list.dataset.paginationInitialized) return;
+            list.dataset.paginationInitialized = "true";
+
+            let currentPage = 1;
+            const savedPage = sessionStorage.getItem("worksCurrentPage");
+            if (savedPage && !isNaN(parseInt(savedPage, 10))) {
+                currentPage = parseInt(savedPage, 10);
+            }
+            const itemsPerPage = 8; // 1ページあたりの表示件数
+
+            function updateVisibility() {
+                const items = Array.from(list.children);
+                const totalPages = Math.ceil(items.length / itemsPerPage);
+
+                if (currentPage < 1) currentPage = 1;
+                if (currentPage > totalPages) currentPage = totalPages || 1;
+
+                // 現在のページを保存
+                sessionStorage.setItem(
+                    "worksCurrentPage",
+                    currentPage.toString(),
+                );
+
+                const startIndex = (currentPage - 1) * itemsPerPage;
+                const endIndex = startIndex + itemsPerPage;
+
+                const oldHeight = list.offsetHeight;
+
+                let lastVisibleItem = null;
+                let localIndex = 0;
+                items.forEach((item, index) => {
+                    item.style.borderBottom = "";
+                    item.style.paddingBottom = "";
+                    if (index >= startIndex && index < endIndex) {
+                        // アニメーションをリセットして再発火
+                        item.style.animation = "none";
+                        item.offsetHeight; // リフローを強制
+                        item.style.animation = "";
+
+                        // ページ内の順番(0〜7)に基づいて遅延を再設定（待たされずにすぐ開始）
+                        item.style.animationDelay = `${0.1 + localIndex * 0.05}s`;
+
+                        item.style.display = "";
+                        lastVisibleItem = item;
+                        localIndex++;
+                    } else {
+                        item.style.display = "none";
+                    }
+                });
+
+                if (lastVisibleItem) {
+                    lastVisibleItem.style.borderBottom = "none";
+                    lastVisibleItem.style.paddingBottom = "0";
+                }
+
+                // 高さが変わる場合は滑らかにアニメーション（フッターがカクッと動くのを防ぐ）
+                list.style.height = "auto";
+                const newHeight = list.offsetHeight;
+
+                if (oldHeight !== newHeight && oldHeight > 0) {
+                    list.style.height = oldHeight + "px";
+                    list.style.overflow = "hidden";
+                    list.offsetHeight; // リフロー
+
+                    list.style.transition =
+                        "height 0.4s cubic-bezier(0.25, 1, 0.5, 1)";
+                    list.style.height = newHeight + "px";
+
+                    setTimeout(() => {
+                        list.style.transition = "";
+                        list.style.height = "";
+                        list.style.overflow = "";
+                    }, 400);
+                }
+
+                renderPaginationControls(totalPages);
+            }
+
+            function renderPaginationControls(totalPages) {
+                if (totalPages <= 1) {
+                    paginationContainer.innerHTML = "";
+                    return;
+                }
+
+                let html = "";
+                html += `<button class="pagination-btn" data-page="${currentPage - 1}" ${currentPage === 1 ? "disabled" : ""}>&laquo;</button>`;
+
+                for (let i = 1; i <= totalPages; i++) {
+                    html += `<button class="pagination-btn ${i === currentPage ? "active" : ""}" data-page="${i}">${i}</button>`;
+                }
+
+                html += `<button class="pagination-btn" data-page="${currentPage + 1}" ${currentPage === totalPages ? "disabled" : ""}>&raquo;</button>`;
+
+                paginationContainer.innerHTML = html;
+
+                const btns =
+                    paginationContainer.querySelectorAll(".pagination-btn");
+                btns.forEach((btn) => {
+                    btn.addEventListener("click", (e) => {
+                        const targetPage = parseInt(e.target.dataset.page);
+                        if (
+                            !isNaN(targetPage) &&
+                            targetPage !== currentPage &&
+                            targetPage >= 1 &&
+                            targetPage <= totalPages
+                        ) {
+                            currentPage = targetPage;
+                            updateVisibility();
+
+                            // スムーズスクロール
+                            const section = document.querySelector(
+                                ".works-list-section",
+                            );
+                            if (section) {
+                                const rect = section.getBoundingClientRect();
+                                const scrollTop =
+                                    window.pageYOffset ||
+                                    document.documentElement.scrollTop;
+                                window.scrollTo({
+                                    top: rect.top + scrollTop - 80,
+                                    behavior: "smooth",
+                                });
+                            } else {
+                                window.scrollTo({ top: 0, behavior: "smooth" });
+                            }
+                        }
+                    });
+                });
+            }
+
+            list.addEventListener("works-sorted", () => {
+                currentPage = 1;
+                updateVisibility();
+            });
+
+            updateVisibility();
+        }
 
         function initCustomSelect() {
             const customSelect = document.getElementById("custom-sort");
@@ -432,6 +676,8 @@ import { works } from "../../../data/works";
                         item.style.animation = "";
                         list.appendChild(item);
                     });
+
+                    list.dispatchEvent(new CustomEvent("works-sorted"));
                 });
             });
         }

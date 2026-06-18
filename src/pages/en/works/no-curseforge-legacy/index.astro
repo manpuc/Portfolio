@@ -5,9 +5,23 @@ import { works } from "../../../../data/works";
 const extensionWork = works.find((w) => w.id === "no-curseforge-legacy");
 const githubUrl = "https://github.com/manpuc/No-Curseforge-Legacy";
 const storeUrl = extensionWork?.href || "https://chromewebstore.google.com/detail/diogckmiabncebebknnoibjapaldcjgb?utm_source=item-share-cb";
+
+const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    "name": "No Curseforge Legacy - Works | manpuc",
+    "description": "An extension that redirects CurseForge legacy design to the new design URL.",
+    "url": "https://manpuc.me/en/works/no-curseforge-legacy/",
+    "image": "https://manpuc.me/avatar.webp",
+    "author": {
+        "@type": "Person",
+        "name": "manpuc"
+    }
+};
 ---
 
 <Layout
+    structuredData={structuredData}
     title="No Curseforge Legacy - Works | manpuc"
     description="An extension that redirects CurseForge legacy design to the new design URL."
     lang="en"
@@ -55,10 +69,10 @@ const storeUrl = extensionWork?.href || "https://chromewebstore.google.com/detai
             </button>
             <div class="screenshot-carousel" id="screenshotCarousel" style="display: flex; gap: 1rem; overflow-x: auto; padding-bottom: 1rem; scroll-snap-type: x mandatory; scroll-behavior: smooth; -webkit-overflow-scrolling: touch;">
                 <div style="flex: 0 0 100%; scroll-snap-align: center; border-radius: var(--border-radius); overflow: hidden; box-shadow: var(--neumorph-shadow-sm);">
-                    <img src="/images/works/no-curseforge-legacy/screenshot1.webp" alt="No Curseforge Legacy Screenshot 1" style="width: 100%; height: auto; display: block; aspect-ratio: 16/10; object-fit: cover;" />
+                    <img src="/images/works/no-curseforge-legacy/screenshot1_en.webp" alt="No Curseforge Legacy Screenshot 1" style="width: 100%; height: auto; display: block; aspect-ratio: 16/10; object-fit: cover;" />
                 </div>
                 <div style="flex: 0 0 100%; scroll-snap-align: center; border-radius: var(--border-radius); overflow: hidden; box-shadow: var(--neumorph-shadow-sm);">
-                    <img src="/images/works/no-curseforge-legacy/screenshot2.webp" alt="No Curseforge Legacy Screenshot 2" style="width: 100%; height: auto; display: block; aspect-ratio: 16/10; object-fit: cover;" />
+                    <img src="/images/works/no-curseforge-legacy/screenshot2_en.webp" alt="No Curseforge Legacy Screenshot 2" style="width: 100%; height: auto; display: block; aspect-ratio: 16/10; object-fit: cover;" />
                 </div>
             </div>
             <button class="carousel-btn next-btn" aria-label="Next image">

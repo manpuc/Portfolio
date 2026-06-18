@@ -1,0 +1,198 @@
+---
+import Layout from "../../../../layouts/Layout.astro";
+import { works } from "../../../../data/works";
+
+const workId = "text-flow";
+const work = works.find((w) => w.id === workId);
+const githubUrl = "https://github.com/manpuc/text.manpuc.me";
+const appUrl = work?.href || "https://text.manpuc.me/";
+
+const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    "name": "text-flow - Works | manpuc",
+    "description": "Details for text-flow",
+    "url": "https://manpuc.me/en/works/text-flow/",
+    "image": "https://manpuc.me/avatar.webp",
+    "author": {
+        "@type": "Person",
+        "name": "manpuc"
+    }
+};
+---
+
+<Layout
+    structuredData={structuredData}
+    title={`${work?.title?.en || "Text Flow"} - Works | manpuc`}
+    description={work?.description?.en || "Project details."}
+    lang="en"
+>
+    <div class="container main-content">
+        <div class="back-nav animate-fade-up">
+            <a href="/en/works/" class="back-link">
+                <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    ><line x1="19" y1="12" x2="5" y2="12"></line><polyline
+                        points="12 19 5 12 12 5"></polyline></svg
+                >
+                Back to Works
+            </a>
+        </div>
+
+        <header
+            style="display: flex; flex-direction: column; align-items: flex-start; gap: 0; padding: 2.5rem 0 1.5rem;"
+        >
+            <h1
+                class="animate-fade-up delay-1"
+                style="margin: 0; font-size: clamp(2.5rem, 5vw, 3.5rem); line-height: 1.2; letter-spacing: -0.02em;"
+            >
+                {work?.title?.en || "Text Flow"}
+            </h1>
+            <p
+                class="subtitle animate-fade-up delay-2"
+                style="margin: 0.75rem 0 0; font-size: clamp(1.1rem, 2vw, 1.25rem); opacity: 0.8; font-weight: 500;"
+            >
+                Text Conversion Tool
+            </p>
+            {work?.tags && (
+                <div
+                    class="tags animate-fade-up delay-3"
+                    style="margin-top: 1.5rem; display: flex; gap: 0.5rem; flex-wrap: wrap;"
+                >
+                    {work.tags.map((tag) => (
+                        <span
+                            class="tag"
+                            style="font-size: 0.85rem; padding: 0.3rem 0.8rem;"
+                        >{tag}</span>
+                    ))}
+                </div>
+            )}
+            <div
+                class="action-buttons animate-fade-up delay-4"
+                style="display: flex; gap: 1rem; margin-top: 2.5rem; flex-wrap: wrap;"
+            >
+                <a
+                    href={appUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="neumorph-btn"
+                    style="display: inline-flex; gap: 0.5rem; align-items: center; color: var(--primary);"
+                >
+                    <svg
+                        viewBox="0 0 24 24"
+                        width="20"
+                        height="20"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    >
+                        <path
+                            d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+                        ></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                    Open App
+                </a>
+                <a
+                    href={githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="neumorph-btn"
+                    style="display: inline-flex; gap: 0.5rem; align-items: center;"
+                >
+                    <svg
+                        viewBox="0 0 24 24"
+                        width="20"
+                        height="20"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    >
+                        <path
+                            d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+                        ></path>
+                    </svg>
+                    View GitHub
+                </a>
+            </div>
+        </header>
+
+        <div
+            class="hero-image animate-fade-up delay-4"
+            style="margin-bottom: 2.5rem; border-radius: var(--border-radius); overflow: hidden; box-shadow: var(--neumorph-shadow-sm);"
+        >
+            <img
+                src="/images/works/text/text_en.webp"
+                alt="Screenshot"
+                style="width: 100%; height: auto; display: block;"
+            />
+        </div>
+
+
+        <section
+            class="neumorph-card animate-fade-up delay-5"
+            style="margin-bottom: 0;"
+        >
+            <h2>Overview</h2>
+            <p>
+                <strong>Text Flow</strong> is a utility tool for developers and creators that instantly converts and formats text directly in the browser. It unifies various encoding and string manipulation tools into a single interface.
+            </p>
+
+            <h3 style="margin-top: 2rem;">Key Features</h3>
+            <ul style="list-style: none; padding-left: 0; display: flex; flex-direction: column; gap: 0.75rem;">
+                <li style="position: relative; padding-left: 1.75rem; line-height: 1.6;">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="var(--primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="position: absolute; left: 0; top: 0.3rem;"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    <strong>Extensive Conversion Options:</strong> Supports case conversion, URL encoding/decoding, Base64, and language-specific conversions like Hiragana to Romaji.
+                </li>
+                <li style="position: relative; padding-left: 1.75rem; line-height: 1.6;">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="var(--primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="position: absolute; left: 0; top: 0.3rem;"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    <strong>Real-time Processing:</strong> Conversion results are previewed instantly as you type, and can be saved to the clipboard with a single click.
+                </li>
+                <li style="position: relative; padding-left: 1.75rem; line-height: 1.6;">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="var(--primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="position: absolute; left: 0; top: 0.3rem;"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    <strong>SEO & PWA Optimized:</strong> Each tool is structured as an independent page, and the entire app can be installed as an offline-capable PWA.
+                </li>
+            </ul>
+            <h3 style="margin-top: 2rem;">Changelog</h3>
+            <div
+                class="changelog-timeline"
+                style="position: relative; padding-left: 1.5rem; display: flex; flex-direction: column; gap: 1.5rem; margin-top: 1rem;"
+            >
+                <div
+                    style="position: absolute; top: 0.5rem; bottom: 0.5rem; left: 6px; width: 2px; background-color: rgba(128, 128, 128, 0.2); z-index: 1;"
+                >
+                </div>
+
+                <div
+                    class="changelog-item"
+                    style="position: relative; z-index: 2;"
+                >
+                    <div
+                        style="position: absolute; left: -1.5rem; top: 0.4rem; width: 12px; height: 12px; border-radius: 50%; background-color: var(--bg-color); border: 2px solid var(--primary); transform: translateX(1px); box-shadow: 0 0 0 2px var(--bg-color);"
+                    >
+                    </div>
+                    <div style="font-weight: 600; color: var(--text-color);">
+                        Updates in <span
+                            style="font-size: 0.85em; color: var(--text-muted); margin-left: 0.5rem; font-weight: normal;"
+                            >(June 2026)</span>
+                    </div>
+                    <div
+                        style="font-size: 0.95em; color: var(--text-muted); margin-top: 0.25rem;"
+                    >
+                        Initial release and project foundation built (1 commits). Includes PWA support. Added internationalization (i18n) support.
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</Layout>

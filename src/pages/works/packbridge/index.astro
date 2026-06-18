@@ -5,9 +5,23 @@ import { works } from "../../../data/works";
 const packbridgeWork = works.find((w) => w.id === "packbridge");
 const siteUrl = packbridgeWork?.href || "https://packbridge.manpuc.me/";
 const githubUrl = "https://github.com/manpuc/packbridge.manpuc.me";
+
+const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    "name": "PackBridge - Works | manpuc",
+    "description": "PackBridge: Minecraft のリソースパックをエディション間で相互変換するサービス。",
+    "url": "https://manpuc.me/works/packbridge/",
+    "image": "https://manpuc.me/avatar.webp",
+    "author": {
+        "@type": "Person",
+        "name": "manpuc"
+    }
+};
 ---
 
 <Layout
+    structuredData={structuredData}
     title="PackBridge - Works | manpuc"
     description="PackBridge: Minecraft のリソースパックをエディション間で相互変換するサービス。"
     lang="ja"

@@ -5,9 +5,23 @@ import { works } from "../../../data/works";
 const qrWork = works.find((w) => w.id === "qr-maker");
 const githubUrl = "https://github.com/manpuc/qr.manpuc.me";
 const appUrl = qrWork?.href || "https://qr.manpuc.me/";
+
+const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    "name": "QR Maker - Works | manpuc",
+    "description": "使いやすさとカスタム性にこだわったQRコード生成サービス。",
+    "url": "https://manpuc.me/works/qr-maker/",
+    "image": "https://manpuc.me/avatar.webp",
+    "author": {
+        "@type": "Person",
+        "name": "manpuc"
+    }
+};
 ---
 
 <Layout
+    structuredData={structuredData}
     title="QR Maker - Works | manpuc"
     description="使いやすさとカスタム性にこだわったQRコード生成サービス。"
     lang="ja"

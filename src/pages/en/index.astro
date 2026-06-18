@@ -26,9 +26,42 @@ const getIconName = (deviconClass: string) => {
     };
     return mapping[deviconClass] || "html";
 };
+
+const structuredData = {
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "Person",
+            "@id": "https://manpuc.me/#person",
+            name: "manpuc",
+            url: "https://manpuc.me/en/",
+            image: "https://manpuc.me/avatar.webp",
+            sameAs: [
+                "https://twitter.com/manpuccc",
+                "https://github.com/manpuc",
+            ],
+            jobTitle: "Frontend Developer & UI/UX Designer",
+        },
+        {
+            "@type": "WebSite",
+            "@id": "https://manpuc.me/en/#website",
+            url: "https://manpuc.me/en/",
+            name: "manpuc | Frontend Developer & UI/UX Designer",
+            description:
+                "manpuc's portfolio. Frontend developer and UI/UX designer specializing in creating beautiful and interactive web experiences.",
+            publisher: {
+                "@id": "https://manpuc.me/#person",
+            },
+        },
+    ],
+};
 ---
 
-<Layout title="manpuc | Student Developer & UI/UX Designer" lang="en">
+<Layout
+    title="manpuc | Frontend Developer & UI/UX Designer"
+    lang="en"
+    structuredData={structuredData}
+>
     <div class="container">
         <header
             style="display: flex; align-items: center; gap: 2rem; margin-bottom: 2rem;"
@@ -52,7 +85,7 @@ const getIconName = (deviconClass: string) => {
                         <span class="typewriter-cursor"></span>
                     </span>
                 </h1>
-                <p class="subtitle">@manpuc / Developer & Creator</p>
+                <p class="subtitle">@manpuc / Frontend Developer</p>
             </div>
         </header>
 
@@ -152,12 +185,13 @@ const getIconName = (deviconClass: string) => {
         >
             <h2>About</h2>
             <p style="line-height: 1.8; color: var(--text-color);">
-                I graduated from a commercial high school with a focus on
-                Information Design and am currently enrolled in The Open
-                University of Japan. As a gadget enthusiast who collects
-                smartwatches and smartphones, I am passionate about creating
-                things through Minecraft modding, bot development, and Chrome
-                extensions while exploring new technologies.
+                I graduated from a commercial high school with a focus on Information Design and am currently enrolled in the Department of Society and Industry at The Open University of Japan. I primarily focus on frontend development and UI/UX design, and I excel at solving minor inconveniences in existing tools by leveraging lightweight frontend technologies.
+            </p>
+            <p style="line-height: 1.8; color: var(--text-color);">
+                In my development work, I am particularly committed to protecting user privacy and delivering high performance and excellent UX by processing entirely within the local environment (client-side).
+            </p>
+            <p style="line-height: 1.8; color: var(--text-color);">
+                I am passionate about creating web applications and Chrome extensions while constantly exploring new technologies. I am currently open to work.
             </p>
         </section>
 

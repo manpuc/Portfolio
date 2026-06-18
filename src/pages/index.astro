@@ -27,9 +27,42 @@ const getIconName = (deviconClass: string) => {
     };
     return mapping[deviconClass] || "html";
 };
+
+const structuredData = {
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "Person",
+            "@id": "https://manpuc.me/#person",
+            name: "manpuc",
+            url: "https://manpuc.me",
+            image: "https://manpuc.me/avatar.webp",
+            sameAs: [
+                "https://twitter.com/manpuccc",
+                "https://github.com/manpuc",
+            ],
+            jobTitle: "Frontend Developer & UI/UX Designer",
+        },
+        {
+            "@type": "WebSite",
+            "@id": "https://manpuc.me/#website",
+            url: "https://manpuc.me",
+            name: "manpuc | Frontend Developer & UI/UX Designer",
+            description:
+                "まんぷく（manpuc）のポートフォリオ。フロントエンド開発、UI/UXデザインを中心に活動するデベロッパーの制作実績を公開中。",
+            publisher: {
+                "@id": "https://manpuc.me/#person",
+            },
+        },
+    ],
+};
 ---
 
-<Layout title="manpuc | Student Developer & UI/UX Designer" lang="ja">
+<Layout
+    title="manpuc | Frontend Developer & UI/UX Designer"
+    lang="ja"
+    structuredData={structuredData}
+>
     <div class="container main-content">
         <header class="main-header">
             <div
@@ -54,7 +87,7 @@ const getIconName = (deviconClass: string) => {
                         <span class="typewriter-cursor"></span>
                     </span>
                 </h1>
-                <p class="subtitle">@manpuc / Developer & Creator</p>
+                <p class="subtitle">@manpuc / Frontend Developer</p>
             </div>
         </header>
 
@@ -140,8 +173,13 @@ const getIconName = (deviconClass: string) => {
         <section id="about" class="about-section animate-fade-up delay-5">
             <h2>About</h2>
             <p class="about-text">
-                高校商業科情報デザイン類型を卒業し、現在は放送大学教養学部社会と産業コースに在籍しています。スマートウォッチやスマホなどのガジェット収集を趣味としつつ、Minecraft
-                Mod開発、Bot制作、Chrome拡張機能制作など、新しい技術に触れながらモノづくりをすることに情熱を注いでいます。お仕事募集中です。
+                商業科の情報デザイン類型を卒業し、現在は放送大学教養学部社会と産業コースに在籍しています。フロントエンド開発とUI/UXデザインを主に行っていて、既存のツールで少し不便に感じる部分を、軽量化・フロントエンド技術で解決するのが得意です。
+            </p>
+            <p class="about-text">
+                開発においては特に、ユーザーのプライバシー保護と、クライアントサイドだけで処理を高速完結させるパフォーマンス・UXにこだわっています。
+            </p>
+            <p class="about-text">
+                Chrome拡張機能の制作やWebアプリ開発など、新しい技術に触れながらモノづくりに情熱を注いでいます。お仕事募集中です。
             </p>
         </section>
 

@@ -5,9 +5,23 @@ import { works } from "../../../../data/works";
 const themeWork = works.find((w) => w.id === "chrome-theme");
 const githubUrl = "https://github.com/manpuc/Chrome-Tokyo-Night-Theme";
 const storeUrl = "https://chromewebstore.google.com/detail/ganlcelmnoaidpmaegcmhecolonfmffk?utm_source=item-share-cb";
+
+const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    "name": "Tokyo Night Theme - Works | manpuc",
+    "description": "A Chrome browser theme based on the popular 'Tokyo Night' color scheme, gentle on the eyes.",
+    "url": "https://manpuc.me/en/works/chrome-theme/",
+    "image": "https://manpuc.me/avatar.webp",
+    "author": {
+        "@type": "Person",
+        "name": "manpuc"
+    }
+};
 ---
 
 <Layout
+    structuredData={structuredData}
     title="Tokyo Night Theme - Works | manpuc"
     description="A Chrome browser theme based on the popular 'Tokyo Night' color scheme, gentle on the eyes."
     lang="en"
@@ -50,7 +64,7 @@ const storeUrl = "https://chromewebstore.google.com/detail/ganlcelmnoaidpmaegcmh
         </header>
 
         <div class="hero-image animate-fade-up delay-4" style="margin-bottom: 2.5rem; border-radius: var(--border-radius); overflow: hidden; box-shadow: var(--neumorph-shadow-sm);">
-            <img src="/images/works/chrome-theme/screenshot.webp" alt="Tokyo Night Theme Screenshot" style="width: 100%; height: auto; display: block;" />
+            <img src="/images/works/google-search-night/screenshot_en.webp" alt="Tokyo Night Theme Screenshot" style="width: 100%; height: auto; display: block;" />
         </div>
 
         <section class="neumorph-card animate-fade-up delay-5" style="margin-bottom: 0;">
@@ -71,6 +85,17 @@ const storeUrl = "https://chromewebstore.google.com/detail/ganlcelmnoaidpmaegcmh
                     <strong>Improved Visibility:</strong> Distinctly separates active and inactive tabs for comfortable tab navigation.
                 </li>
             </ul>
+        
+            <h3 style="margin-top: 2rem;">Version History</h3>
+            <div class="changelog-timeline" style="position: relative; padding-left: 1.5rem; display: flex; flex-direction: column; gap: 1.5rem; margin-top: 1rem;">
+                <div style="position: absolute; top: 0.5rem; bottom: 0.5rem; left: 6px; width: 2px; background-color: rgba(128, 128, 128, 0.2); z-index: 1;"></div>
+                
+                <div class="changelog-item" style="position: relative; z-index: 2;">
+                    <div style="position: absolute; left: -1.5rem; top: 0.4rem; width: 12px; height: 12px; border-radius: 50%; background-color: var(--bg-color); border: 2px solid var(--primary); transform: translateX(1px); box-shadow: 0 0 0 2px var(--bg-color);"></div>
+                    <div style="font-weight: 600; color: var(--text-color);">Initial Release <span style="font-size: 0.85em; color: var(--text-muted); margin-left: 0.5rem; font-weight: normal;">(2023/11/05)</span></div>
+                    <div style="font-size: 0.95em; color: var(--text-muted); margin-top: 0.25rem;">Project published.</div>
+                </div>
+            </div>
         </section>
     </div>
 </Layout>

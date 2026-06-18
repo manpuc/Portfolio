@@ -7,9 +7,23 @@ const githubUrl = "https://github.com/manpuc/No-Curseforge-Legacy";
 const storeUrl =
     extensionWork?.href ||
     "https://chromewebstore.google.com/detail/diogckmiabncebebknnoibjapaldcjgb?utm_source=item-share-cb";
+
+const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    "name": "No Curseforge Legacy - Works | manpuc",
+    "description": "旧デザインのCurseForgeを新デザインURLにリダイレクトする拡張機能。",
+    "url": "https://manpuc.me/works/no-curseforge-legacy/",
+    "image": "https://manpuc.me/avatar.webp",
+    "author": {
+        "@type": "Person",
+        "name": "manpuc"
+    }
+};
 ---
 
 <Layout
+    structuredData={structuredData}
     title="No Curseforge Legacy - Works | manpuc"
     description="旧デザインのCurseForgeを新デザインURLにリダイレクトする拡張機能。"
     lang="ja"
@@ -141,7 +155,7 @@ const storeUrl =
                     style="flex: 0 0 100%; scroll-snap-align: center; border-radius: var(--border-radius); overflow: hidden; box-shadow: var(--neumorph-shadow-sm);"
                 >
                     <img
-                        src="/images/works/no-curseforge-legacy/screenshot1.webp"
+                        src="/images/works/no-curseforge-legacy/screenshot1_ja.webp"
                         alt="No Curseforge Legacy Screenshot 1"
                         style="width: 100%; height: auto; display: block; aspect-ratio: 16/10; object-fit: cover;"
                     />
@@ -150,7 +164,7 @@ const storeUrl =
                     style="flex: 0 0 100%; scroll-snap-align: center; border-radius: var(--border-radius); overflow: hidden; box-shadow: var(--neumorph-shadow-sm);"
                 >
                     <img
-                        src="/images/works/no-curseforge-legacy/screenshot2.webp"
+                        src="/images/works/no-curseforge-legacy/screenshot2_ja.webp"
                         alt="No Curseforge Legacy Screenshot 2"
                         style="width: 100%; height: auto; display: block; aspect-ratio: 16/10; object-fit: cover;"
                     />

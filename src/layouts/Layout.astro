@@ -15,8 +15,8 @@ export interface Props {
 }
 
 const {
-	title = "manpuc | Student Developer & UI/UX Designer",
-	description = "まんぷく（manpuc）のポートフォリオ。Minecraft Mod制作、Web開発、Discord Bot制作を専門とする学生・デベロッパーの制作実績を公開中。",
+	title = "manpuc | Frontend Developer & UI/UX Designer",
+	description = "まんぷく（manpuc）のポートフォリオ。フロントエンド開発、UI/UXデザインを中心に活動するデベロッパーの制作実績を公開中。",
 	image = "/avatar.webp",
 	lang = "ja",
 	structuredData,
@@ -30,7 +30,10 @@ const imageUrl = new URL(image, siteUrl);
 const jaPath = cleanPath === "" ? "/" : cleanPath;
 const enPath = `/en${cleanPath}`;
 
-const isHome = Astro.url.pathname === "/" || Astro.url.pathname === "/en" || Astro.url.pathname === "/en/";
+const isHome =
+	Astro.url.pathname === "/" ||
+	Astro.url.pathname === "/en" ||
+	Astro.url.pathname === "/en/";
 const footerDelay = isHome ? 2500 : 300;
 const footerStagger = isHome ? 120 : 60;
 ---
@@ -60,9 +63,14 @@ const footerStagger = isHome ? 120 : 60;
 		<link rel="alternate" hreflang="ja" href={new URL(jaPath, siteUrl)} />
 		<link rel="alternate" hreflang="en" href={new URL(enPath, siteUrl)} />
 		<link rel="canonical" href={canonicalURL} />
-		{structuredData && (
-			<script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
-		)}
+		{
+			structuredData && (
+				<script
+					type="application/ld+json"
+					set:html={JSON.stringify(structuredData)}
+				/>
+			)
+		}
 	</head>
 
 	<body>
@@ -130,7 +138,11 @@ const footerStagger = isHome ? 120 : 60;
 			<div class="header-divider" style="margin-bottom: 0;"></div>
 		</div>
 
-		<footer class="site-footer" data-delay={footerDelay} data-stagger={footerStagger}>
+		<footer
+			class="site-footer"
+			data-delay={footerDelay}
+			data-stagger={footerStagger}
+		>
 			<div class="footer-main-layout">
 				<div class="footer-profile">
 					<div class="footer-reveal-item" data-anim="kururin">
@@ -142,21 +154,35 @@ const footerStagger = isHome ? 120 : 60;
 							class="footer-avatar"
 						/>
 					</div>
-					<div class="footer-profile-text footer-reveal-item" data-anim="pyoko">
+					<div
+						class="footer-profile-text footer-reveal-item"
+						data-anim="pyoko"
+					>
 						<span class="footer-name">manpuc</span>
-						<span class="footer-handle">@manpuc / Developer & Creator</span>
+						<span class="footer-handle"
+							>@manpuc / Frontend Developer</span
+						>
 					</div>
 				</div>
 
 				<div class="footer-links-group">
 					<div class="footer-nav-text">
-						<a href={lang === "ja" ? "/" : "/en/"} class="footer-reveal-item" data-anim="pyoko"
+						<a
+							href={lang === "ja" ? "/" : "/en/"}
+							class="footer-reveal-item"
+							data-anim="pyoko"
 							>{lang === "ja" ? "ホーム" : "Home"}</a
 						>
-						<a href={lang === "ja" ? "/works/" : "/en/works/"} class="footer-reveal-item" data-anim="pyoko"
+						<a
+							href={lang === "ja" ? "/works/" : "/en/works/"}
+							class="footer-reveal-item"
+							data-anim="pyoko"
 							>{lang === "ja" ? "作品集" : "Works"}</a
 						>
-						<a href={lang === "ja" ? "/terms/" : "/en/terms/"} class="footer-reveal-item" data-anim="pyoko"
+						<a
+							href={lang === "ja" ? "/terms/" : "/en/terms/"}
+							class="footer-reveal-item"
+							data-anim="pyoko"
 							>{lang === "ja" ? "利用規約" : "Terms"}</a
 						>
 					</div>
@@ -261,35 +287,53 @@ const footerStagger = isHome ? 120 : 60;
 				}
 
 				// Footer Fun Staggered Animation Logic
-				const footerItems = document.querySelectorAll('.footer-reveal-item');
-				const footerEl = document.querySelector('.site-footer') as HTMLElement;
-				
+				const footerItems = document.querySelectorAll(
+					".footer-reveal-item",
+				);
+				const footerEl = document.querySelector(
+					".site-footer",
+				) as HTMLElement;
+
 				const startFooterAnimation = () => {
-					const configuredDelay = parseInt(footerEl?.dataset.delay || "300");
+					const configuredDelay = parseInt(
+						footerEl?.dataset.delay || "300",
+					);
 					const stagger = parseInt(footerEl?.dataset.stagger || "60");
-					
+
 					// ページ読み込みから時間が経過している場合は遅延をなくす
-					const baseDelay = Math.max(0, configuredDelay - performance.now());
+					const baseDelay = Math.max(
+						0,
+						configuredDelay - performance.now(),
+					);
 
 					footerItems.forEach((item, index) => {
 						const el = item as HTMLElement;
 						const animType = el.dataset.anim;
-						const animationClass = animType === 'kururin' ? 'animate-kururin' : 'animate-pyoko';
-						
-						setTimeout(() => {
-							el.classList.add(animationClass);
-						}, baseDelay + (index * stagger));
+						const animationClass =
+							animType === "kururin"
+								? "animate-kururin"
+								: "animate-pyoko";
+
+						setTimeout(
+							() => {
+								el.classList.add(animationClass);
+							},
+							baseDelay + index * stagger,
+						);
 					});
 				};
 
 				// Trigger on scroll or load
-				const footerObserver = new IntersectionObserver((entries) => {
-					if (entries[0].isIntersecting) {
-						startFooterAnimation();
-						footerObserver.disconnect();
-					}
-				}, { threshold: 0, rootMargin: "50px" });
- 
+				const footerObserver = new IntersectionObserver(
+					(entries) => {
+						if (entries[0].isIntersecting) {
+							startFooterAnimation();
+							footerObserver.disconnect();
+						}
+					},
+					{ threshold: 0, rootMargin: "50px" },
+				);
+
 				if (footerEl) footerObserver.observe(footerEl);
 			}
 		</script>

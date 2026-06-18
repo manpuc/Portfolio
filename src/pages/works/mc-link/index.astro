@@ -5,9 +5,23 @@ import { works } from "../../../data/works";
 const mclinkWork = works.find((w) => w.id === "mc-link");
 const githubUrl = "https://github.com/manpuc/mclink.manpuc.me";
 const appUrl = mclinkWork?.href || "https://mclink.manpuc.me/";
+
+const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    "name": "MCLink - Works | manpuc",
+    "description": "Minecraft のサーバー追加リンクを簡単に作成できるサービス。",
+    "url": "https://manpuc.me/works/mc-link/",
+    "image": "https://manpuc.me/avatar.webp",
+    "author": {
+        "@type": "Person",
+        "name": "manpuc"
+    }
+};
 ---
 
 <Layout
+    structuredData={structuredData}
     title="MCLink - Works | manpuc"
     description="Minecraft のサーバー追加リンクを簡単に作成できるサービス。"
     lang="ja"

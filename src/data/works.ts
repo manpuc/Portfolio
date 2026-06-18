@@ -148,20 +148,33 @@ export const works: Work[] = [
         date: "2026/03/13"
     },
     {
-        id: "minecraft-mod",
+        id: "ore-multiplier",
         title: {
-            ja: "Minecraft Mod",
-            en: "Minecraft Mod"
+            ja: "Ore Multiplier",
+            en: "Ore Multiplier"
         },
         description: {
-            ja: "Forge 1.20.1環境での独自Mod開発新しいアイテムやシステムを実装。",
-            en: "Development of original mods for Forge 1.20.1 environment. Implementing new items and systems."
+            ja: "Minecraft Forge 1.20.1環境での独自Mod開発。鉱石を倍増させる新しいアイテムやシステムを実装。",
+            en: "Development of original mods for Forge 1.20.1 environment. Implementing new items and systems that multiply ores."
         },
         tags: ["Java", "Forge", "Minecraft"],
-        href: "https://modrinth.com/user/manpuc",
+        href: "https://modrinth.com/mod/ore-multiplier",
         category: "GameApplication",
-        os: "Windows, macOS, Linux",
-        date: "2026/02/12"
+        os: "Windows, macOS, Linux"
+    },
+    {
+        id: "hostile-illagers",
+        title: {
+            ja: "Illagers' Hostility",
+            en: "Illagers' Hostility"
+        },
+        description: {
+            ja: "Minecraft Forge 1.20.1環境での独自Mod開発。イリジャーの敵対性を高めるシステムを実装。",
+            en: "Development of original mods for Forge 1.20.1 environment. Implementing systems that increase Illagers' hostility."
+        },
+        tags: ["Java", "Forge", "Minecraft"],
+        category: "GameApplication",
+        os: "Windows, macOS, Linux"
     },
 
 

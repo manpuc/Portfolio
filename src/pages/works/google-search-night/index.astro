@@ -5,9 +5,23 @@ import { works } from "../../../data/works";
 const extensionWork = works.find((w) => w.id === "google-search-night");
 const githubUrl = "https://github.com/manpuc/Google-Tokyo-Night-Theme";
 const storeUrl = extensionWork?.href || "https://chromewebstore.google.com/detail/bdlpogibdkglpceadpplahmjneanbpom?utm_source=item-share-cb";
+
+const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    "name": "Google Search Night Theme - Works | manpuc",
+    "description": "Google検索を目に優しいダークテーマに変更する拡張機能。",
+    "url": "https://manpuc.me/works/google-search-night/",
+    "image": "https://manpuc.me/avatar.webp",
+    "author": {
+        "@type": "Person",
+        "name": "manpuc"
+    }
+};
 ---
 
 <Layout
+    structuredData={structuredData}
     title="Google Search Night Theme - Works | manpuc"
     description="Google検索を目に優しいダークテーマに変更する拡張機能。"
     lang="ja"
@@ -50,7 +64,7 @@ const storeUrl = extensionWork?.href || "https://chromewebstore.google.com/detai
         </header>
 
         <div class="hero-image animate-fade-up delay-4" style="margin-bottom: 2.5rem; border-radius: var(--border-radius); overflow: hidden; box-shadow: var(--neumorph-shadow-sm);">
-            <img src="/images/works/google-search-night/screenshot.webp" alt="Google Search Night Theme Screenshot" style="width: 100%; height: auto; display: block;" />
+            <img src="/images/works/google-search-night/screenshot_ja.webp" alt="Google Search Night Theme Screenshot" style="width: 100%; height: auto; display: block;" />
         </div>
 
         <section class="neumorph-card animate-fade-up delay-5" style="margin-bottom: 0;">

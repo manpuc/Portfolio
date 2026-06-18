@@ -1,12 +1,24 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import { works } from "../../data/works";
+const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: "制作実績一覧 - manpuc",
+    description: "まんぷく（manpuc）の過去の制作実績一覧。",
+    url: "https://manpuc.me/works/",
+    isPartOf: {
+        "@type": "WebSite",
+        "@id": "https://manpuc.me/#website",
+    },
+};
 ---
 
 <Layout
     title="制作実績一覧 - manpuc"
     description="まんぷく（manpuc）の過去の制作実績一覧。"
     lang="ja"
+    structuredData={structuredData}
 >
     <div class="container">
         <header>
@@ -14,9 +26,17 @@ import { works } from "../../data/works";
             <p class="subtitle">これまでの制作実績一覧</p>
         </header>
 
-        <div class="works-controls animate-fade-up" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; flex-wrap: wrap; gap: 1rem; position: relative; z-index: 50;">
+        <div
+            class="works-controls animate-fade-up"
+            style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; flex-wrap: wrap; gap: 1rem; position: relative; z-index: 50;"
+        >
             <div class="back-nav" style="margin: 0;">
-                <a href="/" class="back-link" aria-label="ホームに戻る" style="margin: 0;">
+                <a
+                    href="/"
+                    class="back-link"
+                    aria-label="ホームに戻る"
+                    style="margin: 0;"
+                >
                     <svg
                         viewBox="0 0 24 24"
                         fill="none"
@@ -34,14 +54,49 @@ import { works } from "../../data/works";
             </div>
             <div class="custom-sort-wrapper">
                 <div class="custom-select" id="custom-sort">
-                    <button class="custom-select-trigger" type="button" aria-haspopup="listbox" aria-expanded="false">
+                    <button
+                        class="custom-select-trigger"
+                        type="button"
+                        aria-haspopup="listbox"
+                        aria-expanded="false"
+                    >
                         <span class="custom-select-value">おすすめ順</span>
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="chevron"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            class="chevron"
+                            ><polyline points="6 9 12 15 18 9"></polyline></svg
+                        >
                     </button>
                     <ul class="custom-select-options" role="listbox" hidden>
-                        <li class="custom-option" data-value="recommended" role="option" aria-selected="true">おすすめ順</li>
-                        <li class="custom-option" data-value="date-desc" role="option" aria-selected="false">新しい順</li>
-                        <li class="custom-option" data-value="date-asc" role="option" aria-selected="false">古い順</li>
+                        <li
+                            class="custom-option"
+                            data-value="recommended"
+                            role="option"
+                            aria-selected="true"
+                        >
+                            おすすめ順
+                        </li>
+                        <li
+                            class="custom-option"
+                            data-value="date-desc"
+                            role="option"
+                            aria-selected="false"
+                        >
+                            新しい順
+                        </li>
+                        <li
+                            class="custom-option"
+                            data-value="date-asc"
+                            role="option"
+                            aria-selected="false"
+                        >
+                            古い順
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -57,14 +112,54 @@ import { works } from "../../data/works";
                             data-date={work.date || "1970/01/01"}
                             data-index={index}
                         >
-                            {["CharView", "packbridge", "mbot", "chrome-theme", "mc-link", "qr-maker", "google-search-night", "no-curseforge-legacy"].includes(work.id) ? (
-                                <div class="minimal-work-link" style="position: relative; transition: var(--transition);">
-                                    <a href={`/works/${work.id.toLowerCase()}/`} style="position: absolute; inset: 0; z-index: 1; border-radius: inherit;" aria-label={`${work.title.ja}詳細ページへ`}></a>
-                                    <span class="minimal-work-title" style="position: relative; z-index: 2; pointer-events: none;">
+                            {[
+                                "CharView",
+                                "packbridge",
+                                "mbot",
+                                "chrome-theme",
+                                "mc-link",
+                                "qr-maker",
+                                "google-search-night",
+                                "no-curseforge-legacy",
+                                "FLICKER",
+                                "Loudness",
+                                "Pitch-Analyzer",
+                                "Midi-DAW",
+                                "ore-multiplier",
+                                "hostile-illagers",
+                                "pomodoro",
+                                "ambient",
+                                "text-flow",
+                                "pass-generator",
+                                "md-preview",
+                            ].includes(work.id) ? (
+                                <div
+                                    class="minimal-work-link"
+                                    style="position: relative; transition: var(--transition);"
+                                >
+                                    <a
+                                        href={`/works/${work.id.toLowerCase()}/`}
+                                        style="position: absolute; inset: 0; z-index: 1; border-radius: inherit;"
+                                        aria-label={`${work.title.ja}詳細ページへ`}
+                                    />
+                                    <span
+                                        class="minimal-work-title"
+                                        style="position: relative; z-index: 2; pointer-events: none;"
+                                    >
                                         {work.title.ja}
-                                        {work.date && <span class="work-date" style="margin-left: 0.5rem; font-size: 0.85em; opacity: 0.7; font-weight: normal;">{work.date}</span>}
+                                        {work.date && (
+                                            <span
+                                                class="work-date"
+                                                style="margin-left: 0.5rem; font-size: 0.85em; opacity: 0.7; font-weight: normal;"
+                                            >
+                                                {work.date}
+                                            </span>
+                                        )}
                                     </span>
-                                    <span class="minimal-work-desc" style="position: relative; z-index: 2; pointer-events: none;">
+                                    <span
+                                        class="minimal-work-desc"
+                                        style="position: relative; z-index: 2; pointer-events: none;"
+                                    >
                                         {work.description.ja}
                                     </span>
                                     {work.tags && work.tags.length > 0 && (
@@ -94,7 +189,14 @@ import { works } from "../../data/works";
                                 >
                                     <span class="minimal-work-title">
                                         {work.title.ja}
-                                        {work.date && <span class="work-date" style="margin-left: 0.5rem; font-size: 0.85em; opacity: 0.7; font-weight: normal;">{work.date}</span>}
+                                        {work.date && (
+                                            <span
+                                                class="work-date"
+                                                style="margin-left: 0.5rem; font-size: 0.85em; opacity: 0.7; font-weight: normal;"
+                                            >
+                                                {work.date}
+                                            </span>
+                                        )}
                                         <svg
                                             viewBox="0 0 24 24"
                                             width="16"
@@ -144,7 +246,14 @@ import { works } from "../../data/works";
                                 >
                                     <span class="minimal-work-title">
                                         {work.title.ja}
-                                        {work.date && <span class="work-date" style="margin-left: 0.5rem; font-size: 0.85em; opacity: 0.7; font-weight: normal;">{work.date}</span>}
+                                        {work.date && (
+                                            <span
+                                                class="work-date"
+                                                style="margin-left: 0.5rem; font-size: 0.85em; opacity: 0.7; font-weight: normal;"
+                                            >
+                                                {work.date}
+                                            </span>
+                                        )}
                                     </span>
                                     <span class="minimal-work-desc">
                                         {work.description.ja}
@@ -164,6 +273,7 @@ import { works } from "../../data/works";
                     ))
                 }
             </ul>
+            <div class="pagination-container" id="pagination-container"></div>
         </section>
     </div>
 
@@ -224,7 +334,9 @@ import { works } from "../../data/works";
             opacity: 0;
             transform-origin: top center;
             transform: translateY(-15px) scale(0.95);
-            transition: opacity 0.3s ease, transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            transition:
+                opacity 0.3s ease,
+                transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
             pointer-events: none;
         }
         .custom-option {
@@ -254,94 +366,323 @@ import { works } from "../../data/works";
             transform: translateY(0) scale(1);
             pointer-events: auto;
         }
+        .pagination-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1.2rem;
+            margin-top: 3.5rem;
+            flex-wrap: wrap;
+        }
+        .pagination-btn {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: transparent;
+            color: var(--text-muted);
+            border: none;
+            font-family: inherit;
+            font-size: 1.05rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            padding: 0.2rem 0.5rem;
+        }
+        .pagination-btn:hover:not(:disabled) {
+            color: var(--text-color);
+        }
+        .pagination-btn.active {
+            color: var(--primary);
+            font-weight: 700;
+        }
+        .pagination-btn.active::after {
+            content: "";
+            position: absolute;
+            bottom: -4px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            height: 2px;
+            background-color: var(--primary);
+            border-radius: 2px;
+        }
+        .pagination-btn:disabled {
+            opacity: 0.2;
+            cursor: not-allowed;
+        }
     </style>
 
     <script is:inline>
-        document.addEventListener('astro:page-load', initCustomSelect);
-        initCustomSelect();
+        document.addEventListener("astro:page-load", () => {
+            initCustomSelect();
+            initPagination();
+        });
+
+        // Fallback for initial load if astro:page-load hasn't fired yet or isn't used
+        if (!document.documentElement.dataset.astroPageLoad) {
+            initCustomSelect();
+            initPagination();
+        }
+
+        function initPagination() {
+            const list = document.querySelector(".minimal-works-list");
+            const paginationContainer = document.getElementById(
+                "pagination-container",
+            );
+            if (!list || !paginationContainer) return;
+
+            if (list.dataset.paginationInitialized) return;
+            list.dataset.paginationInitialized = "true";
+
+            let currentPage = 1;
+            const savedPage = sessionStorage.getItem("worksCurrentPage");
+            if (savedPage && !isNaN(parseInt(savedPage, 10))) {
+                currentPage = parseInt(savedPage, 10);
+            }
+            const itemsPerPage = 8; // 1ページあたりの表示件数
+
+            function updateVisibility() {
+                const items = Array.from(list.children);
+                const totalPages = Math.ceil(items.length / itemsPerPage);
+
+                if (currentPage < 1) currentPage = 1;
+                if (currentPage > totalPages) currentPage = totalPages || 1;
+
+                // 現在のページを保存
+                sessionStorage.setItem(
+                    "worksCurrentPage",
+                    currentPage.toString(),
+                );
+
+                const startIndex = (currentPage - 1) * itemsPerPage;
+                const endIndex = startIndex + itemsPerPage;
+
+                const oldHeight = list.offsetHeight;
+
+                let lastVisibleItem = null;
+                let localIndex = 0;
+                items.forEach((item, index) => {
+                    item.style.borderBottom = "";
+                    item.style.paddingBottom = "";
+                    if (index >= startIndex && index < endIndex) {
+                        // アニメーションをリセットして再発火
+                        item.style.animation = "none";
+                        item.offsetHeight; // リフローを強制
+                        item.style.animation = "";
+
+                        // ページ内の順番(0〜7)に基づいて遅延を再設定（待たされずにすぐ開始）
+                        item.style.animationDelay = `${0.1 + localIndex * 0.05}s`;
+
+                        item.style.display = "";
+                        lastVisibleItem = item;
+                        localIndex++;
+                    } else {
+                        item.style.display = "none";
+                    }
+                });
+
+                if (lastVisibleItem) {
+                    lastVisibleItem.style.borderBottom = "none";
+                    lastVisibleItem.style.paddingBottom = "0";
+                }
+
+                // 高さが変わる場合は滑らかにアニメーション（フッターがカクッと動くのを防ぐ）
+                list.style.height = "auto";
+                const newHeight = list.offsetHeight;
+
+                if (oldHeight !== newHeight && oldHeight > 0) {
+                    list.style.height = oldHeight + "px";
+                    list.style.overflow = "hidden";
+                    list.offsetHeight; // リフロー
+
+                    list.style.transition =
+                        "height 0.4s cubic-bezier(0.25, 1, 0.5, 1)";
+                    list.style.height = newHeight + "px";
+
+                    setTimeout(() => {
+                        list.style.transition = "";
+                        list.style.height = "";
+                        list.style.overflow = "";
+                    }, 400);
+                }
+
+                renderPaginationControls(totalPages);
+            }
+
+            function renderPaginationControls(totalPages) {
+                if (totalPages <= 1) {
+                    paginationContainer.innerHTML = "";
+                    return;
+                }
+
+                let html = "";
+                html += `<button class="pagination-btn" data-page="${currentPage - 1}" ${currentPage === 1 ? "disabled" : ""}>&laquo;</button>`;
+
+                for (let i = 1; i <= totalPages; i++) {
+                    html += `<button class="pagination-btn ${i === currentPage ? "active" : ""}" data-page="${i}">${i}</button>`;
+                }
+
+                html += `<button class="pagination-btn" data-page="${currentPage + 1}" ${currentPage === totalPages ? "disabled" : ""}>&raquo;</button>`;
+
+                paginationContainer.innerHTML = html;
+
+                const btns =
+                    paginationContainer.querySelectorAll(".pagination-btn");
+                btns.forEach((btn) => {
+                    btn.addEventListener("click", (e) => {
+                        const targetPage = parseInt(e.target.dataset.page);
+                        if (
+                            !isNaN(targetPage) &&
+                            targetPage !== currentPage &&
+                            targetPage >= 1 &&
+                            targetPage <= totalPages
+                        ) {
+                            currentPage = targetPage;
+                            updateVisibility();
+
+                            // スムーズスクロール
+                            const section = document.querySelector(
+                                ".works-list-section",
+                            );
+                            if (section) {
+                                const rect = section.getBoundingClientRect();
+                                const scrollTop =
+                                    window.pageYOffset ||
+                                    document.documentElement.scrollTop;
+                                window.scrollTo({
+                                    top: rect.top + scrollTop - 80,
+                                    behavior: "smooth",
+                                });
+                            } else {
+                                window.scrollTo({ top: 0, behavior: "smooth" });
+                            }
+                        }
+                    });
+                });
+            }
+
+            list.addEventListener("works-sorted", () => {
+                currentPage = 1;
+                updateVisibility();
+            });
+
+            updateVisibility();
+        }
 
         function initCustomSelect() {
-            const customSelect = document.getElementById('custom-sort');
-            const trigger = customSelect?.querySelector('.custom-select-trigger');
-            const optionsList = customSelect?.querySelector('.custom-select-options');
-            const options = customSelect?.querySelectorAll('.custom-option');
-            const triggerValue = customSelect?.querySelector('.custom-select-value');
-            
-            const list = document.querySelector('.minimal-works-list');
-            
-            if (!customSelect || !trigger || !optionsList || !list || !options) return;
+            const customSelect = document.getElementById("custom-sort");
+            const trigger = customSelect?.querySelector(
+                ".custom-select-trigger",
+            );
+            const optionsList = customSelect?.querySelector(
+                ".custom-select-options",
+            );
+            const options = customSelect?.querySelectorAll(".custom-option");
+            const triggerValue = customSelect?.querySelector(
+                ".custom-select-value",
+            );
+
+            const list = document.querySelector(".minimal-works-list");
+
+            if (!customSelect || !trigger || !optionsList || !list || !options)
+                return;
 
             // Prevent multiple bindings
             if (customSelect.dataset.initialized) return;
             customSelect.dataset.initialized = "true";
 
             const items = Array.from(list.children);
-            
+
             // Toggle dropdown
-            trigger.addEventListener('click', (e) => {
+            trigger.addEventListener("click", (e) => {
                 e.stopPropagation();
-                const isOpen = customSelect.classList.contains('open');
+                const isOpen = customSelect.classList.contains("open");
                 if (isOpen) {
-                    customSelect.classList.remove('open');
-                    setTimeout(() => optionsList.setAttribute('hidden', ''), 300);
-                    trigger.setAttribute('aria-expanded', 'false');
+                    customSelect.classList.remove("open");
+                    setTimeout(
+                        () => optionsList.setAttribute("hidden", ""),
+                        300,
+                    );
+                    trigger.setAttribute("aria-expanded", "false");
                 } else {
-                    optionsList.removeAttribute('hidden');
+                    optionsList.removeAttribute("hidden");
                     // small delay to allow display:block to apply before opacity transition
                     requestAnimationFrame(() => {
-                        customSelect.classList.add('open');
+                        customSelect.classList.add("open");
                     });
-                    trigger.setAttribute('aria-expanded', 'true');
+                    trigger.setAttribute("aria-expanded", "true");
                 }
             });
-            
+
             // Close when clicking outside
-            document.addEventListener('click', () => {
-                if (customSelect.classList.contains('open')) {
-                    customSelect.classList.remove('open');
-                    setTimeout(() => optionsList.setAttribute('hidden', ''), 300);
-                    trigger.setAttribute('aria-expanded', 'false');
+            document.addEventListener("click", () => {
+                if (customSelect.classList.contains("open")) {
+                    customSelect.classList.remove("open");
+                    setTimeout(
+                        () => optionsList.setAttribute("hidden", ""),
+                        300,
+                    );
+                    trigger.setAttribute("aria-expanded", "false");
                 }
             });
-            
+
             // Option click
-            options.forEach(option => {
-                option.addEventListener('click', (e) => {
+            options.forEach((option) => {
+                option.addEventListener("click", (e) => {
                     e.stopPropagation();
-                    const value = option.getAttribute('data-value');
+                    const value = option.getAttribute("data-value");
                     const text = option.textContent;
-                    
+
                     // Update UI
                     if (triggerValue) triggerValue.textContent = text;
-                    options.forEach(opt => opt.setAttribute('aria-selected', 'false'));
-                    option.setAttribute('aria-selected', 'true');
-                    
-                    customSelect.classList.remove('open');
-                    setTimeout(() => optionsList.setAttribute('hidden', ''), 300);
-                    trigger.setAttribute('aria-expanded', 'false');
-                    
+                    options.forEach((opt) =>
+                        opt.setAttribute("aria-selected", "false"),
+                    );
+                    option.setAttribute("aria-selected", "true");
+
+                    customSelect.classList.remove("open");
+                    setTimeout(
+                        () => optionsList.setAttribute("hidden", ""),
+                        300,
+                    );
+                    trigger.setAttribute("aria-expanded", "false");
+
                     // Sort items
                     items.sort((a, b) => {
-                        if (value === 'recommended') {
-                            return parseInt(a.dataset.index || '0') - parseInt(b.dataset.index || '0');
-                        } else if (value === 'date-desc') {
-                            const dateA = new Date(a.dataset.date || '1970/01/01').getTime();
-                            const dateB = new Date(b.dataset.date || '1970/01/01').getTime();
+                        if (value === "recommended") {
+                            return (
+                                parseInt(a.dataset.index || "0") -
+                                parseInt(b.dataset.index || "0")
+                            );
+                        } else if (value === "date-desc") {
+                            const dateA = new Date(
+                                a.dataset.date || "1970/01/01",
+                            ).getTime();
+                            const dateB = new Date(
+                                b.dataset.date || "1970/01/01",
+                            ).getTime();
                             return dateB - dateA;
-                        } else if (value === 'date-asc') {
-                            const dateA = new Date(a.dataset.date || '1970/01/01').getTime();
-                            const dateB = new Date(b.dataset.date || '1970/01/01').getTime();
+                        } else if (value === "date-asc") {
+                            const dateA = new Date(
+                                a.dataset.date || "1970/01/01",
+                            ).getTime();
+                            const dateB = new Date(
+                                b.dataset.date || "1970/01/01",
+                            ).getTime();
                             return dateA - dateB;
                         }
                         return 0;
                     });
-                    
-                    items.forEach(item => {
-                        item.style.animation = 'none';
+
+                    items.forEach((item) => {
+                        item.style.animation = "none";
                         item.offsetHeight; /* trigger reflow */
-                        item.style.animation = '';
+                        item.style.animation = "";
                         list.appendChild(item);
                     });
+
+                    list.dispatchEvent(new CustomEvent("works-sorted"));
                 });
             });
         }
