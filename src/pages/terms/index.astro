@@ -20,15 +20,23 @@ import Layout from "../../layouts/Layout.astro";
             </a>
         </div>
 
-        <header>
-            <h1>概要</h1>
-            <p class="subtitle">Terms of Service & Privacy Policy</p>
+        <header style="flex-direction: column; gap: 0.5rem; padding-bottom: 0; margin-bottom: 1rem;">
+            <h1 style="margin-bottom: 0;">概要</h1>
+            <p class="subtitle" style="margin-top: 0;">Terms of Service & Privacy Policy</p>
         </header>
 
         <section class="terms-section">
-            <div id="page-1" class="page-content animate-fade-up" style="display: block;">
+            <div
+                id="page-1"
+                class="page-content animate-fade-up"
+                style="display: block;"
+            >
                 <div class="neumorph-card">
-                    <h2 style="font-size: 1.8rem; margin-bottom: 2rem; padding-bottom: 0.5rem; border-bottom: 2px solid var(--text-muted); color: var(--text-color);">利用規約</h2>
+                    <h2
+                        style="font-size: 1.8rem; margin-bottom: 2rem; padding-bottom: 0.5rem; border-bottom: 2px solid var(--text-muted); color: var(--text-color);"
+                    >
+                        利用規約
+                    </h2>
 
                     <section style="margin-bottom: 2rem;">
                         <h2>第1条（適用）</h2>
@@ -43,10 +51,18 @@ import Layout from "../../layouts/Layout.astro";
                             ユーザーは、当サイトの利用にあたり、以下の行為をしてはなりません。
                         </p>
                         <ul>
-                            <li>当サイトの運営を妨害する行為、またはその恐れのある行為。</li>
-                            <li>制作者または第三者の著作権、商標権等の知的財産権を侵害する行為。</li>
-                            <li>不正アクセス、または当サイトのサーバーやネットワークの機能を破壊する行為。</li>
-                            <li>制作者の許可なく、当サイトのコンテンツを商用利用（二次配布、再販売等）する行為。</li>
+                            <li>
+                                当サイトの運営を妨害する行為、またはその恐れのある行為。
+                            </li>
+                            <li>
+                                制作者または第三者の著作権、商標権等の知的財産権を侵害する行為。
+                            </li>
+                            <li>
+                                不正アクセス、または当サイトのサーバーやネットワークの機能を破壊する行為。
+                            </li>
+                            <li>
+                                制作者の許可なく、当サイトのコンテンツを商用利用（二次配布、再販売等）する行為。
+                            </li>
                             <li>その他、法令または公序良俗に違反する行為。</li>
                         </ul>
                     </section>
@@ -77,9 +93,17 @@ import Layout from "../../layouts/Layout.astro";
                 </div>
             </div>
 
-            <div id="page-2" class="page-content animate-fade-up" style="display: none;">
+            <div
+                id="page-2"
+                class="page-content animate-fade-up"
+                style="display: none;"
+            >
                 <div class="neumorph-card">
-                    <h2 style="font-size: 1.8rem; margin-bottom: 2rem; padding-bottom: 0.5rem; border-bottom: 2px solid var(--text-muted); color: var(--text-color);">プライバシーポリシー</h2>
+                    <h2
+                        style="font-size: 1.8rem; margin-bottom: 2rem; padding-bottom: 0.5rem; border-bottom: 2px solid var(--text-muted); color: var(--text-color);"
+                    >
+                        プライバシーポリシー
+                    </h2>
 
                     <section style="margin-bottom: 2rem;">
                         <h2>データの収集と処理</h2>
@@ -91,14 +115,18 @@ import Layout from "../../layouts/Layout.astro";
                     <section style="margin-bottom: 2rem;">
                         <h2>アクセス解析</h2>
                         <p>
-                            当サイトでは、利用状況把握やサイト改善のために「Cloudflare Web Analytics」および自己ホスト型の「Umami」を使用しています。これらはCookieを使用したトラッキングを行わず、統計的な情報を完全に匿名で収集します。個人を特定する情報が収集されたり、第三者へ送信されたりすることはありません。
+                            当サイトでは、利用状況把握やサイト改善のために「Cloudflare
+                            Web
+                            Analytics」および自己ホスト型の「Umami」を使用しています。これらはCookieを使用したトラッキングを行わず、統計的な情報を完全に匿名で収集します。個人を特定する情報が収集されたり、第三者へ送信されたりすることはありません。
                         </p>
                     </section>
 
                     <section style="margin-bottom: 2rem;">
                         <h2>ローカルストレージ</h2>
                         <p>
-                            当サイトでは、ユーザーの利便性向上のため、テーマ（ライトモード／ダークモード）の選択状態を保存する目的でのみブラウザの localStorage を使用しています。この設定データはユーザーのデバイス内にのみ保存され、外部サーバーに送信・収集されることはありません。
+                            当サイトでは、ユーザーの利便性向上のため、テーマ（ライトモード／ダークモード）の選択状態を保存する目的でのみブラウザの
+                            localStorage
+                            を使用しています。この設定データはユーザーのデバイス内にのみ保存され、外部サーバーに送信・収集されることはありません。
                         </p>
                     </section>
 
@@ -180,34 +208,65 @@ import Layout from "../../layouts/Layout.astro";
         }
 
         function initTermsPagination() {
-            const btns = document.querySelectorAll('.pagination-btn');
-            const page1 = document.getElementById('page-1');
-            const page2 = document.getElementById('page-2');
+            const btns = document.querySelectorAll(".pagination-btn");
+            const page1 = document.getElementById("page-1");
+            const page2 = document.getElementById("page-2");
+            const section = document.querySelector(".terms-section");
 
-            if (!btns.length || !page1 || !page2) return;
+            if (!btns.length || !page1 || !page2 || !section) return;
 
-            btns.forEach(btn => {
-                btn.addEventListener('click', (e) => {
+            btns.forEach((btn) => {
+                btn.addEventListener("click", (e) => {
                     const targetPage = e.target.dataset.page;
-                    
+
                     // Update buttons
-                    btns.forEach(b => b.classList.remove('active'));
-                    e.target.classList.add('active');
+                    btns.forEach((b) => b.classList.remove("active"));
+                    e.target.classList.add("active");
+
+                    // 変更前の高さを取得
+                    const oldHeight = section.offsetHeight;
 
                     // Update content
-                    if (targetPage === '1') {
-                        page1.style.display = 'block';
-                        page2.style.display = 'none';
+                    if (targetPage === "1") {
+                        page1.style.display = "block";
+                        page2.style.display = "none";
                     } else {
-                        page1.style.display = 'none';
-                        page2.style.display = 'block';
+                        page1.style.display = "none";
+                        page2.style.display = "block";
+                    }
+
+                    // アニメーション再発火
+                    const activePage = targetPage === "1" ? page1 : page2;
+                    activePage.style.animation = "none";
+                    activePage.offsetHeight; // リフローを強制
+                    activePage.style.animation = "";
+
+                    // 高さが変わる場合は滑らかにアニメーション（フッターがカクッと動くのを防ぐ）
+                    section.style.height = "auto";
+                    const newHeight = section.offsetHeight;
+
+                    if (oldHeight !== newHeight && oldHeight > 0) {
+                        section.style.height = oldHeight + "px";
+                        section.style.overflow = "hidden";
+                        section.offsetHeight; // リフロー
+
+                        section.style.transition =
+                            "height 0.4s cubic-bezier(0.25, 1, 0.5, 1)";
+                        section.style.height = newHeight + "px";
+
+                        setTimeout(() => {
+                            section.style.transition = "";
+                            section.style.height = "auto";
+                            section.style.overflow = "visible";
+                        }, 400);
                     }
 
                     // Smooth scroll to top of section
-                    const section = document.querySelector(".terms-section");
                     if (section) {
                         const rect = section.getBoundingClientRect();
-                        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                        const scrollTop =
+                            window.pageYOffset ||
+                            document.documentElement.scrollTop;
                         window.scrollTo({
                             top: rect.top + scrollTop - 80,
                             behavior: "smooth",
