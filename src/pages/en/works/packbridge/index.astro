@@ -262,6 +262,30 @@ const structuredData = {
                     >
                     </div>
                     <div style="font-weight: 600; color: var(--text-color);">
+                        v1.3.0
+                    </div>
+                    <ul
+                        style="font-size: 0.95em; color: var(--text-muted); margin-top: 0.5rem; padding-left: 1.2rem; display: flex; flex-direction: column; gap: 0.25rem;"
+                    >
+                        <li><strong>New Feature</strong>: Added a "Version Conversion" feature supporting version upgrades and downgrades within the same edition (Java ⇄ Java, Bedrock ⇄ Bedrock), ideal for resource pack porting.</li>
+                        <li><strong>UI Improvement</strong>: Revamped the conversion mode selection UI to allow intuitive selection from three options: "Java → Bedrock", "Bedrock → Java", and "Version Conversion".</li>
+                        <li><strong>UI Improvement</strong>: Optimized tab switching height animations to be smooth without afterimages or stretching.</li>
+                        <li><strong>UX Improvement</strong>: Added automatic detection of the original edition from uploaded file contents (<code>pack.mcmeta</code> / <code>manifest.json</code>) when "Version Conversion" is selected, dynamically optimizing the UI.</li>
+                        <li><strong>Bug Fix</strong>: Fixed an issue where converting within the same edition (Bedrock → Bedrock) resulted in a <code>.zip</code> output, ensuring it now correctly outputs as <code>.mcpack</code>.</li>
+                        <li><strong>Bug Fix</strong>: Fixed an issue where the "Enable GUI Conversion" option was mistakenly applied during version updates within the same edition, causing GUI images to be skipped.</li>
+                        <li><strong>SEO & Localization</strong>: Added explanations for version conversion to the main feature section on the homepage to boost search traffic, and updated expressions from "Version Update" to "Change Version" across supported languages (JA, EN, KO, ZH, ES, FR, DE) for clarity when downgrading.</li>
+                    </ul>
+                </div>
+
+                <div
+                    class="changelog-item"
+                    style="position: relative; z-index: 2;"
+                >
+                    <div
+                        style="position: absolute; left: -1.5rem; top: 0.4rem; width: 12px; height: 12px; border-radius: 50%; background-color: var(--bg-color); border: 2px solid var(--primary); transform: translateX(1px); box-shadow: 0 0 0 2px var(--bg-color);"
+                    >
+                    </div>
+                    <div style="font-weight: 600; color: var(--text-color);">
                         v1.2.0
                     </div>
                     <ul

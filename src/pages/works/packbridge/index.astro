@@ -256,6 +256,30 @@ const structuredData = {
                     >
                     </div>
                     <div style="font-weight: 600; color: var(--text-color);">
+                        v1.3.0
+                    </div>
+                    <ul
+                        style="font-size: 0.95em; color: var(--text-muted); margin-top: 0.5rem; padding-left: 1.2rem; display: flex; flex-direction: column; gap: 0.25rem;"
+                    >
+                        <li><strong>機能追加</strong>: 同一エディション内でのバージョン更新やダウングレード（Java ⇄ Java、Bedrock ⇄ Bedrock）をサポートする「バージョン変換」機能を追加しました。リソースパックのポルティング（Porting）用途にも最適です。</li>
+                        <li><strong>UI改善</strong>: 変換方向の選択UIを整理し、「Java → Bedrock」「Bedrock → Java」「バージョン変換」の3つのボタンから直感的に選べるように刷新しました。</li>
+                        <li><strong>UI改善</strong>: タブ切り替え時の高さ調整アニメーションを、残像や引き伸ばしなく滑らかに動くように最適化しました。</li>
+                        <li><strong>UX改善</strong>: 「バージョン変換」選択時に、アップロードされたファイルの中身（<code>pack.mcmeta</code> / <code>manifest.json</code>）から元のエディションを自動判別し、UIを最適化する機能を追加しました。</li>
+                        <li><strong>バグ修正</strong>: 同一エディション間の変換（Bedrock → Bedrock）時に出力ファイルが <code>.zip</code> になってしまう問題を修正し、正しく <code>.mcpack</code> で出力されるようにしました。</li>
+                        <li><strong>バグ修正</strong>: 「GUI変換を有効にする」のオプション設定が、同一エディション間のバージョン更新時にも誤って適用され、GUI画像がスキップされてしまう問題を修正しました。</li>
+                        <li><strong>SEO・多言語対応</strong>: トップページの「主な特徴」にバージョン変換に関する説明を追加し、検索流入を強化しました。また、「バージョンアップデート」という表現をダウングレード時にも違和感のない「バージョン変更（Change Versionなど）」へと各言語（日・英・韓・中・西・仏・独）で修正・最適化しました。</li>
+                    </ul>
+                </div>
+
+                <div
+                    class="changelog-item"
+                    style="position: relative; z-index: 2;"
+                >
+                    <div
+                        style="position: absolute; left: -1.5rem; top: 0.4rem; width: 12px; height: 12px; border-radius: 50%; background-color: var(--bg-color); border: 2px solid var(--primary); transform: translateX(1px); box-shadow: 0 0 0 2px var(--bg-color);"
+                    >
+                    </div>
+                    <div style="font-weight: 600; color: var(--text-color);">
                         v1.2.0
                     </div>
                     <ul
