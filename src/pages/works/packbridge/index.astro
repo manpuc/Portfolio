@@ -256,6 +256,27 @@ const structuredData = {
                     >
                     </div>
                     <div style="font-weight: 600; color: var(--text-color);">
+                        v1.4.0
+                    </div>
+                    <ul
+                        style="font-size: 0.95em; color: var(--text-muted); margin-top: 0.5rem; padding-left: 1.2rem; display: flex; flex-direction: column; gap: 0.25rem;"
+                    >
+                        <li><strong>パフォーマンス大幅向上</strong>: Web Worker による並列・バックグラウンド変換処理に対応し、大容量のリソースパック変換時でもUIがフリーズしないスムーズな操作感を実現しました。</li>
+                        <li><strong>サウンド抽出の高速化</strong>: FSB5 (Ogg Vorbis) 音声抽出処理を 32-bit アライメントスキャンにより最適化し、従来比約4倍の超高速解析処理を実現しました。</li>
+                        <li><strong>ZIP生成・圧縮の最適化</strong>: PNGやOGGなどの既圧縮メディアファイルに対し、無駄な再圧縮を回避する圧縮オプション選択を導入し、変換完了およびダウンロード生成時間を短縮しました。</li>
+                        <li><strong>UX・レスポンシブ性の改善</strong>: メインスレッド処理時のイベントループ譲渡タイミングをミリ秒精度 (<code>performance.now()</code>) に最適化し、進捗UIの更新頻度と変換速度のバランスを向上させました。</li>
+                    </ul>
+                </div>
+
+                <div
+                    class="changelog-item"
+                    style="position: relative; z-index: 2;"
+                >
+                    <div
+                        style="position: absolute; left: -1.5rem; top: 0.4rem; width: 12px; height: 12px; border-radius: 50%; background-color: var(--bg-color); border: 2px solid var(--primary); transform: translateX(1px); box-shadow: 0 0 0 2px var(--bg-color);"
+                    >
+                    </div>
+                    <div style="font-weight: 600; color: var(--text-color);">
                         v1.3.0
                     </div>
                     <ul

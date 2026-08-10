@@ -262,6 +262,27 @@ const structuredData = {
                     >
                     </div>
                     <div style="font-weight: 600; color: var(--text-color);">
+                        v1.4.0
+                    </div>
+                    <ul
+                        style="font-size: 0.95em; color: var(--text-muted); margin-top: 0.5rem; padding-left: 1.2rem; display: flex; flex-direction: column; gap: 0.25rem;"
+                    >
+                        <li><strong>Significant Performance Improvement</strong>: Supported parallel and background conversion processing via Web Worker, achieving a smooth user experience without UI freezes even when converting large resource packs.</li>
+                        <li><strong>Faster Sound Extraction</strong>: Optimized FSB5 (Ogg Vorbis) audio extraction processing with 32-bit alignment scanning, achieving super-fast parsing processing about 4x faster than before.</li>
+                        <li><strong>ZIP Generation & Compression Optimization</strong>: Introduced compression options to avoid redundant re-compression for already compressed media files such as PNG and OGG, shortening conversion completion and download generation times.</li>
+                        <li><strong>UX & Responsiveness Improvements</strong>: Optimized main thread event loop yielding timing to millisecond precision (<code>performance.now()</code>), improving the balance between progress UI update frequency and conversion speed.</li>
+                    </ul>
+                </div>
+
+                <div
+                    class="changelog-item"
+                    style="position: relative; z-index: 2;"
+                >
+                    <div
+                        style="position: absolute; left: -1.5rem; top: 0.4rem; width: 12px; height: 12px; border-radius: 50%; background-color: var(--bg-color); border: 2px solid var(--primary); transform: translateX(1px); box-shadow: 0 0 0 2px var(--bg-color);"
+                    >
+                    </div>
+                    <div style="font-weight: 600; color: var(--text-color);">
                         v1.3.0
                     </div>
                     <ul
